@@ -1,0 +1,1030 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: GSheetConnector Gravity Forms\n"
+"POT-Creation-Date: 2025-04-21 20:30+0530\n"
+"PO-Revision-Date: 2025-04-21 20:30+0530\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.3\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: gsheetconnector-gravityforms.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: class-gf-gsheetgravityforms.php:61
+msgid "GSheetConnector Gravity Forms Feed Settings"
+msgstr "GSheetConnector 重力形式提要设置"
+
+#: class-gf-gsheetgravityforms.php:65
+msgid "Feed Name"
+msgstr "源名称"
+
+#: class-gf-gsheetgravityforms.php:69
+msgid "Enter a feed name to uniquely identify this setup."
+msgstr "输入源名称以唯一标识此设置。"
+
+#: class-gf-gsheetgravityforms.php:73
+msgid "Google Sheet Settings:"
+msgstr "Google 表格设置："
+
+#: class-gf-gsheetgravityforms.php:79
+msgid "Condition"
+msgstr "条件"
+
+#: class-gf-gsheetgravityforms.php:81
+msgid "Enable Condition"
+msgstr "启用条件"
+
+#: class-gf-gsheetgravityforms.php:82
+msgid "Process this feed if"
+msgstr "处理这个订阅，如果"
+
+#: class-gf-gsheetgravityforms.php:86
+msgid "Field List:"
+msgstr "现场列表："
+
+#: class-gf-gsheetgravityforms.php:97
+msgid "GSheetConnector Gravity forms Feed Settings"
+msgstr "GSheetConnector Gravity 表单馈送设置"
+
+#: class-gf-gsheetgravityforms.php:121
+msgid "Authentication Required:"
+msgstr "需要身份验证："
+
+#: class-gf-gsheetgravityforms.php:122
+msgid "  You must have to"
+msgstr " 你必须必须 "
+
+#: class-gf-gsheetgravityforms.php:122
+msgid "Authenticate using your Google Account"
+msgstr "使用您的 Google 帐号进行身份验证"
+
+#: class-gf-gsheetgravityforms.php:122
+msgid ""
+"along with Google Drive and Google Sheets Permissions in order to enable the "
+"settings for configuration."
+msgstr "以及 Google Drive 和 Google Sheets 权限，以便启用配置设置。"
+
+#: class-gf-gsheetgravityforms.php:167 class-gf-gsheetgravityforms.php:312
+msgid "Sheet Name"
+msgstr "工作表名称"
+
+#: class-gf-gsheetgravityforms.php:177 class-gf-gsheetgravityforms.php:321
+msgid "Sheet Id"
+msgstr "工作表 ID"
+
+#: class-gf-gsheetgravityforms.php:187 class-gf-gsheetgravityforms.php:330
+msgid "Tab Name"
+msgstr "选项卡名称"
+
+#: class-gf-gsheetgravityforms.php:197 class-gf-gsheetgravityforms.php:339
+msgid "Tab Id"
+msgstr "选项卡ID"
+
+#: class-gf-gsheetgravityforms.php:204
+msgid "Google Sheet URL"
+msgstr "Google 表格网址"
+
+#: class-gf-gsheetgravityforms.php:245 class-gf-gsheetgravityforms.php:423
+#: class-gf-gsheetgravityforms.php:468
+msgid "Entry ID"
+msgstr "条目ID"
+
+#: class-gf-gsheetgravityforms.php:370
+msgid "Please proceed to the Final Step."
+msgstr "请继续执行最后一步。"
+
+#: class-gf-gsheetgravityforms.php:371
+msgid ""
+" (For the FREE version of the plugin, you'll need to input the columns "
+"manually.)\n"
+msgstr "（对于插件的免费版本，您需要手动输入列。\n"
+
+#: class-gf-gsheetgravityforms.php:374
+msgid ""
+"Ensure that after inputting the Google Sheet Name, Sheet ID, Tab Name, and "
+"Tab ID above, you must enter the label names of your form into Row 1 of your "
+"Google Sheet, as illustrated in the image."
+msgstr ""
+"确保在输入上述 Google 表格名称、表格 ID、标签页名称和标签 ID 后，您必须在 "
+"Google 表格的第 1 行输入表单的标签名称，如图所示。"
+
+#: class-gf-gsheetgravityforms.php:374
+#: includes/pages/gs-gravity-integration.php:25
+#: includes/pages/gs-gravity-integration.php:73
+msgid "Google Sheets"
+msgstr "Google表格"
+
+#: class-gf-gsheetgravityforms.php:375
+#: includes/pages/gs-gravity-integration.php:26
+msgid "Now available for popular"
+msgstr "现在可用于流行"
+
+#: class-gf-gsheetgravityforms.php:376
+msgid "Refer Documentation"
+msgstr "文档"
+
+#: class-gf-gsheetgravityforms.php:376
+#: includes/pages/gs-gravity-integration.php:29
+msgid "Buy Now"
+msgstr "立即购买"
+
+#: class-gf-gsheetgravityforms.php:377
+msgid "In PRO version it will be managed with Below settings."
+msgstr "在PRO版本中，它将使用以下设置进行管理。"
+
+#: class-gf-gsheetgravityforms.php:382
+msgid " Click to enlarge image"
+msgstr "点击放大图片"
+
+#: class-gf-gsheetgravityforms.php:388
+msgid "Fields Lists:"
+msgstr "字段列表："
+
+#: class-gf-gsheetgravityforms.php:391
+#: includes/pages/gravityforms-integration-role-settings.php:11
+#: includes/pages/gravityforms-integration-role-settings.php:90
+msgid "Upgrade to Pro"
+msgstr "升级到专业版"
+
+#: class-gf-gsheetgravityforms.php:404
+msgid "Column Name"
+msgstr "列名称"
+
+#: class-gf-gsheetgravityforms.php:405
+msgid "Merge Tag / Formulas"
+msgstr "合并标签/公式"
+
+#: class-gf-gsheetgravityforms.php:417
+msgid "Select a Field"
+msgstr "选择一个字段"
+
+#: class-gf-gsheetgravityforms.php:419 class-gf-gsheetgravityforms.php:420
+msgid "Untitled"
+msgstr "无标题"
+
+#: class-gf-gsheetgravityforms.php:424
+msgid "Entry Date"
+msgstr "条目日期"
+
+#: class-gf-gsheetgravityforms.php:425
+msgid "User IP"
+msgstr "用户 IP"
+
+#: class-gf-gsheetgravityforms.php:426
+msgid "Source Url"
+msgstr "来源网址"
+
+#: class-gf-gsheetgravityforms.php:427
+msgid "Form Title"
+msgstr "表单标题"
+
+#: class-gf-gsheetgravityforms.php:429
+msgid "Add Custom Value"
+msgstr "添加自定义值"
+
+#: class-gf-gsheetgravityforms.php:435
+msgid "Add"
+msgstr "添加"
+
+#: class-gf-gsheetgravityforms.php:451
+msgid " Header Titles:"
+msgstr "标题标题："
+
+#: class-gf-gsheetgravityforms.php:454
+msgid "   Upgrade to Pro"
+msgstr "升级到专业版"
+
+#: class-gf-gsheetgravityforms.php:485
+msgid "Header:"
+msgstr "标题栏:"
+
+#: class-gf-gsheetgravityforms.php:500
+msgid "Colors:"
+msgstr "颜色："
+
+#: class-gf-gsheetgravityforms.php:513
+msgid "Header Color:"
+msgstr "标题颜色："
+
+#: class-gf-gsheetgravityforms.php:521
+msgid "Odd Color:"
+msgstr "奇异颜色："
+
+#: class-gf-gsheetgravityforms.php:529
+msgid "Even Color:"
+msgstr "均匀颜色："
+
+#: class-gf-gsheetgravityforms.php:547
+msgid "Sheet Sorting:"
+msgstr "纸张分拣："
+
+#: class-gf-gsheetgravityforms.php:564
+msgid "Sort Column Name:"
+msgstr "排序列名称："
+
+#: class-gf-gsheetgravityforms.php:574
+msgid "Order:"
+msgstr "排序："
+
+#: class-gf-gsheetgravityforms.php:579
+msgid "Ascending"
+msgstr "升序"
+
+#: class-gf-gsheetgravityforms.php:580
+msgid "Descending"
+msgstr "降序"
+
+#: class-gf-gsheetgravityforms.php:593
+msgid "Sync Entries:"
+msgstr "同步条目："
+
+#: class-gf-gsheetgravityforms.php:598
+msgid " Save this feed to view sync all existing entries option."
+msgstr "保存此源以查看同步所有现有条目选项。"
+
+#: class-gf-gsheetgravityforms.php:735
+msgid "Name"
+msgstr "名称"
+
+#: gsheetconnector-gravityforms.php:148
+msgid "View Documentation"
+msgstr "查看文档"
+
+#: gsheetconnector-gravityforms.php:148 includes/pages/admin-footer.php:19
+msgid "Docs"
+msgstr "文档"
+
+#: gsheetconnector-gravityforms.php:149
+msgid "Get Support"
+msgstr "获取支持"
+
+#: gsheetconnector-gravityforms.php:149 includes/pages/admin-footer.php:18
+msgid "Support"
+msgstr "支持"
+
+#: gsheetconnector-gravityforms.php:856
+msgid "Settings"
+msgstr "设置"
+
+#: gsheetconnector-gravityforms.php:865
+msgid "Get GSheetConnector Gravity Pro"
+msgstr "重力形式 GSheetConnector Pro"
+
+#: gsheetconnector-gravityforms.php:883
+msgid "<img style='width:30px;margin-right: 10px;' src='"
+msgstr "<img style='width：30px;右边距：10px;' src='"
+
+#: gsheetconnector-gravityforms.php:924
+msgid ""
+"Deactivated GSheetConnector Gravity Forms (Pro Version) to activate "
+"GSheetConnector Gravity Forms Free."
+msgstr ""
+"停用 GSheetConnector Gravity Forms （Pro Version） 以激活 GSheetConnector "
+"Gravity Forms Free。"
+
+#: includes/class-gravityforms-utility.php:81
+msgid "There's something wrong with your code..."
+msgstr "代码有误."
+
+#: includes/class-gravityforms-utility.php:164
+#: includes/pages/gravityforms-integration-role-settings.php:21
+#: includes/pages/gravityforms-integration-role-settings.php:57
+msgid "Administrator"
+msgstr "管理员"
+
+#: includes/pages/admin-footer.php:8
+msgid "Please rate"
+msgstr "请评价"
+
+#: includes/pages/admin-footer.php:10
+#: includes/pages/google-sheet-settings.php:35
+msgid "Gravity Forms - GSheetConnector"
+msgstr "重力形式 - GSheetConnector"
+
+#: includes/pages/admin-footer.php:10
+msgid "WordPress.org"
+msgstr "WordPress.org"
+
+#: includes/pages/admin-footer.php:10
+msgid "to help us spread the word."
+msgstr "帮助我们传播这个词。"
+
+#: includes/pages/admin-footer.php:16
+msgid "Made with ♥ by the GSheetConnector Team"
+msgstr "♥ 由 GSheetConnector 团队制作"
+
+#: includes/pages/admin-footer.php:20
+msgid "VIP Circle"
+msgstr "VIP Circle"
+
+#: includes/pages/admin-footer.php:21
+msgid "Free Plugins"
+msgstr "免费插件"
+
+#: includes/pages/extensions.php:289 includes/pages/extensions.php:414
+#: includes/pages/extensions.php:429
+msgid "Activate"
+msgstr "启用"
+
+#: includes/pages/extensions.php:314
+#: includes/pages/gs-gravity-integration.php:245
+msgid "Upgrade to PRO"
+msgstr "升级到专业版"
+
+#: includes/pages/extensions.php:346
+msgid "Already using PRO version"
+msgstr "已在使用 PRO 版本"
+
+#: includes/pages/extensions.php:407
+msgid "Activated"
+msgstr "激活"
+
+#: includes/pages/google-sheet-settings.php:35
+msgid "Version"
+msgstr "版本"
+
+#: includes/pages/google-sheet-settings.php:38
+msgid "DASHBOARD"
+msgstr "仪表盘"
+
+#: includes/pages/google-sheet-settings.php:45
+msgid "Integration"
+msgstr "集成"
+
+#: includes/pages/google-sheet-settings.php:46
+msgid "Role Settings"
+msgstr "角色设置"
+
+#: includes/pages/google-sheet-settings.php:48
+msgid "System Status"
+msgstr "系统状态"
+
+#: includes/pages/google-sheet-settings.php:49
+msgid "Extensions"
+msgstr "扩展"
+
+#: includes/pages/gravity-dashboard-widget.php:20
+msgid "Gravity Forms connected with Google Sheets."
+msgstr "与 Google 表格关联的 Gravity Forms"
+
+#: includes/pages/gravity-dashboard-widget.php:61
+msgid "No Gravity Forms are connected with Google Sheets."
+msgstr "没有 Gravity Forms 与 Google 表格相关联。"
+
+#: includes/pages/gravityforms-integrate-system-info.php:10
+msgid "System Info"
+msgstr "系统信息"
+
+#: includes/pages/gravityforms-integrate-system-info.php:11
+msgid "Copy System Info to Clipboard"
+msgstr "将系统信息复制到剪贴板"
+
+#: includes/pages/gravityforms-integrate-system-info.php:17
+msgid "Error Log"
+msgstr "错误日志"
+
+#: includes/pages/gravityforms-integrate-system-info.php:19
+msgid "Copy Error Log to Clipboard"
+msgstr "将系统信息复制到剪贴板"
+
+#: includes/pages/gravityforms-integrate-system-info.php:20
+#: includes/pages/gs-gravity-integration.php:165
+msgid "Clear"
+msgstr "清除"
+
+#: includes/pages/gravityforms-integrate-system-info.php:25
+msgid "Copied"
+msgstr "复制"
+
+#: includes/pages/gravityforms-integration-role-settings.php:14
+msgid "Roles that can access Google Sheet Page"
+msgstr "可以访问 Google 表格页面的角色"
+
+#: includes/pages/gravityforms-integration-role-settings.php:27
+#: includes/pages/gravityforms-integration-role-settings.php:63
+msgid "Editor"
+msgstr "编辑"
+
+#: includes/pages/gravityforms-integration-role-settings.php:33
+#: includes/pages/gravityforms-integration-role-settings.php:69
+msgid "Author"
+msgstr "作者"
+
+#: includes/pages/gravityforms-integration-role-settings.php:39
+#: includes/pages/gravityforms-integration-role-settings.php:75
+msgid "Contributor"
+msgstr "贡献者"
+
+#: includes/pages/gravityforms-integration-role-settings.php:45
+#: includes/pages/gravityforms-integration-role-settings.php:81
+msgid "Subscriber"
+msgstr "订阅者"
+
+#: includes/pages/gravityforms-integration-role-settings.php:50
+msgid "Roles that can access Google Sheet Tab at GravityForms"
+msgstr "可以在 GravityForms 上访问 Google 表格选项卡的角色"
+
+#: includes/pages/gravityforms-integration-role-settings.php:86
+msgid "Save"
+msgstr "保存"
+
+#: includes/pages/gs-gravity-integration.php:22
+msgid "A way to connect WordPress"
+msgstr "连接WordPress的一种方式"
+
+#: includes/pages/gs-gravity-integration.php:23
+#: includes/pages/gs-gravity-integration.php:27
+#: includes/pages/gs-gravity-integration.php:28
+msgid "and"
+msgstr "和"
+
+#: includes/pages/gs-gravity-integration.php:23
+msgid "Google Sheets Pro"
+msgstr "Google 表格专业版"
+
+#: includes/pages/gs-gravity-integration.php:24
+msgid "Ratings"
+msgstr "评级"
+
+#: includes/pages/gs-gravity-integration.php:25
+msgid "The Most Powerful Bridge Between WordPress  and"
+msgstr "WordPress 和"
+
+#: includes/pages/gs-gravity-integration.php:26
+msgid "Contact Forms"
+msgstr "联系表单"
+
+#: includes/pages/gs-gravity-integration.php:26
+msgid "Page Builder Forms"
+msgstr "页面生成器表单"
+
+#: includes/pages/gs-gravity-integration.php:27
+msgid "E-commerce"
+msgstr "电子商务"
+
+#: includes/pages/gs-gravity-integration.php:27
+msgid "Platforms like"
+msgstr "像这样的平台"
+
+#: includes/pages/gs-gravity-integration.php:27
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+#: includes/pages/gs-gravity-integration.php:28
+msgid "Easy Digital Downloads"
+msgstr "Easy Digital Downloads"
+
+#: includes/pages/gs-gravity-integration.php:28
+msgid "EDD"
+msgstr "EDD"
+
+#: includes/pages/gs-gravity-integration.php:29
+msgid "Check Demo"
+msgstr "检查演示"
+
+#: includes/pages/gs-gravity-integration.php:38
+msgid "Choose Google API Setting :"
+msgstr "选择 Google API 设置："
+
+#: includes/pages/gs-gravity-integration.php:42
+msgid "Use Existing Client/Secret Key (Auto Google API Configuration)"
+msgstr "使用现有客户端/密钥（自动 Google API 配置）"
+
+#: includes/pages/gs-gravity-integration.php:44
+msgid ""
+"Use Manual Client/Secret Key (Use Your Google API Configuration) (Upgrade To "
+"PRO)"
+msgstr "使用手动客户端/密钥（使用您的 Google API 配置）（升级到专业版）"
+
+#: includes/pages/gs-gravity-integration.php:47
+msgid "Upgrade To PRO"
+msgstr "升级到专业版"
+
+#: includes/pages/gs-gravity-integration.php:50
+msgid ""
+"Manual Client/Secret Key (Use Your Google API Configuration) method is "
+"available in the PRO version of the plugin."
+msgstr ""
+"手动客户端/密钥（使用您的 Google API 配置）方法在插件的 PRO 版本中可用。"
+
+#: includes/pages/gs-gravity-integration.php:59
+msgid "Gravity Forms - "
+msgstr "重力形式 -"
+
+#: includes/pages/gs-gravity-integration.php:60
+msgid "Google Sheet Integration"
+msgstr "Google 表格集成"
+
+#: includes/pages/gs-gravity-integration.php:67
+msgid "Authenticate with your Google account, follow these steps:"
+msgstr "使用您的 Google 帐户进行身份验证，请按照以下步骤操作："
+
+#: includes/pages/gs-gravity-integration.php:69
+msgid "Click on the \"Sign In With Google\" button."
+msgstr "点击“使用 Google 登录”按钮。"
+
+#: includes/pages/gs-gravity-integration.php:70
+msgid "Grant permissions for the following:"
+msgstr "授予以下权限："
+
+#: includes/pages/gs-gravity-integration.php:72
+msgid "Google Drive"
+msgstr "谷歌云盘"
+
+#: includes/pages/gs-gravity-integration.php:74
+msgid "* Ensure that you enable the checkbox for each of these services."
+msgstr "* 确保为其中每一项服务启用复选框。"
+
+#: includes/pages/gs-gravity-integration.php:78
+msgid ""
+"This will allow the integration to access your Google Drive and Google "
+"Sheets."
+msgstr "这将允许集成访问您的 Google Drive 和 Google 表格。"
+
+#: includes/pages/gs-gravity-integration.php:86
+msgid "Google Access Code"
+msgstr "谷歌访问代码"
+
+#: includes/pages/gs-gravity-integration.php:88
+msgid "Currently Active"
+msgstr "目前活跃的"
+
+#: includes/pages/gs-gravity-integration.php:89
+msgid "Deactivate"
+msgstr "停用"
+
+#: includes/pages/gs-gravity-integration.php:92
+msgid ""
+"On deactivation, all your data saved with authentication will be removed, "
+"and you need to reauthenticate with your Google account."
+msgstr ""
+"停用后，您通过身份验证保存的所有数据都将被删除，您需要使用您的 Google 帐户重"
+"新进行身份验证。"
+
+#: includes/pages/gs-gravity-integration.php:98
+msgid "Click on Sign in with Google button"
+msgstr "点击“使用 Google 登录”按钮"
+
+#: includes/pages/gs-gravity-integration.php:109
+msgid "Click here to Save Authentication Code"
+msgstr "单击此处保存验证码"
+
+#: includes/pages/gs-gravity-integration.php:122
+msgid ""
+"Something went wrong! It looks you have not given the permission of Google "
+"Drive and Google Sheets from your google account.Please Deactivate Auth and "
+"Re-Authenticate again with the permissions."
+msgstr ""
+"出了点问题！看起来您没有从您的 Google 帐户中获得 Google Drive 和 Google 表格"
+"的许可。请停用身份验证，然后使用权限重新进行身份验证。"
+
+#: includes/pages/gs-gravity-integration.php:127
+msgid "Also,"
+msgstr "还 "
+
+#: includes/pages/gs-gravity-integration.php:128
+msgid "Click Here "
+msgstr "点击这里 "
+
+#: includes/pages/gs-gravity-integration.php:129
+msgid ""
+"and if it displays \"GSheetConnector for WP Contact Forms\" under Third-"
+"party apps with account access then remove it."
+msgstr ""
+"如果它在具有帐户访问权限的第三方应用程序下显示“GSheetConnector for WP "
+"Contact Forms”，则将其删除。"
+
+#: includes/pages/gs-gravity-integration.php:142
+#, php-format
+msgid "Connected email account: %s"
+msgstr "已连接的电子邮件帐户：%s"
+
+#: includes/pages/gs-gravity-integration.php:149
+msgid ""
+"Something went wrong! Your Auth code may be incorrect or expired. Please "
+"Deactivate and Re-Authenticate."
+msgstr "出了点问题！您的授权码可能不正确或已过期。请停用并重新进行身份验证。"
+
+#: includes/pages/gs-gravity-integration.php:158
+msgid "Debug Log"
+msgstr "调试日志"
+
+#: includes/pages/gs-gravity-integration.php:161
+msgid "View"
+msgstr "查看"
+
+#: includes/pages/gs-gravity-integration.php:173
+msgid ""
+"We do not store any of the data from your Google account on our servers, "
+"everything is processed & stored on your server. We take your privacy "
+"extremely seriously and ensure it is never misused."
+msgstr ""
+"我们不会将您的Google帐户中的任何数据存储在我们的服务器上，所有内容都经过处理"
+"并存储在您的服务器上。我们非常重视您的隐私，并确保它永远不会被滥用。"
+
+#: includes/pages/gs-gravity-integration.php:173
+msgid "Learn more."
+msgstr "了解更多。"
+
+#: includes/pages/gs-gravity-integration.php:184
+msgid "Copy Logs"
+msgstr "复制日志"
+
+#: includes/pages/gs-gravity-integration.php:195
+msgid "No errors found."
+msgstr "没有发现错误."
+
+#: includes/pages/gs-gravity-integration.php:198
+msgid "No log file exists as no errors are generated"
+msgstr "不存在日志文件，因为不会生成任何错误"
+
+#: includes/pages/gs-gravity-integration.php:235
+msgid "Next steps…"
+msgstr "下一步…"
+
+#: includes/pages/gs-gravity-integration.php:246
+msgid "Dynamic Fields Lists, Merge Tags and much more..."
+msgstr "动态字段列表、合并标签等等......"
+
+#: includes/pages/gs-gravity-integration.php:256
+msgid "Compatibility"
+msgstr "兼容性"
+
+#: includes/pages/gs-gravity-integration.php:257
+msgid "Compatibility with Gravity-Forms Third-Party Plugins"
+msgstr "与 Gravity-Forms 第三方插件的兼容性"
+
+#: includes/pages/gs-gravity-integration.php:267
+msgid "Multi Languages"
+msgstr "多语言"
+
+#: includes/pages/gs-gravity-integration.php:268
+msgid "This plugin supports multi-languages as well!"
+msgstr "这个插件也支持多种语言！"
+
+#: includes/pages/gs-gravity-integration.php:278
+msgid "Support Wordpress multisites"
+msgstr "支持Wordpress多站点"
+
+#: includes/pages/gs-gravity-integration.php:279
+msgid ""
+"With the use of a Multisite, you’ll also have a new level of user-available: "
+"the Super Admin."
+msgstr "通过使用多站点，您还将拥有一个新的用户可用级别：超级管理员。"
+
+#: includes/pages/gs-gravity-integration.php:290
+msgid "Product Support"
+msgstr "产品支持"
+
+#: includes/pages/gs-gravity-integration.php:298
+msgid "Online Documentation"
+msgstr "在线文档"
+
+#: includes/pages/gs-gravity-integration.php:299
+msgid "Understand all the capabilities of Gravity-Forms GsheetConnector"
+msgstr "了解 Gravity-Forms GsheetConnector 的所有功能"
+
+#: includes/pages/gs-gravity-integration.php:307
+msgid "Ticket Support"
+msgstr "购买支持"
+
+#: includes/pages/gs-gravity-integration.php:308
+msgid "Direct help from our qualified support team"
+msgstr "官方专业团队为您直接提供帮助"
+
+#: includes/pages/gs-gravity-integration.php:316
+msgid "Affiliate Program"
+msgstr "联盟计划"
+
+#: includes/pages/gs-gravity-integration.php:317
+msgid "Earn flat 30"
+msgstr "赚取固定 30"
+
+#: includes/pages/gs-gravity-integration.php:317
+msgid "on every sale"
+msgstr "在每笔销售中"
+
+#. Plugin Name of the plugin/theme
+msgid "GSheetConnector Gravity Forms"
+msgstr "GSheetConnector 重力形式"
+
+#. Plugin URI of the plugin/theme
+msgid "https://wordpress.org/plugins/gsheetconnector-gravity-forms"
+msgstr "https://wordpress.org/plugins/gsheetconnector-gravity-forms"
+
+#. Description of the plugin/theme
+msgid "Send your Gravityform  data to your Google Sheets spreadsheet."
+msgstr "将您的 Gravityform 数据发送到 Google 表格电子表格。"
+
+#. Author of the plugin/theme
+msgid "GSheetConnector"
+msgstr "GSheet连接器"
+
+#. Author URI of the plugin/theme
+msgid "https://www.gsheetconnector.com/"
+msgstr "https://www.gsheetconnector.com/"
+
+#~ msgid " Upgrade to PRO"
+#~ msgstr "升级到专业版"
+
+#~ msgid "Upgrade to Unlock Elementor Forms GSheetConnector Addons"
+#~ msgstr "升级以解锁 Elementor Forms GSheetConnector 插件"
+
+#~ msgid ""
+#~ "Access powerful marketing and payment integrations, advanced form fields, "
+#~ "and more when you purchase our Plus, Pro, or Elite plans."
+#~ msgstr ""
+#~ "当您购买我们的 Plus、Pro 或 Elite 计划时，访问强大的营销和支付集成、高级表"
+#~ "单字段等。"
+
+#~ msgid "Upgrade Now"
+#~ msgstr "现在升级"
+
+#~ msgid "Upgrade"
+#~ msgstr "升级到专业版"
+
+#~ msgid "logo"
+#~ msgstr "标志"
+
+#~ msgid "Learn more"
+#~ msgstr "了解更多"
+
+#~ msgid "Gravity Forms Google Sheet Connector"
+#~ msgstr "与 Google 表格关联的 Gravity Forms"
+
+#~ msgid ""
+#~ "Gravity Forms Google Sheets Connector Plugin is a Bridge between your "
+#~ "Gravity Forms and Google Sheets."
+#~ msgstr ""
+#~ "Gravity Forms Google 表格连接器插件是 Gravity Forms 和 Google 表格之间的桥"
+#~ "梁。"
+
+#~ msgid "PRO"
+#~ msgstr "升级到专业版"
+
+#~ msgid "WooCommerce Google Sheet Connector"
+#~ msgstr "Google 表格设置："
+
+#~ msgid ""
+#~ "WooCommerce Google Spreadsheet Addon Plugin to connect with Google Sheets."
+#~ msgstr "WooCommerce Google 电子表格插件 用于连接 Google 表格的插件。"
+
+#~ msgid "Download"
+#~ msgstr "下载"
+
+#~ msgid "Elementor Forms Google Sheet Connector"
+#~ msgstr "Elementor Forms Google 表格连接器"
+
+#~ msgid ""
+#~ "A bridge between your WordPress based Elementor Forms or Metform "
+#~ "Elementor Builder to Google Sheets."
+#~ msgstr ""
+#~ "基于 WordPress 的 Elementor Forms 或 Metform Elementor Builder 到 Google "
+#~ "表格之间的桥梁。"
+
+#~ msgid "CF7 Google Sheets Connector"
+#~ msgstr "CF7 Google 表格连接器"
+
+#~ msgid ""
+#~ "CF7 Google Sheet Connector is an addon plugin, A bridge between your "
+#~ "WordPress based Contact Form 7 forms and Google Sheets."
+#~ msgstr ""
+#~ "CF7 Google Sheet Connector 是一个插件插件，是您基于 WordPress 的联系表格 "
+#~ "7 表单和 Google 表格之间的桥梁。"
+
+#~ msgid "WPForms Google Sheet Connector"
+#~ msgstr "WPForms Google 表格连接器"
+
+#~ msgid ""
+#~ "WPForms, A bridge between your WordPress based WPForms and Google Sheets. "
+#~ "It helps to record the entries in real-time."
+#~ msgstr ""
+#~ "WPForms，基于 WordPress 的 WPForms 和 Google 表格之间的桥梁。它有助于实时"
+#~ "记录条目。"
+
+#~ msgid "Ninja Forms Google Sheet Connector"
+#~ msgstr "Ninja Forms Google 表格连接器"
+
+#~ msgid ""
+#~ "Ninja Forms, A bridge between your WordPress based Ninja Forms and Google "
+#~ "Sheets. It helps to record the entries in real-time."
+#~ msgstr ""
+#~ "Ninja Forms，基于 WordPress 的 Ninja Forms 和 Google 表格之间的桥梁。它有"
+#~ "助于实时记录条目。"
+
+#~ msgid "Easy Digital Downloads Google Sheet Connector"
+#~ msgstr "轻松数字下载 Google 表格连接器"
+
+#~ msgid ""
+#~ "Easy Digital Downloads Google Sheet Connector sends orders entries to "
+#~ "Google Sheet in a real-time"
+#~ msgstr "轻松数字下载 Google 表格连接器将订单条目实时发送到 Google 表格"
+
+#~ msgid "Avada Forms Google Sheet Connector Pro"
+#~ msgstr "Avada Forms Google Sheet 连接器专业版"
+
+#~ msgid ""
+#~ "Avada Theme Fusion Builder addon, simplifies real-time data transmission "
+#~ "from Avada theme-based forms to Google Sheets with premium features."
+#~ msgstr ""
+#~ "Avada Theme Fusion Builder插件，通过高级功能简化了从基于Avada主题的表单到"
+#~ "Google Sheets的实时数据传输。"
+
+#~ msgid "Divi Forms Google Sheet Connector Pro"
+#~ msgstr "Divi Forms Google 表格连接器专业版"
+
+#~ msgid ""
+#~ "Divi Forms GSheetConnector, an addon for DIVI Theme/Builder, simplifies "
+#~ "real-time syncing of data from DIVI theme forms to both the database and "
+#~ "Google Sheets."
+#~ msgstr ""
+#~ "Divi Forms GSheetConnector 是 DIVI Theme/Builder 的插件，简化了数据从 "
+#~ "DIVI 主题表单到数据库和 Google 表格的实时同步。"
+
+#~ msgid "GSheetConnector for Forminator Forms"
+#~ msgstr "用于 Forminator 表单的 GSheetConnector"
+
+#~ msgid ""
+#~ "GSheetConnector for Forminator Forms is an addon plugin, A bridge between "
+#~ "your WordPress based Forminator Forms forms and Google Sheets."
+#~ msgstr ""
+#~ "GSheetConnector for Forminator Forms 是一个插件插件，是您基于 WordPress "
+#~ "的 Forminator Forms 表单和 Google 表格之间的桥梁。"
+
+#~ msgid "Free"
+#~ msgstr "免费"
+
+#~ msgid "GSheetConnector for Formidable Forms"
+#~ msgstr "GSheetConnector 重力形式提要设置"
+
+#~ msgid ""
+#~ "Formidable Forms, A bridge between your WordPress based Formidable Forms "
+#~ "forms and Google Sheets."
+#~ msgstr ""
+#~ "Formidable Forms，基于WordPress的Formidable Forms表单和Google表格之间的桥"
+#~ "梁。"
+
+#~ msgid "Caldera Forms Google Sheets Connector"
+#~ msgstr "与 Google 表格关联的 Gravity Forms"
+
+#~ msgid ""
+#~ "Caldera Forms Closure, No more updates on this plugin Due to Caldera "
+#~ "Forms being sunset/retired on December 31, 2021"
+#~ msgstr ""
+#~ "Caldera Forms 关闭，由于 Caldera Forms 将于 2021 年 12 月 31 日日落/停用，"
+#~ "因此此插件不再更新"
+
+#~ msgid "GravityForms Pro Demo"
+#~ msgstr "GravityForms Pro 演示"
+
+#~ msgid "Sheet URL (Click Here to view Sheet with submitted data.)"
+#~ msgstr "工作表 URL（单击此处查看包含已提交数据的工作表。"
+
+#~ msgid "Buy Now - $29.00"
+#~ msgstr "立即购买 - $29.00"
+
+#~ msgid "How to configure your Google Spreadsheet with GravityForms plugin?"
+#~ msgstr "如何使用 GravityForms 插件配置您的 Google 电子表格？"
+
+#~ msgid "Go to the Gravity Forms Menu and click on Googlesheet ."
+#~ msgstr "转到 Gravity Forms 菜单，然后单击 Googlesheet 。"
+
+#~ msgid "Then click on the Integration tab."
+#~ msgstr "然后单击“集成”选项卡。"
+
+#~ msgid "Here Click on \"Get Code\" and get the authentication code and save."
+#~ msgstr "在这里，单击“获取代码”并获取验证码并保存。"
+
+#~ msgid ""
+#~ "On successful integration you will see \"Currently Acrive\" inside "
+#~ "authentication box."
+#~ msgstr "成功集成后，您将在身份验证框中看到“当前 Acrive”。"
+
+#~ msgid ""
+#~ "Now move to settings->GoogleSheet of the Gravity Form that you want to "
+#~ "connect with Google Sheet."
+#~ msgstr ""
+#~ "现在移动到要与Google Sheet连接的Gravity Form的settings->GoogleSheet。"
+
+#~ msgid "Enter and save Google Sheet Name, Sheet Id, Tab Name and Tab Id"
+#~ msgstr "输入并保存 Google 表格名称、表格 ID、标签页名称和标签页 ID"
+
+#~ msgid ""
+#~ "Lastly, add the Gravity Forms input field label name to the Google Sheet "
+#~ "header and test."
+#~ msgstr ""
+#~ "最后，将 Gravity Forms 输入字段标签名称添加到 Google 表格标题和测试中。"
+
+#~ msgid "Why I am Getting Error 500 After Installing Plugin."
+#~ msgstr "为什么我在安装插件后收到错误 500。"
+
+#~ msgid "Following are few of the points which will help to debug the issue."
+#~ msgstr "以下是有助于调试问题的一些要点。"
+
+#~ msgid ""
+#~ "1) Enable debug by adding&nbsp;following in your wp-config.php file "
+#~ "before /* That’s all, stop editing! Happy blogging."
+#~ msgstr ""
+#~ "1） 通过在 wp-config.php 文件之前添加以下内容来启用调试 /* 就这样，停止编"
+#~ "辑！祝您写博客愉快。"
+
+#~ msgid ""
+#~ "define(‘WP_DEBUG’, true); define(‘WP_DEBUG_LOG’, true); "
+#~ "define(‘SCRIPT_DEBUG’, true); define(‘SAVEQUERIES’, true);"
+#~ msgstr ""
+#~ "define（'WP_DEBUG'， 真）;define（'WP_DEBUG_LOG'， true）;"
+#~ "define（'SCRIPT_DEBUG'， 真）;define（'SAVEQUERIES'， true）;"
+
+#~ msgid ""
+#~ "And then try to activate the plugin again. This will create a debug.log "
+#~ "under wp-content folder.&nbsp;Check for GravityForms google sheet "
+#~ "connector error if so send us the file at helpdesk@gsheetconnector.com"
+#~ msgstr ""
+#~ "然后尝试再次激活插件。这将在wp-content文件夹下创建一个debug.log。检查 "
+#~ "GravityForms google sheet 连接器错误（如果是），请将文件发送给我们 "
+#~ "helpdesk@gsheetconnector.com"
+
+#~ msgid ""
+#~ "2) Check the log that is created by GravityForms Google Sheet. For that "
+#~ "click “View” from google sheet integration page. Let us know if there is "
+#~ "any error which will help us to assist you further."
+#~ msgstr ""
+#~ "2） 检查 GravityForms Google Sheet 创建的日志。为此，请单击Google表格集成"
+#~ "页面中的“查看”。如果有任何错误，请告诉我们，这将有助于我们进一步为您提供帮"
+#~ "助。"
+
+#~ msgid ""
+#~ "How do I get the Google Access Code required in step 3 of Installation?"
+#~ msgstr "如何获取安装步骤 3 中所需的 Google 访问代码？"
+
+#~ msgid "On the&nbsp;<code>Admin Panel &gt; Forms &gt; Google Sheets.</code>"
+#~ msgstr "在<code>Admin Panel &gt; Forms &gt; Google Sheets.</code>"
+
+#~ msgid "Go to “Integration” tab and click on \"Get Code\" button."
+#~ msgstr "转到“集成”选项卡，然后单击“获取代码”按钮。"
+
+#~ msgid ""
+#~ "In a popup Google will ask you to authorize the plugin to connect to your "
+#~ "Google Sheets. Authorize it – you may have to log in to your Google "
+#~ "account if you aren’t already logged in."
+#~ msgstr ""
+#~ "在弹出窗口中，Google 会要求您授权插件连接到您的 Google 表格。授权 - 如果您"
+#~ "尚未登录，则可能需要登录您的Google帐户。"
+
+#~ msgid "On the next screen, you should receive the Access Code. Copy it."
+#~ msgstr "在下一个屏幕上，您应该会收到访问代码。复制它。"
+
+#~ msgid "Now you can paste this code back in the Google Access Code."
+#~ msgstr "现在，您可以将此代码粘贴回 Google 访问代码中。"
+
+#~ msgid "Submitted Value is not showing in Googlesheet."
+#~ msgstr "提交的值未显示在 Googlesheet 中。"
+
+#~ msgid ""
+#~ "Sometimes it can take a while of spinning before it goes through. But if "
+#~ "the entries never show up in your Sheet then one of these things might be "
+#~ "the reason:"
+#~ msgstr ""
+#~ "有时它可能需要一段时间才能通过。但是，如果条目从未出现在您的工作表中，那么"
+#~ "以下原因之一可能是："
+
+#~ msgid "Wrong access code ( Check debug log )"
+#~ msgstr "错误的访问代码（检查调试日志）"
+
+#~ msgid "Wrong Sheet Name, Sheet Id, Tab Name, Tab Id"
+#~ msgstr "错误的工作表名称、工作表 ID、选项卡名称、选项卡 ID"
+
+#~ msgid ""
+#~ "Wrong header name ( Google Sheet header name must be named same as "
+#~ "Gravity Forms field name added. )"
+#~ msgstr ""
+#~ "错误的标题名称（Google 表格标题名称必须与添加的 Gravity Forms 字段名称相"
+#~ "同。"
+
+#~ msgid ""
+#~ "Please double-check those items and hopefully getting them right will fix "
+#~ "the issue."
+#~ msgstr "请仔细检查这些项目，希望正确处理它们可以解决问题。"
+
+#~ msgid ""
+#~ " <strong>Authentication Required:</strong>\n"
+#~ "                    You must have to <a href=\"admin.php?"
+#~ "page=gf_googlesheet\" target=\"_blank\">Authenticate using your Google "
+#~ "Account</a> along with Google Drive and Google Sheets Permissions in "
+#~ "order to enable the settings for configuration."
+#~ msgstr ""
+#~ "<strong>需要身份验证：</strong>\n"
+#~ "                    您必须<a href=\"admin.php?page=gf_googlesheet\" "
+#~ "target=\"_blank\">使用您的 Google 帐户</a>以及 Google 云端硬盘和 Google 表"
+#~ "格权限进行身份验证，才能启用配置设置。"
