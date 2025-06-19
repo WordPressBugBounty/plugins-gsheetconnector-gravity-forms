@@ -5,7 +5,7 @@
  * Description: Send your Gravityform  data to your Google Sheets spreadsheet.
  * Author: GSheetConnector
  * Author URI: https://www.gsheetconnector.com/
- * Version: 1.3.20
+ * Version: 1.3.21
  * Text Domain: gsheetconnector-gravityforms
  * Domain Path: languages
  */
@@ -27,8 +27,8 @@ if ((is_plugin_active('gsheetconnector-gravityforms-pro/gsheetconnector-gravityf
 }
 //Condition If GSheetConnector Gravity PRO Activated
 
-define('GRAVITY_GOOGLESHEET_VERSION', '1.3.20');
-define('GRAVITY_GOOGLESHEET_DB_VERSION', '1.3.20');
+define('GRAVITY_GOOGLESHEET_VERSION', '1.3.21');
+define('GRAVITY_GOOGLESHEET_DB_VERSION', '1.3.21');
 define('GRAVITY_GOOGLESHEET_ROOT', dirname(__FILE__));
 define('GRAVITY_GOOGLESHEET_URL', plugins_url('/', __FILE__));
 define('GRAVITY_GOOGLESHEET_BASE_FILE', basename(dirname(__FILE__)) . '/gsheetconnector-gravityforms.php');

@@ -742,250 +742,189 @@ $fields = array(
     * @access public
     * @return array $row
     */
-   public function after_submission($entry, $form) {
-     
-     foreach ( $form['fields'] as $field ) {
-      $inputs = $field->get_entry_inputs();
-      if ( is_array( $inputs ) ) {
-        foreach ( $inputs as $input ) {
-          $value = rgar( $entry, (string) $input['id'] );
-          // do something with the value
-        }
-      } else {
-        $value = rgar( $entry, (string) $field->id );
-        // do something with the value
+    public function after_submission($entry, $form) {
+      // error_log("🚀 after_submission called for form ID: {$form['id']}");
+
+      // Iterate over all fields and dynamically extract values
+      foreach ($form['fields'] as $field) {
+          $field_type = $field->type;
+          $field_label = $field->label;
+          $value = '';
+
+          // Handle multi-input fields like 'product'
+          if (is_array($field->inputs)) {
+              $inputs = $field->inputs;
+
+              if ($field_type === 'product' && isset($inputs[2])) {
+                  // Grab Quantity input (usually 3rd subfield)
+                  $quantity_id = (string)$inputs[2]['id'];
+                  $value = rgar($entry, $quantity_id);
+                  // error_log("🔢 Product Field: {$field_label} - Quantity = {$value}");
+              } else {
+                  // Log all subfield values
+                  foreach ($inputs as $input) {
+                      $sub_id = (string)$input['id'];
+                      $sub_value = rgar($entry, $sub_id);
+                      // error_log("🔍 Multi-input Field: {$input['label']} ({$sub_id}) = {$sub_value}");
+                  }
+              }
+          } else {
+              $value = rgar($entry, (string)$field->id);
+              // error_log("📝 Single Field: {$field_label} = {$value}");
+          }
       }
-    }
-     
-     $form_id = $form['id'];
-     //$this->send_entry($sheetId, $sheet_name, $tabid, $sheet_tab_name, $entry);
-     
-    $get_existing_data = get_post_meta($form_id, 'gfgs_settings');
-    
-    if( $get_existing_data && isset( $get_existing_data[0]['sheet-id'] ) ) {
-      $sheet_name = isset( $get_existing_data[0]['sheet-name'] ) ? $get_existing_data[0]['sheet-name'] : "";
-      $sheet_tab_name = isset( $get_existing_data[0]['sheet-tab-name'] ) ? $get_existing_data[0]['sheet-tab-name'] : "";
-      $sheetId = isset( $get_existing_data[0]['sheet-id'] ) ? $get_existing_data[0]['sheet-id'] : "";
-      $tabid = isset( $get_existing_data[0]['tab-id'] ) ? $get_existing_data[0]['tab-id'] : "";
-      $this->send_entry($sheetId, $sheet_name, $tabid, $sheet_tab_name, $entry, $form);
-    }
-     
-    if(true) {
-      $feeds = $this->get_active_feeds( $form['id'] );
-      $processable_feeds = array();
-      foreach( $feeds as $feed ) {      
-        $feed_data = $feed['meta'];       
-        $is_condition_enabled = rgar( $feed_data, 'feed_condition_conditional_logic' );       
-        if( ! $is_condition_enabled ) {
-          $processable_feeds[] = $feed;
-        }
-        else {        
-          $logic = rgars( $feed_data, 'feed_condition_conditional_logic_object/conditionalLogic' );         
-          if( !empty( $logic ) ) {
-            $check = GFCommon::evaluate_conditional_logic( $logic, $form, $entry );
-            if( $check ) {
-              $processable_feeds[] = $feed;
-            }
-          }
-        }       
-      }
+
+      // Static settings from post_meta (old method)
+      $form_id = $form['id'];
+      $static_settings = get_post_meta($form_id, 'gfgs_settings');
       
-      $processable_feeds = apply_filters( "gcgf_processable_feeds", $processable_feeds, $entry, $form );
-      if( ! empty( $processable_feeds ) ) {
-      
-        foreach( $processable_feeds as $feed ) {
-          
-          $settings = $feed['meta'];
-          
-          $sheetId = $settings['gf-gs-sheet-id'] ? $settings['gf-gs-sheet-id'] : "";
-          $tabid = '';
-          if($settings['gf-gs-tab-id'] == 0){
-                 $tabid = 0;
-          }
-          elseif(!empty($settings['gf-gs-tab-id'])){
-             $tabid = $settings['gf-gs-tab-id'];
-          }
-          
-           $sheet_tab_name = $settings['gf-gs-sheet-tab-name'] ? $settings['gf-gs-sheet-tab-name'] : "";
-          $sheet_name = $settings['gf-gs-sheet-name'] ? $settings['gf-gs-sheet-name'] : "";
+      if ($static_settings && isset($static_settings[0]['sheet-id'])) {
+          $sheetId = $static_settings[0]['sheet-id'];
+          $sheet_name = $static_settings[0]['sheet-name'] ?? '';
+          $tabid = $static_settings[0]['tab-id'] ?? '';
+          $sheet_tab_name = $static_settings[0]['sheet-tab-name'] ?? '';
+
+          // error_log("⚙️ Static Sheet Settings Found — Sending to Sheet");
           $this->send_entry($sheetId, $sheet_name, $tabid, $sheet_tab_name, $entry, $form);
-        }
+      } else {
+          error_log("⚠️ No static sheet settings found for form ID: {$form_id}");
       }
-      
-      // delete_post_meta($form_id, 'gfgs_settings');
-    }
-   }
-   // public function send_entry($sheetId, $sheet_name, $tabid, $sheet_tab_name, $entry, $form) {
-    
-    
-   //    $form_id = $form['id'];
-   //    $form_fields = get_post_meta($form_id, 'gravity_form_fields', true);
-   //  //$Date = GravityForms_Gs_Connector_Utility::getDefaultDate();//Date issue resolved
-   //     $Date = $entry['date_created']; 
-   //    // $sheet_name = isset( $get_existing_data[0]['sheet-name'] ) ? $get_existing_data[0]['sheet-name'] : "";
-   //    // $sheet_tab_name = isset( $get_existing_data[0]['sheet-tab-name'] ) ? $get_existing_data[0]['sheet-tab-name'] : "";
-   //    // $sheetId = isset( $get_existing_data[0]['sheet-id'] ) ? $get_existing_data[0]['sheet-id'] : "";
-   //    // $tabid = isset( $get_existing_data[0]['tab-id'] ) ? $get_existing_data[0]['tab-id'] : "";
 
-   //    if ( $sheet_name !== "" && $sheet_tab_name !== "" ) {
-   //       try {
-   //          include_once( GRAVITY_GOOGLESHEET_ROOT . "/lib/google-sheets.php" );
-   //          $doc = new Gfgsc_googlesheet();
-   //          $doc->auth();
-   //          $doc->setSpreadsheetId($sheetId);
-   //          $doc->setWorkTabId($tabid);
-   //    $data_value['Entry Date'] = $Date;
-   //    $form_meta = RGFormsModel::get_form_meta( $form_id );
-   //    $data_meta = $form_meta['fields'];
-      
-   //    /* old Code */
-   //          /*foreach ($form_fields as $key => $value) {
-   //             $field = GFFormsModel::get_field($form, $key);
-   //             $type = $field['type'];
-   //             // ToDo - export and import of data into single fields like Name
-   //             //if ($type === 'checkbox' || $type === 'creditcard' || $type === 'name' || $type === 'address' ) {
-   //       if( isset( $field['inputs'] ) && ( ! empty( $field['inputs'] ) ) ) {
-   //                $field_value = is_object($field) ? $field->get_value_export($entry) : '';
-   //                $data_value[$value] = $field_value;
-   //             } else if (array_key_exists($key, $entry)) {
-   //                $data_value[$value] = $entry[$key];
-   //             }
-   //          }*/
-   //   $constent_val ='';
-   //    // New Code For Resolving Checkbox, Select and Image field data was not sending to googlesheet -Start
-   //       foreach ( $form['fields'] as $field ) {
-   //      $field_value = is_object( $field ) ? $field->get_value_export( $entry ) : '';
-   //      $label =  $field->label;
-   //      $value =  $field_value;
+      // Dynamic feed-based integration
+      $feeds = $this->get_active_feeds($form['id']);
+      // error_log("📦 Found " . count($feeds) . " active feeds for form ID: {$form_id}");
 
-   //    // check consent field value
-   //      if($field->type == "consent"){
-   //      if(isset($field->checkboxLabel) && !empty($field->checkboxLabel)){
-   //          $constent_val =  $field->checkboxLabel;
-   //         $value =  $constent_val;
-   //        }
-   //       }
+      $processable_feeds = [];
+      foreach ($feeds as $feed) {
+          $feed_data = $feed['meta'];
+          $feed_id = $feed['id'];
 
-   //      $data_value[$label] = $value;
-            
-   //          }
-   //       // New Code For Resolving Checkbox, Select and Image field data was not sending to googlesheet -End
-     
-   //        $doc->add_row($data_value);
-   //       } catch (Exception $e) {
-   //          $data['ERROR_MSG'] = $e->getMessage();
-   //          $data['TRACE_STK'] = $e->getTraceAsString();
-   //          GravityForms_Gs_Connector_Utility::gfgs_debug_log($data);
-   //       }
-   //    }
-   // }
+          $is_condition_enabled = rgar($feed_data, 'feed_condition_conditional_logic');
+          if (!$is_condition_enabled) {
+              $processable_feeds[] = $feed;
+              // error_log("✅ Feed added (no condition): {$feed_id}");
+          } else {
+              $logic = rgars($feed_data, 'feed_condition_conditional_logic_object/conditionalLogic');
+              if (!empty($logic) && GFCommon::evaluate_conditional_logic($logic, $form, $entry)) {
+                  $processable_feeds[] = $feed;
+                  // error_log("✅ Feed passed conditional logic: {$feed_id}");
+              }
+          }
+      }
 
+      $processable_feeds = apply_filters("gcgf_processable_feeds", $processable_feeds, $entry, $form);
+
+      if (!empty($processable_feeds)) {
+          foreach ($processable_feeds as $feed) {
+              $settings = $feed['meta'];
+              $sheetId = $settings['gf-gs-sheet-id'] ?? '';
+              $tabid = $settings['gf-gs-tab-id'] ?? '';
+              $sheet_tab_name = $settings['gf-gs-sheet-tab-name'] ?? '';
+              $sheet_name = $settings['gf-gs-sheet-name'] ?? '';
+
+              // error_log("🧭 Processing Feed: SheetID = {$sheetId}, SheetName = {$sheet_name}, TabID = {$tabid}, TabName = {$sheet_tab_name}");
+              $this->send_entry($sheetId, $sheet_name, $tabid, $sheet_tab_name, $entry, $form);
+          }
+      }
+  }
+
+
+   
   // Modified code ahmed.
   // since v-1.0.19
-   public function send_entry($sheetId, $sheet_name, $tabid, $sheet_tab_name, $entry, $form) {
-    $form_id = $form['id'];
-    $Date = $entry['date_created']; 
+    public function send_entry($sheetId, $sheet_name, $tabid, $sheet_tab_name, $entry, $form) {
+      $form_id = $form['id'];
+      $Date = $entry['date_created']; 
 
-    if ($sheet_name !== "" && $sheet_tab_name !== "") {
-        try {
-            include_once(GRAVITY_GOOGLESHEET_ROOT . "/lib/google-sheets.php");
-            $doc = new Gfgsc_googlesheet();
-            $doc->auth();
-            $doc->setSpreadsheetId($sheetId);
-            $doc->setWorkTabId($tabid);
+      if ($sheet_name !== "" && $sheet_tab_name !== "") {
+          try {
+              include_once(GRAVITY_GOOGLESHEET_ROOT . "/lib/google-sheets.php");
+              $doc = new Gfgsc_googlesheet();
+              $doc->auth();
+              $doc->setSpreadsheetId($sheetId);
+              $doc->setWorkTabId($tabid);
 
-            $data_value['Entry Date'] = $Date;
-            
-            foreach ($form['fields'] as $field) {
-                $field_value = is_object($field) ? $field->get_value_export($entry) : '';
-                $label = $field->label;
-                $value = $field_value;
+              $data_value['Entry Date'] = $Date;
 
-                // Handle Address Fields (Street, City, State, Zip, Country)
-                // if ($field->type == 'address' && isset($field->inputs) && !empty($field->inputs)) {
-                //     foreach ($field->inputs as $input) {
-                //         $subfield_id = $input['id']; // Address subfield ID (e.g., 1.1, 1.2, etc.)
-                //         $subfield_label = $input['label']; // Address subfield label (Street, City, etc.)
-                //         $subfield_value = isset($entry[$subfield_id]) ? $entry[$subfield_id] : ''; // Get value
+              foreach ($form['fields'] as $field) {
+                  $label = $field->label;
+                  $value = is_object($field) ? $field->get_value_export($entry) : '';
+                  $raw_value = isset($entry[$field->id]) ? $entry[$field->id] : '';
 
-                //         if (!empty($subfield_label)) {
-                //             $data_value[$subfield_label] = $subfield_value;
-                //         }
+                  // error_log("Processing Field: Label = {$label}, Type = {$field->type}, Exported = {$value}, Raw = {$raw_value}");
 
-                //         error_log(print_r($data_value, true));
+                  // Address Field
+                  if ($field->type == 'address' && isset($field->inputs) && !empty($field->inputs)) {
+                      foreach ($field->inputs as $input) {
+                          $subfield_id = $input['id'];
+                          $subfield_label = isset($input['customLabel']) && !empty($input['customLabel']) ? $input['customLabel'] : $input['label'];
+                          $subfield_value = isset($entry[$subfield_id]) ? $entry[$subfield_id] : '';
 
-                //     }
-                // } 
+                          // error_log("↳ Address Subfield: {$subfield_label} = {$subfield_value}");
 
-                // Handle Address Fields (Street, City, State, Zip, Country)
-                if ($field->type == 'address' && isset($field->inputs) && !empty($field->inputs)) {
-                    foreach ($field->inputs as $input) {
-                        $subfield_id = $input['id']; // Address subfield ID (e.g., 1.1, 1.2, etc.)
-                        $subfield_label = isset($input['customLabel']) && !empty($input['customLabel']) 
-                                          ? $input['customLabel'] 
-                                          : $input['label']; // Use customLabel if set, otherwise fall back to label
-                        $subfield_value = isset($entry[$subfield_id]) ? $entry[$subfield_id] : ''; // Get value
+                          if (!empty($subfield_label)) {
+                              $data_value[$subfield_label] = $subfield_value;
+                          }
+                      }
+                  }
+                  // Checkbox Field
+                  else if ($field->type == 'checkbox' && isset($field->inputs)) {
+                      $checkbox_values = [];
+                      foreach ($field->inputs as $input) {
+                          $checkbox_id = $input['id'];
+                          if (isset($entry[$checkbox_id]) && !empty($entry[$checkbox_id])) {
+                              $checkbox_values[] = $entry[$checkbox_id];
+                          }
+                      }
+                      $data_value[$label] = implode(', ', $checkbox_values);
+                      // error_log("↳ Checkbox Values for {$label}: " . $data_value[$label]);
+                  }
+                  // Dropdown / Select
+                  else if ($field->type == 'select') {
+                      $data_value[$label] = isset($entry[$field->id]) ? $entry[$field->id] : '';
+                      // error_log("↳ Select Field Value for {$label}: " . $data_value[$label]);
+                  }
+                  // File Upload
+                  else if ($field->type == 'fileupload') {
+                      $file_url = isset($entry[$field->id]) ? $entry[$field->id] : '';
+                      $data_value[$label] = !empty($file_url) ? $file_url : 'No file uploaded';
+                      // error_log("↳ File Upload for {$label}: " . $data_value[$label]);
+                  }
+                  // Consent Field
+                  else if ($field->type == 'consent') {
+                      if (isset($field->checkboxLabel) && !empty($field->checkboxLabel)) {
+                          $data_value[$label] = $field->checkboxLabel;
+                          // error_log("↳ Consent Label for {$label}: " . $data_value[$label]);
+                      }
+                  }
+                  // Catch-all for other fields
+                  else if ($field->type == 'product' && isset($field->inputs)) {
+                      $quantity_input = $field->inputs[2]['id'] ?? null;
+                      $quantity_value = $quantity_input ? rgar($entry, $quantity_input) : '';
+                      $data_value[$label] = $quantity_value;
+                      // error_log("↳ Product Quantity for {$label}: " . $quantity_value);
+                  }
+                  else {
+                      $final_value = !empty($value) ? $value : $raw_value;
+                      $data_value[$label] = $final_value;
+                      // error_log("↳ Fallback Value for {$label}: " . $final_value);
+                  }
+              }
 
-                        if (!empty($subfield_label)) {
-                            $data_value[$subfield_label] = $subfield_value;
-                        }
+              // Final log before sending to Google Sheets
+              // error_log("✅ Final Data Being Sent to Sheet:\n" . print_r($data_value, true));
 
-                       
-                    }
-                }
+              $doc->add_row($data_value);
 
-                // Handle Checkbox Fields
-                else if ($field->type == 'checkbox' && isset($field->inputs)) {
-                    $checkbox_values = [];
-                    foreach ($field->inputs as $input) {
-                        $checkbox_id = $input['id'];
-                        if (isset($entry[$checkbox_id]) && !empty($entry[$checkbox_id])) {
-                            $checkbox_values[] = $entry[$checkbox_id]; // Store checked values
-                        }
-                    }
-                    $data_value[$label] = implode(', ', $checkbox_values); // Save as comma-separated values
-                } 
-                // Handle Select (Dropdown) Fields
-                else if ($field->type == 'select') {
-                    $data_value[$label] = isset($entry[$field->id]) ? $entry[$field->id] : '';
-                } 
-                // Handle Image Upload Fields
-                else if ($field->type == 'fileupload') {
-                    $file_url = isset($entry[$field->id]) ? $entry[$field->id] : '';
-                    $data_value[$label] = !empty($file_url) ? $file_url : 'No file uploaded';
-                } 
-                // Handle Consent Fields
-                else if ($field->type == "consent") {
-                    if (isset($field->checkboxLabel) && !empty($field->checkboxLabel)) {
-                        $data_value[$label] = $field->checkboxLabel;
-                    }
-                } 
-                // Handle Normal Fields
-                else {
-                    $data_value[$label] = $value;
-                }
-            }
+          } catch (Exception $e) {
+              $error_message = $e->getMessage();
+              $data['ERROR_MSG'] = $error_message;
+              $data['TRACE_STK'] = $e->getTraceAsString();
 
-            // Send data to Google Sheets
-           $doc->add_row($data_value);
-           
-
-        } catch (Exception $e) {
-            $error_message = $e->getMessage();
-
-            // Check if the error message contains quota-related keywords
-            if (strpos($error_message, 'quota') !== false || strpos($error_message, 'Rate Limit Exceeded') !== false) {
-                $data['ERROR_MSG'] = 'Google API Quota Limit Reached: ' . $error_message;
-                $data['TRACE_STK'] = $e->getTraceAsString();
-            } else {
-                $data['ERROR_MSG'] = $error_message;
-                $data['TRACE_STK'] = $e->getTraceAsString();
-            }
-
-            GravityForms_Gs_Connector_Utility::gfgs_debug_log($data);
-        }
-
-    }
+              error_log("❌ Error Sending to Sheet: " . $error_message);
+              GravityForms_Gs_Connector_Utility::gfgs_debug_log($data);
+          }
+      }
 }
 
 
