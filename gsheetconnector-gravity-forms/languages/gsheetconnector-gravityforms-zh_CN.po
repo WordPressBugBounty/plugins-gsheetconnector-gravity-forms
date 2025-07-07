@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GSheetConnector Gravity Forms\n"
-"POT-Creation-Date: 2025-06-19 18:13+0530\n"
-"PO-Revision-Date: 2025-06-19 18:13+0530\n"
+"POT-Creation-Date: 2025-07-07 20:38+0530\n"
+"PO-Revision-Date: 2025-07-07 20:38+0530\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: zh_CN\n"
@@ -152,8 +152,6 @@ msgid "Fields Lists:"
 msgstr "字段列表："
 
 #: class-gf-gsheetgravityforms.php:391
-#: includes/pages/gravityforms-integration-role-settings.php:11
-#: includes/pages/gravityforms-integration-role-settings.php:90
 msgid "Upgrade to Pro"
 msgstr "升级到专业版"
 
@@ -273,19 +271,19 @@ msgstr "获取支持"
 msgid "Support"
 msgstr "支持"
 
-#: gsheetconnector-gravityforms.php:856
+#: gsheetconnector-gravityforms.php:868
 msgid "Settings"
 msgstr "设置"
 
-#: gsheetconnector-gravityforms.php:865
+#: gsheetconnector-gravityforms.php:877
 msgid "Get GSheetConnector Gravity Pro"
 msgstr "重力形式 GSheetConnector Pro"
 
-#: gsheetconnector-gravityforms.php:883
+#: gsheetconnector-gravityforms.php:895
 msgid "<img style='width:30px;margin-right: 10px;' src='"
 msgstr "<img style='width：30px;右边距：10px;' src='"
 
-#: gsheetconnector-gravityforms.php:924
+#: gsheetconnector-gravityforms.php:936
 msgid ""
 "Deactivated GSheetConnector Gravity Forms (Pro Version) to activate "
 "GSheetConnector Gravity Forms Free."
@@ -293,13 +291,11 @@ msgstr ""
 "停用 GSheetConnector Gravity Forms （Pro Version） 以激活 GSheetConnector "
 "Gravity Forms Free。"
 
-#: includes/class-gravityforms-utility.php:81
+#: includes/class-gravityforms-utility.php:86
 msgid "There's something wrong with your code..."
 msgstr "代码有误."
 
-#: includes/class-gravityforms-utility.php:164
-#: includes/pages/gravityforms-integration-role-settings.php:21
-#: includes/pages/gravityforms-integration-role-settings.php:57
+#: includes/class-gravityforms-utility.php:171
 msgid "Administrator"
 msgstr "管理员"
 
@@ -308,7 +304,7 @@ msgid "Please rate"
 msgstr "请评价"
 
 #: includes/pages/admin-footer.php:10
-#: includes/pages/google-sheet-settings.php:35
+#: includes/pages/google-sheet-settings.php:36
 msgid "Gravity Forms - GSheetConnector"
 msgstr "重力形式 - GSheetConnector"
 
@@ -350,27 +346,31 @@ msgstr "已在使用 PRO 版本"
 msgid "Activated"
 msgstr "激活"
 
-#: includes/pages/google-sheet-settings.php:35
+#: includes/pages/google-sheet-settings.php:37
 msgid "Version"
 msgstr "版本"
 
-#: includes/pages/google-sheet-settings.php:38
+#: includes/pages/google-sheet-settings.php:43
 msgid "DASHBOARD"
 msgstr "仪表盘"
 
-#: includes/pages/google-sheet-settings.php:45
+#: includes/pages/google-sheet-settings.php:50
 msgid "Integration"
 msgstr "集成"
 
-#: includes/pages/google-sheet-settings.php:46
+#: includes/pages/google-sheet-settings.php:51
 msgid "Role Settings"
 msgstr "角色设置"
 
-#: includes/pages/google-sheet-settings.php:48
+#: includes/pages/google-sheet-settings.php:53
 msgid "System Status"
 msgstr "系统状态"
 
-#: includes/pages/google-sheet-settings.php:49
+#: includes/pages/google-sheet-settings.php:55
+msgid "General Settings"
+msgstr "常规设置"
+
+#: includes/pages/google-sheet-settings.php:56
 msgid "Extensions"
 msgstr "扩展"
 
@@ -386,58 +386,26 @@ msgstr "没有 Gravity Forms 与 Google 表格相关联。"
 msgid "System Info"
 msgstr "系统信息"
 
-#: includes/pages/gravityforms-integrate-system-info.php:11
+#: includes/pages/gravityforms-integrate-system-info.php:12
 msgid "Copy System Info to Clipboard"
 msgstr "将系统信息复制到剪贴板"
 
-#: includes/pages/gravityforms-integrate-system-info.php:17
+#: includes/pages/gravityforms-integrate-system-info.php:18
 msgid "Error Log"
 msgstr "错误日志"
 
-#: includes/pages/gravityforms-integrate-system-info.php:19
+#: includes/pages/gravityforms-integrate-system-info.php:24
 msgid "Copy Error Log to Clipboard"
 msgstr "将系统信息复制到剪贴板"
 
-#: includes/pages/gravityforms-integrate-system-info.php:20
+#: includes/pages/gravityforms-integrate-system-info.php:25
 #: includes/pages/gs-gravity-integration.php:165
 msgid "Clear"
 msgstr "清除"
 
-#: includes/pages/gravityforms-integrate-system-info.php:25
+#: includes/pages/gravityforms-integrate-system-info.php:31
 msgid "Copied"
 msgstr "复制"
-
-#: includes/pages/gravityforms-integration-role-settings.php:14
-msgid "Roles that can access Google Sheet Page"
-msgstr "可以访问 Google 表格页面的角色"
-
-#: includes/pages/gravityforms-integration-role-settings.php:27
-#: includes/pages/gravityforms-integration-role-settings.php:63
-msgid "Editor"
-msgstr "编辑"
-
-#: includes/pages/gravityforms-integration-role-settings.php:33
-#: includes/pages/gravityforms-integration-role-settings.php:69
-msgid "Author"
-msgstr "作者"
-
-#: includes/pages/gravityforms-integration-role-settings.php:39
-#: includes/pages/gravityforms-integration-role-settings.php:75
-msgid "Contributor"
-msgstr "贡献者"
-
-#: includes/pages/gravityforms-integration-role-settings.php:45
-#: includes/pages/gravityforms-integration-role-settings.php:81
-msgid "Subscriber"
-msgstr "订阅者"
-
-#: includes/pages/gravityforms-integration-role-settings.php:50
-msgid "Roles that can access Google Sheet Tab at GravityForms"
-msgstr "可以在 GravityForms 上访问 Google 表格选项卡的角色"
-
-#: includes/pages/gravityforms-integration-role-settings.php:86
-msgid "Save"
-msgstr "保存"
 
 #: includes/pages/gs-gravity-integration.php:22
 msgid "A way to connect WordPress"
@@ -734,6 +702,27 @@ msgstr "GSheet连接器"
 #. Author URI of the plugin/theme
 msgid "https://www.gsheetconnector.com/"
 msgstr "https://www.gsheetconnector.com/"
+
+#~ msgid "Roles that can access Google Sheet Page"
+#~ msgstr "可以访问 Google 表格页面的角色"
+
+#~ msgid "Editor"
+#~ msgstr "编辑"
+
+#~ msgid "Author"
+#~ msgstr "作者"
+
+#~ msgid "Contributor"
+#~ msgstr "贡献者"
+
+#~ msgid "Subscriber"
+#~ msgstr "订阅者"
+
+#~ msgid "Roles that can access Google Sheet Tab at GravityForms"
+#~ msgstr "可以在 GravityForms 上访问 Google 表格选项卡的角色"
+
+#~ msgid "Save"
+#~ msgstr "保存"
 
 #~ msgid " Upgrade to PRO"
 #~ msgstr "升级到专业版"

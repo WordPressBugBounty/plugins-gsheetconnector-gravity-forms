@@ -5,7 +5,7 @@
  * Description: Send your Gravityform  data to your Google Sheets spreadsheet.
  * Author: GSheetConnector
  * Author URI: https://www.gsheetconnector.com/
- * Version: 1.3.21
+ * Version: 1.3.22
  * Text Domain: gsheetconnector-gravityforms
  * Domain Path: languages
  */
@@ -27,8 +27,8 @@ if ((is_plugin_active('gsheetconnector-gravityforms-pro/gsheetconnector-gravityf
 }
 //Condition If GSheetConnector Gravity PRO Activated
 
-define('GRAVITY_GOOGLESHEET_VERSION', '1.3.21');
-define('GRAVITY_GOOGLESHEET_DB_VERSION', '1.3.21');
+define('GRAVITY_GOOGLESHEET_VERSION', '1.3.22');
+define('GRAVITY_GOOGLESHEET_DB_VERSION', '1.3.22');
 define('GRAVITY_GOOGLESHEET_ROOT', dirname(__FILE__));
 define('GRAVITY_GOOGLESHEET_URL', plugins_url('/', __FILE__));
 define('GRAVITY_GOOGLESHEET_BASE_FILE', basename(dirname(__FILE__)) . '/gsheetconnector-gravityforms.php');
@@ -178,7 +178,7 @@ class Gforms_Gsheet_Connector_Free_Init
             }
          }
       } catch (Exception $e) {
-        GravityForms_Gs_Connector_Utility::gfgs_debug_log($e->getMessage());
+         GravityForms_Gs_Connector_Utility::gfgs_debug_log($e->getMessage());
          // Handle any exceptions thrown during activation
          error_log('Error during plugin activation: ' . $e->getMessage());
       }
@@ -192,7 +192,7 @@ class Gforms_Gsheet_Connector_Free_Init
       try {
          // Deactivation logic
       } catch (Exception $e) {
-        GravityForms_Gs_Connector_Utility::gfgs_debug_log($e->getMessage());
+         GravityForms_Gs_Connector_Utility::gfgs_debug_log($e->getMessage());
          // Handle any exceptions thrown during deactivation
          error_log('Error during plugin deactivation: ' . $e->getMessage());
       }
@@ -223,7 +223,7 @@ class Gforms_Gsheet_Connector_Free_Init
          }
          Gforms_Gsheet_Connector_Free_Init::delete_for_site();
       } catch (Exception $e) {
-        GravityForms_Gs_Connector_Utility::gfgs_debug_log($e->getMessage());
+         GravityForms_Gs_Connector_Utility::gfgs_debug_log($e->getMessage());
          // Handle any exceptions thrown during uninstallation
          error_log('Error during plugin uninstallation: ' . $e->getMessage());
       }
@@ -249,7 +249,7 @@ class Gforms_Gsheet_Connector_Free_Init
             }
          }
       } catch (Exception $e) {
-        GravityForms_Gs_Connector_Utility::gfgs_debug_log($e->getMessage());
+         GravityForms_Gs_Connector_Utility::gfgs_debug_log($e->getMessage());
          // Handle any exceptions thrown during validation
          error_log('Error during parent plugin validation: ' . $e->getMessage());
       }
@@ -272,7 +272,7 @@ class Gforms_Gsheet_Connector_Free_Init
          ));
          echo $plugin_error;
       } catch (Exception $e) {
-        GravityForms_Gs_Connector_Utility::gfgs_debug_log($e->getMessage());
+         GravityForms_Gs_Connector_Utility::gfgs_debug_log($e->getMessage());
          // Handle any exceptions thrown during error notice display
          error_log('Error during error notice display: ' . $e->getMessage());
       }
@@ -282,7 +282,8 @@ class Gforms_Gsheet_Connector_Free_Init
    {
       try {
          $current_role = GravityForms_Gs_Connector_Utility::instance()->get_current_user_role();
-         $gs_roles = get_option('gfgs_page_roles_setting');
+         $gs_roles = get_option('gravityforms_gs_page_roles_setting');
+
          if ((is_array($gs_roles) && array_key_exists($current_role, $gs_roles)) || $current_role === "administrator") {
             $addon_menus[] = array(
                'permission' => 'gravityforms_edit_forms',
@@ -293,7 +294,7 @@ class Gforms_Gsheet_Connector_Free_Init
          }
          return $addon_menus;
       } catch (Exception $e) {
-        GravityForms_Gs_Connector_Utility::gfgs_debug_log($e->getMessage());
+         GravityForms_Gs_Connector_Utility::gfgs_debug_log($e->getMessage());
          // Handle any exceptions thrown during menu page registration
          error_log('Error during menu page registration: ' . $e->getMessage());
       }
@@ -329,6 +330,9 @@ class Gforms_Gsheet_Connector_Free_Init
    {
       if (!class_exists('gravityforms_gs_Connector_Adds')) {
          include(GRAVITY_GOOGLESHEET_PATH . 'includes/class-gravityforms-adds.php');
+      }
+      if (!class_exists('GravityForms_gs_role_settings')) {
+         include(GRAVITY_GOOGLESHEET_PATH . 'includes/pages/gravityforms-integration-role-settings.php');
       }
    }
 
@@ -381,7 +385,7 @@ class Gforms_Gsheet_Connector_Free_Init
 
          update_site_option('gfgs_info', $google_sheet_info);
       } catch (Exception $e) {
-        GravityForms_Gs_Connector_Utility::gfgs_debug_log($e->getMessage());
+         GravityForms_Gs_Connector_Utility::gfgs_debug_log($e->getMessage());
          // Handle any exceptions thrown during upgrade
          error_log('Error during plugin upgrade: ' . $e->getMessage());
       }
@@ -431,7 +435,7 @@ class Gforms_Gsheet_Connector_Free_Init
             $this->run_on_upgrade();
          }
       } catch (Exception $e) {
-        GravityForms_Gs_Connector_Utility::gfgs_debug_log($e->getMessage());
+         GravityForms_Gs_Connector_Utility::gfgs_debug_log($e->getMessage());
          // Handle any exceptions thrown during activation
          error_log('Error during plugin activation: ' . $e->getMessage());
       }
@@ -454,6 +458,12 @@ class Gforms_Gsheet_Connector_Free_Init
          if (!get_option('gfgs_feeds')) {
             update_option('gfgs_feeds', '');
          }
+         if (!get_option('gravityforms_gs_page_roles_setting')) {
+            update_option('gravityforms_gs_page_roles_setting', array());
+         }
+         if (!get_option('gravityforms_gs_tab_roles_setting')) {
+            update_option('gravityforms_gs_tab_roles_setting', array());
+         }
       } catch (Exception $e) {
          GravityForms_Gs_Connector_Utility::gfgs_debug_log($e->getMessage());
          // Handle any exceptions thrown during site-specific tasks
@@ -468,22 +478,24 @@ class Gforms_Gsheet_Connector_Free_Init
     */
    private static function delete_for_site()
    {
-      try {
-         if (!is_plugin_active('gsheetconnector-gravityforms/gsheetconnector-gravityforms.php') || (!file_exists(plugin_dir_path(__DIR__) . 'gsheetconnector-gravityforms/gsheetconnector-gravityforms.php'))) {
+
+      if (!is_plugin_active('gsheetconnector-gravityforms/gsheetconnector-gravityforms.php') || (!file_exists(plugin_dir_path(__DIR__) . 'gsheetconnector-gravityforms/gsheetconnector-gravityforms.php'))) {
+         $saved_value = get_option('gravityforms_gs_uninstall_plugin_settings', 'No'); // Default to 'No' if option is not set
+         if ($saved_value === 'Yes') {
 
             delete_option('gfgs_feeds');
             delete_option('gfgs_access_code');
             delete_option('gfgs_verify');
             delete_option('gfgs_token');
             delete_option('gfgs_feeds');
+            delete_option('gravityforms_gs_uninstall_plugin_settings');
+            delete_option('gravityforms_gs_page_roles_setting');
+            delete_option('gravityforms_gs_tab_roles_setting');
             delete_post_meta_by_key('gravity_form_fields');
             delete_post_meta_by_key('gfgs_settings');
          }
-      } catch (Exception $e) {
-         // Handle any exceptions thrown during deletion
-        GravityForms_Gs_Connector_Utility::gfgs_debug_log($e->getMessage());
-         error_log('Error during plugin deletion: ' . $e->getMessage());
       }
+
    }
 
    /**

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GSheetConnector Gravity Forms\n"
-"POT-Creation-Date: 2025-06-19 18:12+0530\n"
-"PO-Revision-Date: 2025-06-19 18:12+0530\n"
+"POT-Creation-Date: 2025-07-07 20:36+0530\n"
+"PO-Revision-Date: 2025-07-07 20:36+0530\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_ES\n"
@@ -160,8 +160,6 @@ msgid "Fields Lists:"
 msgstr "Listas de campos:"
 
 #: class-gf-gsheetgravityforms.php:391
-#: includes/pages/gravityforms-integration-role-settings.php:11
-#: includes/pages/gravityforms-integration-role-settings.php:90
 msgid "Upgrade to Pro"
 msgstr "Actualizar a Pro"
 
@@ -283,19 +281,19 @@ msgstr "Obtener Soporte"
 msgid "Support"
 msgstr "Soporte"
 
-#: gsheetconnector-gravityforms.php:856
+#: gsheetconnector-gravityforms.php:868
 msgid "Settings"
 msgstr "Ajustes"
 
-#: gsheetconnector-gravityforms.php:865
+#: gsheetconnector-gravityforms.php:877
 msgid "Get GSheetConnector Gravity Pro"
 msgstr "Obtener GSheetConnector Gravity Pro"
 
-#: gsheetconnector-gravityforms.php:883
+#: gsheetconnector-gravityforms.php:895
 msgid "<img style='width:30px;margin-right: 10px;' src='"
 msgstr "<img style='width:30px; margen derecho: 10px;' src='"
 
-#: gsheetconnector-gravityforms.php:924
+#: gsheetconnector-gravityforms.php:936
 msgid ""
 "Deactivated GSheetConnector Gravity Forms (Pro Version) to activate "
 "GSheetConnector Gravity Forms Free."
@@ -303,13 +301,11 @@ msgstr ""
 "Se ha desactivado GSheetConnector Gravity Forms (versión Pro) para activar "
 "GSheetConnector Gravity Forms Free."
 
-#: includes/class-gravityforms-utility.php:81
+#: includes/class-gravityforms-utility.php:86
 msgid "There's something wrong with your code..."
 msgstr "Hay algo mal con tu código..."
 
-#: includes/class-gravityforms-utility.php:164
-#: includes/pages/gravityforms-integration-role-settings.php:21
-#: includes/pages/gravityforms-integration-role-settings.php:57
+#: includes/class-gravityforms-utility.php:171
 msgid "Administrator"
 msgstr "Administrador"
 
@@ -318,7 +314,7 @@ msgid "Please rate"
 msgstr "Por favor, califique"
 
 #: includes/pages/admin-footer.php:10
-#: includes/pages/google-sheet-settings.php:35
+#: includes/pages/google-sheet-settings.php:36
 msgid "Gravity Forms - GSheetConnector"
 msgstr "Formas de gravedad - GSheetConnector"
 
@@ -360,27 +356,31 @@ msgstr "Versión PRO disponible"
 msgid "Activated"
 msgstr "Activado"
 
-#: includes/pages/google-sheet-settings.php:35
+#: includes/pages/google-sheet-settings.php:37
 msgid "Version"
 msgstr "Versión"
 
-#: includes/pages/google-sheet-settings.php:38
+#: includes/pages/google-sheet-settings.php:43
 msgid "DASHBOARD"
 msgstr "ESCRITORIO"
 
-#: includes/pages/google-sheet-settings.php:45
+#: includes/pages/google-sheet-settings.php:50
 msgid "Integration"
 msgstr "Integración"
 
-#: includes/pages/google-sheet-settings.php:46
+#: includes/pages/google-sheet-settings.php:51
 msgid "Role Settings"
 msgstr "Ajustes de perfil"
 
-#: includes/pages/google-sheet-settings.php:48
+#: includes/pages/google-sheet-settings.php:53
 msgid "System Status"
 msgstr "Estado del sistema"
 
-#: includes/pages/google-sheet-settings.php:49
+#: includes/pages/google-sheet-settings.php:55
+msgid "General Settings"
+msgstr "Configuración general"
+
+#: includes/pages/google-sheet-settings.php:56
 msgid "Extensions"
 msgstr "Extensiones"
 
@@ -397,60 +397,26 @@ msgstr ""
 msgid "System Info"
 msgstr "Información del sistema"
 
-#: includes/pages/gravityforms-integrate-system-info.php:11
+#: includes/pages/gravityforms-integrate-system-info.php:12
 msgid "Copy System Info to Clipboard"
 msgstr "Copiar información del sistema al portapapeles"
 
-#: includes/pages/gravityforms-integrate-system-info.php:17
+#: includes/pages/gravityforms-integrate-system-info.php:18
 msgid "Error Log"
 msgstr "Registro de Errores"
 
-#: includes/pages/gravityforms-integrate-system-info.php:19
+#: includes/pages/gravityforms-integrate-system-info.php:24
 msgid "Copy Error Log to Clipboard"
 msgstr "Copiar el registro de errores en el portapapeles"
 
-#: includes/pages/gravityforms-integrate-system-info.php:20
+#: includes/pages/gravityforms-integrate-system-info.php:25
 #: includes/pages/gs-gravity-integration.php:165
 msgid "Clear"
 msgstr "Limpiar"
 
-#: includes/pages/gravityforms-integrate-system-info.php:25
+#: includes/pages/gravityforms-integrate-system-info.php:31
 msgid "Copied"
 msgstr "Copiado"
-
-#: includes/pages/gravityforms-integration-role-settings.php:14
-msgid "Roles that can access Google Sheet Page"
-msgstr "Roles que pueden acceder a la página de Hoja de cálculo de Google"
-
-#: includes/pages/gravityforms-integration-role-settings.php:27
-#: includes/pages/gravityforms-integration-role-settings.php:63
-msgid "Editor"
-msgstr "Editor"
-
-#: includes/pages/gravityforms-integration-role-settings.php:33
-#: includes/pages/gravityforms-integration-role-settings.php:69
-msgid "Author"
-msgstr "Autor"
-
-#: includes/pages/gravityforms-integration-role-settings.php:39
-#: includes/pages/gravityforms-integration-role-settings.php:75
-msgid "Contributor"
-msgstr "Contribuidor"
-
-#: includes/pages/gravityforms-integration-role-settings.php:45
-#: includes/pages/gravityforms-integration-role-settings.php:81
-msgid "Subscriber"
-msgstr "Suscriptor"
-
-#: includes/pages/gravityforms-integration-role-settings.php:50
-msgid "Roles that can access Google Sheet Tab at GravityForms"
-msgstr ""
-"Roles que pueden acceder a la pestaña Hoja de cálculo de Google en "
-"GravityForms"
-
-#: includes/pages/gravityforms-integration-role-settings.php:86
-msgid "Save"
-msgstr "Guardar"
 
 #: includes/pages/gs-gravity-integration.php:22
 msgid "A way to connect WordPress"
@@ -763,6 +729,29 @@ msgstr "GSheetConnector"
 #. Author URI of the plugin/theme
 msgid "https://www.gsheetconnector.com/"
 msgstr "https://www.gsheetconnector.com/"
+
+#~ msgid "Roles that can access Google Sheet Page"
+#~ msgstr "Roles que pueden acceder a la página de Hoja de cálculo de Google"
+
+#~ msgid "Editor"
+#~ msgstr "Editor"
+
+#~ msgid "Author"
+#~ msgstr "Autor"
+
+#~ msgid "Contributor"
+#~ msgstr "Contribuidor"
+
+#~ msgid "Subscriber"
+#~ msgstr "Suscriptor"
+
+#~ msgid "Roles that can access Google Sheet Tab at GravityForms"
+#~ msgstr ""
+#~ "Roles que pueden acceder a la pestaña Hoja de cálculo de Google en "
+#~ "GravityForms"
+
+#~ msgid "Save"
+#~ msgstr "Guardar"
 
 #~ msgid " Upgrade to PRO"
 #~ msgstr "Actualiza a PRO"

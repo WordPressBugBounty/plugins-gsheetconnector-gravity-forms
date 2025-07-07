@@ -5,7 +5,7 @@ Tags: gravity forms, gravity forms google sheet, google sheets, gravity forms to
 Tested up to: 6.7.1
 Requires at least: 5.6
 Requires PHP: 7.4
-Stable tag: 1.3.21
+Stable tag: 1.3.22
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -105,6 +105,10 @@ Enjoy!
 6. Extensions.
 
 == Changelog ==
+
+= 1.3.22 = (07-07-2025)
+* Fixed: Resolved an issue where the system status was not working correctly.
+* Added: Uninstall Plugin Settings.
 
 = 1.3.21 = (19-06-2025)
 * Fixed: Resolved an issue where fields named "Product" were not syncing to Google Sheets on form submit.

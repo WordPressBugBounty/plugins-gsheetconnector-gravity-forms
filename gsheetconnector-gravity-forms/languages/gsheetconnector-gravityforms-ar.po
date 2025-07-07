@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GSheetConnector Gravity Forms\n"
-"POT-Creation-Date: 2025-06-19 18:11+0530\n"
-"PO-Revision-Date: 2025-06-19 18:12+0530\n"
+"POT-Creation-Date: 2025-07-07 20:38+0530\n"
+"PO-Revision-Date: 2025-07-07 20:38+0530\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ar\n"
@@ -158,8 +158,6 @@ msgid "Fields Lists:"
 msgstr "قوائم الحقول:"
 
 #: class-gf-gsheetgravityforms.php:391
-#: includes/pages/gravityforms-integration-role-settings.php:11
-#: includes/pages/gravityforms-integration-role-settings.php:90
 msgid "Upgrade to Pro"
 msgstr "الترقية إلى الاصدار المدفوع"
 
@@ -279,19 +277,19 @@ msgstr "الحصول على الدعم"
 msgid "Support"
 msgstr "الدعم"
 
-#: gsheetconnector-gravityforms.php:856
+#: gsheetconnector-gravityforms.php:868
 msgid "Settings"
 msgstr "الإعدادات"
 
-#: gsheetconnector-gravityforms.php:865
+#: gsheetconnector-gravityforms.php:877
 msgid "Get GSheetConnector Gravity Pro"
 msgstr "احصل على GSheetConnector Gravity Pro"
 
-#: gsheetconnector-gravityforms.php:883
+#: gsheetconnector-gravityforms.php:895
 msgid "<img style='width:30px;margin-right: 10px;' src='"
 msgstr "<img style='width:30px;margin-right: 10px;' src='"
 
-#: gsheetconnector-gravityforms.php:924
+#: gsheetconnector-gravityforms.php:936
 msgid ""
 "Deactivated GSheetConnector Gravity Forms (Pro Version) to activate "
 "GSheetConnector Gravity Forms Free."
@@ -299,13 +297,11 @@ msgstr ""
 "تم إلغاء تنشيط نماذج الجاذبية GSheetConnector (الإصدار المحترف) لتنشيط نماذج "
 "الجاذبية GSheetConnector مجانا."
 
-#: includes/class-gravityforms-utility.php:81
+#: includes/class-gravityforms-utility.php:86
 msgid "There's something wrong with your code..."
 msgstr "هناك خطأ ما في التعليمات البرمجية الخاصة بك ..."
 
-#: includes/class-gravityforms-utility.php:164
-#: includes/pages/gravityforms-integration-role-settings.php:21
-#: includes/pages/gravityforms-integration-role-settings.php:57
+#: includes/class-gravityforms-utility.php:171
 msgid "Administrator"
 msgstr "المدير"
 
@@ -314,7 +310,7 @@ msgid "Please rate"
 msgstr "يرجى التقييم"
 
 #: includes/pages/admin-footer.php:10
-#: includes/pages/google-sheet-settings.php:35
+#: includes/pages/google-sheet-settings.php:36
 msgid "Gravity Forms - GSheetConnector"
 msgstr "أشكال الجاذبية - موصل GSheetConnector"
 
@@ -356,27 +352,31 @@ msgstr "تستخدم بالفعل إصدار PRO"
 msgid "Activated"
 msgstr "مفعل"
 
-#: includes/pages/google-sheet-settings.php:35
+#: includes/pages/google-sheet-settings.php:37
 msgid "Version"
 msgstr "الإصدار"
 
-#: includes/pages/google-sheet-settings.php:38
+#: includes/pages/google-sheet-settings.php:43
 msgid "DASHBOARD"
 msgstr "DASHBOARD"
 
-#: includes/pages/google-sheet-settings.php:45
+#: includes/pages/google-sheet-settings.php:50
 msgid "Integration"
 msgstr "دمج"
 
-#: includes/pages/google-sheet-settings.php:46
+#: includes/pages/google-sheet-settings.php:51
 msgid "Role Settings"
 msgstr "إعدادات الدور"
 
-#: includes/pages/google-sheet-settings.php:48
+#: includes/pages/google-sheet-settings.php:53
 msgid "System Status"
 msgstr "حالة النظام"
 
-#: includes/pages/google-sheet-settings.php:49
+#: includes/pages/google-sheet-settings.php:55
+msgid "General Settings"
+msgstr "  إعدادات واجهة برمجة التطبيقات"
+
+#: includes/pages/google-sheet-settings.php:56
 msgid "Extensions"
 msgstr "ملحقات"
 
@@ -392,59 +392,26 @@ msgstr "لا توجد نماذج جاذبية مرتبطة بجداول بيان
 msgid "System Info"
 msgstr "معلومات النظام"
 
-#: includes/pages/gravityforms-integrate-system-info.php:11
+#: includes/pages/gravityforms-integrate-system-info.php:12
 msgid "Copy System Info to Clipboard"
 msgstr "نسخ معلومات النظام إلى الحافظة"
 
-#: includes/pages/gravityforms-integrate-system-info.php:17
+#: includes/pages/gravityforms-integrate-system-info.php:18
 msgid "Error Log"
 msgstr "سجل الأخطاء"
 
-#: includes/pages/gravityforms-integrate-system-info.php:19
+#: includes/pages/gravityforms-integrate-system-info.php:24
 msgid "Copy Error Log to Clipboard"
 msgstr "نسخ سجل الأخطاء إلى الحافظة"
 
-#: includes/pages/gravityforms-integrate-system-info.php:20
+#: includes/pages/gravityforms-integrate-system-info.php:25
 #: includes/pages/gs-gravity-integration.php:165
 msgid "Clear"
 msgstr "مسح"
 
-#: includes/pages/gravityforms-integrate-system-info.php:25
+#: includes/pages/gravityforms-integrate-system-info.php:31
 msgid "Copied"
 msgstr "تم النسخ"
-
-#: includes/pages/gravityforms-integration-role-settings.php:14
-msgid "Roles that can access Google Sheet Page"
-msgstr "الأدوار التي يمكنها الوصول إلى صفحة جدول بيانات Google"
-
-#: includes/pages/gravityforms-integration-role-settings.php:27
-#: includes/pages/gravityforms-integration-role-settings.php:63
-msgid "Editor"
-msgstr "المحرر"
-
-#: includes/pages/gravityforms-integration-role-settings.php:33
-#: includes/pages/gravityforms-integration-role-settings.php:69
-msgid "Author"
-msgstr "الكاتب"
-
-#: includes/pages/gravityforms-integration-role-settings.php:39
-#: includes/pages/gravityforms-integration-role-settings.php:75
-msgid "Contributor"
-msgstr "مساهم"
-
-#: includes/pages/gravityforms-integration-role-settings.php:45
-#: includes/pages/gravityforms-integration-role-settings.php:81
-msgid "Subscriber"
-msgstr "مشترك"
-
-#: includes/pages/gravityforms-integration-role-settings.php:50
-msgid "Roles that can access Google Sheet Tab at GravityForms"
-msgstr ""
-"الأدوار التي يمكنها الوصول إلى علامة تبويب جدول بيانات Google في GravityForms"
-
-#: includes/pages/gravityforms-integration-role-settings.php:86
-msgid "Save"
-msgstr "حفظ"
 
 #: includes/pages/gs-gravity-integration.php:22
 msgid "A way to connect WordPress"
@@ -752,6 +719,29 @@ msgstr "جموصل شيت"
 #. Author URI of the plugin/theme
 msgid "https://www.gsheetconnector.com/"
 msgstr "https://www.gsheetconnector.com"
+
+#~ msgid "Roles that can access Google Sheet Page"
+#~ msgstr "الأدوار التي يمكنها الوصول إلى صفحة جدول بيانات Google"
+
+#~ msgid "Editor"
+#~ msgstr "المحرر"
+
+#~ msgid "Author"
+#~ msgstr "الكاتب"
+
+#~ msgid "Contributor"
+#~ msgstr "مساهم"
+
+#~ msgid "Subscriber"
+#~ msgstr "مشترك"
+
+#~ msgid "Roles that can access Google Sheet Tab at GravityForms"
+#~ msgstr ""
+#~ "الأدوار التي يمكنها الوصول إلى علامة تبويب جدول بيانات Google في "
+#~ "GravityForms"
+
+#~ msgid "Save"
+#~ msgstr "حفظ"
 
 #~ msgid " Upgrade to PRO"
 #~ msgstr " الترقية إلى PRO"

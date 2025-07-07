@@ -1,99 +1,153 @@
-<form id="gs_settings_form" class="role-settings" method="post" action="options.php">
+<?php
+/**
+ * Settings class for Gogglesheet Role settings
+ * @since 1.0
+ */
+// Exit if accessed directly
+if (!defined('ABSPATH')) {
+    exit;
+}
 
-    <input type="hidden" name="option_page" value="gfgs-settings">
-    <input type="hidden" name="action" value="update">
-    <input type="hidden" id="_wpnonce" name="_wpnonce" value="967b23d431">
-    <input type="hidden" name="_wp_http_referer" value="/wp-admin/admin.php?page=gf_googlesheet&amp;tab=role_settings">
+/**
+ * WPF_Role_Settings Class
+ * @since 1.0
+ */
+class GravityForms_gs_role_settings
+{
 
-    <div>
-        <div class="gfgs-card">
+    /**
+     * @var string group name
+     */
+    protected $gs_group_name = 'gs-gravityforms-settings';
 
-            <div class="badge-pro"><?php _e('Upgrade to Pro', 'gsheetconnector-gravityforms'); ?></div>
+    /**
+     * @var string roles that can access Google Sheet page
+     *@since 1.0
+     */
+    protected $gravityforms_gs_page_roles_setting_option_name = 'gravityforms_gs_page_roles_setting';
+    /**
+     * @var string roles that can access Google Sheet tab at contact form settings
+     */
+    protected $gravityforms_gs_tab_roles_setting_option_name = 'gravityforms_gs_tab_roles_setting';
 
-            <div>
-                <label><?php _e('Roles that can access Google Sheet Page', 'gsheetconnector-gravityforms'); ?></label>
-            </div>
 
-            <label class="gfpro-toggle-role">
-                <input type="checkbox" class="gs-checkbox" disabled="disabled" checked="checked">
-                <span class="gfpro-slider-role"></span>
-            </label>
-            <label style="margin-left:10px;"><?php _e('Administrator', 'gsheetconnector-gravityforms'); ?></label><br>
+    /**
+     * Set things up.
+     * @since 1.0
+     */
+    public function __construct()
+    {
+        add_action('admin_init', array($this, 'init_settings'));
+    }
 
-            <label class="gfpro-toggle-role">
-                <input type="checkbox" class="gs-checkbox" name="gfgs_page_roles_setting[]" value="editor">
-                <span class="gfpro-slider-role"></span>
-            </label>
-            <label style="margin-left:10px;"><?php _e('Editor', 'gsheetconnector-gravityforms'); ?></label><br>
+    // White list our options using the Settings API
+    public function init_settings()
+    {
+        register_setting('gs-gravityforms-settings', $this->gravityforms_gs_page_roles_setting_option_name, array($this, 'validate_gs_gravityforms_access_roles'));
+        register_setting('gs-gravityforms-settings', $this->gravityforms_gs_tab_roles_setting_option_name, array($this, 'validate_gs_gravityforms_access_roles'));
+    }
 
-            <label class="gfpro-toggle-role">
-                <input type="checkbox" class="gs-checkbox" name="gfgs_page_roles_setting[]" value="author">
-                <span class="gfpro-slider-role"></span>
-            </label>
-            <label style="margin-left:10px;"><?php _e('Author', 'gsheetconnector-gravityforms'); ?></label><br>
+    /**
+     * do validate and sanitize selected participants
+     * @param array $selected_roles
+     * @return array $roles
+     * @since 1.0
+     */
+    public function validate_gs_gravityforms_access_roles($selected_roles)
+    {
+        $roles = array();
+        $system_roles = GravityForms_Gs_Connector_Utility::instance()->get_system_roles();
 
-            <label class="gfpro-toggle-role">
-                <input type="checkbox" class="gs-checkbox" name="gfgs_page_roles_setting[]" value="contributor">
-                <span class="gfpro-slider-role"></span>
-            </label>
-            <label style="margin-left:10px;"><?php _e('Contributor', 'gsheetconnector-gravityforms'); ?></label><br>
 
-            <label class="gfpro-toggle-role">
-                <input type="checkbox" class="gs-checkbox" name="gfgs_page_roles_setting[]" value="subscriber">
-                <span class="gfpro-slider-role"></span>
-            </label>
-            <label style="margin-left:10px;"><?php _e('Subscriber', 'gsheetconnector-gravityforms'); ?></label><br>
+        if ($selected_roles && count($selected_roles) > 0) {
 
-            <br>
+            foreach ($system_roles as $role => $display_name) {
+                if (is_array($selected_roles) && in_array(esc_attr($role), $selected_roles)) {
+                    // preselect specified role
+                    $roles[$role] = $display_name;
+                }
+            }
+        }
+        return $roles;
+    }
 
-            <div>
-                <label><?php _e('Roles that can access Google Sheet Tab at GravityForms', 'gsheetconnector-gravityforms'); ?></label>
-            </div>
+    public function add_role_setting_page()
+    {
+        if (!current_user_can('administrator')) {
+            ?>
+            <span class="per_not_allo">Permission Not Allowed </span>
+            <?php
+            return;
+        }
+        $gs_gravityforms_page_roles = get_option($this->gravityforms_gs_page_roles_setting_option_name);
+        $gs_gravityforms_tab_roles = get_option($this->gravityforms_gs_tab_roles_setting_option_name);
 
-            <label class="gfpro-toggle-role">
-                <input type="checkbox" class="gs-checkbox" disabled="disabled" checked="checked">
-                <span class="gfpro-slider-role"></span>
-            </label>
-            <label style="margin-left:10px;"><?php _e('Administrator', 'gsheetconnector-gravityforms'); ?></label><br>
+        //$gs_gravityforms_tab_roles = get_option($this->gs_gravityforms_tab_roles_setting_option_name);
+        ?>
+        <form id="gs_gravityforms_gs_settings_form" method="post" action="options.php">
+            <?php
+            // adds nonce and option_page fields for the settings page
+            settings_fields('gs-gravityforms-settings');
+            settings_errors();
+            ?>
 
-            <label class="gfpro-toggle-role">
-                <input type="checkbox" class="gs-checkbox" name="gfgs_tab_roles_setting[]" value="editor">
-                <span class="gfpro-slider-role"></span>
-            </label>
-            <label style="margin-left:10px;"><?php _e('Editor', 'gsheetconnector-gravityforms'); ?></label><br>
-
-            <label class="gfpro-toggle-role">
-                <input type="checkbox" class="gs-checkbox" name="gfgs_tab_roles_setting[]" value="author">
-                <span class="gfpro-slider-role"></span>
-            </label>
-            <label style="margin-left:10px;"><?php _e('Author', 'gsheetconnector-gravityforms'); ?></label><br>
-
-            <label class="gfpro-toggle-role">
-                <input type="checkbox" class="gs-checkbox" name="gfgs_tab_roles_setting[]" value="contributor">
-                <span class="gfpro-slider-role"></span>
-            </label>
-            <label style="margin-left:10px;"><?php _e('Contributor', 'gsheetconnector-gravityforms'); ?></label><br>
-
-            <label class="gfpro-toggle-role">
-                <input type="checkbox" class="gs-checkbox" name="gfgs_tab_roles_setting[]" value="subscriber">
-                <span class="gfpro-slider-role"></span>
-            </label>
-            <label style="margin-left:10px;"><?php _e('Subscriber', 'gsheetconnector-gravityforms'); ?></label><br>
-
-            <br>
-
-            <div class="select-info">
-                <input type="button" class="button button-primary" name="gfgs_settings" value="<?php _e('Save', 'gsheetconnector-gravityforms'); ?>">
-
-                <div class="upgrade-button">
-                    <a href="https://www.gsheetconnector.com/gravity-forms-google-sheet-connector?gsheetconnector-ref=17" target="__blank" class="upgradeLink">
-                        <?php _e('Upgrade to Pro', 'gsheetconnector-gravityforms'); ?>
-                    </a>
+            <div class="ff-role-settings" id="googlesheet">
+                <a href="https://www.gsheetconnector.com/fluent-forms-google-sheet-connector-pro" class="pro-link"
+                    target="_blank" style="text-decoration: none;"></a>
+                <h2><?php echo esc_html('Roles Settings', 'gsheetconnector-gravityforms'); ?></h2>
+                <div class="gs_gravityforms-gs-card">
+                    <div style="margin-bottom: 20px;">
+                        <label><strong><?php echo esc_html('Roles that can access Google Sheet Page', 'gsheetconnector-gravityforms'); ?></strong></label>
+                    </div>
+                    <?php
+                    GravityForms_Gs_Connector_Utility::instance()->gravityforms_gs_checkbox_roles_multi(
+                        $this->gravityforms_gs_page_roles_setting_option_name . '[]',
+                        $gs_gravityforms_page_roles
+                    );
+                    ?>
+                    <div style="margin-bottom: 20px;">
+                        <label><strong><?php echo esc_html('Roles that can access Google Sheet Tab at Gravity Form Form', 'gsheetconnector-gravityforms'); ?></strong></label>
+                    </div><?php
+                    GravityForms_Gs_Connector_Utility::instance()->gravityforms_gs_checkbox_roles_multi(
+                        $this->gravityforms_gs_tab_roles_setting_option_name . '[]',
+                        $gs_gravityforms_tab_roles
+                    ); ?>
+                    <div class="select-info">
+                        <input type="submit" class="button button-primary button-large" name="gs_gravityforms_gs_settings"
+                            value="<?php echo esc_html("Save", 'gsheetconnector-gravityforms'); ?>" />
+                    </div>
                 </div>
-
             </div>
-        </div>
-    </div>
-</form>
 
-<?php include_once(GRAVITY_GOOGLESHEET_ROOT . "/includes/pages/admin-footer.php"); ?>
+        </form>
+        <?php
+    }
+
+}
+
+$gs_gravityforms_role_settings = new GravityForms_gs_role_settings();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

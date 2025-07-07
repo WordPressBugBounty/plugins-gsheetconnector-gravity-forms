@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: GSheetConnector Gravity Forms\n"
-"POT-Creation-Date: 2025-06-19 18:11+0530\n"
+"POT-Creation-Date: 2025-07-07 20:36+0530\n"
 "PO-Revision-Date: 2020-04-11 16:36+0530\n"
 "Last-Translator: \n"
 "Language-Team: gsheetconnector.com\n"
@@ -151,8 +151,6 @@ msgid "Fields Lists:"
 msgstr ""
 
 #: class-gf-gsheetgravityforms.php:391
-#: includes/pages/gravityforms-integration-role-settings.php:11
-#: includes/pages/gravityforms-integration-role-settings.php:90
 msgid "Upgrade to Pro"
 msgstr ""
 
@@ -272,31 +270,29 @@ msgstr ""
 msgid "Support"
 msgstr ""
 
-#: gsheetconnector-gravityforms.php:856
+#: gsheetconnector-gravityforms.php:868
 msgid "Settings"
 msgstr ""
 
-#: gsheetconnector-gravityforms.php:865
+#: gsheetconnector-gravityforms.php:877
 msgid "Get GSheetConnector Gravity Pro"
 msgstr ""
 
-#: gsheetconnector-gravityforms.php:883
+#: gsheetconnector-gravityforms.php:895
 msgid "<img style='width:30px;margin-right: 10px;' src='"
 msgstr ""
 
-#: gsheetconnector-gravityforms.php:924
+#: gsheetconnector-gravityforms.php:936
 msgid ""
 "Deactivated GSheetConnector Gravity Forms (Pro Version) to activate "
 "GSheetConnector Gravity Forms Free."
 msgstr ""
 
-#: includes/class-gravityforms-utility.php:81
+#: includes/class-gravityforms-utility.php:86
 msgid "There's something wrong with your code..."
 msgstr ""
 
-#: includes/class-gravityforms-utility.php:164
-#: includes/pages/gravityforms-integration-role-settings.php:21
-#: includes/pages/gravityforms-integration-role-settings.php:57
+#: includes/class-gravityforms-utility.php:171
 msgid "Administrator"
 msgstr ""
 
@@ -305,7 +301,7 @@ msgid "Please rate"
 msgstr ""
 
 #: includes/pages/admin-footer.php:10
-#: includes/pages/google-sheet-settings.php:35
+#: includes/pages/google-sheet-settings.php:36
 msgid "Gravity Forms - GSheetConnector"
 msgstr ""
 
@@ -347,27 +343,31 @@ msgstr ""
 msgid "Activated"
 msgstr ""
 
-#: includes/pages/google-sheet-settings.php:35
+#: includes/pages/google-sheet-settings.php:37
 msgid "Version"
 msgstr ""
 
-#: includes/pages/google-sheet-settings.php:38
+#: includes/pages/google-sheet-settings.php:43
 msgid "DASHBOARD"
 msgstr ""
 
-#: includes/pages/google-sheet-settings.php:45
+#: includes/pages/google-sheet-settings.php:50
 msgid "Integration"
 msgstr ""
 
-#: includes/pages/google-sheet-settings.php:46
+#: includes/pages/google-sheet-settings.php:51
 msgid "Role Settings"
 msgstr ""
 
-#: includes/pages/google-sheet-settings.php:48
+#: includes/pages/google-sheet-settings.php:53
 msgid "System Status"
 msgstr ""
 
-#: includes/pages/google-sheet-settings.php:49
+#: includes/pages/google-sheet-settings.php:55
+msgid "General Settings"
+msgstr ""
+
+#: includes/pages/google-sheet-settings.php:56
 msgid "Extensions"
 msgstr ""
 
@@ -383,57 +383,25 @@ msgstr ""
 msgid "System Info"
 msgstr ""
 
-#: includes/pages/gravityforms-integrate-system-info.php:11
+#: includes/pages/gravityforms-integrate-system-info.php:12
 msgid "Copy System Info to Clipboard"
 msgstr ""
 
-#: includes/pages/gravityforms-integrate-system-info.php:17
+#: includes/pages/gravityforms-integrate-system-info.php:18
 msgid "Error Log"
 msgstr ""
 
-#: includes/pages/gravityforms-integrate-system-info.php:19
+#: includes/pages/gravityforms-integrate-system-info.php:24
 msgid "Copy Error Log to Clipboard"
 msgstr ""
 
-#: includes/pages/gravityforms-integrate-system-info.php:20
+#: includes/pages/gravityforms-integrate-system-info.php:25
 #: includes/pages/gs-gravity-integration.php:165
 msgid "Clear"
 msgstr ""
 
-#: includes/pages/gravityforms-integrate-system-info.php:25
+#: includes/pages/gravityforms-integrate-system-info.php:31
 msgid "Copied"
-msgstr ""
-
-#: includes/pages/gravityforms-integration-role-settings.php:14
-msgid "Roles that can access Google Sheet Page"
-msgstr ""
-
-#: includes/pages/gravityforms-integration-role-settings.php:27
-#: includes/pages/gravityforms-integration-role-settings.php:63
-msgid "Editor"
-msgstr ""
-
-#: includes/pages/gravityforms-integration-role-settings.php:33
-#: includes/pages/gravityforms-integration-role-settings.php:69
-msgid "Author"
-msgstr ""
-
-#: includes/pages/gravityforms-integration-role-settings.php:39
-#: includes/pages/gravityforms-integration-role-settings.php:75
-msgid "Contributor"
-msgstr ""
-
-#: includes/pages/gravityforms-integration-role-settings.php:45
-#: includes/pages/gravityforms-integration-role-settings.php:81
-msgid "Subscriber"
-msgstr ""
-
-#: includes/pages/gravityforms-integration-role-settings.php:50
-msgid "Roles that can access Google Sheet Tab at GravityForms"
-msgstr ""
-
-#: includes/pages/gravityforms-integration-role-settings.php:86
-msgid "Save"
 msgstr ""
 
 #: includes/pages/gs-gravity-integration.php:22

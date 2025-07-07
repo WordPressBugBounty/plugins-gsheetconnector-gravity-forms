@@ -33,6 +33,8 @@ class GFGS_Connector_Service
 
       add_action('wp_ajax_activate_plugin', array($this, 'activate_plugin'));
       add_action("wp_ajax_deactivate_plugin", array($this, "deactivate_plugin"));
+      add_action('admin_init', array($this, 'execute_post_data'));
+
    }
    function deactivate_plugin()
    {
@@ -157,6 +159,68 @@ class GFGS_Connector_Service
 
       wp_send_json_success();
    }
+   /**
+    * Save feed settings in the database.
+    *
+    * @since 1.3.22
+    */
+   public function execute_post_data()
+   {
+
+      // Save Uninstall Plugin Settings Start
+      if (isset($_POST['gs_gravityforms_uninstall_settings'])) {
+
+         // Verify nonce
+         $nonce = isset($_POST['gs-gravityforms-setting-ajax-nonce'])
+            ? sanitize_text_field($_POST['gs-gravityforms-setting-ajax-nonce'])
+            : '';
+
+         if (!wp_verify_nonce($nonce, 'gs-gravityforms-setting-ajax-nonce')) {
+
+            add_action('admin_notices', array($this, 'error_message'));
+            return;
+         }
+         $uninstall_settings = isset($_POST['gs_gravityforms_uninstall_settings']) ? $_POST['gs_gravityforms_uninstall_settings'] : 'No';
+
+
+         update_option('gravityforms_gs_uninstall_plugin_settings', $uninstall_settings);
+         // Verify if the option was successfully saved
+         $saved_value = get_option('gravityforms_gs_uninstall_plugin_settings');
+
+         if ($saved_value === $uninstall_settings) {
+            // Show success notice
+            add_action('admin_notices', array($this, 'gravityforms_uninstall_plugin_notice'));
+         } else {
+            // Show error notice if saving failed
+
+            add_action('admin_notices', array($this, 'error_message'));
+         }
+
+      }
+   }
+   public function error_message($error)
+   {
+      if (is_admin() && isset($_GET['page']) && sanitize_text_field(wp_unslash($_GET['page'])) === 'fluentform-google-sheet-config') {
+
+         if (isset($_POST['gs_gravityforms_save_uninstall_settings'])) {
+            $plugin_error = GravityForms_Gs_Connector_Utility::instance()->admin_notice(array(
+               'type' => 'error',
+               'message' => esc_html($error, 'gsheetconnector-gravityforms')
+            ));
+            echo esc_html($plugin_error, 'gsheetconnector-gravityforms');
+         }
+      }
+   }
+   public function gravityforms_uninstall_plugin_notice()
+   {
+      $success_msg = GravityForms_Gs_Connector_Utility::instance()->admin_notice(array(
+         'type' => 'update',
+         'message' => esc_html('Uninstall Plugin Settings saved successfully.', 'gsheetconnector-gravityforms')
+      ));
+      echo wp_kses_post($success_msg);
+
+   }
+
 
    /**
     * AJAX function - verify_code_integation
@@ -220,7 +284,7 @@ class GFGS_Connector_Service
             wp_send_json_error();
          }
       } catch (Exception $e) {
-          GravityForms_Gs_Connector_Utility::gfgs_debug_log($e->getMessage());
+         GravityForms_Gs_Connector_Utility::gfgs_debug_log($e->getMessage());
          // Handle any exceptions thrown during deactivation
          error_log('Error during deactivation: ' . $e->getMessage());
          wp_send_json_error();
@@ -254,8 +318,8 @@ class GFGS_Connector_Service
 
 
       } catch (Exception $e) {
-          GravityForms_Gs_Connector_Utility::gfgs_debug_log($e->getMessage());
-          wp_send_json_error();
+         GravityForms_Gs_Connector_Utility::gfgs_debug_log($e->getMessage());
+         wp_send_json_error();
       }
 
    }
