@@ -1,11 +1,11 @@
-=== Gravity Forms Google Sheet Connector ===
+=== GSheetConnector For Gravity Forms ===
 Contributors: westerndeal, abdullah17, gsheetconnector
 Author URL: https://www.gsheetconnector.com/
 Tags: gravity forms, gravity forms google sheet, google sheets, gravity forms to google sheet, gravity forms google sheets
-Tested up to: 6.7.1
+Tested up to: 6.8
 Requires at least: 5.6
 Requires PHP: 7.4
-Stable tag: 1.3.22
+Stable tag: 1.3.23
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -106,6 +106,10 @@ Enjoy!
 
 == Changelog ==
 
+= 1.3.23 = (16-07-2025)
+* Tested up to latest version of WordPress 6.8.1.
+* Confirmed compatibility with the latest versions of Gravity forms pro.  
+ 
 = 1.3.22 = (07-07-2025)
 * Fixed: Resolved an issue where the system status was not working correctly.
 * Added: Uninstall Plugin Settings.
