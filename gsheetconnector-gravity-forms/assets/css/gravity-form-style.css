@@ -1933,7 +1933,9 @@ span.tooltiptext.tooltip-right {
   /* Ensure the text takes up the full width of the container */
 }
 
-.clear-content-logs-gf {
+.clear-content-logs-gf,
+.copy-system-info-gf,
+.copy-error-log-gf {
   display: inline-flex;
   align-items: center;
   margin: 0.5rem 0 1rem;
@@ -1964,7 +1966,6 @@ span.tooltiptext.tooltip-right {
   display: block !important;
   flex-direction: row !important;
   justify-content: flex-start;
-  !important;
   aspect-ratio: 0;
 }
 
@@ -2053,8 +2054,13 @@ span.tooltiptext.tooltip-right {
 }
 
 /* GsheetConnector Addons */
-.loaderimg {
-  display: none;
+.loading {
+  background-image: url(../image/ajax-loader.gif);
+  background-position: 50% 80%;
+  background-repeat: no-repeat;
+  width: 14px;
+  display: inline-block;
+  height: 14px;
 }
 
 .gsheetconnector-addons-list {
@@ -2301,10 +2307,10 @@ span.tooltiptext.tooltip-right {
   padding-bottom: 165px;
 }
 
-@media (min-resolution: 1.25dppx)  {
-.gsheetconnector-list-item {
-		width: 32%;
-}
+@media (min-resolution: 1.25dppx) {
+  .gsheetconnector-list-item {
+    width: 32%;
+  }
 }
 
 @media screen and (max-width: 1366px) {

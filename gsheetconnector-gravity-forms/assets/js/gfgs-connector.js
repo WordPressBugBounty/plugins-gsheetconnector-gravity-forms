@@ -156,7 +156,7 @@ jQuery(document).ready(function () {
   */
 
    jQuery(document).on('click', '.closeView', function () {
-      jQuery('.closecf7View').text("View").removeClass('closeView');
+      jQuery('.closeView').text("View").removeClass('closeView');
       jQuery('button').addClass('gravity-logs');
       jQuery('.system-Error-logs-gf').hide(); // Instead of toggle, we directly hide it
    });
@@ -357,99 +357,104 @@ jQuery(document).ready(function ($) {
 
    // On #deactivate-log click, show the #google-drive-msg div and clear localStorage
    jQuery('#deactivate-log').on('click', function () {
-      jQuery('#google-drive-msg').show(); // Show the message
+      // jQuery('#google-drive-msg').show(); // Show the message
       localStorage.removeItem('googleDriveMsgHidden'); // Remove the hidden state from localStorage
    });
 });
 jQuery(document).ready(function ($) {
-   $('.install-plugin-btn').on('click', function () {
-      var button = $(this);
-      var pluginSlug = button.data('plugin');
-      var downloadUrl = button.data('download');
-      var loader = button.find('.loaderimg');
+   jQuery(".gf-install-plugin-btn").on("click", function () {
+      var button = jQuery(this);
+      var pluginSlug = button.data("plugin");
+      var downloadUrl = button.data("download");
+      var loaderSpan = button
+         .closest(".button-bar")
+         .find(".loading-sign-install");
 
-      loader.css('display', 'inline-block'); // Show loader
+      loaderSpan.addClass("loading");
 
-      button.html('<img src="' + loader.attr('src') + '" alt="Loading..."> Installing...')
-         .prop('disabled', true);
-
-      $.ajax({
+      jQuery.ajax({
          url: ajaxurl,
-         type: 'POST',
+         type: "POST",
          data: {
-            action: 'install_plugin',
+            action: "gs_gravity_install_plugin",
             plugin_slug: pluginSlug,
-            download_url: downloadUrl
+            download_url: downloadUrl,
+            security: jQuery("#gs_gravity_ajax_nonce").val(),
          },
          success: function (response) {
+            loaderSpan.removeClass("loading");
             if (response.success) {
-               // Hide the "Install" button
                button.hide();
-
-               // Show the corresponding "Activate" button
-               button.closest('.button-bar').find('.activate-plugin-btn').show();
+               button.closest(".button-bar").find(".gf-activate-plugin-btn").show();
             } else {
-               alert('Installation failed: ' + (response.data?.message || 'Unknown error'));
-               button.html('Install').prop('disabled', false);
+               button.html("Install").prop("disabled", false);
             }
          },
-
          error: function () {
-            button.html('Install').prop('disabled', false);
-            alert('Error installing the plugin.');
-         }
+            loaderSpan.removeClass("loading");
+            button.html("Install").prop("disabled", false);
+         },
       });
    });
 
-   // Plugin Activation
-   $(document).on('click', '.activate-plugin-btn', function () {
-      var button = $(this);
-      var pluginSlug = button.data('plugin');
-      var loader = button.find('.loaderimg');
-      loader.css('display', 'inline-block'); // Show loader
+   /**
+    * Handle plugin activation button click via AJAX.
+    *
+    * - Shows loading spinner
+    * - Sends plugin slug to server for activation
+    * - On success, updates button to "Activated" and reloads page
+    * - On error or failure, resets button and removes loading state
+    */
 
-      button.html('<img src="' + loader.attr('src') + '" alt="Loading..."> Activating...')
-         .prop('disabled', true);
-
-      $.ajax({
+   jQuery(document).on("click", ".gf-activate-plugin-btn", function () {
+      var button = jQuery(this);
+      var pluginSlug = button.data("plugin");
+      var loaderSpan = button.siblings(".loading-sign-active");
+      loaderSpan.addClass("loading");
+      // button.prop("disabled", true);
+      jQuery.ajax({
          url: ajaxurl,
-         type: 'POST',
+         type: "POST",
          data: {
-            action: 'activate_plugin',
-            plugin_slug: pluginSlug
+            action: "gs_gravity_activate_plugin",
+            plugin_slug: pluginSlug,
+            security: jQuery("#gs_gravity_ajax_nonce").val(),
          },
          success: function (response) {
             if (response.success) {
-               button.text('Activated').prop('disabled', true);
-               loader.hide();
+               button.text("Activated"); // Show "Activated"
+               button.prop("disabled", true);
                location.reload();
-
             } else {
-               button.html('Activate').prop('disabled', false);
-               alert('Activation failed: ' + (response.data?.message || 'Unknown error'));
+               loaderSpan.removeClass("loading"); // Clear loader
+               button.prop("disabled", false);
             }
          },
          error: function () {
-            button.html('Activate').prop('disabled', false);
-            alert('Error activating the plugin.');
-         }
+            loaderSpan.removeClass("loading").text(""); // Clear loader
+            button.prop("disabled", false);
+         },
       });
    });
-   $('.deactivate-plugin').on('click', function () {
-      var pluginSlug = $(this).data('plugin');
 
-      if (!pluginSlug) {
-         alert('Plugin slug not found.');
-         return;
-      }
+   /**
+    * Handle plugin deactivation button click via AJAX.
+    *
+    * - Sends plugin slug to server for deactivation
+    * - On success, shows alert and reloads the page
+    * - On error, shows AJAX error alert
+    */
 
-      $.ajax({
+   jQuery(".gf-deactivate-plugin").on("click", function () {
+      var pluginSlug = jQuery(this).data("plugin");
+      jQuery.ajax({
          url: ajaxurl,
-         type: 'POST',
-         dataType: 'json', // Ensure JSON response
+         type: "POST",
+         dataType: "json", // Ensure JSON response
          data: {
-            action: 'deactivate_plugin',
-            plugin_slug: pluginSlug
+            action: "gs_gravity_deactivate_plugin",
+            plugin_slug: pluginSlug,
+            security: jQuery("#gs_gravity_ajax_nonce").val(),
          },
          success: function (response) {
             if (response.success) {
@@ -458,9 +463,8 @@ jQuery(document).ready(function ($) {
             }
          },
          error: function (xhr, status, error) {
-            console.error(xhr.responseText);
-            alert('AJAX error: ' + error);
-         }
+            alert("AJAX error: " + error);
+         },
       });
    });
 });

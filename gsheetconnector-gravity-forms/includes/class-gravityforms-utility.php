@@ -46,9 +46,9 @@ class GravityForms_Gs_Connector_Utility
    {
       if (WP_DEBUG === true) {
          if (is_array($message) || is_object($message)) {
-            error_log(print_r($message, true));
+            GravityForms_Gs_Connector_Utility::gfgs_debug_log($message);
          } else {
-            error_log($message);
+            GravityForms_Gs_Connector_Utility::gfgs_debug_log($message);
          }
       }
    }
@@ -64,8 +64,8 @@ class GravityForms_Gs_Connector_Utility
    public function admin_notice($data = array())
    {
       // extract message and type from the $data array
-      $message = isset($data['message']) ? $data['message'] : "";
-      $message_type = isset($data['type']) ? $data['type'] : "";
+      $message = isset($data['message']) ? $data['message'] : '';
+      $message_type = isset($data['type']) ? $data['type'] : '';
       switch ($message_type) {
          case 'error':
             $admin_notice = '<div id="message" class="error notice is-dismissible">';
@@ -73,22 +73,21 @@ class GravityForms_Gs_Connector_Utility
          case 'update':
             $admin_notice = '<div id="message" class="updated notice is-dismissible">';
             break;
-         case 'auth-expired-notice':
-            $admin_notice = '<div id="message" class="error notice gravityforms-gs-auth-expired-adds is-dismissible">';
-            break;
          case 'update-nag':
             $admin_notice = '<div id="message" class="update-nag">';
             break;
-         case 'renew':
-            $admin_notice = '<div id="message" class="error notice gsgf-renew is-dismissible">';
+         case 'auth-expired-notice':
+            $admin_notice = '<div id="message" class="error notice Fluentform-auth-expired-adds is-dismissible">';
+            break;
+         case 'upgrade':
+            $admin_notice = '<div id="message" class="error notice gs-upgrade is-dismissible">';
             break;
          default:
-            $message = __('There\'s something wrong with your code...', 'gsheetconnector-gravityforms');
+            $message = __('There\'s something wrong with your code...', 'gsheetconnector-gravity-forms');
             $admin_notice = "<div id=\"message\" class=\"error\">\n";
             break;
       }
-
-      $admin_notice .= "    <p>" . __($message, 'gsheetconnector-gravityforms') . "</p>\n";
+      $admin_notice .= "    <p>" . esc_html($message, 'gsheetconnector-gravity-forms') . "</p>\n";
       $admin_notice .= "</div>\n";
       return $admin_notice;
    }
@@ -116,7 +115,6 @@ class GravityForms_Gs_Connector_Utility
    {
       // Create a nonce
       $nonce = wp_create_nonce('Gfgsc_api_creds');
-
       // Prepare parameters for the API call
       $params = array(
          'action' => 'get_data',
@@ -153,42 +151,11 @@ class GravityForms_Gs_Connector_Utility
          }
       }
    }
-
-   public function gravityforms_gs_checkbox_roles_multi($setting_name, $selected_roles)
-   {
-      $selected_row = '';
-      $checked = '';
-      $roles = array();
-      $system_roles = $this->get_system_roles();
-
-      if (!empty($selected_roles)) {
-         foreach ($selected_roles as $role => $display_name) {
-            array_push($roles, $role);
-         }
-      }
-
-      $selected_row .= "<label style='display: block;'> <input type='checkbox' class='gs-checkbox' disabled='disabled' checked='checked'/>";
-      $selected_row .= __("Administrator", "gsheetconnector-gravityforms");
-      $selected_row .= "</label>";
-
-      foreach ($system_roles as $role => $display_name) {
-         if ($role === "administrator") {
-            continue;
-         }
-         if (!empty($roles) && is_array($roles) && in_array(esc_attr($role), $roles)) { // preselect specified role
-            $checked = " ' checked='checked' ";
-         } else {
-            $checked = '';
-         }
-
-         $selected_row .= "<label style='display: block;'> <input type='checkbox' class='gs-checkbox'
-          name='" . $setting_name . "' value='" . esc_attr($role) . "'" . $checked . "/>";
-         $selected_row .= __($display_name, "gsheetconnector-gravityforms");
-         $selected_row .= "</label>";
-      }
-      echo $selected_row;
-   }
-
+   /**
+    * Get all editable system roles.
+    *
+    * @return array Associative array of role slugs and names.
+    */
    public function get_system_roles()
    {
       $participating_roles = array();
@@ -199,77 +166,79 @@ class GravityForms_Gs_Connector_Utility
       return $participating_roles;
    }
 
+   /**
+    * Write debug log entries to a file in the uploads directory.
+    *
+    * @param mixed $error Error message, object, or array to log.
+    * @return void
+    */
    public static function gfgs_debug_log($error)
    {
-      try {
-         if (!is_dir(GRAVITY_GOOGLESHEET_PATH . 'logs')) {
-            mkdir(GRAVITY_GOOGLESHEET_PATH . 'logs', 0755, true);
-         }
-      } catch (Exception $e) {
-
+      if (!function_exists('WP_Filesystem')) {
+         require_once ABSPATH . 'wp-admin/includes/file.php';
       }
+      global $wp_filesystem;
+      if (!WP_Filesystem()) {
+         return;
+      }
+
+      $upload_dir = wp_upload_dir();
+      $log_dir = trailingslashit($upload_dir['basedir']) . 'gsc-gravity-logs/';
+      $log_file = get_option('gf_gs_debug_log_file');
+      $timestamp = gmdate('Y-m-d H:i:s') . "\t PHP " . phpversion() . "\t";
+
       try {
-         $gflogFilePathToDelete = GRAVITY_GOOGLESHEET_PATH . "logs/log.txt";
-         // Check if the log file exists before attempting to delete
-         if (file_exists($gflogFilePathToDelete)) {
-            unlink($gflogFilePathToDelete);
+         if (!$wp_filesystem->is_dir($log_dir)) {
+            $wp_filesystem->mkdir($log_dir, FS_CHMOD_DIR);
          }
 
-         // check if debug unique log file exists or not
-         $gfexistDebugFile = get_option('gf_gs_debug_log_file');
-         if (!empty($gfexistDebugFile) && file_exists($gfexistDebugFile)) {
-            $gflog = fopen($gfexistDebugFile, 'a');
-            if (is_array($error)) {
-               fwrite($gflog, print_r(date_i18n('j F Y H:i:s', current_time('timestamp')) . " \t PHP " . phpversion(), TRUE));
-               fwrite($gflog, print_r($error, TRUE));
-            } else {
-               $result = fwrite($gflog, print_r(date_i18n('j F Y H:i:s', current_time('timestamp')) . " \t PHP " . phpversion() . " \t $error \r\n", TRUE));
-            }
-            fclose($gflog);
-         } else {
-            // if unique log file not exists then create new file code
-            // Your log content (you can customize this)
-            $gf_unique_log_content = "Log created at " . date('Y-m-d H:i:s');
-            // Create the log file
-            $gflogfileName = 'log-' . uniqid() . '.txt';
-            // Define the file path
-            $gflogUniqueFile = GRAVITY_GOOGLESHEET_PATH . "logs/" . $gflogfileName;
-            if (file_put_contents($gflogUniqueFile, $gf_unique_log_content)) {
-               // save debug unique file in table
-               update_option('gf_gs_debug_log_file', $gflogUniqueFile);
-               // Success message
-               // echo "Log file created successfully: " . $logUniqueFile;
-               $gflog = fopen($gflogUniqueFile, 'a');
-               if (is_array($error)) {
-                  fwrite($gflog, print_r(date_i18n('j F Y H:i:s', current_time('timestamp')) . " \t PHP " . phpversion(), TRUE));
-                  fwrite($gflog, print_r($error, TRUE));
-               } else {
-                  $result = fwrite($gflog, print_r(date_i18n('j F Y H:i:s', current_time('timestamp')) . " \t PHP " . phpversion() . " \t $error \r\n", TRUE));
-               }
-               fclose($gflog);
+         // Protect directory with .htaccess
+         $wp_filesystem->put_contents($log_dir . '.htaccess', "Deny from all\n", FS_CHMOD_FILE);
 
-            } else {
-               // Error message
-               echo "Error - Not able to create Log File.";
+         $old_file = $log_dir . 'log.txt';
+         if ($wp_filesystem->exists($old_file)) {
+            $wp_filesystem->delete($old_file);
+         }
+
+         $log_message = is_array($error) || is_object($error)
+            ? $timestamp . wp_json_encode($error) . "\r\n"
+            : $timestamp . $error . "\r\n";
+
+         if (!empty($log_file) && $wp_filesystem->exists($log_file)) {
+            $existing = $wp_filesystem->get_contents($log_file);
+            $wp_filesystem->put_contents($log_file, $existing . $log_message, FS_CHMOD_FILE);
+         } else {
+            $new_log_file = $log_dir . 'log-' . uniqid() . '.txt';
+            $log_content = "Log created at " . gmdate('Y-m-d H:i:s') . "\r\n" . $log_message;
+
+            if ($wp_filesystem->put_contents($new_log_file, $log_content, FS_CHMOD_FILE)) {
+               update_option('gf_gs_debug_log_file', $new_log_file);
             }
          }
 
       } catch (Exception $e) {
-
+         GravityForms_Gs_Connector_Utility::gfgs_debug_log('❌ Exception in gs_debug_log: ' . $e->getMessage());
       }
    }
 
+   /**
+    * Get the current date and time formatted according to site settings.
+    *
+    * @return string|null Formatted date/time string or null on failure.
+    */
    public static function getDefaultDate()
    {
       try {
          $timeZone = get_option('timezone_string');
-         $dateFormate = get_option('date_format');
-         $timeFormate = get_option('time_format');
-         $date = new DateTime("now", new DateTimeZone($timeZone));
-         $Date = $date->format($dateFormate . ' ' . $timeFormate);
-         return $Date;
-      } catch (Exception $e) {
+         $dateFormat = get_option('date_format');
+         $timeFormat = get_option('time_format');
 
+         $date = new DateTime("now", new DateTimeZone($timeZone));
+         $formattedDate = $date->format($dateFormat . ' ' . $timeFormat);
+
+         return $formattedDate;
+      } catch (Exception $e) {
+         GravityForms_Gs_Connector_Utility::gfgs_debug_log('Error in getDefaultDate: ' . $e->getMessage());
       }
    }
 

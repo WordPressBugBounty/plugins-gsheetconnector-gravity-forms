@@ -11,7 +11,7 @@
 
   $plugins = [
     'gravityforms/gravityforms.php' => [
-      'connector' => 'gsheetconnector-gravityforms/gsheetconnector-gravityforms.php',
+      'connector' => 'gsheetconnector-gravity-forms/gsheetconnector-gravity-forms.php',
       'connector-pro' => 'gsheetconnector-gravity-forms-pro/gsheetconnector-gravity-forms-pro.php',
       'name' => 'Gravity Forms Google Sheet Connector',
       'link' => 'https://www.gsheetconnector.com/gravity-forms-google-sheet-connector',
@@ -226,6 +226,7 @@
 
   ?>
 
+
   <h2>Install and Activated Plugins</h2>
   <div class="gsheetconnector-addons-list">
     <?php
@@ -265,7 +266,8 @@
                 <div class="addon-item-header">
                   <div class="plugin-premium">PRO</div>
                   <a href="<?php echo esc_url($details['buyLink']); ?>" target="_blank">
-                    <img src="<?php echo esc_url($details['img']); ?>" alt="<?php echo esc_attr($details['name']); ?>">
+                    <img src="<?php echo esc_url($details['img']); ?>" alt="<?php echo esc_attr($details['name']); ?>"
+                      loading="plugin-img">
                   </a>
                   <div class="addon-item-header-meta">
                     <div class="addon-item-meta-title">
@@ -282,19 +284,18 @@
                 </div>
                 <div class="addon-item-footer">
                   <div class="button-bar">
-                    <button class="activate-plugin-btn button button-free proactive"
+                    <button class="gf-activate-plugin-btn button button-free proactive"
                       data-plugin="<?php echo esc_attr($details['pro_plugin_active']); ?>">
-                      <img src="<?php echo esc_url(GRAVITY_GOOGLESHEET_URL . 'assets/image/ajax-loader.gif'); ?>" alt="Loading..."
-                        class="loaderimg" />
-                      <?php _e('Activate', 'gsheetconnector'); ?>
+                      <?php esc_attr_e('Activate', 'gsheetconnector-gravity-forms'); ?>
                     </button>
+                    <span class="loading-sign-active"></span>
                   </div>
                 </div>
               </div>
             <?php } else { ?>
               <div class="gsheetconnector-list-item">
                 <div class="activated">
-                  <a href="#" class="button button-free deactivate-plugin"
+                  <a href="#" class="button button-free gf-deactivate-plugin"
                     data-download="<?php echo esc_url($details['connector']); ?>"
                     data-plugin="<?php echo esc_attr($details['connector']); ?>">Deactivate</a>
                 </div>
@@ -311,7 +312,7 @@
                     </div>
                     <div class="addon-item-header-meta-excerpt">
                       <a href="<?php echo esc_url($details['buyLink']); ?>" target="_blank" class="addon-link">
-                        <?php _e('Upgrade to PRO', 'gsheetconnector'); ?>
+                        <?php esc_attr_e('Upgrade to PRO', 'gsheetconnector-gravity-forms'); ?>
                       </a>
                     </div>
                   </div>
@@ -327,7 +328,7 @@
         } else { ?>
           <div class="gsheetconnector-list-item">
             <div class="activated">
-              <a href="#" class="button button-free deactivate-plugin"
+              <a href="#" class="button button-free gf-deactivate-plugin"
                 data-download="<?php echo esc_url($details['connector-pro']); ?>"
                 data-plugin="<?php echo esc_attr($details['connector-pro']); ?>">Deactivate</a>
             </div>
@@ -343,7 +344,7 @@
                   </a>
                 </div>
                 <div class="addon-item-header-meta-excerpt">
-                  <strong><?php _e('Already using PRO version', 'gsheetconnector'); ?></strong>
+                  <strong><?php esc_attr_e('Already using PRO version', 'gsheetconnector-gravity-forms'); ?></strong>
                 </div>
               </div>
             </div>
@@ -404,30 +405,27 @@
               <div class="button-bar">
                 <?php if ($is_free_active): ?>
                   <button class="button button-secondary" disabled>
-                    <?php _e('Activated', 'gsheetconnector'); ?>
+                    <?php esc_attr_e('Activated', 'gsheetconnector-gravity-forms'); ?>
                   </button>
                 <?php elseif ($is_free_installed && !$is_free_active): ?>
-                  <button class="activate-plugin-btn button button-free"
+                  <button class="gf-activate-plugin-btn button button-free"
                     data-plugin="<?php echo esc_attr($data['connector']); ?>">
-                    <img src="<?php echo esc_url(GRAVITY_GOOGLESHEET_URL . 'assets/image/ajax-loader.gif'); ?>" alt="Loading..."
-                      class="loaderimg" />
-                    <?php _e('Activate', 'gsheetconnector'); ?>
+                    <?php esc_attr_e('Activate', 'gsheetconnector-gravity-forms'); ?>
                   </button>
+                  <span class="loading-sign-active"></span>
 
                 <?php else: ?>
-                  <button class="install-plugin-btn button " data-download="<?php echo esc_url($data['downloadLink']); ?>"
+                  <button class="gf-install-plugin-btn button " data-download="<?php echo esc_url($data['downloadLink']); ?>"
                     data-plugin="<?php echo esc_attr($plugin); ?>">
-                    <img src="<?php echo esc_url(GRAVITY_GOOGLESHEET_URL . 'assets/image/ajax-loader.gif'); ?>" alt="Loading..."
-                      class="loaderimg" />
                     <?php echo esc_html($data['button']); ?>
                   </button>
+                  <span class="loading-sign-install"></span>
                   <!-- Ensure Activate button exists but is hidden -->
-                  <button class="activate-plugin-btn button button-free"
+                  <button class="gf-activate-plugin-btn button button-free"
                     data-plugin="<?php echo esc_attr($data['connector']); ?>" style="display: none;">
-                    <img src="<?php echo esc_url(GRAVITY_GOOGLESHEET_URL . 'assets/image/ajax-loader.gif'); ?>" alt="Loading..."
-                      class="loaderimg" />
-                    <?php _e('Activate', 'gsheetconnector'); ?>
+                    <?php esc_attr_e('Activate', 'gsheetconnector-gravity-forms'); ?>
                   </button>
+                  <span class="loading-sign-active"></span>
                 <?php endif; ?>
               </div>
             </div>
@@ -505,17 +503,17 @@
               <?php } else { ?>
                 <div class="plugin-free">Free</div>
               <?php } ?>
-              <a href="<?php echo $data['link']; ?>" target="_blank">
-                <img src="<?php echo $data['img']; ?>" alt="logo">
+              <a href="<?php echo esc_url($data['link']); ?>" target="_blank">
+                <img src="<?php echo esc_html($data['img']); ?>" alt="logo">
               </a>
               <div class="addon-item-header-meta">
                 <div class="addon-item-meta-title">
-                  <a href="<?php echo $data['link']; ?>" target="_blank">
-                    <?php echo $data['name']; ?>
+                  <a href="<?php echo esc_url($data['link']); ?>" target="_blank">
+                    <?php echo esc_html($data['name']); ?>
                   </a>
                 </div>
                 <div class="addon-item-header-meta-excerpt">
-                  <?php echo $data['text']; ?>
+                  <?php echo esc_html($data['text']); ?>
                 </div>
               </div>
             </div>
@@ -532,5 +530,7 @@
 
     ?>
   </div>
+  <?php wp_nonce_field('gs_gravity_ajax_nonce', 'gs_gravity_ajax_nonce'); ?>
+
 </div>
 <!-- wrap #end -->
