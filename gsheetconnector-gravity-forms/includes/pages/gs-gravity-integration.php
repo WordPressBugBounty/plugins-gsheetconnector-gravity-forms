@@ -49,10 +49,13 @@ if (isset($_GET['code']) && ($gravityforms_manual_setting == 0)) {
 
 
 <div class="card-gravityforms dropdownoption-gravityforms">
-    <div class="lbl-drop-down-select">
+	
+		<h2><?php echo esc_html__('Gravity Forms - Google Sheet Integration', "gsheetconnector-gravity-forms"); ?></h2>
+	
+    <div class="lbl-drop-down-select row">
         <label
             for="gs_gravityforms_dro_option"><?php echo esc_html__('Choose Google API Setting :', 'gsheetconnector-gravity-forms'); ?></label>
-    </div>
+   
     <div class="drop-down-select-btn">
         <select id="gs_gravityforms_dro_option" name="gs_gravityforms_dro_option">
             <option value="gravityforms_existing" selected>
@@ -69,15 +72,14 @@ if (isset($_GET['code']) && ($gravityforms_manual_setting == 0)) {
                 href="https://www.gsheetconnector.com/gravity-forms-google-sheet-connector" target="_blank"><input
                     type="button" name="save-method-api-gravityforms" id=""
                     value="<?php echo esc_html('Upgrade To PRO', 'gsheetconnector-gravity-forms'); ?>"
-                    class="button button-primary" /></a>
-            <span class="tooltip">
-                <img src="<?php echo esc_url(GRAVITY_GOOGLESHEET_URL . 'assets/image/help.png'); ?>" class="help-icon">
-
-                <span
-                    class="tooltiptext tooltip-right"><?php echo esc_html('Manual Client/Secret Key (Use Your Google API Configuration) method is available in the PRO version of the plugin.', 'gsheetconnector-gravity-forms'); ?></span>
-            </span>
+                    class="button button-primary" /></a> 
+			
+			<span class="tooltip" data-tooltip="<?php echo esc_html('Manual Client/Secret Key (Use Your Google API Configuration) method is available in the PRO version of the plugin.', 'gsheetconnector-gravity-forms'); ?>" data-tooltip-pos="right" data-tooltip-length="medium">  <i class="gswoo-helop-icon fa fa-question-circle"></i></span>
+			
         </p>
-
+		
+		
+		</div>
     </div>
 </div>
 
@@ -86,31 +88,28 @@ if (isset($_GET['code']) && ($gravityforms_manual_setting == 0)) {
     <div class="gform-card gform-tab-content">
         <input type="hidden" name="redirect_auth_gravityforms" id="redirect_auth_gravityforms"
             value="<?php echo (isset($header)) ? esc_attr($header) : ''; ?>">
-        <span class="title1"><?php echo esc_html__('Gravity Forms - ', "gsheetconnector-gravity-forms"); ?></span>
-        <span
-            class="title"><?php echo esc_html__('Google Sheet Integration', "gsheetconnector-gravity-forms"); ?></span>
-        <hr>
+       
+	 
 
         <div class="inside-tab">
             <div id="google-drive-msg" class="gravityform-gs-alert-card <?php if (!empty(get_option('gfgs_token')) && get_option('gfgs_token') !== "")
                 echo 'hidden'; ?>">
                 <?php if (empty($Code)) { ?>
                     <div class="gf-gs-alert-kk">
-                        <p class="gf-gs-alert-heading">
+                        <h3>
                             <?php echo esc_html__('Authenticate with your Google account, follow these steps:', 'gsheetconnector-gravity-forms'); ?>
-                        </p>
+                        </h3>
                         <ol class="gf-gs-alert-steps">
                             <li><?php echo esc_html__('Click on the "Sign In With Google" button.', 'gsheetconnector-gravity-forms'); ?>
                             </li>
-                            <li><?php echo esc_html__('Grant permissions for the following:', 'gsheetconnector-gravity-forms'); ?>
-                                <ul class="gf-gs-alert-permissions">
+                            <li><?php echo esc_html__('Grant permissions for the following:', 'gsheetconnector-gravity-forms'); ?> </li>
+                                
                                     <li><?php echo esc_html__('Google Drive', 'gsheetconnector-gravity-forms'); ?></li>
                                     <li><?php echo esc_html__('Google Sheets', 'gsheetconnector-gravity-forms'); ?> <br />
                                         <span><?php echo esc_html__('* Ensure that you enable the checkbox for each of these services.', 'gsheetconnector-gravity-forms'); ?></span>
                                     </li>
-                                </ul>
-
-                            </li>
+                                
+                           
                             <li><?php echo esc_html__('This will allow the integration to access your Google Drive and Google Sheets.', 'gsheetconnector-gravity-forms'); ?>
                             </li>
                         </ol>
@@ -119,22 +118,18 @@ if (isset($_GET['code']) && ($gravityforms_manual_setting == 0)) {
             </div>
 
 
-            <div class="gs-integration-layout">
+            <div class="gs-integration-layout row">
                 <label
-                    for="gfgs-code"><?php echo esc_html__('Google Access Code', 'gsheetconnector-gravity-forms'); ?></label>
+                    for="gfgs-code"><?php echo esc_html__('Google Access Code : ', 'gsheetconnector-gravity-forms'); ?></label>
                 <?php if (!empty(get_option('gfgs_token')) && get_option('gfgs_token') !== "") { ?>
                     <input type="text" name="gfgs-code" id="gfgs-code" value="" disabled
                         placeholder="<?php echo esc_html__('Currently Active', 'gsheetconnector-gravity-forms'); ?>" />
                     <input type="button" name="deactivate-log" id="deactivate-log"
                         value="<?php echo esc_html('Deactivate', 'gsheetconnector-gravity-forms'); ?>"
-                        class="button button-primary" />
-                    <span class="tooltip">
-                        <img src="<?php echo esc_url(GRAVITY_GOOGLESHEET_URL . 'assets/image/help.png'); ?>"
-                            class="help-icon" alt="Help Icon">
-
-                        <span
-                            class="tooltiptext tooltip-right"><?php echo esc_html__('On deactivation, all your data saved with authentication will be removed, and you need to reauthenticate with your Google account.', 'gsheetconnector-gravity-forms'); ?></span>
-                    </span>
+                        class="button button-primary" /> 
+				
+					<span class="tooltip" data-tooltip="<?php echo esc_html__('On deactivation, all your data saved with authentication will be removed, and you need to reauthenticate with your Google account.', 'gsheetconnector-gravity-forms'); ?>" data-tooltip-pos="right" data-tooltip-length="medium">  <i class="gswoo-helop-icon fa fa-question-circle"></i></span>	
+				
                     <span class="loading-sign-deactive"></span>
                 <?php } else {
                     $redirct_uri = admin_url('admin.php?page=gf_googlesheet');
@@ -193,7 +188,7 @@ if (isset($_GET['code']) && ($gravityforms_manual_setting == 0)) {
                     if ($email_account) {
                         update_option('gravityforms_gs_auth_expired_free', 'false');
                         ?>
-                        <p class="connected-account-grvty">
+                        <p class="connected-account-grvty row">
                             <label><?php printf(esc_html('Connected email account :', 'gsheetconnector-gravity-forms'), esc_attr($email_account)); ?></label>
                             <?php printf(wp_kses('<u>%s </u>', 'gsheetconnector-gravity-forms'), esc_attr($email_account)); ?>
                         </p>
@@ -211,7 +206,27 @@ if (isset($_GET['code']) && ($gravityforms_manual_setting == 0)) {
             }
             ?>
 
-            <p>
+            
+            <span id="deactivate-message"></span>
+            <p id="gsheet-validation-message"></p>
+			
+			
+			<div class="msg success-msg">
+				<i class="fa-solid fa-lock"></i>
+				
+				<p><?php echo esc_html__("Note : We do not store any of the data from your Google account on our servers, everything is processed & stored on your server. We take your privacy extremely seriously and ensure it is never misused.", "gsheetconnector-gravity-forms"); ?>
+				<a href="https://gsheetconnector.com/usage-tracking/" target="_blank" rel="noopener noreferrer"><?php echo esc_html__("Learn more.", "gsheetconnector-gravity-forms"); ?></a></p> 
+			</div>
+			
+			
+           
+            <!-- Set nonce -->
+            <input type="hidden" name="gf-ajax-nonce" id="gf-ajax-nonce"
+                value="<?php echo esc_attr(wp_create_nonce('gf-ajax-nonce')); ?>" />
+			
+			
+			
+			<p>
                 <label for="debug-log"><?php echo esc_html__('Debug Log', 'gsheetconnector-gravity-forms'); ?></label>
                 <label>
                     <!-- display error logs -->
@@ -224,21 +239,6 @@ if (isset($_GET['code']) && ($gravityforms_manual_setting == 0)) {
                         class="clear-debug"><?php echo esc_html__('Clear', 'gsheetconnector-gravity-forms'); ?></a></label>
                 <span class="clear-loading-sign">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
             </p>
-            <span id="deactivate-message"></span>
-            <p id="gsheet-validation-message"></p>
-            <div id="gf-gsc-cta" class="gf-gsc-privacy-box">
-                <div class="gf-gsc-table">
-                    <div class="gf-gsc-less-free">
-                        <p><i
-                                class="dashicons dashicons-lock"></i><?php echo esc_html__("We do not store any of the data from your Google account on our servers, everything is processed & stored on your server. We take your privacy extremely seriously and ensure it is never misused.", "gsheetconnector-gravity-forms"); ?>
-                        </p> <a href="https://gsheetconnector.com/usage-tracking/" target="_blank"
-                            rel="noopener noreferrer"><?php echo esc_html__("Learn more.", "gsheetconnector-gravity-forms"); ?></a>
-                    </div>
-                </div>
-            </div>
-            <!-- Set nonce -->
-            <input type="hidden" name="gf-ajax-nonce" id="gf-ajax-nonce"
-                value="<?php echo esc_attr(wp_create_nonce('gf-ajax-nonce')); ?>" />
 
         </div>
     </div>

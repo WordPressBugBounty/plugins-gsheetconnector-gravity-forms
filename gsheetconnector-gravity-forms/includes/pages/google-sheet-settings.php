@@ -42,14 +42,24 @@ $plugin_version = defined('GRAVITY_GOOGLESHEET_VERSION') ? GRAVITY_GOOGLESHEET_V
       <small><?php echo esc_html(__('Version', 'gsheetconnector-gravity-forms')); ?> :
          <?php echo esc_html($plugin_version, GRAVITY_GOOGLESHEET_VERSION); ?> </small>
    </h1>
-   <a href="https://support.gsheetconnector.com/kb" title="gsheet Knowledge Base" target="_blank"
-      class="button gsheet-help"><i class="dashicons dashicons-editor-help"></i></a>
+  
+	<ul>
+		<li><a href="<?php echo admin_url( 'admin.php?page=gf_googlesheet&tab=extensions', 'gsconnector' ); ?>" title="Extensions">
+          <i class="fa-solid fa-puzzle-piece"></i></a></li>
+        <li><a href="https://www.gsheetconnector.com/docs/gravity-forms-gsheetconnector" title="Document" target="_blank" rel="noopener noreferrer"><i class="fa-regular fa-file-lines"></i></a></li>
+        <li><a href="https://www.gsheetconnector.com/support" title="Support" target="_blank" rel="noopener noreferrer"><i class="fa-regular fa-life-ring"></i></a></li>
+        <li><a href="https://wordpress.org/plugins/gsheetconnector-gravity-forms/#developers" title="Changelog" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-bullhorn"></i></a></li>
+    </ul>
+	
 </div><!-- header #end -->
+
+<div class="breadcrumb">
 <span class="dashboard-gsc"><?php echo esc_html(__('DASHBOARD', 'gsheetconnector-gravity-forms')); ?></span>
 <span class="divider-gsc"> / </span>
 <span class="modules-gsc"> <?php echo esc_html($active_tab_name) ?></span>
+</div>
+	
 
-<div class="wrap">
    <?php
    $tabs = array(
       'integration' => __('Integration', 'gsheetconnector-gravity-forms'),
@@ -61,7 +71,7 @@ $plugin_version = defined('GRAVITY_GOOGLESHEET_VERSION') ? GRAVITY_GOOGLESHEET_V
       'extensions' => __('Extensions', 'gsheetconnector-gravity-forms'),
    );
    echo '<div id="icon-themes" class="icon32"><br></div>';
-   echo '<h2 class="nav-tab-wrapper">';
+   echo '<div class="nav-tab-wrapper">';
    foreach ($tabs as $tab => $name) {
       $class = ($tab == $active_tab) ? ' nav-tab-active' : '';
       echo '<a class="nav-tab' . esc_attr($class) . '" href="?page=gf_googlesheet&amp;tab=' . esc_attr($tab) . '">'
@@ -69,7 +79,7 @@ $plugin_version = defined('GRAVITY_GOOGLESHEET_VERSION') ? GRAVITY_GOOGLESHEET_V
          '</a>';
 
    }
-   echo '</h2>';
+   echo '</div> <div class="wrap-gsc">';
    switch ($active_tab) {
       case 'integration':
          include(GRAVITY_GOOGLESHEET_PATH . "includes/pages/gs-gravity-integration.php");

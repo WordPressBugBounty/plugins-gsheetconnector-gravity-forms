@@ -5,7 +5,7 @@ Tags: gravity forms, gravity forms google sheet, google sheets, gravity forms to
 Tested up to: 6.8
 Requires at least: 5.6
 Requires PHP: 7.4
-Stable tag: 1.3.25
+Stable tag: 1.3.26
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -106,6 +106,9 @@ Enjoy!
 
 == Changelog ==
 
+= 1.3.26 = (12-08-2025)
+* Added: Added new CSS and updated the UI.
+ 	
 = 1.3.25 = (05-08-2025)
  Removed direct links to 5-star reviews to comply with WordPress plugin guidelines.
 * Updated “Tested Up To” value to reflect compatibility with the latest WordPress version.
