@@ -14,7 +14,7 @@ if (!defined('ABSPATH')) {
  * Utilities class - singleton class
  * @since 1.0
  */
-class GravityForms_Gs_Connector_Utility
+class GravityForms_GsFree_Connector_Utility
 {
 
    private function __construct()
@@ -23,16 +23,16 @@ class GravityForms_Gs_Connector_Utility
    }
 
    /**
-    * Get the singleton instance of the GravityForms_Gs_Connector_Utility class
+    * Get the singleton instance of the GravityForms_GsFree_Connector_Utility class
     *
-    * @return singleton instance of GravityForms_Gs_Connector_Utility
+    * @return singleton instance of GravityForms_GsFree_Connector_Utility
     */
    public static function instance()
    {
 
       static $instance = NULL;
       if (is_null($instance)) {
-         $instance = new GravityForms_Gs_Connector_Utility();
+         $instance = new GravityForms_GsFree_Connector_Utility();
       }
       return $instance;
    }
@@ -42,13 +42,12 @@ class GravityForms_Gs_Connector_Utility
     *
     * @param mixed $message
     */
-   public function logger($message)
-   {
+   public function logger($message) {
       if (WP_DEBUG === true) {
          if (is_array($message) || is_object($message)) {
-            GravityForms_Gs_Connector_Utility::gfgs_debug_log($message);
+            error_log(print_r($message, true));
          } else {
-            GravityForms_Gs_Connector_Utility::gfgs_debug_log($message);
+            error_log($message);
          }
       }
    }
@@ -217,7 +216,7 @@ class GravityForms_Gs_Connector_Utility
          }
 
       } catch (Exception $e) {
-         GravityForms_Gs_Connector_Utility::gfgs_debug_log('❌ Exception in gs_debug_log: ' . $e->getMessage());
+         GravityForms_GsFree_Connector_Utility::gfgs_debug_log('❌ Exception in gs_debug_log: ' . $e->getMessage());
       }
    }
 
@@ -238,7 +237,7 @@ class GravityForms_Gs_Connector_Utility
 
          return $formattedDate;
       } catch (Exception $e) {
-         GravityForms_Gs_Connector_Utility::gfgs_debug_log('Error in getDefaultDate: ' . $e->getMessage());
+         GravityForms_GsFree_Connector_Utility::gfgs_debug_log('Error in getDefaultDate: ' . $e->getMessage());
       }
    }
 

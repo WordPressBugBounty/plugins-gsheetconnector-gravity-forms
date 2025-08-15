@@ -982,7 +982,7 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
       // error_log("⚙️ Static Sheet Settings Found — Sending to Sheet");
       $this->send_entry($sheetId, $sheet_name, $tabid, $sheet_tab_name, $entry, $form);
     } else {
-      GravityForms_Gs_Connector_Utility::gfgs_debug_log("⚠️ No static sheet settings found for form ID: {$form_id} ");
+      GravityForms_GsFree_Connector_Utility::gfgs_debug_log("⚠️ No static sheet settings found for form ID: {$form_id} ");
 
     }
 
@@ -1116,7 +1116,7 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
         $error_message = $e->getMessage();
         $data['ERROR_MSG'] = $error_message;
         $data['TRACE_STK'] = $e->getTraceAsString();
-        GravityForms_Gs_Connector_Utility::gfgs_debug_log($data);
+        GravityForms_GsFree_Connector_Utility::gfgs_debug_log($data);
       }
     }
   }

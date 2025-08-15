@@ -52,26 +52,26 @@ class GFGS_Connector_Service
 
       // Check if user has permission to deactivate plugins
       if (!current_user_can('activate_plugins')) {
-         GravityForms_Gs_Connector_Utility::gfgs_debug_log('Error: User lacks permission to deactivate plugins.');
+         GravityForms_GsFree_Connector_Utility::gfgs_debug_log('Error: User lacks permission to deactivate plugins.');
          wp_send_json_error('You do not have permission to deactivate plugins.');
       }
 
       // Validate presence of plugin_slug
       if (!isset($_POST['plugin_slug'])) {
-         GravityForms_Gs_Connector_Utility::gfgs_debug_log('Error: Plugin slug missing.');
+         GravityForms_GsFree_Connector_Utility::gfgs_debug_log('Error: Plugin slug missing.');
          wp_send_json_error('Plugin slug is missing.');
       }
 
       $plugin_slug = sanitize_text_field(wp_unslash($_POST['plugin_slug'])); // ✅ Correct
       // Validate plugin slug
       if (empty($plugin_slug)) {
-         GravityForms_Gs_Connector_Utility::gfgs_debug_log('Error: Plugin slug is empty.');
+         GravityForms_GsFree_Connector_Utility::gfgs_debug_log('Error: Plugin slug is empty.');
          wp_send_json_error('Invalid plugin.');
       }
 
       // Check if the plugin file exists
       if (!file_exists(WP_PLUGIN_DIR . '/' . $plugin_slug)) {
-         GravityForms_Gs_Connector_Utility::gfgs_debug_log("Error: Plugin file does not exist - " . $plugin_slug);
+         GravityForms_GsFree_Connector_Utility::gfgs_debug_log("Error: Plugin file does not exist - " . $plugin_slug);
          wp_send_json_error('Plugin not found.');
       }
 
@@ -80,7 +80,7 @@ class GFGS_Connector_Service
 
       // Confirm plugin was deactivated
       if (is_plugin_active($plugin_slug)) {
-         GravityForms_Gs_Connector_Utility::gfgs_debug_log("Error: Plugin deactivation failed - " . $plugin_slug);
+         GravityForms_GsFree_Connector_Utility::gfgs_debug_log("Error: Plugin deactivation failed - " . $plugin_slug);
          wp_send_json_error('Failed to deactivate plugin.');
       }
 
@@ -104,7 +104,7 @@ class GFGS_Connector_Service
 
       // Validate required fields
       if (!isset($_POST['plugin_slug'], $_POST['download_url'])) {
-         GravityForms_Gs_Connector_Utility::gfgs_debug_log('Error: Missing plugin_slug or download_url.');
+         GravityForms_GsFree_Connector_Utility::gfgs_debug_log('Error: Missing plugin_slug or download_url.');
          wp_send_json_error(['message' => 'Missing required parameters.']);
       }
 
@@ -113,7 +113,7 @@ class GFGS_Connector_Service
 
       // Validate input values
       if (empty($plugin_slug) || empty($download_url)) {
-         GravityForms_Gs_Connector_Utility::gfgs_debug_log('Error: Plugin slug or download URL is empty.');
+         GravityForms_GsFree_Connector_Utility::gfgs_debug_log('Error: Plugin slug or download URL is empty.');
          wp_send_json_error(['message' => 'Invalid plugin data.']);
       }
 
@@ -145,13 +145,13 @@ class GFGS_Connector_Service
             $result = $upgrader->upgrade($plugin_path);
 
             if (is_wp_error($result)) {
-               GravityForms_Gs_Connector_Utility::gfgs_debug_log('Upgrade failed: ' . $result->get_error_message());
+               GravityForms_GsFree_Connector_Utility::gfgs_debug_log('Upgrade failed: ' . $result->get_error_message());
                wp_send_json_error(['message' => 'Upgrade failed: ' . $result->get_error_message()]);
             }
 
             wp_send_json_success(['message' => 'Plugin upgraded successfully.']);
          } else {
-            GravityForms_Gs_Connector_Utility::gfgs_debug_log('No updates available for plugin: ' . $plugin_path);
+            GravityForms_GsFree_Connector_Utility::gfgs_debug_log('No updates available for plugin: ' . $plugin_path);
             wp_send_json_error(['message' => 'No updates available for this plugin.']);
          }
       } else {
@@ -159,7 +159,7 @@ class GFGS_Connector_Service
          $result = $upgrader->install($download_url);
 
          if (is_wp_error($result)) {
-            GravityForms_Gs_Connector_Utility::gfgs_debug_log('Installation failed: ' . $result->get_error_message());
+            GravityForms_GsFree_Connector_Utility::gfgs_debug_log('Installation failed: ' . $result->get_error_message());
             wp_send_json_error(['message' => 'Installation failed: ' . $result->get_error_message()]);
          }
 
@@ -183,13 +183,13 @@ class GFGS_Connector_Service
 
       // Check permission
       if (!current_user_can('activate_plugins')) {
-         GravityForms_Gs_Connector_Utility::gfgs_debug_log('Permission denied for plugin activation.');
+         GravityForms_GsFree_Connector_Utility::gfgs_debug_log('Permission denied for plugin activation.');
          wp_send_json_error(['message' => 'Permission denied.']);
       }
 
       // Check and sanitize plugin slug
       if (!isset($_POST['plugin_slug'])) {
-         GravityForms_Gs_Connector_Utility::gfgs_debug_log('Missing plugin slug for activation.');
+         GravityForms_GsFree_Connector_Utility::gfgs_debug_log('Missing plugin slug for activation.');
          wp_send_json_error(['message' => 'Missing plugin slug.']);
       }
 
@@ -203,7 +203,7 @@ class GFGS_Connector_Service
       $activated = activate_plugin($plugin_slug);
 
       if (is_wp_error($activated)) {
-         GravityForms_Gs_Connector_Utility::gfgs_debug_log('Activation failed: ' . $activated->get_error_message());
+         GravityForms_GsFree_Connector_Utility::gfgs_debug_log('Activation failed: ' . $activated->get_error_message());
          wp_send_json_error(['message' => $activated->get_error_message()]);
       }
 
@@ -236,7 +236,7 @@ class GFGS_Connector_Service
             wp_send_json_error();
          }
       } catch (Exception $e) {
-         GravityForms_Gs_Connector_Utility::gfgs_debug_log('Error during verification: ' . $e->getMessage());
+         GravityForms_GsFree_Connector_Utility::gfgs_debug_log('Error during verification: ' . $e->getMessage());
 
          wp_send_json_error();
       }
@@ -271,7 +271,7 @@ class GFGS_Connector_Service
             wp_send_json_error();
          }
       } catch (Exception $e) {
-         GravityForms_Gs_Connector_Utility::gfgs_debug_log('Error during deactivation: ' . $e->getMessage());
+         GravityForms_GsFree_Connector_Utility::gfgs_debug_log('Error during deactivation: ' . $e->getMessage());
          // Handle any exceptions thrown during deactivation
 
 
@@ -311,7 +311,7 @@ class GFGS_Connector_Service
 
          wp_send_json_success($clear_file_msg);
       } catch (Exception $e) {
-         GravityForms_Gs_Connector_Utility::gfgs_debug_log($e->getMessage());
+         GravityForms_GsFree_Connector_Utility::gfgs_debug_log($e->getMessage());
          wp_send_json_error();
       }
    }

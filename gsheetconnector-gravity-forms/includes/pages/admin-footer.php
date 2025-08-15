@@ -1,8 +1,8 @@
 <!-- plugin promotion footer-->
 <?php
-function gsheetconnector_admin_footer_text()
+function gsheetconnector_gffree_admin_footer_text()
 {
-  $review_url = 'https://wordpress.org/support/plugin/gsheetconnector-formidable-forms/reviews/';
+  $review_url = 'https://wordpress.org/support/plugin/gsheetconnector-gravity-forms/reviews/';
   $plugin_name = 'GSheetConnector For Gravity Forms';
 
   $text = sprintf(
@@ -17,7 +17,7 @@ function gsheetconnector_admin_footer_text()
 
   echo wp_kses_post('<span id="footer-left" class="alignleft">' . $text . '</span>');
 }
-add_filter('admin_footer_text', 'gsheetconnector_admin_footer_text');
+add_filter('admin_footer_text', 'gsheetconnector_gffree_admin_footer_text');
 
 
 ?>

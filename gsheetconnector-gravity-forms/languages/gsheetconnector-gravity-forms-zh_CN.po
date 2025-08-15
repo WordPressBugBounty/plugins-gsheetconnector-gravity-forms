@@ -1,13 +1,15 @@
 msgid ""
 msgstr ""
-"Plural-Forms: nplurals=1; plural=0;\n"
 "Project-Id-Version: GSheetConnector For Gravity Forms\n"
-"POT-Creation-Date: 2025-08-05 16:44+0530\n"
-"PO-Revision-Date: 2025-08-05 17:01+0530\n"
+"POT-Creation-Date: 2025-08-15 11:57+0530\n"
+"PO-Revision-Date: 2025-08-15 11:57+0530\n"
+"Last-Translator: \n"
 "Language-Team: \n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 2.4.3\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
@@ -16,8 +18,6 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
 "esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
 "_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
-"Last-Translator: \n"
-"Language: zh_CN\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 
@@ -263,36 +263,36 @@ msgstr "保存此源以查看同步所有现有条目选项。"
 msgid "Name"
 msgstr "名称"
 
-#: gsheetconnector-gravityforms.php:165
+#: gsheetconnector-gravityforms.php:164
 msgid "View Documentation"
 msgstr "查看文档"
 
-#: gsheetconnector-gravityforms.php:165
+#: gsheetconnector-gravityforms.php:164
 msgid "Docs"
 msgstr "文档"
 
-#: gsheetconnector-gravityforms.php:166
+#: gsheetconnector-gravityforms.php:165
 msgid "Get Support"
 msgstr "获取支持"
 
-#: gsheetconnector-gravityforms.php:166
+#: gsheetconnector-gravityforms.php:165
 msgid "Support"
 msgstr "支持"
 
-#: gsheetconnector-gravityforms.php:910
+#: gsheetconnector-gravityforms.php:909
 msgid "Settings"
 msgstr "設置"
 
-#: gsheetconnector-gravityforms.php:919
+#: gsheetconnector-gravityforms.php:918
 msgid "Get GSheetConnector Gravity Pro"
 msgstr "重力形式 GSheetConnector Pro"
 
-#: gsheetconnector-gravityforms.php:938
+#: gsheetconnector-gravityforms.php:937
 #: includes/pages/google-sheet-settings.php:41
 msgid "Gravity Forms - GSheetConnector"
 msgstr "重力形式 - GSheetConnector"
 
-#: gsheetconnector-gravityforms.php:987
+#: gsheetconnector-gravityforms.php:986
 msgid ""
 "Deactivated GSheetConnector Gravity Forms (Pro Version) to activate "
 "GSheetConnector Gravity Forms Free."
@@ -325,7 +325,7 @@ msgstr "稍后再说。"
 msgid "Dismiss"
 msgstr "忽略"
 
-#: includes/class-gravityforms-utility.php:86
+#: includes/class-gravityforms-utility.php:85
 msgid "There's something wrong with your code..."
 msgstr "您的代碼有問題..."
 
@@ -338,20 +338,20 @@ msgstr "喜欢使用 %1$s？查看我们的评论或在%2$s留下您自己的评
 msgid "WordPress.org"
 msgstr "WordPress.org"
 
-#: includes/pages/extensions.php:289 includes/pages/extensions.php:413
-#: includes/pages/extensions.php:426
+#: includes/pages/extensions.php:287 includes/pages/extensions.php:411
+#: includes/pages/extensions.php:424
 msgid "Activate"
 msgstr "启用"
 
-#: includes/pages/extensions.php:315
+#: includes/pages/extensions.php:313
 msgid "Upgrade to PRO"
 msgstr "升级到专业版"
 
-#: includes/pages/extensions.php:347
+#: includes/pages/extensions.php:345
 msgid "Already using PRO version"
 msgstr "已在使用 PRO 版本"
 
-#: includes/pages/extensions.php:408
+#: includes/pages/extensions.php:406
 msgid "Activated"
 msgstr "激活"
 
@@ -359,19 +359,19 @@ msgstr "激活"
 msgid "Version"
 msgstr "版本"
 
-#: includes/pages/google-sheet-settings.php:48
+#: includes/pages/google-sheet-settings.php:57
 msgid "DASHBOARD"
 msgstr "仪表盘"
 
-#: includes/pages/google-sheet-settings.php:55
+#: includes/pages/google-sheet-settings.php:65
 msgid "Integration"
 msgstr "集成"
 
-#: includes/pages/google-sheet-settings.php:58
+#: includes/pages/google-sheet-settings.php:68
 msgid "System Status"
 msgstr "系统状态"
 
-#: includes/pages/google-sheet-settings.php:61
+#: includes/pages/google-sheet-settings.php:71
 msgid "Extensions"
 msgstr "扩展"
 
@@ -429,31 +429,27 @@ msgstr "EDD"
 msgid "Check Demo"
 msgstr "检查演示"
 
-#: includes/pages/gs-gravity-integration.php:54
+#: includes/pages/gs-gravity-integration.php:53
+msgid "Gravity Forms - Google Sheet Integration"
+msgstr "Gravity Forms - Google 表格集成"
+
+#: includes/pages/gs-gravity-integration.php:57
 msgid "Choose Google API Setting :"
 msgstr "选择 Google API 设置："
 
-#: includes/pages/gs-gravity-integration.php:59
+#: includes/pages/gs-gravity-integration.php:62
 msgid "Use Existing Client/Secret Key (Auto Google API Configuration)"
 msgstr "使用现有客户端/密钥（自动 Google API 配置）"
 
-#: includes/pages/gs-gravity-integration.php:62
+#: includes/pages/gs-gravity-integration.php:65
 msgid ""
 "Use Manual Client/Secret Key (Use Your Google API Configuration) (Upgrade To "
 "PRO)"
 msgstr "使用手动客户端/密钥（使用您的 Google API 配置）（升级到专业版）"
 
-#: includes/pages/gs-gravity-integration.php:65
+#: includes/pages/gs-gravity-integration.php:68
 msgid "Service Account (Recommended) (Upgrade To PRO)"
 msgstr "服务帐户（推荐）（升级到 PRO）"
-
-#: includes/pages/gs-gravity-integration.php:89
-msgid "Gravity Forms - "
-msgstr "重力形式 -"
-
-#: includes/pages/gs-gravity-integration.php:91
-msgid "Google Sheet Integration"
-msgstr "Google 表格集成"
 
 #: includes/pages/gs-gravity-integration.php:100
 msgid "Authenticate with your Google account, follow these steps:"
@@ -475,21 +471,21 @@ msgstr "谷歌云盘"
 msgid "* Ensure that you enable the checkbox for each of these services."
 msgstr "* 确保为其中每一项服务启用复选框。"
 
-#: includes/pages/gs-gravity-integration.php:114
+#: includes/pages/gs-gravity-integration.php:113
 msgid ""
 "This will allow the integration to access your Google Drive and Google "
 "Sheets."
 msgstr "这将允许集成访问您的 Google Drive 和 Google 表格。"
 
-#: includes/pages/gs-gravity-integration.php:124
-msgid "Google Access Code"
+#: includes/pages/gs-gravity-integration.php:123
+msgid "Google Access Code : "
 msgstr "谷歌访问代码"
 
-#: includes/pages/gs-gravity-integration.php:127
+#: includes/pages/gs-gravity-integration.php:126
 msgid "Currently Active"
 msgstr "目前活跃的"
 
-#: includes/pages/gs-gravity-integration.php:136
+#: includes/pages/gs-gravity-integration.php:131
 msgid ""
 "On deactivation, all your data saved with authentication will be removed, "
 "and you need to reauthenticate with your Google account."
@@ -497,15 +493,15 @@ msgstr ""
 "停用后，您通过身份验证保存的所有数据都将被删除，您需要使用您的 Google 帐户重"
 "新进行身份验证。"
 
-#: includes/pages/gs-gravity-integration.php:143
+#: includes/pages/gs-gravity-integration.php:138
 msgid "Click on Sign in with Google button"
 msgstr "点击“使用 Google 登录”按钮"
 
-#: includes/pages/gs-gravity-integration.php:160
+#: includes/pages/gs-gravity-integration.php:155
 msgid "Click here to Save Authentication Code"
 msgstr "单击此处保存验证码"
 
-#: includes/pages/gs-gravity-integration.php:174
+#: includes/pages/gs-gravity-integration.php:169
 msgid ""
 "Something went wrong! It looks you have not given the permission of Google "
 "Drive and Google Sheets from your google account.Please Deactivate Auth and "
@@ -514,15 +510,15 @@ msgstr ""
 "出了点问题！看起来您没有从您的 Google 帐户中获得 Google Drive 和 Google 表格"
 "的许可。请停用身份验证，然后使用权限重新进行身份验证。"
 
-#: includes/pages/gs-gravity-integration.php:181
+#: includes/pages/gs-gravity-integration.php:176
 msgid "Also,"
 msgstr "还 ，    "
 
-#: includes/pages/gs-gravity-integration.php:183
+#: includes/pages/gs-gravity-integration.php:178
 msgid "Click Here "
 msgstr "请点击这里"
 
-#: includes/pages/gs-gravity-integration.php:184
+#: includes/pages/gs-gravity-integration.php:179
 msgid ""
 "and if it displays \"GSheetConnector for WP Contact Forms\" under Third-"
 "party apps with account access then remove it."
@@ -530,36 +526,36 @@ msgstr ""
 "如果它在具有帐户访问权限的第三方应用程序下显示“GSheetConnector for WP "
 "Contact Forms”，则将其删除。"
 
-#: includes/pages/gs-gravity-integration.php:206
+#: includes/pages/gs-gravity-integration.php:201
 msgid ""
 "Something went wrong! Your Auth code may be incorrect or expired. Please "
 "Deactivate and Re-Authenticate."
 msgstr "出了点问题！您的授权码可能不正确或已过期。请停用并重新进行身份验证。"
 
-#: includes/pages/gs-gravity-integration.php:215
+#: includes/pages/gs-gravity-integration.php:217
+msgid ""
+"Note : We do not store any of the data from your Google account on our "
+"servers, everything is processed & stored on your server. We take your "
+"privacy extremely seriously and ensure it is never misused."
+msgstr ""
+"注意：我们不会在我们的服务器上存储您Google账户的任何数据，所有内容都会在您的"
+"服务器上处理和存储。我们非常重视您的隐私，并确保它永远不会被滥用。"
+
+#: includes/pages/gs-gravity-integration.php:218
+msgid "Learn more."
+msgstr "了解更多。"
+
+#: includes/pages/gs-gravity-integration.php:230
 msgid "Debug Log"
 msgstr "调试日志"
 
-#: includes/pages/gs-gravity-integration.php:219
+#: includes/pages/gs-gravity-integration.php:234
 msgid "View"
 msgstr "查看"
 
-#: includes/pages/gs-gravity-integration.php:224
+#: includes/pages/gs-gravity-integration.php:239
 msgid "Clear"
 msgstr "清除"
-
-#: includes/pages/gs-gravity-integration.php:233
-msgid ""
-"We do not store any of the data from your Google account on our servers, "
-"everything is processed & stored on your server. We take your privacy "
-"extremely seriously and ensure it is never misused."
-msgstr ""
-"我们不会将您的Google帐户中的任何数据存储在我们的服务器上，所有内容都经过处理"
-"并存储在您的服务器上。我们非常重视您的隐私，并确保它永远不会被滥用。"
-
-#: includes/pages/gs-gravity-integration.php:235
-msgid "Learn more."
-msgstr "了解更多。"
 
 #: includes/pages/gs-gravity-integration.php:249
 msgid "Copy Logs"
@@ -658,3 +654,6 @@ msgstr "GSheet连接器"
 #. Author URI of the plugin/theme
 msgid "https://www.gsheetconnector.com/"
 msgstr "https://www.gsheetconnector.com/"
+
+#~ msgid "Gravity Forms - "
+#~ msgstr "重力形式 -"

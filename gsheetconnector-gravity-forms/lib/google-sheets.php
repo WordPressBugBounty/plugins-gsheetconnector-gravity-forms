@@ -59,7 +59,7 @@ class Gfgscf_googlesheet
 
          // Ensure credentials exist
          if (empty($api_creds)) {
-            GravityForms_Gs_Connector_Utility::gfgs_debug_log('API credentials are missing in options.');
+            GravityForms_GsFree_Connector_Utility::gfgs_debug_log('API credentials are missing in options.');
             return;
          }
 
@@ -70,7 +70,7 @@ class Gfgscf_googlesheet
 
          // Validate clientId and clientSecret
          if (empty($clientId) || empty($clientSecret)) {
-            GravityForms_Gs_Connector_Utility::gfgs_debug_log('Client ID or Secret is missing.');
+            GravityForms_GsFree_Connector_Utility::gfgs_debug_log('Client ID or Secret is missing.');
             return;
          }
 
@@ -90,7 +90,7 @@ class Gfgscf_googlesheet
 
          // Check for token errors
          if (isset($tokenData['error'])) {
-            GravityForms_Gs_Connector_Utility::gfgs_debug_log('Error fetching token: ' . $tokenData['error_description']);
+            GravityForms_GsFree_Connector_Utility::gfgs_debug_log('Error fetching token: ' . $tokenData['error_description']);
             return;
          }
 
@@ -99,7 +99,7 @@ class Gfgscf_googlesheet
 
       } catch (Exception $e) {
          // Log any unexpected exceptions
-         GravityForms_Gs_Connector_Utility::gfgs_debug_log('Exception in preauth(): ' . $e->getMessage());
+         GravityForms_GsFree_Connector_Utility::gfgs_debug_log('Exception in preauth(): ' . $e->getMessage());
       }
    }
    /**
@@ -131,7 +131,7 @@ class Gfgscf_googlesheet
          $tokenJson = json_encode($tokenData);
          update_option('gfgs_token', $tokenJson);
       } catch (Exception $e) {
-         GravityForms_Gs_Connector_Utility::gfgs_debug_log("Token write failed: " . $e->getMessage());
+         GravityForms_GsFree_Connector_Utility::gfgs_debug_log("Token write failed: " . $e->getMessage());
       }
    }
    /**
@@ -174,7 +174,7 @@ class Gfgscf_googlesheet
          self::setInstance($client);
 
       } catch (Exception $e) {
-         GravityForms_Gs_Connector_Utility::gfgs_debug_log("Auth error: " . $e->getMessage());
+         GravityForms_GsFree_Connector_Utility::gfgs_debug_log("Auth error: " . $e->getMessage());
          throw new LogicException('Auth failed: ' . esc_html($e->getMessage()));
       }
    }
@@ -295,7 +295,7 @@ class Gfgscf_googlesheet
          }
       } catch (Exception $e) {
          // Log any error for debugging
-         GravityForms_Gs_Connector_Utility::gfgs_debug_log('Error adding row to Google Sheet: ' . $e->getMessage());
+         GravityForms_GsFree_Connector_Utility::gfgs_debug_log('Error adding row to Google Sheet: ' . $e->getMessage());
          return null;
       }
    }
@@ -333,7 +333,7 @@ class Gfgscf_googlesheet
             $array_v['tab'] = false;
          }
       } catch (Exception $e) {
-         GravityForms_Gs_Connector_Utility::gfgs_debug_log($e->getMessage());
+         GravityForms_GsFree_Connector_Utility::gfgs_debug_log($e->getMessage());
          return null;
       }
 
@@ -381,7 +381,7 @@ class Gfgscf_googlesheet
             }
          }
       } catch (Exception $e) {
-         GravityForms_Gs_Connector_Utility::gfgs_debug_log($e->getMessage());
+         GravityForms_GsFree_Connector_Utility::gfgs_debug_log($e->getMessage());
          return null;
       }
 
@@ -418,7 +418,7 @@ class Gfgscf_googlesheet
             }
          }
       } catch (Exception $e) {
-         GravityForms_Gs_Connector_Utility::gfgs_debug_log($e->getMessage());
+         GravityForms_GsFree_Connector_Utility::gfgs_debug_log($e->getMessage());
          return null;
       }
 
@@ -451,7 +451,7 @@ class Gfgscf_googlesheet
             );
          }
       } catch (Exception $e) {
-         GravityForms_Gs_Connector_Utility::gfgs_debug_log($e->getMessage());
+         GravityForms_GsFree_Connector_Utility::gfgs_debug_log($e->getMessage());
          return null;
       }
 
@@ -476,7 +476,7 @@ class Gfgscf_googlesheet
 
          return $email;
       } catch (Exception $e) {
-         GravityForms_Gs_Connector_Utility::gfgs_debug_log($e->getMessage());
+         GravityForms_GsFree_Connector_Utility::gfgs_debug_log($e->getMessage());
          return false;
       }
    }
@@ -516,7 +516,7 @@ class Gfgscf_googlesheet
          $service = new Google_Service_Oauth2($client);
          $user = $service->userinfo->get();
       } catch (Exception $e) {
-         GravityForms_Gs_Connector_Utility::gfgs_debug_log($e->getMessage());
+         GravityForms_GsFree_Connector_Utility::gfgs_debug_log($e->getMessage());
          return false;
       }
 

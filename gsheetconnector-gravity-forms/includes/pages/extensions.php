@@ -4,9 +4,7 @@
   <?php
 
   $all_plugins = get_plugins();
-  // echo "<pre>";
-  // echo print_r($all_plugins);
-  // echo "</pre>";
+ 
   $active_theme = wp_get_theme();
 
   $plugins = [

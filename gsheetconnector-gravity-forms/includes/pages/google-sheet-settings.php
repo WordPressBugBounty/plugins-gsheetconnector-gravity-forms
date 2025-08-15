@@ -44,7 +44,7 @@ $plugin_version = defined('GRAVITY_GOOGLESHEET_VERSION') ? GRAVITY_GOOGLESHEET_V
    </h1>
   
 	<ul>
-		<li><a href="<?php echo admin_url( 'admin.php?page=gf_googlesheet&tab=extensions', 'gsconnector' ); ?>" title="Extensions">
+		<li><a href="<?php echo admin_url( 'admin.php?page=gf_googlesheet&tab=extensions', 'gsheetconnector-gravity-forms' ); ?>" title="Extensions">
           <i class="fa-solid fa-puzzle-piece"></i></a></li>
         <li><a href="https://www.gsheetconnector.com/docs/gravity-forms-gsheetconnector" title="Document" target="_blank" rel="noopener noreferrer"><i class="fa-regular fa-file-lines"></i></a></li>
         <li><a href="https://www.gsheetconnector.com/support" title="Support" target="_blank" rel="noopener noreferrer"><i class="fa-regular fa-life-ring"></i></a></li>
