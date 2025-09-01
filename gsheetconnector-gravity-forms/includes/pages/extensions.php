@@ -1,10 +1,10 @@
 <!-- tab extenion page  -->
 <div class="extensions-list">
-   <h2>Extensions</h2>
+  <h2>Extensions</h2>
   <?php
 
   $all_plugins = get_plugins();
- 
+
   $active_theme = wp_get_theme();
 
   $plugins = [

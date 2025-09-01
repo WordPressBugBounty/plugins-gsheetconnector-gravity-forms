@@ -369,9 +369,7 @@ jQuery(document).ready(function ($) {
       var loaderSpan = button
          .closest(".button-bar")
          .find(".loading-sign-install");
-
       loaderSpan.addClass("loading");
-
       jQuery.ajax({
          url: ajaxurl,
          type: "POST",

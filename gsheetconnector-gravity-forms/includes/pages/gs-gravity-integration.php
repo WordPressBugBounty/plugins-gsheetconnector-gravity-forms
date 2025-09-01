@@ -245,27 +245,30 @@ if (isset($_GET['code']) && ($gravityforms_manual_setting == 0)) {
 </div>
 <!-- display content error logs -->
 <div class="system-Error-logs-gf" style="display:none;">
-    <button id="copy-logs-btn"
-        onclick="copyLogs()"><?php echo esc_html__("Copy Logs", "gsheetconnector-gravity-forms"); ?></button>
+    <button id="copy-logs-btn" onclick="copyLogs()">
+        <?php echo esc_html__( 'Copy Logs', 'gsheetconnector-gravity-forms' ); ?>
+    </button>
 
     <div class="display-logs-gf">
         <?php
-        $wpexistDebugFile = get_option('gf_gs_debug_log_file');
-        // Check if debug log file exists
-        if (!empty($wpexistDebugFile) && file_exists($wpexistDebugFile)) {
-            $displaygffreeLogs = nl2br(file_get_contents($wpexistDebugFile));
-            if (!empty($displaygffreeLogs)) {
-                echo '<pre id="log-content">' . esc_html($displaygffreeLogs) . '</pre>';
+        $wpexist_debug_file = get_option( 'gf_gs_debug_log_file' );
 
+        if ( ! empty( $wpexist_debug_file ) && file_exists( $wpexist_debug_file ) ) {
+            $display_gf_logs = file_get_contents( $wpexist_debug_file ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+
+            if ( ! empty( $display_gf_logs ) ) {
+                // Convert line breaks and escape output
+                echo '<pre id="log-content">' . esc_html( $display_gf_logs ) . '</pre>';
             } else {
-                echo esc_html__('No errors found.', 'gsheetconnector-gravity-forms');
+                echo esc_html__( 'No errors found.', 'gsheetconnector-gravity-forms' );
             }
         } else {
-            echo esc_html__('No log file exists as no errors are generated', 'gsheetconnector-gravity-forms');
+            echo esc_html__( 'No log file exists as no errors are generated.', 'gsheetconnector-gravity-forms' );
         }
         ?>
     </div>
 </div>
+
 
 <script>
     // JavaScript function to copy the log content

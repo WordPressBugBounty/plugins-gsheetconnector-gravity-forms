@@ -5,7 +5,7 @@ Tags: gravity forms, gravity forms google sheet, google sheets, gravity forms to
 Tested up to: 6.8
 Requires at least: 5.6
 Requires PHP: 7.4
-Stable tag: 1.3.27
+Stable tag: 1.3.28
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -104,7 +104,12 @@ Enjoy!
 5. System Status.
 6. Extensions.
 
+
 == Changelog ==
+
+= 1.3.28 = (01-09-2025)
+- Fixed: Missing Authorization for authenticated users.
+- Fixed: Cross-Site Request vulnerability.
 
 = 1.3.27 = (15-08-2025)
 * Fixed: Undefined method error.

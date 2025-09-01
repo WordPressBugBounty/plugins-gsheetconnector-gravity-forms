@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GSheetConnector For Gravity Forms\n"
-"POT-Creation-Date: 2025-08-15 11:57+0530\n"
-"PO-Revision-Date: 2025-08-15 11:57+0530\n"
+"POT-Creation-Date: 2025-09-01 21:17+0530\n"
+"PO-Revision-Date: 2025-09-01 21:18+0530\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: zh_CN\n"
@@ -300,6 +300,79 @@ msgstr ""
 "停用 GSheetConnector Gravity Forms （Pro Version） 以激活 GSheetConnector "
 "Gravity Forms Free。"
 
+#: includes/class-gravityform-gs-service.php:56
+msgid "You do not have permission to deactivate plugins."
+msgstr "您无权停用插件。"
+
+#: includes/class-gravityform-gs-service.php:63
+#: includes/class-gravityform-gs-service.php:250
+msgid "Invalid plugin slug."
+msgstr "无效的插件 slug。"
+
+#: includes/class-gravityform-gs-service.php:79
+msgid "Failed to deactivate plugin."
+msgstr "无法停用插件。"
+
+#: includes/class-gravityform-gs-service.php:83
+msgid "Plugin deactivated successfully."
+msgstr "插件禁用成功。"
+
+#: includes/class-gravityform-gs-service.php:103
+msgid "You do not have permission to install or update plugins."
+msgstr "您无权安装或更新插件。"
+
+#: includes/class-gravityform-gs-service.php:113
+msgid "Missing or invalid parameters."
+msgstr "参数缺失或无效。"
+
+#: includes/class-gravityform-gs-service.php:119
+msgid "Invalid download URL."
+msgstr "下载 URL 无效。"
+
+#: includes/class-gravityform-gs-service.php:129
+msgid "Unsupported download source."
+msgstr "不支持的下载源。"
+
+#: includes/class-gravityform-gs-service.php:139
+msgid "Unsupported download path."
+msgstr "不支持的下载路径。"
+
+#: includes/class-gravityform-gs-service.php:172
+msgid "Could not verify plugin package."
+msgstr "无法验证插件包。"
+
+#: includes/class-gravityform-gs-service.php:179
+msgid "Package is not a valid ZIP file."
+msgstr "包不是有效的 ZIP 文件。"
+
+#: includes/class-gravityform-gs-service.php:186
+msgid "Plugin package is too large."
+msgstr "插件包太大。"
+
+#: includes/class-gravityform-gs-service.php:196
+msgid "Installation failed: "
+msgstr "安装失败："
+
+#: includes/class-gravityform-gs-service.php:201
+msgid "Plugin installed successfully."
+msgstr "插件安装成功。"
+
+#: includes/class-gravityform-gs-service.php:225
+msgid "You do not have permission to activate plugins."
+msgstr "您无权激活插件。"
+
+#: includes/class-gravityform-gs-service.php:236
+msgid "Missing plugin slug."
+msgstr "缺少插件 slug。"
+
+#: includes/class-gravityform-gs-service.php:267
+msgid "Plugin activation failed."
+msgstr "插件激活失败。"
+
+#: includes/class-gravityform-gs-service.php:274
+msgid "Plugin activated successfully."
+msgstr "插件激活成功。"
+
 #: includes/class-gravityforms-adds.php:82
 msgid ""
 "Gravity Forms Google Sheet Connector FREE is installed but it is not "
@@ -374,6 +447,36 @@ msgstr "系统状态"
 #: includes/pages/google-sheet-settings.php:71
 msgid "Extensions"
 msgstr "扩展"
+
+#: includes/pages/gravityforms-integrate-system-info.php:20
+msgid "Error Log"
+msgstr "错误日志"
+
+#: includes/pages/gravityforms-integrate-system-info.php:24
+msgid "If you have"
+msgstr "如果你有"
+
+#: includes/pages/gravityforms-integrate-system-info.php:28
+msgid ""
+"enabled, errors are stored in a log file. Here you can find the last 100 "
+"lines in reversed order so that you or the GSheetConnector support team can "
+"view it easily. The file cannot be edited here."
+msgstr ""
+"启用后，错误将存储在日志文件中。在这里，您可以以相反的顺序找到最后 100 行，以"
+"便您或 GSheetConnector 支持团队可以轻松查看它。无法在此处编辑文件。"
+
+#: includes/pages/gravityforms-integrate-system-info.php:32
+msgid "Copy Error Log to Clipboard"
+msgstr "将系统信息复制到剪贴板"
+
+#: includes/pages/gravityforms-integrate-system-info.php:36
+#: includes/pages/gs-gravity-integration.php:239
+msgid "Clear"
+msgstr "清除"
+
+#: includes/pages/gravityforms-integrate-system-info.php:46
+msgid "Copied"
+msgstr "复制"
 
 #: includes/pages/gs-gravity-integration.php:23
 msgid "A way to connect WordPress"
@@ -553,85 +656,81 @@ msgstr "调试日志"
 msgid "View"
 msgstr "查看"
 
-#: includes/pages/gs-gravity-integration.php:239
-msgid "Clear"
-msgstr "清除"
-
 #: includes/pages/gs-gravity-integration.php:249
 msgid "Copy Logs"
 msgstr "复制日志"
 
-#: includes/pages/gs-gravity-integration.php:261
+#: includes/pages/gs-gravity-integration.php:263
 msgid "No errors found."
 msgstr "没有发现错误."
 
-#: includes/pages/gs-gravity-integration.php:264
-msgid "No log file exists as no errors are generated"
-msgstr "不存在日志文件，因为不会生成任何错误"
+#: includes/pages/gs-gravity-integration.php:266
+msgid "No log file exists as no errors are generated."
+msgstr "不存在日志文件，因为不会生成任何错误。"
 
-#: includes/pages/gs-gravity-integration.php:301
+#: includes/pages/gs-gravity-integration.php:304
 msgid "Next steps…"
 msgstr "下一步…"
 
-#: includes/pages/gs-gravity-integration.php:312
+#: includes/pages/gs-gravity-integration.php:315
 msgid "Dynamic Fields Lists, Merge Tags and much more..."
 msgstr "动态字段列表、合并标签等等......"
 
-#: includes/pages/gs-gravity-integration.php:323
+#: includes/pages/gs-gravity-integration.php:326
 msgid "Compatibility"
 msgstr "兼容性"
 
-#: includes/pages/gs-gravity-integration.php:324
+#: includes/pages/gs-gravity-integration.php:327
 msgid "Compatibility with Gravity-Forms Third-Party Plugins"
 msgstr "与 Gravity-Forms 第三方插件的兼容性"
 
-#: includes/pages/gs-gravity-integration.php:335
+#: includes/pages/gs-gravity-integration.php:338
 msgid "Multi Languages"
 msgstr "多语言"
 
-#: includes/pages/gs-gravity-integration.php:336
+#: includes/pages/gs-gravity-integration.php:339
 msgid "This plugin supports multi-languages as well!"
 msgstr "这个插件也支持多种语言！"
 
-#: includes/pages/gs-gravity-integration.php:347
+#: includes/pages/gs-gravity-integration.php:350
 msgid "Support Wordpress multisites"
 msgstr "支持Wordpress多站点"
 
-#: includes/pages/gs-gravity-integration.php:348
+#: includes/pages/gs-gravity-integration.php:351
 msgid ""
 "With the use of a Multisite, you’ll also have a new level of user-available: "
 "the Super Admin."
 msgstr "通过使用多站点，您还将拥有一个新的用户可用级别：超级管理员。"
 
-#: includes/pages/gs-gravity-integration.php:360
+#: includes/pages/gs-gravity-integration.php:363
 msgid "Product Support"
 msgstr "产品支持"
 
-#: includes/pages/gs-gravity-integration.php:368
+#: includes/pages/gs-gravity-integration.php:371
 msgid "Online Documentation"
 msgstr "在线文档"
 
-#: includes/pages/gs-gravity-integration.php:369
+#: includes/pages/gs-gravity-integration.php:372
 msgid "Understand all the capabilities of Gravity-Forms GsheetConnector"
 msgstr "了解 Gravity-Forms GsheetConnector 的所有功能"
 
-#: includes/pages/gs-gravity-integration.php:378
+#: includes/pages/gs-gravity-integration.php:381
 msgid "Ticket Support"
 msgstr "购买支持"
 
-#: includes/pages/gs-gravity-integration.php:379
+#: includes/pages/gs-gravity-integration.php:382
 msgid "Direct help from our qualified support team"
 msgstr "官方专业团队为您直接提供帮助"
 
-#: includes/pages/gs-gravity-integration.php:388
+#: includes/pages/gs-gravity-integration.php:391
 msgid "Affiliate Program"
 msgstr "联盟计划"
 
-#: includes/pages/gs-gravity-integration.php:389
+#: includes/pages/gs-gravity-integration.php:392
 msgid "Earn flat 30"
 msgstr "赚取固定 30"
 
-#: includes/pages/gs-gravity-integration.php:390
+#: includes/pages/gs-gravity-integration.php:393
 msgid "on every sale"
 msgstr "在每笔销售中"
 

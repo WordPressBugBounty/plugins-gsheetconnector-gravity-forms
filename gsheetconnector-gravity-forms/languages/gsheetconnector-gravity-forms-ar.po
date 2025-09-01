@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GSheetConnector For Gravity Forms\n"
-"POT-Creation-Date: 2025-08-15 11:55+0530\n"
-"PO-Revision-Date: 2025-08-15 11:56+0530\n"
+"POT-Creation-Date: 2025-09-01 21:14+0530\n"
+"PO-Revision-Date: 2025-09-01 21:15+0530\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ar\n"
@@ -306,6 +306,79 @@ msgstr ""
 "تم إلغاء تنشيط نماذج الجاذبية GSheetConnector (الإصدار المحترف) لتنشيط نماذج "
 "الجاذبية GSheetConnector مجانا."
 
+#: includes/class-gravityform-gs-service.php:56
+msgid "You do not have permission to deactivate plugins."
+msgstr "ليس لديك إذن لإلغاء تنشيط المكونات الإضافية."
+
+#: includes/class-gravityform-gs-service.php:63
+#: includes/class-gravityform-gs-service.php:250
+msgid "Invalid plugin slug."
+msgstr "سبيكة البرنامج المساعد غير صالحة."
+
+#: includes/class-gravityform-gs-service.php:79
+msgid "Failed to deactivate plugin."
+msgstr "فشل في إلغاء تنشيط المكون الإضافي."
+
+#: includes/class-gravityform-gs-service.php:83
+msgid "Plugin deactivated successfully."
+msgstr "تم إلغاء تنشيط البرنامج المساعد بنجاح."
+
+#: includes/class-gravityform-gs-service.php:103
+msgid "You do not have permission to install or update plugins."
+msgstr "ليس لديك إذن لتثبيت المكونات الإضافية أو تحديثها."
+
+#: includes/class-gravityform-gs-service.php:113
+msgid "Missing or invalid parameters."
+msgstr "معلمات مفقودة أو غير صالحة."
+
+#: includes/class-gravityform-gs-service.php:119
+msgid "Invalid download URL."
+msgstr "عنوان URL للتنزيل غير صالح."
+
+#: includes/class-gravityform-gs-service.php:129
+msgid "Unsupported download source."
+msgstr "مصدر تنزيل غير مدعوم."
+
+#: includes/class-gravityform-gs-service.php:139
+msgid "Unsupported download path."
+msgstr "مسار التنزيل غير المدعوم."
+
+#: includes/class-gravityform-gs-service.php:172
+msgid "Could not verify plugin package."
+msgstr "تعذر التحقق من حزمة البرنامج المساعد."
+
+#: includes/class-gravityform-gs-service.php:179
+msgid "Package is not a valid ZIP file."
+msgstr "الحزمة ليست ملف ZIP صالحا."
+
+#: includes/class-gravityform-gs-service.php:186
+msgid "Plugin package is too large."
+msgstr "حزمة البرنامج المساعد كبيرة جدا."
+
+#: includes/class-gravityform-gs-service.php:196
+msgid "Installation failed: "
+msgstr "فشل التثبيت: "
+
+#: includes/class-gravityform-gs-service.php:201
+msgid "Plugin installed successfully."
+msgstr "تم تثبيت الإضافة بنجاح"
+
+#: includes/class-gravityform-gs-service.php:225
+msgid "You do not have permission to activate plugins."
+msgstr "ليس لديك إذن لتنشيط المكونات الإضافية."
+
+#: includes/class-gravityform-gs-service.php:236
+msgid "Missing plugin slug."
+msgstr "سبيكة المكون الإضافي مفقودة."
+
+#: includes/class-gravityform-gs-service.php:267
+msgid "Plugin activation failed."
+msgstr "فشل تفعيل الاضافة"
+
+#: includes/class-gravityform-gs-service.php:274
+msgid "Plugin activated successfully."
+msgstr "تم تفعيل الإضافة بنجاح."
+
 #: includes/class-gravityforms-adds.php:82
 msgid ""
 "Gravity Forms Google Sheet Connector FREE is installed but it is not "
@@ -380,6 +453,37 @@ msgstr "حالة النظام"
 #: includes/pages/google-sheet-settings.php:71
 msgid "Extensions"
 msgstr "ملحقات"
+
+#: includes/pages/gravityforms-integrate-system-info.php:20
+msgid "Error Log"
+msgstr "سجل الأخطاء"
+
+#: includes/pages/gravityforms-integrate-system-info.php:24
+msgid "If you have"
+msgstr "إذا كان لديك"
+
+#: includes/pages/gravityforms-integrate-system-info.php:28
+msgid ""
+"enabled, errors are stored in a log file. Here you can find the last 100 "
+"lines in reversed order so that you or the GSheetConnector support team can "
+"view it easily. The file cannot be edited here."
+msgstr ""
+"ممكن، يتم تخزين الأخطاء في ملف سجل. هنا يمكنك العثور على آخر 100 سطر بترتيب "
+"عكسي حتى تتمكن أنت أو فريق دعم GSheetConnector من مشاهدتها بسهولة. لا يمكن "
+"تحرير الملف هنا."
+
+#: includes/pages/gravityforms-integrate-system-info.php:32
+msgid "Copy Error Log to Clipboard"
+msgstr "نسخ سجل الأخطاء إلى الحافظة"
+
+#: includes/pages/gravityforms-integrate-system-info.php:36
+#: includes/pages/gs-gravity-integration.php:239
+msgid "Clear"
+msgstr "مسح"
+
+#: includes/pages/gravityforms-integrate-system-info.php:46
+msgid "Copied"
+msgstr "تم النسخ"
 
 #: includes/pages/gs-gravity-integration.php:23
 msgid "A way to connect WordPress"
@@ -567,51 +671,47 @@ msgstr "بيانات وضع التصحيح (Debug Log)"
 msgid "View"
 msgstr "عرض"
 
-#: includes/pages/gs-gravity-integration.php:239
-msgid "Clear"
-msgstr "مسح"
-
 #: includes/pages/gs-gravity-integration.php:249
 msgid "Copy Logs"
 msgstr "نسخ السجلات"
 
-#: includes/pages/gs-gravity-integration.php:261
+#: includes/pages/gs-gravity-integration.php:263
 msgid "No errors found."
 msgstr "لم يتم العثور على أخطاء."
 
-#: includes/pages/gs-gravity-integration.php:264
-msgid "No log file exists as no errors are generated"
-msgstr "لا يوجد ملف سجل حيث لا يتم إنشاء أخطاء"
+#: includes/pages/gs-gravity-integration.php:266
+msgid "No log file exists as no errors are generated."
+msgstr "لا يوجد ملف سجل حيث لا يتم إنشاء أي أخطاء."
 
-#: includes/pages/gs-gravity-integration.php:301
+#: includes/pages/gs-gravity-integration.php:304
 msgid "Next steps…"
 msgstr "الخطوات التالية..."
 
-#: includes/pages/gs-gravity-integration.php:312
+#: includes/pages/gs-gravity-integration.php:315
 msgid "Dynamic Fields Lists, Merge Tags and much more..."
 msgstr "قوائم الحقول الديناميكية ودمج العلامات وغير ذلك الكثير ..."
 
-#: includes/pages/gs-gravity-integration.php:323
+#: includes/pages/gs-gravity-integration.php:326
 msgid "Compatibility"
 msgstr "التوافق"
 
-#: includes/pages/gs-gravity-integration.php:324
+#: includes/pages/gs-gravity-integration.php:327
 msgid "Compatibility with Gravity-Forms Third-Party Plugins"
 msgstr "التوافق مع المكونات الإضافية لجهات خارجية لأشكال الجاذبية"
 
-#: includes/pages/gs-gravity-integration.php:335
+#: includes/pages/gs-gravity-integration.php:338
 msgid "Multi Languages"
 msgstr "متعدد اللغات"
 
-#: includes/pages/gs-gravity-integration.php:336
+#: includes/pages/gs-gravity-integration.php:339
 msgid "This plugin supports multi-languages as well!"
 msgstr "يدعم هذا البرنامج المساعد لغات متعددة أيضا!"
 
-#: includes/pages/gs-gravity-integration.php:347
+#: includes/pages/gs-gravity-integration.php:350
 msgid "Support Wordpress multisites"
 msgstr "دعم وورد متعدد المواقع"
 
-#: includes/pages/gs-gravity-integration.php:348
+#: includes/pages/gs-gravity-integration.php:351
 msgid ""
 "With the use of a Multisite, you’ll also have a new level of user-available: "
 "the Super Admin."
@@ -619,35 +719,35 @@ msgstr ""
 "باستخدام متعدد المواقع ، سيكون لديك أيضا مستوى جديد من المستخدمين المتاحين: "
 "المشرف المتميز."
 
-#: includes/pages/gs-gravity-integration.php:360
+#: includes/pages/gs-gravity-integration.php:363
 msgid "Product Support"
 msgstr "دعم المنتج"
 
-#: includes/pages/gs-gravity-integration.php:368
+#: includes/pages/gs-gravity-integration.php:371
 msgid "Online Documentation"
 msgstr "التوثيق عبر الإنترنت..."
 
-#: includes/pages/gs-gravity-integration.php:369
+#: includes/pages/gs-gravity-integration.php:372
 msgid "Understand all the capabilities of Gravity-Forms GsheetConnector"
 msgstr "فهم جميع قدرات الجاذبية أشكال GsheetConnector"
 
-#: includes/pages/gs-gravity-integration.php:378
+#: includes/pages/gs-gravity-integration.php:381
 msgid "Ticket Support"
 msgstr "دعم التذاكر"
 
-#: includes/pages/gs-gravity-integration.php:379
+#: includes/pages/gs-gravity-integration.php:382
 msgid "Direct help from our qualified support team"
 msgstr "مساعدة مباشرة من فريق الدعم المؤهل لدينا"
 
-#: includes/pages/gs-gravity-integration.php:388
+#: includes/pages/gs-gravity-integration.php:391
 msgid "Affiliate Program"
 msgstr "برنامج الانتساب"
 
-#: includes/pages/gs-gravity-integration.php:389
+#: includes/pages/gs-gravity-integration.php:392
 msgid "Earn flat 30"
 msgstr "اربح ٣٠"
 
-#: includes/pages/gs-gravity-integration.php:390
+#: includes/pages/gs-gravity-integration.php:393
 msgid "on every sale"
 msgstr "على كل عملية بيع"
 

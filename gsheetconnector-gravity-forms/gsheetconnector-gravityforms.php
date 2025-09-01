@@ -1,13 +1,13 @@
 <?php
 /**
  * Plugin Name: GSheetConnector For Gravity Forms
- * Plugin URI: https://wordpress.org/plugins/gsheetconnector-gravity-forms
+ * Plugin URI: https://westerndeal.com/
  * Description: Send your Gravityform  data to your Google Sheets spreadsheet.
  * Requires at least: 	5.6
  * Requires PHP: 		   7.4
  * Author: GSheetConnector
  * Author URI: https://www.gsheetconnector.com/
- * Version: 1.3.27
+ * Version: 1.3.28
  * Text Domain: gsheetconnector-gravity-forms
  * License: GPLv2
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -29,8 +29,8 @@ if (Gforms_Gsheet_Connector_Free_Init::gscgf_is_pugin_active('Gforms_Gsheet_Conn
     return;
 }
 
-define('GRAVITY_GOOGLESHEET_VERSION', '1.3.27');
-define('GRAVITY_GOOGLESHEET_DB_VERSION', '1.3.27');
+define('GRAVITY_GOOGLESHEET_VERSION', '1.3.28');
+define('GRAVITY_GOOGLESHEET_DB_VERSION', '1.3.28');
 define('GRAVITY_GOOGLESHEET_ROOT', dirname(__FILE__));
 define('GRAVITY_GOOGLESHEET_URL', plugins_url('/', __FILE__));
 define('GRAVITY_GOOGLESHEET_BASE_FILE', basename(dirname(__FILE__)) . '/gsheetconnector-gravity-forms.php');
