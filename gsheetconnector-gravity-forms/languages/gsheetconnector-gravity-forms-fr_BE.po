@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GSheetConnector For Gravity Forms\n"
-"POT-Creation-Date: 2025-09-01 21:16+0530\n"
-"PO-Revision-Date: 2025-09-01 21:16+0530\n"
+"POT-Creation-Date: 2026-01-01 19:36+0530\n"
+"PO-Revision-Date: 2026-01-01 19:36+0530\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_BE\n"
@@ -36,7 +36,7 @@ msgstr ""
 "configuration."
 
 #: class-gf-gsheetgravityforms.php:76
-msgid "Google Sheet Settings:"
+msgid "Google Sheet Settings"
 msgstr "Paramètres de Google Sheet :"
 
 #: class-gf-gsheetgravityforms.php:81
@@ -52,7 +52,7 @@ msgid "Process this feed if"
 msgstr "Traitez ce flux si"
 
 #: class-gf-gsheetgravityforms.php:88
-msgid "Field List:"
+msgid "Field List"
 msgstr "Liste des champs :"
 
 #: class-gf-gsheetgravityforms.php:117
@@ -137,7 +137,7 @@ msgstr ""
 
 #: class-gf-gsheetgravityforms.php:493
 #: includes/pages/gs-gravity-integration.php:29
-#: includes/pages/gs-gravity-integration.php:108
+#: includes/pages/gs-gravity-integration.php:110
 msgid "Google Sheets"
 msgstr "Google Sheets"
 
@@ -164,8 +164,8 @@ msgid " Click to enlarge image"
 msgstr " Cliquez pour agrandir l’image"
 
 #: class-gf-gsheetgravityforms.php:517
-msgid "Fields Lists:"
-msgstr "Listes de champs :"
+msgid "Fields Lists"
+msgstr "Listes de champs"
 
 #: class-gf-gsheetgravityforms.php:521
 msgid "Upgrade to Pro"
@@ -212,44 +212,44 @@ msgid "Add"
 msgstr "Ajouter"
 
 #: class-gf-gsheetgravityforms.php:600
-msgid " Header Titles:"
-msgstr "En-tête de gel "
+msgid " Header Titles"
+msgstr " Titres de l'en-tête"
 
 #: class-gf-gsheetgravityforms.php:604
 msgid "   Upgrade to Pro"
 msgstr "Passez à la version PRO"
 
 #: class-gf-gsheetgravityforms.php:638
-msgid "Header:"
-msgstr "Figer la ligne d’en-tête"
+msgid "Header"
+msgstr "En-tête"
 
 #: class-gf-gsheetgravityforms.php:656
-msgid "Colors:"
-msgstr "Couleurs:"
+msgid "Colors"
+msgstr "Couleurs"
 
 #: class-gf-gsheetgravityforms.php:673
-msgid "Header Color:"
+msgid "Header Color"
 msgstr "Couleur de l'en-tête"
 
 #: class-gf-gsheetgravityforms.php:682
-msgid "Odd Color:"
+msgid "Odd Color"
 msgstr "Couleur étrange"
 
 #: class-gf-gsheetgravityforms.php:691
-msgid "Even Color:"
+msgid "Even Color"
 msgstr "Couleur uniforme"
 
 #: class-gf-gsheetgravityforms.php:712
-msgid "Sheet Sorting:"
+msgid "Sheet Sorting"
 msgstr "Tri des feuilles"
 
 #: class-gf-gsheetgravityforms.php:735
-msgid "Sort Column Name:"
+msgid "Sort Column Name"
 msgstr "Nom de la colonne de tri :"
 
 #: class-gf-gsheetgravityforms.php:746
-msgid "Order:"
-msgstr "Commande:"
+msgid "Order"
+msgstr "Commande"
 
 #: class-gf-gsheetgravityforms.php:751
 msgid "Ascending"
@@ -260,7 +260,7 @@ msgid "Descending"
 msgstr "Descendant"
 
 #: class-gf-gsheetgravityforms.php:769
-msgid "Sync Entries:"
+msgid "Sync Entries"
 msgstr "Synchroniser les entrées :"
 
 #: class-gf-gsheetgravityforms.php:775
@@ -273,36 +273,46 @@ msgstr ""
 msgid "Name"
 msgstr "Nom de feuille incorrect, id de feuille, nom d’onglet, id d’onglet"
 
-#: gsheetconnector-gravityforms.php:164
+#: gsheetconnector-gravityforms.php:222
 msgid "View Documentation"
 msgstr "Voir la documentation"
 
-#: gsheetconnector-gravityforms.php:164
+#: gsheetconnector-gravityforms.php:222
 msgid "Docs"
 msgstr "Docs"
 
-#: gsheetconnector-gravityforms.php:165
+#: gsheetconnector-gravityforms.php:223
 msgid "Get Support"
 msgstr "Obtenir de l’aide"
 
-#: gsheetconnector-gravityforms.php:165
+#: gsheetconnector-gravityforms.php:223
 msgid "Support"
 msgstr "Assistance"
 
-#: gsheetconnector-gravityforms.php:909
+#: gsheetconnector-gravityforms.php:338
+#, fuzzy
+msgid ""
+"Google Sheet Connector Gravityforms Add-on requires Gravityforms plugin to "
+"be installed and activated."
+msgstr ""
+"Le module complémentaire Google Sheet Connector Gravityforms nécessite "
+"l'installation et l'activation du plugin Gravityforms."
+
+#: gsheetconnector-gravityforms.php:1075
 msgid "Settings"
 msgstr "Paramètres"
 
-#: gsheetconnector-gravityforms.php:918
+#: gsheetconnector-gravityforms.php:1084
 msgid "Get GSheetConnector Gravity Pro"
 msgstr "Obtenez GSheetConnector Gravity Pro"
 
-#: gsheetconnector-gravityforms.php:937
+#. Plugin Name of the plugin/theme
+#: gsheetconnector-gravityforms.php:1103
 #: includes/pages/google-sheet-settings.php:41
-msgid "Gravity Forms - GSheetConnector"
-msgstr "Formes gravitaires - GSheetConnector"
+msgid "GSheetConnector For Gravity Forms"
+msgstr "Formes par gravité GSheetConnector"
 
-#: gsheetconnector-gravityforms.php:986
+#: gsheetconnector-gravityforms.php:1152
 msgid ""
 "Deactivated GSheetConnector Gravity Forms (Pro Version) to activate "
 "GSheetConnector Gravity Forms Free."
@@ -456,7 +466,7 @@ msgstr "Intégration"
 msgid "System Status"
 msgstr "Etat du sytème"
 
-#: includes/pages/google-sheet-settings.php:71
+#: includes/pages/google-sheet-settings.php:70
 msgid "Extensions"
 msgstr "Formats"
 
@@ -486,7 +496,7 @@ msgid "Copy Error Log to Clipboard"
 msgstr "Copier le journal des erreurs dans le presse-papiers"
 
 #: includes/pages/gravityforms-integrate-system-info.php:36
-#: includes/pages/gs-gravity-integration.php:239
+#: includes/pages/gs-gravity-integration.php:246
 msgid "Clear"
 msgstr "Effacer"
 
@@ -549,22 +559,36 @@ msgid "Check Demo"
 msgstr "Vérifier la démo"
 
 #: includes/pages/gs-gravity-integration.php:53
-#, fuzzy
-#| msgid "Google Sheet Integration"
 msgid "Gravity Forms - Google Sheet Integration"
-msgstr "Intégration de Google Sheet"
+msgstr "Gravity Forms - Intégration de Google Sheet"
 
-#: includes/pages/gs-gravity-integration.php:57
-msgid "Choose Google API Setting :"
+#: includes/pages/gs-gravity-integration.php:54
+msgid ""
+"Choose your Google API Setting from the dropdown. You can select Use "
+"Existing Client/Secret Key (Auto Google API Configuration) or Use Manual "
+"Client/Secret Key (Use Your Google API Configuration - Pro Version) or Use "
+"Service Account (Recommended- Pro Version) . After saving, the related "
+"integration settings will appear, and you can complete the setup."
+msgstr ""
+"Choisissez votre paramètre d'API Google dans la liste déroulante. Vous "
+"pouvez sélectionner Utiliser la clé client/secret existante (configuration "
+"automatique de l'API Google) ou Utiliser la clé client/secret manuelle "
+"(Utiliser votre configuration de l'API Google - Version Pro) ou Utiliser le "
+"compte de service (Recommandé - Version Pro). Après l'enregistrement, les "
+"paramètres d'intégration correspondants s'affichent et vous pouvez terminer "
+"la configuration."
+
+#: includes/pages/gs-gravity-integration.php:59
+msgid "Choose Google API Setting"
 msgstr "Choisissez les paramètres de l’API Google :"
 
-#: includes/pages/gs-gravity-integration.php:62
+#: includes/pages/gs-gravity-integration.php:64
 msgid "Use Existing Client/Secret Key (Auto Google API Configuration)"
 msgstr ""
 "Utiliser une clé client/clé secrète existante (configuration automatique de "
 "l’API Google)"
 
-#: includes/pages/gs-gravity-integration.php:65
+#: includes/pages/gs-gravity-integration.php:67
 msgid ""
 "Use Manual Client/Secret Key (Use Your Google API Configuration) (Upgrade To "
 "PRO)"
@@ -572,31 +596,31 @@ msgstr ""
 "Utiliser une clé client/secrète manuelle (utilisez la configuration de votre "
 "API Google) (mise à niveau vers PRO)"
 
-#: includes/pages/gs-gravity-integration.php:68
+#: includes/pages/gs-gravity-integration.php:70
 msgid "Service Account (Recommended) (Upgrade To PRO)"
 msgstr "Compte de service (recommandé) (mise à niveau vers PRO)"
 
-#: includes/pages/gs-gravity-integration.php:100
+#: includes/pages/gs-gravity-integration.php:102
 msgid "Authenticate with your Google account, follow these steps:"
 msgstr "Authentifiez-vous avec votre compte Google, procédez comme suit :"
 
-#: includes/pages/gs-gravity-integration.php:103
+#: includes/pages/gs-gravity-integration.php:105
 msgid "Click on the \"Sign In With Google\" button."
 msgstr "Cliquez sur le bouton « Se connecter avec Google »."
 
-#: includes/pages/gs-gravity-integration.php:105
+#: includes/pages/gs-gravity-integration.php:107
 msgid "Grant permissions for the following:"
 msgstr "Accordez des autorisations pour les éléments suivants :"
 
-#: includes/pages/gs-gravity-integration.php:107
+#: includes/pages/gs-gravity-integration.php:109
 msgid "Google Drive"
 msgstr "Google Drive"
 
-#: includes/pages/gs-gravity-integration.php:109
+#: includes/pages/gs-gravity-integration.php:111
 msgid "* Ensure that you enable the checkbox for each of these services."
 msgstr "* Assurez-vous d’activer la case à cocher pour chacun de ces services."
 
-#: includes/pages/gs-gravity-integration.php:113
+#: includes/pages/gs-gravity-integration.php:115
 msgid ""
 "This will allow the integration to access your Google Drive and Google "
 "Sheets."
@@ -604,32 +628,48 @@ msgstr ""
 "Cela permettra à l’intégration d’accéder à votre Google Drive et Google "
 "Sheets."
 
-#: includes/pages/gs-gravity-integration.php:123
-msgid "Google Access Code : "
+#: includes/pages/gs-gravity-integration.php:124
+msgid ""
+"Google Sheet Integration - Use Existing Client/Secret Key (Auto Google API "
+"Configuration)"
+msgstr ""
+"Intégration de Google Sheet - Utiliser une clé client/secrète existante "
+"(configuration automatique de l’API Google)"
+
+#: includes/pages/gs-gravity-integration.php:125
+msgid ""
+"Automatic integration allows you to connect Gravity Forms with Google Sheets "
+"using built-in Google API configuration. By authorizing your Google account, "
+"the plugin will handle API setup and authentication automatically, enabling "
+"seamless form data sync. Learn more in the documentation"
+msgstr ""
+"L'intégration automatique vous permet de connecter Gravity Forms avec Google "
+"Sheets en utilisant la configuration intégrée de l'API Google. En autorisant "
+"votre compte Google, le plugin va gérer la configuration de l'API et "
+"l'authentification automatiquement, permettant une synchronisation "
+"transparente des données du formulaire. En savoir plus dans la documentation"
+
+#: includes/pages/gs-gravity-integration.php:125
+msgid "click here"
+msgstr "click here"
+
+#: includes/pages/gs-gravity-integration.php:130
+msgid "Google Access Code "
 msgstr "Code d’accès Google"
 
-#: includes/pages/gs-gravity-integration.php:126
+#: includes/pages/gs-gravity-integration.php:133
 msgid "Currently Active"
 msgstr "Actuellement actif"
 
-#: includes/pages/gs-gravity-integration.php:131
-msgid ""
-"On deactivation, all your data saved with authentication will be removed, "
-"and you need to reauthenticate with your Google account."
-msgstr ""
-"Lors de la désactivation, toutes vos données enregistrées avec "
-"l’authentification seront supprimées et vous devrez vous authentifier à "
-"nouveau avec votre compte Google."
-
-#: includes/pages/gs-gravity-integration.php:138
+#: includes/pages/gs-gravity-integration.php:145
 msgid "Click on Sign in with Google button"
 msgstr "Cliquez sur le bouton Se connecter avec Google"
 
-#: includes/pages/gs-gravity-integration.php:155
+#: includes/pages/gs-gravity-integration.php:162
 msgid "Click here to Save Authentication Code"
 msgstr "Cliquez ici pour enregistrer le code d’authentification"
 
-#: includes/pages/gs-gravity-integration.php:169
+#: includes/pages/gs-gravity-integration.php:176
 msgid ""
 "Something went wrong! It looks you have not given the permission of Google "
 "Drive and Google Sheets from your google account.Please Deactivate Auth and "
@@ -640,15 +680,15 @@ msgstr ""
 "Google. Veuillez désactiver l’authentification et vous authentifier à "
 "nouveau avec les autorisations."
 
-#: includes/pages/gs-gravity-integration.php:176
+#: includes/pages/gs-gravity-integration.php:183
 msgid "Also,"
 msgstr "Aussi"
 
-#: includes/pages/gs-gravity-integration.php:178
+#: includes/pages/gs-gravity-integration.php:185
 msgid "Click Here "
 msgstr "Cliquez ici "
 
-#: includes/pages/gs-gravity-integration.php:179
+#: includes/pages/gs-gravity-integration.php:186
 msgid ""
 "and if it displays \"GSheetConnector for WP Contact Forms\" under Third-"
 "party apps with account access then remove it."
@@ -656,7 +696,7 @@ msgstr ""
 "et s’il affiche « GSheetConnector for WP Contact Forms » sous Applications "
 "tierces avec accès au compte, supprimez-le."
 
-#: includes/pages/gs-gravity-integration.php:201
+#: includes/pages/gs-gravity-integration.php:208
 msgid ""
 "Something went wrong! Your Auth code may be incorrect or expired. Please "
 "Deactivate and Re-Authenticate."
@@ -664,7 +704,7 @@ msgstr ""
 "Quelque chose s’est mal passé ! Votre code d’authentification est peut-être "
 "incorrect ou a expiré. Veuillez désactiver et réauthentifier."
 
-#: includes/pages/gs-gravity-integration.php:217
+#: includes/pages/gs-gravity-integration.php:224
 msgid ""
 "Note : We do not store any of the data from your Google account on our "
 "servers, everything is processed & stored on your server. We take your "
@@ -675,59 +715,59 @@ msgstr ""
 "votre vie privée très au sérieux et veillons à ce qu’elle ne soit jamais "
 "utilisée à mauvais escient."
 
-#: includes/pages/gs-gravity-integration.php:218
+#: includes/pages/gs-gravity-integration.php:225
 msgid "Learn more."
 msgstr "Pour en savoir plus."
 
-#: includes/pages/gs-gravity-integration.php:230
+#: includes/pages/gs-gravity-integration.php:237
 msgid "Debug Log"
 msgstr "Journal de débogage"
 
-#: includes/pages/gs-gravity-integration.php:234
+#: includes/pages/gs-gravity-integration.php:241
 msgid "View"
 msgstr "Voir"
 
-#: includes/pages/gs-gravity-integration.php:249
+#: includes/pages/gs-gravity-integration.php:256
 msgid "Copy Logs"
 msgstr "Copier les journaux"
 
-#: includes/pages/gs-gravity-integration.php:263
+#: includes/pages/gs-gravity-integration.php:270
 msgid "No errors found."
 msgstr "Aucune erreur n’a été trouvée."
 
-#: includes/pages/gs-gravity-integration.php:266
+#: includes/pages/gs-gravity-integration.php:273
 msgid "No log file exists as no errors are generated."
 msgstr "Il n’existe aucun fichier journal car aucune erreur n’est générée."
 
-#: includes/pages/gs-gravity-integration.php:304
+#: includes/pages/gs-gravity-integration.php:311
 msgid "Next steps…"
 msgstr "Prochaines étapes..."
 
-#: includes/pages/gs-gravity-integration.php:315
+#: includes/pages/gs-gravity-integration.php:322
 msgid "Dynamic Fields Lists, Merge Tags and much more..."
 msgstr "Listes de champs dynamiques, merge tags et bien plus encore..."
 
-#: includes/pages/gs-gravity-integration.php:326
+#: includes/pages/gs-gravity-integration.php:333
 msgid "Compatibility"
 msgstr "Compatibilité"
 
-#: includes/pages/gs-gravity-integration.php:327
+#: includes/pages/gs-gravity-integration.php:334
 msgid "Compatibility with Gravity-Forms Third-Party Plugins"
 msgstr "Compatibilité avec les plug-ins tiers de Gravity-Forms"
 
-#: includes/pages/gs-gravity-integration.php:338
+#: includes/pages/gs-gravity-integration.php:345
 msgid "Multi Languages"
 msgstr "Multi langues"
 
-#: includes/pages/gs-gravity-integration.php:339
+#: includes/pages/gs-gravity-integration.php:346
 msgid "This plugin supports multi-languages as well!"
 msgstr "Ce plugin prend également en charge plusieurs langues !"
 
-#: includes/pages/gs-gravity-integration.php:350
+#: includes/pages/gs-gravity-integration.php:357
 msgid "Support Wordpress multisites"
 msgstr "Prise en charge des multisites Wordpress"
 
-#: includes/pages/gs-gravity-integration.php:351
+#: includes/pages/gs-gravity-integration.php:358
 msgid ""
 "With the use of a Multisite, you’ll also have a new level of user-available: "
 "the Super Admin."
@@ -735,45 +775,43 @@ msgstr ""
 "Avec l’utilisation d’un multisite, vous disposerez également d’un nouveau "
 "niveau d’utilisateur : le Super Admin."
 
-#: includes/pages/gs-gravity-integration.php:363
+#: includes/pages/gs-gravity-integration.php:370
 msgid "Product Support"
 msgstr "Soutien aux produits"
 
-#: includes/pages/gs-gravity-integration.php:371
+#: includes/pages/gs-gravity-integration.php:378
 msgid "Online Documentation"
 msgstr "Documentation en ligne"
 
-#: includes/pages/gs-gravity-integration.php:372
+#: includes/pages/gs-gravity-integration.php:379
 msgid "Understand all the capabilities of Gravity-Forms GsheetConnector"
 msgstr "Comprendre toutes les fonctionnalités de Gravity-Forms GsheetConnector"
 
-#: includes/pages/gs-gravity-integration.php:381
+#: includes/pages/gs-gravity-integration.php:388
 msgid "Ticket Support"
 msgstr "Prise en charge des tickets"
 
-#: includes/pages/gs-gravity-integration.php:382
+#: includes/pages/gs-gravity-integration.php:389
 msgid "Direct help from our qualified support team"
 msgstr "Aide directe de notre équipe d’assistance qualifiée"
 
-#: includes/pages/gs-gravity-integration.php:391
+#: includes/pages/gs-gravity-integration.php:398
 msgid "Affiliate Program"
 msgstr "Programme d’affiliation"
 
-#: includes/pages/gs-gravity-integration.php:392
+#: includes/pages/gs-gravity-integration.php:399
 msgid "Earn flat 30"
 msgstr "Gagnez 30"
 
-#: includes/pages/gs-gravity-integration.php:393
+#: includes/pages/gs-gravity-integration.php:400
 msgid "on every sale"
 msgstr "sur chaque vente"
 
-#. Plugin Name of the plugin/theme
-msgid "GSheetConnector For Gravity Forms"
-msgstr "Formes par gravité GSheetConnector"
-
 #. Plugin URI of the plugin/theme
-msgid "https://wordpress.org/plugins/gsheetconnector-gravity-forms"
-msgstr "https://wordpress.org/plugins/gsheetconnector-gravity-forms"
+#, fuzzy
+#| msgid "https://www.gsheetconnector.com/"
+msgid "https://www.gsheetconnector.com/gravity-forms-google-sheet-connector"
+msgstr "https://www.gsheetconnector.com/"
 
 #. Description of the plugin/theme
 msgid "Send your Gravityform  data to your Google Sheets spreadsheet."
@@ -787,6 +825,20 @@ msgstr "GSheetConnector"
 #. Author URI of the plugin/theme
 msgid "https://www.gsheetconnector.com/"
 msgstr "https://www.gsheetconnector.com/"
+
+#~ msgid "Gravity Forms - GSheetConnector"
+#~ msgstr "Formes gravitaires - GSheetConnector"
+
+#~ msgid ""
+#~ "On deactivation, all your data saved with authentication will be removed, "
+#~ "and you need to reauthenticate with your Google account."
+#~ msgstr ""
+#~ "Lors de la désactivation, toutes vos données enregistrées avec "
+#~ "l’authentification seront supprimées et vous devrez vous authentifier à "
+#~ "nouveau avec votre compte Google."
+
+#~ msgid "https://wordpress.org/plugins/gsheetconnector-gravity-forms"
+#~ msgstr "https://wordpress.org/plugins/gsheetconnector-gravity-forms"
 
 #~ msgid "Gravity Forms - "
 #~ msgstr ""

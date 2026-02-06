@@ -2,10 +2,11 @@
 Contributors: westerndeal, abdullah17, gsheetconnector
 Author URL: https://www.gsheetconnector.com/
 Tags: gravity forms, gravity forms google sheet, google sheets, gravity forms to google sheet, gravity forms google sheets
-Tested up to: 6.8
+Docs: https://www.gsheetconnector.com/docs/gravity-forms-gsheetconnector
+Tested up to: 6.9
 Requires at least: 5.6
 Requires PHP: 7.4
-Stable tag: 1.3.28
+Stable tag: 1.3.31
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -100,12 +101,22 @@ Enjoy!
 1. Google Sheet Integration Shown with Authentication along with Permissions.
 2. How to Enter Sheet Name and Tab Name is shown.
 3. Entering the Field Header Names Manually in the Connected Sheet and Submitting the form.
-4. Role Settings.
-5. System Status.
-6. Extensions.
+4. System Status.
+5. Extensions.
+
 
 
 == Changelog ==
+
+= 1.3.31 = (01-01-2026)
+* Fixed: Added compatibility with the Gravity Forms Webhooks plugin.
+
+= 1.3.30 = (18-11-2025)
+* Added: Added new CSS and updated the UI.
+
+= 1.3.29 = (10-10-2025)
+- Updated: Title and description design updates.
+- Fixed:    Fixed system status footer issue.
 
 = 1.3.28 = (01-09-2025)
 - Fixed: Missing Authorization for authenticated users.

@@ -38,7 +38,7 @@ $plugin_version = defined('GRAVITY_GOOGLESHEET_VERSION') ? GRAVITY_GOOGLESHEET_V
       <a href="https://www.gsheetconnector.com/"><i></i></a>
    </div>
    <h1 class="gsheet-logo-text">
-      <span><?php echo esc_html(__('Gravity Forms - GSheetConnector', 'gsheetconnector-gravity-forms')); ?></span>
+      <span><?php echo esc_html(__('GSheetConnector For Gravity Forms', 'gsheetconnector-gravity-forms')); ?></span>
       <small><?php echo esc_html(__('Version', 'gsheetconnector-gravity-forms')); ?> :
          <?php echo esc_html($plugin_version, GRAVITY_GOOGLESHEET_VERSION); ?> </small>
    </h1>
@@ -61,15 +61,15 @@ $plugin_version = defined('GRAVITY_GOOGLESHEET_VERSION') ? GRAVITY_GOOGLESHEET_V
 	
 
    <?php
-   $tabs = array(
-      'integration' => __('Integration', 'gsheetconnector-gravity-forms'),
-      //'Role Settings' => __('Role Settings', 'gsheetconnector-gravity-forms'),
-      //'demos' => __('Demos', 'gsheetconnector-gravity-forms'),
-      'system-status' => __('System Status', 'gsheetconnector-gravity-forms'),
-      //'demos' => __('Demos', 'gsheetconnector-gravity-forms'),
-      // 'general-setting' => __('General Settings', 'gsheetconnector-gravity-forms'),
-      'extensions' => __('Extensions', 'gsheetconnector-gravity-forms'),
-   );
+  $tabs = array(
+    'integration'    => esc_html__( 'Integration', 'gsheetconnector-gravity-forms' ),
+    // 'role-settings'  => esc_html__( 'Role Settings', 'gsheetconnector-gravity-forms' ),
+    // 'demos'          => esc_html__( 'Demos', 'gsheetconnector-gravity-forms' ),
+    'system-status'  => esc_html__( 'System Status', 'gsheetconnector-gravity-forms' ),
+    // 'general-setting'=> esc_html__( 'General Settings', 'gsheetconnector-gravity-forms' ),
+    'extensions'     => esc_html__( 'Extensions', 'gsheetconnector-gravity-forms' ),
+);
+
    echo '<div id="icon-themes" class="icon32"><br></div>';
    echo '<div class="nav-tab-wrapper">';
    foreach ($tabs as $tab => $name) {

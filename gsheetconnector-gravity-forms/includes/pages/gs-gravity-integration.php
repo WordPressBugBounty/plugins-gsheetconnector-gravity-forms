@@ -51,10 +51,12 @@ if (isset($_GET['code']) && ($gravityforms_manual_setting == 0)) {
 <div class="card-gravityforms dropdownoption-gravityforms">
 	
 		<h2><?php echo esc_html__('Gravity Forms - Google Sheet Integration', "gsheetconnector-gravity-forms"); ?></h2>
+	<p class="sub-desc"><?php echo esc_html__('Choose your Google API Setting from the dropdown. You can select Use Existing Client/Secret Key (Auto Google API Configuration) or Use Manual Client/Secret Key (Use Your Google API Configuration - Pro Version) or Use Service Account (Recommended- Pro Version) . After saving, the related integration settings will appear, and you can complete the setup.', "gsheetconnector-gravity-forms"); ?></p>
+	
 	
     <div class="lbl-drop-down-select row">
         <label
-            for="gs_gravityforms_dro_option"><?php echo esc_html__('Choose Google API Setting :', 'gsheetconnector-gravity-forms'); ?></label>
+            for="gs_gravityforms_dro_option"><?php echo esc_html__('Choose Google API Setting', 'gsheetconnector-gravity-forms'); ?></label>
    
     <div class="drop-down-select-btn">
         <select id="gs_gravityforms_dro_option" name="gs_gravityforms_dro_option">
@@ -72,9 +74,9 @@ if (isset($_GET['code']) && ($gravityforms_manual_setting == 0)) {
                 href="https://www.gsheetconnector.com/gravity-forms-google-sheet-connector" target="_blank"><input
                     type="button" name="save-method-api-gravityforms" id=""
                     value="<?php echo esc_html('Upgrade To PRO', 'gsheetconnector-gravity-forms'); ?>"
-                    class="button button-primary" /></a> 
+                    class="update-btn" /></a> 
 			
-			<span class="tooltip" data-tooltip="<?php echo esc_html('Manual Client/Secret Key (Use Your Google API Configuration) method is available in the PRO version of the plugin.', 'gsheetconnector-gravity-forms'); ?>" data-tooltip-pos="right" data-tooltip-length="medium">  <i class="gswoo-helop-icon fa fa-question-circle"></i></span>
+			
 			
         </p>
 		
@@ -117,10 +119,15 @@ if (isset($_GET['code']) && ($gravityforms_manual_setting == 0)) {
                 <?php } ?>
             </div>
 
-
+			
+			
+			<h2><?php echo esc_html__('Google Sheet Integration - Use Existing Client/Secret Key (Auto Google API Configuration)', 'gsheetconnector-gravity-forms'); ?></h2>
+			<p class="sub-desc"><?php echo esc_html__('Automatic integration allows you to connect Gravity Forms with Google Sheets using built-in Google API configuration. By authorizing your Google account, the plugin will handle API setup and authentication automatically, enabling seamless form data sync. Learn more in the documentation', "gsheetconnector-gravity-forms"); ?> <a href="https://www.gsheetconnector.com/docs/gravity-forms-gsheetconnector/integration-with-google-existing-method" target="_blank"><?php echo esc_html__('click here', 'gsheetconnector-gravity-forms'); ?></a>.</p>
+			
+			
             <div class="gs-integration-layout row">
                 <label
-                    for="gfgs-code"><?php echo esc_html__('Google Access Code : ', 'gsheetconnector-gravity-forms'); ?></label>
+                    for="gfgs-code"><?php echo esc_html__('Google Access Code ', 'gsheetconnector-gravity-forms'); ?></label>
                 <?php if (!empty(get_option('gfgs_token')) && get_option('gfgs_token') !== "") { ?>
                     <input type="text" name="gfgs-code" id="gfgs-code" value="" disabled
                         placeholder="<?php echo esc_html__('Currently Active', 'gsheetconnector-gravity-forms'); ?>" />
@@ -128,7 +135,7 @@ if (isset($_GET['code']) && ($gravityforms_manual_setting == 0)) {
                         value="<?php echo esc_html('Deactivate', 'gsheetconnector-gravity-forms'); ?>"
                         class="button button-primary" /> 
 				
-					<span class="tooltip" data-tooltip="<?php echo esc_html__('On deactivation, all your data saved with authentication will be removed, and you need to reauthenticate with your Google account.', 'gsheetconnector-gravity-forms'); ?>" data-tooltip-pos="right" data-tooltip-length="medium">  <i class="gswoo-helop-icon fa fa-question-circle"></i></span>	
+					
 				
                     <span class="loading-sign-deactive"></span>
                 <?php } else {
@@ -189,7 +196,7 @@ if (isset($_GET['code']) && ($gravityforms_manual_setting == 0)) {
                         update_option('gravityforms_gs_auth_expired_free', 'false');
                         ?>
                         <p class="connected-account-grvty row">
-                            <label><?php printf(esc_html('Connected email account :', 'gsheetconnector-gravity-forms'), esc_attr($email_account)); ?></label>
+                            <label><?php printf(esc_html('Connected Email Account', 'gsheetconnector-gravity-forms'), esc_attr($email_account)); ?></label>
                             <?php printf(wp_kses('<u>%s </u>', 'gsheetconnector-gravity-forms'), esc_attr($email_account)); ?>
                         </p>
 
@@ -318,7 +325,7 @@ if (isset($_GET['code']) && ($gravityforms_manual_setting == 0)) {
                     </a>
                 </li>
                 <li>
-                    <a href="https://www.gsheetconnector.com/docs/gravity-forms-to-google-sheet-free" target="_blank">
+                    <a href="https://www.gsheetconnector.com/docs/gsheetconnnector-for-wpforms/requirements" target="_blank">
                         <div>
                             <button class="icon-button">
                                 <span class="dashicons dashicons-download"></span>
@@ -330,7 +337,7 @@ if (isset($_GET['code']) && ($gravityforms_manual_setting == 0)) {
                     </a>
                 </li>
                 <li>
-                    <a href="https://www.gsheetconnector.com/docs/gravity-forms-to-google-sheet-free" target="_blank">
+                    <a href="https://www.gsheetconnector.com/docs/gsheetconnnector-for-wpforms/plugin-settings-pro-version" target="_blank">
                         <div>
                             <button class="icon-button">
                                 <span class="dashicons dashicons-chart-bar"></span>
@@ -342,7 +349,7 @@ if (isset($_GET['code']) && ($gravityforms_manual_setting == 0)) {
                     </a>
                 </li>
                 <li>
-                    <a href="https://www.gsheetconnector.com/support" target="_blank">
+                    <a href="https://www.gsheetconnector.com/docs/gsheetconnnector-for-wpforms/plugin-settings-free-version" target="_blank">
                         <div>
                             <button class="icon-button">
                                 <span class="dashicons dashicons-download"></span>
@@ -365,7 +372,7 @@ if (isset($_GET['code']) && ($gravityforms_manual_setting == 0)) {
         <div class="gfgsc-connector-box-content13">
             <ul class="gfgsc-connector-list-icon13">
                 <li>
-                    <a href="https://www.gsheetconnector.com/docs/gravity-forms-to-google-sheet-free" target="_blank">
+                    <a href="https://www.gsheetconnector.com/docs/gravity-forms-gsheetconnector" target="_blank">
                         <span class="dashicons dashicons-book"></span>
                         <div>
                             <strong><?php echo esc_html__("Online Documentation", "gsheetconnector-gravity-forms"); ?></strong>

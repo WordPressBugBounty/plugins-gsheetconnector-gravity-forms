@@ -5,7 +5,7 @@ jQuery(document).ready(function () {
 
 
    if (sheetId != "" && tabId != "") {
-      jQuery("#sheet_url").html('<label><b>Google Sheet URL:</b> </label><a class="gr_sheet_url" href="https://docs.google.com/spreadsheets/d/' + sheetId + '/edit#gid=' + tabId + '" target="_blank">Sheet URL</a>');
+      jQuery("#sheet_url").html('<label><b>Google Sheet URL </b> </label><a class="gr_sheet_url" href="https://docs.google.com/spreadsheets/d/' + sheetId + '/edit#gid=' + tabId + '" target="_blank">Sheet URL</a>');
       // jQuery("#sheet_iframe").html('<iframe src="https://docs.google.com/spreadsheets/d/'+sheetId+'/edit#gid='+tabId+'" style="position:absolute; width:100%; height:100%; border:none;  padding:0; overflow:hidden; z-index:999999;border: 2px solid #000000; margin-left: -22px; margin-top: 20%;" />');
 
    }
@@ -13,7 +13,7 @@ jQuery(document).ready(function () {
       if (sheetId != "") {
          var tabId = jQuery('#gf-gs-tab-id').val(0);
          var tabId = 0;
-         jQuery("#sheet_url").html('<label><b>Google Sheet URL:</b> </label><a class="gr_sheet_url" href="https://docs.google.com/spreadsheets/d/' + sheetId + '/edit#gid=' + tabId + '" target="_blank">Sheet URL</a>');
+         jQuery("#sheet_url").html('<label><b>Google Sheet URL </b> </label><a class="gr_sheet_url" href="https://docs.google.com/spreadsheets/d/' + sheetId + '/edit#gid=' + tabId + '" target="_blank">Sheet URL</a>');
       }
 
    }

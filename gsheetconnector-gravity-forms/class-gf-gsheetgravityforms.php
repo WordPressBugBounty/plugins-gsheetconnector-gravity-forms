@@ -73,7 +73,7 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
           ),
           array(
             'name' => 'sheet_details',
-            'label' => esc_html__('Google Sheet Settings:', 'gsheetconnector-gravity-forms'),
+            'label' => esc_html__('Google Sheet Settings', 'gsheetconnector-gravity-forms'),
             'type' => 'display_sheet_details',
           ),
           array(
@@ -85,7 +85,7 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
           ),
           array(
             'name' => 'gsheet_field_maps',
-            'label' => esc_html__('Field List:', 'gsheetconnector-gravity-forms'),
+            'label' => esc_html__('Field List', 'gsheetconnector-gravity-forms'),
             'type' => 'map_form_fields',
           ),
         ),
@@ -514,7 +514,7 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
 
 
         <label class="gform-settings-label" for="gsheet_mergeTagsMap">
-          <?php echo esc_html__("Fields Lists:", "gsheetconnector-gravity-forms"); ?>
+          <?php echo esc_html__("Fields Lists", "gsheetconnector-gravity-forms"); ?>
           <div class="upgrade-button">
             <a href="https://www.gsheetconnector.com/gravity-forms-google-sheet-connector?gsheetconnector-ref=17"
               target="__blank" class="upgradeLink">
@@ -597,7 +597,7 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
 
         <!--  -->
         <label class="gform-settings-label" for="gsheet_header_columns">
-          <?php echo esc_html__(" Header Titles:", "gsheetconnector-gravity-forms"); ?>
+          <?php echo esc_html__(" Header Titles", "gsheetconnector-gravity-forms"); ?>
           <div class="upgrade-button">
             <a href="https://www.gsheetconnector.com/gravity-forms-google-sheet-connector?gsheetconnector-ref=17"
               target="__blank" class="upgradeLink">
@@ -635,7 +635,7 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
           disabled>
           <div class="gform-settings-field__header">
             <label class="gform-settings-label"
-              for="gsheet_freeze_header_toggle"><?php echo esc_html__("Header:", "gsheetconnector-gravity-forms"); ?>&nbsp;</label><a
+              for="gsheet_freeze_header_toggle"><?php echo esc_html__("Header", "gsheetconnector-gravity-forms"); ?>&nbsp;</label><a
               href="https://www.gsheetconnector.com/gravity-forms-google-sheet-connector">
           </div>
           <span class="gform-settings-input__container">
@@ -653,7 +653,7 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
         <!--  -->
         <div class="gform-settings-field__header">
           <label class="gform-settings-label"
-            for="gsheet_alternate_colors_enabled_toggle"><?php echo esc_html__("Colors:", "gsheetconnector-gravity-forms"); ?>&nbsp;</label><a
+            for="gsheet_alternate_colors_enabled_toggle"><?php echo esc_html__("Colors", "gsheetconnector-gravity-forms"); ?>&nbsp;</label><a
             href="https://www.gsheetconnector.com/gravity-forms-google-sheet-connector"></a>
         </div>
         <div id="gform_setting_gsheet_alternate_colors"
@@ -670,7 +670,7 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
             <tbody>
               <tr class="inline-colors">
                 <td>
-                  <label><?php echo esc_html__("Header Color:", "gsheetconnector-gravity-forms"); ?> </label>
+                  <label><?php echo esc_html__("Header Color", "gsheetconnector-gravity-forms"); ?> </label>
                   <div>
                     <span class="gform-settings-input__container">
                       <input type="text" name="_gform_setting_gsheet_alternate_colors_header_color" value="#ffffff"
@@ -679,7 +679,7 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
                   </div>
                 </td>
                 <td>
-                  <label><?php echo esc_html__("Odd Color:", "gsheetconnector-gravity-forms"); ?> </label>
+                  <label><?php echo esc_html__("Odd Color", "gsheetconnector-gravity-forms"); ?> </label>
                   <div>
                     <span class="gform-settings-input__container">
                       <input type="text" name="_gform_setting_gsheet_alternate_colors_odd_color" value="#ffffff"
@@ -688,7 +688,7 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
                   </div>
                 </td>
                 <td>
-                  <label><?php echo esc_html__("Even Color:", "gsheetconnector-gravity-forms"); ?> </label>
+                  <label><?php echo esc_html__("Even Color", "gsheetconnector-gravity-forms"); ?> </label>
                   <div>
                     <span class="gform-settings-input__container">
                       <input type="text" name="_gform_setting_gsheet_alternate_colors_even_color" value="#ffffff"
@@ -709,7 +709,7 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
           class="gform-settings-field gform-settings-field__toggle disabled">
           <div class="gform-settings-field__header">
             <label class="gform-settings-label"
-              for="gsheet_sort_column_enabled_toggle"><?php echo esc_html__("Sheet Sorting:", "gsheetconnector-gravity-forms"); ?>
+              for="gsheet_sort_column_enabled_toggle"><?php echo esc_html__("Sheet Sorting", "gsheetconnector-gravity-forms"); ?>
               &nbsp;</label><a href="https://www.gsheetconnector.com/gravity-forms-google-sheet-connector"></a>
             <span class="gform-settings-input__container">
               <input type="checkbox" name="_gform_setting_gsheet_sort_column_enabled_toggle"
@@ -732,7 +732,7 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
               <tbody>
                 <tr>
                   <td>
-                    <label><?php echo esc_html__("Sort Column Name:", "gsheetconnector-gravity-forms"); ?>&nbsp;</label>
+                    <label><?php echo esc_html__("Sort Column Name", "gsheetconnector-gravity-forms"); ?>&nbsp;</label>
                   </td>
                   <td>
                     <span class="gform-settings-input__container">
@@ -743,7 +743,7 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
                 </tr>
                 <tr>
                   <td>
-                    <label><?php echo esc_html__("Order:", "gsheetconnector-gravity-forms"); ?>&nbsp;</label>
+                    <label><?php echo esc_html__("Order", "gsheetconnector-gravity-forms"); ?>&nbsp;</label>
                   </td>
                   <td>
                     <span class="gform-settings-input__container">
@@ -766,7 +766,7 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
             class="gform-settings-field gform-settings-field__display_sync_entries disabled">
             <div class="gform-settings-field__header" disabled>
               <label class="gform-settings-label"
-                for="gsheet_sync_entries"><?php echo esc_html__("Sync Entries:", "gsheetconnector-gravity-forms"); ?>&nbsp;</label><a
+                for="gsheet_sync_entries"><?php echo esc_html__("Sync Entries", "gsheetconnector-gravity-forms"); ?>&nbsp;</label><a
                 href="https://www.gsheetconnector.com/gravity-forms-google-sheet-connector"></a>
 
             </div>

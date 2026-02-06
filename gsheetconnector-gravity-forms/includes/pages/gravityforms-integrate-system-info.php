@@ -53,6 +53,6 @@ $Gravityforms_gs_tools_service = new Gforms_Gsheet_Connector_Free_Init();
         ?>
     </div>
 </div>
-
+</div>
 
 <?php include(GRAVITY_GOOGLESHEET_ROOT . "/includes/pages/admin-footer.php"); ?>

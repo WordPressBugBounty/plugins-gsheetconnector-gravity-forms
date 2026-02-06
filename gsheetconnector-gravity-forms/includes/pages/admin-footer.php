@@ -28,8 +28,7 @@ add_filter('admin_footer_text', 'gsheetconnector_gffree_admin_footer_text');
         target="_blank"><?php echo esc_html("Support", "gsheetconnector-gravity-forms"); ?></a> </li>
     <li> <a href="https://www.gsheetconnector.com/docs/gravity-forms-to-google-sheet-free"
         target="_blank"><?php echo esc_html("Docs", "gsheetconnector-gravity-forms"); ?></a> </li>
-    <li> <a href="https://www.facebook.com/gsheetconnectorofficial"
-        target="_blank"><?php echo esc_html("VIP Circle", "gsheetconnector-gravity-forms"); ?></a> </li>
+   
     <li> <a
         href="https://profiles.wordpress.org/westerndeal/#content-plugins"><?php echo esc_html("Free Plugins", "gsheetconnector-gravity-forms"); ?></a>
     </li>
@@ -39,7 +38,7 @@ add_filter('admin_footer_text', 'gsheetconnector_gffree_admin_footer_text');
           aria-hidden="true"></i> </a> </li>
     <li> <a href="https://www.instagram.com/gsheetconnector/" target="_blank"> <i class="fa-brands fa-instagram"
           aria-hidden="true"></i> </a> </li>
-    <li> <a href="https://www.linkedin.com/in/abdullah17/" target="_blank"> <i class="fa-brands fa-linkedin"
+    <li> <a href="https://www.linkedin.com/company/gsheetconnector/" target="_blank"> <i class="fa-brands fa-linkedin"
           aria-hidden="true"></i> </a> </li>
     <li> <a href="https://twitter.com/gsheetconnector?lang=en" target="_blank"> <i class="fa-brands fa-x-twitter"
           aria-hidden="true"></i> </a> </li>
