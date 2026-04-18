@@ -1,0 +1,321 @@
+@media (max-width: 1520px) {
+  /**Start Tab Panel Section**/
+  .gsgf-free .gscgff-selected-badge {
+    position: unset;
+  }
+
+  .gsgf-free .gscgff-auth-required-selected-badge {
+    position: unset;
+  }
+
+  /**End Tab Panel Section**/
+}
+@media (max-width: 1365px) {
+  /**Start Tab Panel Section**/
+  .gsgf-free .nav-tab {
+    min-width: auto;
+  }
+  /**End Tab Panel Section**/
+}
+@media (max-width: 1125px) {
+  /***START NOTICE SLIDER***/
+  .gsgf-free .notification-gsc-slider-arrows {
+    right: 15px;
+    top: 86%;
+  }
+  /***END NOTICE SLIDER***/
+  /***Start Extra CSS***/
+  #wpcontent {
+    padding-left: 0 !important;
+  }
+  .gsgf-free .inner-wrap {
+    padding: 20px;
+  }
+  .gsgf-free .shadow-box {
+    padding: 20px;
+  }
+  /***End Extra CSS***/
+  /*Start Layout Grid System*/
+  .gsgf-free .col-2,
+  .gsgf-free .col-3,
+  .gsgf-free .col-4,
+  .gsgf-free .col-5,
+  .gsgf-free .col-6,
+  .gsgf-free .col-7,
+  .gsgf-free .col-8,
+  .gsgf-free .col-12 {
+    width: 100%;
+  }
+  /*End Layout Grid System*/
+  /**Start Licence Tab Panel Section**/
+  .gsgf-free .license-box {
+    margin: 8% auto;
+  }
+  .gsgf-free .license-box {
+    width: 100%;
+  }
+  .gsgf-free .license-box {
+    padding: 50px 20px;
+  }
+  /**End Licence Tab Panel Section**/
+
+  /** Start Integration Tab Panel Section **/
+  .gsgf-free .oauth-method {
+    flex-direction: column-reverse;
+  }
+  .gsgf-free .step-guide-col {
+    margin-left: 0;
+  }
+  .gsgf-free .existing-method {
+    margin-top: 30px;
+    margin-right: 0;
+  }
+  .gsgf-free .manual-method {
+    margin-top: 30px;
+    margin-right: 0;
+  }
+  .gsgf-free .service-method {
+    margin-top: 30px;
+    margin-right: 0;
+  }
+  /** End Integration Tab Panel Section **/
+
+  /**Start Form Feed Tab Panel Section**/
+  .gsgf-free .add-feed-form .row {
+    gap: 10px;
+  }
+  .gsgf-free .auto-section .sheet-details .row {
+    gap: 15px;
+  }
+  .gsgf-free .sheet-url-gravityform {
+    margin-left: unset !important;
+  }
+  .gsgf-free .res-top-20 {
+    margin-top: 20px;
+  }
+  /**End Form Feed Tab Panel Section**/
+
+  /***Start Extensions Tab Panel***/
+  .gsgf-free .gsc-market-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  /***End Extensions Tab Panel***/
+}
+@media (max-width: 992px) {
+  /***Start Extra CSS***/
+  .gsgf-free [data-tooltip-length="medium"]:after {
+    width: auto;
+  }
+  /***End Extra CSS***/
+  /**Start Form Feed Tab Panel Section**/
+  .gsgf-free .form-fields-list .card.ui-sortable-handle {
+    width: 100%;
+  }
+  /**End Form Feed Tab Panel Section**/
+  /** Start Settings Tab Panel Section **/
+  .gsgf-free .nav-tab-wrapper {
+    flex-wrap: wrap;
+  }
+  .gsgf-free .nav-tab {
+    width: 100%;
+    border-right: 1px solid #c3c4c7;
+  }
+  .gsgf-free .gsc-settings-tabs {
+    flex-wrap: wrap;
+  }
+  .gsgf-free .gsc-access-wrapper {
+    display: unset;
+  }
+  .gsgf-free .gsc-access-info {
+    margin-top: 30px;
+  }
+  .gsgf-free .gsc-support-card {
+    justify-content: center;
+  }
+  /** End Settings Tab Panel Section **/
+  /**Start Extensions Tab Panel***/
+  .gsgf-free .gsc-about-content {
+    grid-template-columns: 1fr;
+    padding: 40px 0;
+  }
+
+  .gsgf-free .gsc-about-footer {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  /**End Extensions Tab Panel***/
+  /**Start Footer Section**/
+  #wpfooter {
+    display: block !important;
+    margin-left: 0 !important;
+  }
+  .gsc-admin-footer-bar {
+    justify-content: center;
+  }
+  /**End Footer Section**/
+}
+@media (max-width: 767px) {
+  /***START NOTICE SLIDER***/
+  .gsgf-free .notification-gsc-slider-arrows {
+    /*top: auto;*/
+    bottom: 10px;
+    right: 10px;
+    transform: none;
+  }
+  /***End NOTICE SLIDER***/
+  /***Start Activate pro Plugin Message***/
+  .gsgf-free .gsc-activate-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .gsgf-free .gsc-upgrade-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .gsgf-free .gsc-activate-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  /***End Activate pro Plugin Message***/
+  /***Start Advertisement Slide Message***/
+  .gsgf-free .gsc-ad-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  /***End Advertisement Slide Message***/
+  /***Start Gsheet-Header Section***/
+  .gsgf-free .left-gsheet-header {
+    justify-content: center;
+    width: 100%;
+  }
+  .gsgf-free
+  .gsheet-header-wrapper
+  .left-gsheet-header
+  .gsheet-header-logo-text
+  .title {
+    font-size: 16px;
+  }
+  .gsgf-free .right-gsheet-header {
+    margin-top: 10px;
+    width: 100%;
+  }
+  .gsgf-free .right-gsheet-header ul {
+    justify-content: center;
+  }
+  /***End Gsheet-Header Section***/
+
+  /** Start Integration Tab Panel Section **/
+  .gsgf-free .manual-method .gsc-kv {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .gsgf-free .manual-method .gscgff_wg_api_option {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  .gsgf-free .gsc-service-success .gsc-connected-box {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  .gsgf-free .gsc-google-auth-card {
+    display: block;
+  }
+  .gsgf-free .gsc-google-auth-right {
+    margin-top: 10px;
+  }
+  .gsgf-free .token-box-width-exist {
+    min-width: unset;
+  }
+  .gsgf-free .service-account-method {
+    margin-left: unset;
+  }
+  /** End Integration Tab Panel Section **/
+  /*Start Integration Debug LOG */
+  .gsgf-free .error-log-table {
+    width: 100%;
+    min-width: 900px;
+    border-collapse: collapse;
+  }
+  /*End Integration Debug LOG */
+  /**Start Form Feed Tab Panel Section**/
+  .gsgf-free .gsc-sheet-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .gsgf-free .gsc-sheet-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .gsgf-free .feed-info-heading {
+    margin-top: 10px;
+  }
+  .gsgf-free .settings-grid {
+    display: flex !important;
+    flex-direction: column;
+  }
+  /**End Form Feed Tab Panel Section**/
+  /** Start Settings Tab Panel Section **/
+  .gsgf-free .info-content tr {
+    flex-direction: column;
+    gap: 17px;
+    align-items: flex-start;
+  }
+  .gsgf-free .info-content table td {
+    width: fit-content;
+    word-break: break-all;
+  }
+  .gsgf-free .gsc-support-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+  .gsgf-free .gsc-support-left {
+    flex-direction: column;
+  }
+  /** End Settings Tab Panel Section **/
+  /**Start Extension Tab Panel**/
+  .gsgf-free .gsc-founder-card {
+    justify-content: center;
+  }
+  .gsgf-free .responsive-center {
+    justify-content: center;
+  }
+  .gsgf-free .responsive-text-center {
+    text-align: center;
+  }
+  /**End Extension Tab Panel**/
+  /**Start Footer Section**/
+  .gsc-admin-footer-bar {
+    justify-content: flex-start;
+  }
+  .gsgf-free .assistant-widget {
+    bottom: 95px;
+  }
+  /**End Footer Section**/
+}
+@media (max-width: 600px) {
+  /**Start Form Feed Tab Panel Section**/
+  .gsgf-free .gsc-sheet-status-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .gsgf-free .gsc-sheet-email-box {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .gsgf-free .gsc-copy-btn {
+    width: 100%;
+  }
+  .gsgf-free .gs-wpcore-sync-entries .d-flex.gap-10 {
+    flex-wrap: wrap;
+  }
+  /**End Form Feed Tab Panel Section**/
+}

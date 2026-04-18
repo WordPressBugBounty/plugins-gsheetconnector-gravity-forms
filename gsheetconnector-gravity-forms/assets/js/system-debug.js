@@ -1,170 +1,272 @@
+/** for using settingstab -> system status */
 jQuery(document).ready(function ($) {
+  function copySystemInfo() {
+    const systemInfoContainer = document.querySelector(".info-container");
+    if (!systemInfoContainer) return;
 
-    function copySystemInfo() {
-        const systemInfoContainer = document.querySelector('.info-container');
-        const systemInfoElements = systemInfoContainer.querySelectorAll('.info-content h3, .info-content td');
-        let systemInfoText = '';
-        let currentRow = '';
+    const systemInfoElements = systemInfoContainer.querySelectorAll(
+      ".info-content h3, .info-content td",
+      );
 
-        systemInfoElements.forEach((element) => {
-            if (element.innerText) {
-                const tagName = element.tagName.toLowerCase();
+    let systemInfoText = "";
 
-                // Handle section headers (h3 tags)
-                if (tagName === 'h3') {
-                    if (currentRow !== '') {
-                        systemInfoText += currentRow.trim() + '\n\n'; // Add two newlines between sections
-                    }
-                    systemInfoText += `**${element.innerText}**\n\n`; // Make h3 bold and add extra space after it
-                    currentRow = '';
-                }
+    systemInfoElements.forEach((element) => {
+      const tagName = element.tagName.toLowerCase();
 
-                // Handle table data (td tags)
-                else if (tagName === 'td') {
-                    const labelElement = element.previousElementSibling;
+      if (tagName === "h3") {
+        systemInfoText += `\n${element.innerText.trim()}\n\n`;
+      }
 
-                    if (labelElement && labelElement.innerText) {
-                        let label = labelElement.innerText.trim(); // Keep the label as is (no underscores)
-                        systemInfoText += `${label}: ${element.innerText.trim()}\n`; // Format the row as key-value pair
-                    }
+      if (tagName === "td") {
+        const labelElement = element.previousElementSibling;
+        if (labelElement) {
+          systemInfoText += `${labelElement.innerText.trim()}: ${element.innerText.trim()}\n`;
+        }
+      }
+    });
 
-                }
-            }
-        });
+    systemInfoText = systemInfoText.trim();
 
-        // Add the last row to the final text
-        systemInfoText += currentRow.trim();
+    // copy (modern + fallback)
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(systemInfoText).then(showSuccessMsg);
+    } else {
+      const textarea = document.createElement("textarea");
+      textarea.value = systemInfoText;
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
 
-        // Copy the formatted text to the clipboard
-        navigator.clipboard.writeText(systemInfoText.trim())
-            .then(() => {
-                const messageElement = document.createElement('div');
-                messageElement.textContent = 'System info copied!';
-                messageElement.classList.add('copy-success-message');
-                document.body.appendChild(messageElement);
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textarea);
 
-                setTimeout(() => {
-                    messageElement.remove();
-                }, 3000);
-            })
-            .catch((error) => {
-                console.error('Unable to copy system info:', error);
-            });
+      showSuccessMsg();
+    }
+  }
+
+  function showSuccessMsg() {
+    // purana message hatao
+    $(".gsc-copy-msg").remove();
+
+    const msgDiv = document.createElement("div");
+    msgDiv.className = "gsc-copy-msg";
+    msgDiv.innerText = "Copied successfully";
+
+    // 🔹 BUTTON KE NICHE ADD KARO
+    $("#copy-system-info-free").after(msgDiv);
+
+    // auto remove
+    setTimeout(() => {
+      $(msgDiv).fadeOut(300, function () {
+        $(this).remove();
+      });
+    }, 3000);
+  }
+
+  // button click
+  $(document).on("click", "#copy-system-info-free", function () {
+    copySystemInfo();
+  });
+
+  $("#info-container").show();
+
+  function accordionToggle(button, container) {
+    $(button).on("click", function () {
+      // if current container is visible
+      if ($(container).is(":visible")) {
+        $(container).slideUp();
+      } else {
+        $(".info-content").slideUp();
+        $(container).slideDown();
+      }
+    });
+  }
+
+  accordionToggle("#gscgff-show-active-info-button", "#active-info-container");
+  accordionToggle("#gscgff-show-info-button", "#info-container");
+  accordionToggle(
+    "#gscgff-show-wordpress-info-button",
+    "#wordpress-info-container",
+    );
+  accordionToggle("#gscgff-show-Drop-info-button", "#Drop-info-container");
+  accordionToggle(
+    "#gscgff-show-active-theme-button",
+    "#active-theme-info-container",
+    );
+  accordionToggle(
+    "#gscgff-show-netplug-info-button",
+    "#netplug-info-container",
+    );
+  accordionToggle("#gscgff-show-acplug-info-button", "#acplug-info-container");
+  accordionToggle("#gscgff-show-server-info-button", "#server-info-container");
+  accordionToggle(
+    "#gscgff-show-database-info-button",
+    "#database-info-container",
+    );
+  accordionToggle("#gscgff-show-wrcons-info-button", "#wrcons-info-container");
+  accordionToggle("#gscgff-show-ftps-info-button", "#ftps-info-container");
+});
+/**
+ * Adds event listener to the copy button to trigger error log copying
+ * once the DOM content is fully loaded.
+ */
+
+ document.addEventListener("DOMContentLoaded", function () {
+  /**
+   * Copies the content of the error log textarea to the clipboard
+   * and shows a temporary "Copied" confirmation message.
+   */
+
+   function copyErrorLog() {
+    // Select the textarea containing the error log
+    var textarea = document.querySelector(".errorlog");
+
+    // Select the message div (button na niche no div)
+    var copyMessage = document.querySelector(".gsc-copy-msg");
+
+    if (textarea && copyMessage) {
+      textarea.select();
+
+      try {
+        // Copy text
+        document.execCommand("copy");
+
+        // Show message
+        copyMessage.classList.remove("d-none");
+
+        // Hide message after 3 seconds
+        setTimeout(function () {
+          copyMessage.classList.add("d-none");
+        }, 3000);
+      } catch (err) {
+        console.error("Unable to copy error log:", err);
+      }
+
+      textarea.blur();
+    }
+  }
+
+  var copyButton = document.querySelector(".copy");
+
+  if (copyButton) {
+    copyButton.addEventListener("click", function (event) {
+      event.preventDefault();
+      copyErrorLog();
+    });
+  }
+});
+ jQuery(document).ready(function ($) {
+  $("#gscgff-copy-logs-info").on("click", function (e) {
+    e.preventDefault();
+
+    var rows = $("table tbody tr");
+    var copyText = "";
+
+    if (!rows.length) {
+      alert("No error logs found.");
+      return;
     }
 
+    rows.each(function () {
+      var cols = $(this).find("td");
 
-
-
-    jQuery(document).ready(function ($) {
-        $("#show-info-button").click(function () {
-            $("#info-container").slideToggle();
-        });
-        $("#show-wordpress-info-button").click(function () {
-            $("#wordpress-info-container").slideToggle();
-        });
-        $("#show-Drop-info-button").click(function () {
-            $("#Drop-info-container").slideToggle();
-        });
-        $("#show-active-info-button").click(function () {
-            $("#active-info-container").slideToggle();
-        });
-        $("#show-netplug-info-button").click(function () {
-            $("#netplug-info-container").slideToggle();
-        });
-        $("#show-acplug-info-button").click(function () {
-            $("#acplug-info-container").slideToggle();
-        });
-        $("#show-server-info-button").click(function () {
-            $("#server-info-container").slideToggle();
-        });
-        $("#show-database-info-button").click(function () {
-            $("#database-info-container").slideToggle();
-        });
-        $("#show-wrcons-info-button").click(function () {
-            $("#wrcons-info-container").slideToggle();
-        });
-        $("#show-ftps-info-button").click(function () {
-            $("#ftps-info-container").slideToggle();
-        });
+      if (cols.length >= 4) {
+        copyText += $(cols[0]).text().trim() + "\n"; // Date
+        copyText += $(cols[1]).text().trim() + "\n"; // Type
+        copyText += $(cols[2]).text().trim() + "\n"; // Message
+        copyText += $(cols[3]).text().trim() + "\n"; // File
+        copyText += "----------------------------------------\n\n";
+      }
     });
-    // JavaScript function to copy the error log to the clipboard
-    function copyErrorLog() {
-        // Select the textarea containing the error log
-        var textarea = document.querySelector('.errorlog');
-        // Select the message div
-        var copyMessage = document.querySelector('.copy-message');
 
-        // Check if the textarea and message div exist
-        if (textarea && copyMessage) {
-            // Select the text within the textarea
-            textarea.select();
+    /*  Temporary textarea copy */
+    var tempTextarea = $("<textarea>");
+    $("body").append(tempTextarea);
+    tempTextarea.val(copyText).select();
+    document.execCommand("copy");
+    tempTextarea.remove();
 
-            try {
-                // Attempt to copy the selected text to the clipboard
-                document.execCommand('copy');
-                // Display the "Copied" message
-                copyMessage.style.display = 'block';
+    /*  Show success message */
+    var $msg = $(".gsc-copy-msg");
 
-                // Hide the message after a few seconds (e.g., 3 seconds)
-                setTimeout(function () {
-                    copyMessage.style.display = 'none';
-                }, 3000);
-            } catch (err) {
-                console.error('Unable to copy error log: ' + err);
-                alert('Error log copy failed. Please copy it manually.');
-            }
+    $msg.text("Copied successfully").removeClass("d-none");
 
-            // Deselect the text
-            textarea.blur();
-        }
+    setTimeout(function () {
+      $msg.addClass("d-none");
+    }, 3000);
+  });
+});
+
+
+ jQuery(document).ready(function ($) {
+  $("#gscgff-csv-info").on("click", function (e) {
+    e.preventDefault();
+
+    var rows = $("table.widefat tr");
+    var csvContent = "";
+
+    if (rows.length === 0) {
+      alert("No error logs found.");
+      return;
     }
 
-    // Add an event listener to call the copyErrorLog function when the button is clicked
-    document.addEventListener('DOMContentLoaded', function () {
-        var copyButton = document.querySelector('.copy');
+    rows.each(function () {
+      var cols = $(this).find("th, td");
+      var rowData = [];
 
-        if (copyButton) {
-            copyButton.addEventListener('click', function (event) {
-                event.preventDefault();
-                copyErrorLog();
-            });
-        }
+      cols.each(function () {
+        var text = $(this).text().trim();
+
+        /*  Escape quotes */
+        text = text.replace(/"/g, '""');
+
+        rowData.push('"' + text + '"');
+      });
+
+      csvContent += rowData.join(",") + "\n";
     });
 
-    // JavaScript function to clear the error log textarea
-    // function clearErrorLog() {
-    //     var textarea = document.querySelector('.errorlog');
+    /*  Create Blob */
+    var blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
 
-    //     if (textarea) {
-    //         // Clear the textarea content
-    //         textarea.value = '';
-    //     }
-    // }
+    var link = document.createElement("a");
+    var url = URL.createObjectURL(blob);
 
-    // Add an event listener to call the clearErrorLog function when the "Clear" button is clicked
-    document.addEventListener('DOMContentLoaded', function () {
-        var clearButton = document.querySelector('.clear');
+    link.setAttribute("href", url);
+    link.setAttribute("download", "debug-log.csv");
+    link.style.visibility = "hidden";
 
-        if (clearButton) {
-            clearButton.addEventListener('click', function (event) {
-                event.preventDefault();
-                clearErrorLog();
-            });
-        }
-    });
-    // Bind copy and clear buttons
-    $('.copy-system-info-gf').on('click', function (e) {
-        e.preventDefault();
-        copySystemInfo();
-    });
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
+});
 
-    $('.copy-error-log-gf').on('click', function (e) {
-        e.preventDefault();
-        copyErrorLog();
-    });
+ /** Functin for using clear log  */
+ jQuery(document).on("click", ".gsgff-clear-content-logs", function () {
+  jQuery(".clear-loading-sign").addClass("loading");
 
-    $('.clear-content-logs-gf').on('click', function (e) {
-        e.preventDefault();
-        clearErrorLog();
-    });
+  var data = {
+    action: "gscgff_clear_log",
+    security: jQuery("#gscgff-ajax-nonce").val(),
+  };
+
+  jQuery.post(ajaxurl, data, function (response) {
+    var clear_msg = response.data;
+    if (response == -1) {
+      return false; /*  Invalid nonce */
+    }
+
+    if (response.success) {
+      jQuery(".clear-loading-sign").removeClass("loading");
+      jQuery(".gscgff-validation-message").empty();
+      jQuery("<span class='gscgff-valid-message'>Cleared Log</span>").appendTo(
+        ".gscgff-validation-message",
+        );
+      setTimeout(function () {
+        location.reload();
+      }, 1000);
+    }
+  });
 });

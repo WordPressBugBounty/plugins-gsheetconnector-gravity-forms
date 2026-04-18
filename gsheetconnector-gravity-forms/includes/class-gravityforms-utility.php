@@ -42,7 +42,8 @@ class GravityForms_GsFree_Connector_Utility
     *
     * @param mixed $message
     */
-   public function logger($message) {
+   public function logger($message)
+   {
       if (WP_DEBUG === true) {
          if (is_array($message) || is_object($message)) {
             error_log(print_r($message, true));
@@ -76,7 +77,7 @@ class GravityForms_GsFree_Connector_Utility
             $admin_notice = '<div id="message" class="update-nag">';
             break;
          case 'auth-expired-notice':
-            $admin_notice = '<div id="message" class="error notice Fluentform-auth-expired-adds is-dismissible">';
+            $admin_notice = '<div id="message" class="error notice gravityform-auth-expired-adds is-dismissible">';
             break;
          case 'upgrade':
             $admin_notice = '<div id="message" class="error notice gs-upgrade is-dismissible">';
@@ -173,50 +174,9 @@ class GravityForms_GsFree_Connector_Utility
     */
    public static function gfgs_debug_log($error)
    {
-      if (!function_exists('WP_Filesystem')) {
-         require_once ABSPATH . 'wp-admin/includes/file.php';
-      }
-      global $wp_filesystem;
-      if (!WP_Filesystem()) {
-         return;
-      }
-
-      $upload_dir = wp_upload_dir();
-      $log_dir = trailingslashit($upload_dir['basedir']) . 'gsc-gravity-logs/';
-      $log_file = get_option('gf_gs_debug_log_file');
-      $timestamp = gmdate('Y-m-d H:i:s') . "\t PHP " . phpversion() . "\t";
-
-      try {
-         if (!$wp_filesystem->is_dir($log_dir)) {
-            $wp_filesystem->mkdir($log_dir, FS_CHMOD_DIR);
-         }
-
-         // Protect directory with .htaccess
-         $wp_filesystem->put_contents($log_dir . '.htaccess', "Deny from all\n", FS_CHMOD_FILE);
-
-         $old_file = $log_dir . 'log.txt';
-         if ($wp_filesystem->exists($old_file)) {
-            $wp_filesystem->delete($old_file);
-         }
-
-         $log_message = is_array($error) || is_object($error)
-            ? $timestamp . wp_json_encode($error) . "\r\n"
-            : $timestamp . $error . "\r\n";
-
-         if (!empty($log_file) && $wp_filesystem->exists($log_file)) {
-            $existing = $wp_filesystem->get_contents($log_file);
-            $wp_filesystem->put_contents($log_file, $existing . $log_message, FS_CHMOD_FILE);
-         } else {
-            $new_log_file = $log_dir . 'log-' . uniqid() . '.txt';
-            $log_content = "Log created at " . gmdate('Y-m-d H:i:s') . "\r\n" . $log_message;
-
-            if ($wp_filesystem->put_contents($new_log_file, $log_content, FS_CHMOD_FILE)) {
-               update_option('gf_gs_debug_log_file', $new_log_file);
-            }
-         }
-
-      } catch (Exception $e) {
-         GravityForms_GsFree_Connector_Utility::gfgs_debug_log('❌ Exception in gs_debug_log: ' . $e->getMessage());
+      /** Insert error login in table */
+      if (class_exists('gscgf_error_logs')) {
+         gscgf_error_logs::log_from_debug($error);
       }
    }
 
@@ -240,5 +200,4 @@ class GravityForms_GsFree_Connector_Utility
          GravityForms_GsFree_Connector_Utility::gfgs_debug_log('Error in getDefaultDate: ' . $e->getMessage());
       }
    }
-
 }
