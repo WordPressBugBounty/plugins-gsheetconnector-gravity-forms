@@ -14,7 +14,7 @@ if (isset($_GET['code']) && ($gravityforms_manual_setting == 0)) {
     update_option('is_new_client_secret_gravityformsgsc', 1);
     $Code = sanitize_text_field(wp_unslash($_GET['code']));
 
-    $header = admin_url('admin.php?page=gf_googlesheet');
+    $header = admin_url('admin.php?page=gf_googlesheet&tab=integration');
 }
 ?>
 
@@ -137,11 +137,18 @@ value="<?php echo esc_attr(wp_create_nonce('gf-ajax-nonce')); ?>" />
 
                                 if (!empty(get_option('gfgs_verify')) && (get_option('gfgs_verify') == "invalid-auth")) { ?>
 
-                                    <div class="gsc-msg gsc-error fw-400 text-dark text-center pt-10 pb-10 manual-margin">
-                                        <?php echo esc_html__(
-                                            'Google Drive and Google Sheets permissions are not granted. Please deactivate and re-authorize with full permissions.',
+                                    <div class="gsc-msg gsc-error gscgff-permission-error fw-400 text-dark  pt-10 pb-10 manual-margin">
+                                      
+
+                                    <?php
+                                    echo wp_kses_post(
+                                        __(
+                                            '<p class="fw-400 text-dark"><strong>Google Drive</strong> and <strong>Google Sheets</strong> permissions were not granted during authentication with Google.</p>
+                                            <p class="fw-400 text-dark"><strong>Refer to Step 4 in the Connection Guide shown alongside.</strong><br> Then, deactivate the connection and re-authorize it, ensuring both Google Drive and Google Sheets permissions are enabled.</p>',
                                             'gsheetconnector-gravity-forms'
-                                        ); ?>
+                                        )
+                                    );
+                                    ?>
 
                                     </div>
                                 <?php } else {  ?>
@@ -185,8 +192,8 @@ value="<?php echo esc_attr(wp_create_nonce('gf-ajax-nonce')); ?>" />
                                                     update_option('gravityforms_gs_auth_expired_free', 'true');
                                                     ?>
                                                     <div class="gsc-google-auth-text">
-                                                        <strong><?php echo esc_html__('Connect Your Google Account', 'gsheetconnector-gravityforms-pro'); ?></strong>
-                                                        <p><?php echo esc_html__('Securely link your Google account to start syncing form entries automatically.', 'gsheetconnector-gravityforms-pro'); ?>
+                                                        <strong><?php echo esc_html__('Connect Your Google Account', 'gsheetconnector-gravity-forms'); ?></strong>
+                                                        <p><?php echo esc_html__('Securely link your Google account to start syncing form entries automatically.', 'gsheetconnector-gravity-forms'); ?>
                                                     </p>
                                                 </div>
 
@@ -195,7 +202,7 @@ value="<?php echo esc_attr(wp_create_nonce('gf-ajax-nonce')); ?>" />
                                         } else {
 
 
-                                            $redirct_uri = admin_url('admin.php?page=gf_googlesheet');
+                                            $redirct_uri = admin_url('admin.php?page=gf_googlesheet&tab=integration');
                                             $gsc_gravityform_auth_url = "https://oauth.gsheetconnector.com/index.php?client_admin_url=" . urlencode($redirct_uri) . "&plugin=woocommercegsheetconnector";
 
                                             ?>
@@ -411,7 +418,7 @@ class="btn btn-primary text-decoration-none mt-30 link-hover-white"><?php echo e
     </div>
     <p><?php echo esc_html__('Follow these steps to connect your Google account and start syncing your form data with Google Sheets.', 'gsheetconnector-gravity-forms'); ?>
 </p>
-<div class="gsc-slider-wrapper mt-30">
+<div class="gsc-slider-wrapper gscgff-connection-guide-slider mt-30">
     <div class="gsc-slider">
 
         <div class="gsc-slide">

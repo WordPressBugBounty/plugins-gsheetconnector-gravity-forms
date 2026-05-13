@@ -4,7 +4,7 @@ Tags: gravity forms, gravity forms google sheets, gravity forms to google sheets
 Requires at least: 5.6
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.4.0
+Stable tag: 1.4.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Author URI: https://www.gsheetconnector.com/
@@ -180,6 +180,14 @@ Your Gravity Forms submissions will now sync automatically to Google Sheets in r
 
 
 == Changelog ==
+
+= 1.4.1 = (13-05-2026)
+* Added: Dashboard section.
+* Added: Notification slider for admin notices.
+* Added: Default headers such as Date, Entry Date, Submission Date, and Date Time.
+* Fixed: Entry Date now follows the WordPress date and time format and prevents automatic formatting in Google Sheets.
+* Fixed: Date and time are now inserted into Google Sheets using the WordPress site format.
+* Fixed: Google authentication permission condition handling.
 
 = 1.4.0 = (18-04-2026)
 * Improved: Enhanced backend UI for better usability and experience.

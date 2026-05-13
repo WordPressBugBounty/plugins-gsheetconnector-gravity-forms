@@ -394,6 +394,9 @@
   background: linear-gradient(135deg, #fde2e4, #e0f2fe);
   border-radius: 12px;
 }
+.gsgf-free .cf7-to-gsheet {
+  background: #f1f5f9;
+}
 
 /* Floating Cards */
 .gsgf-free .common-section-gsc-card {
@@ -439,7 +442,23 @@
   line-height: normal;
   font-weight: 600;
 }
-
+.gsgf-free .free-pro-btn {
+  color: #1d56d1;
+  font-size: 15px;
+  font-weight: 500;
+}
+.gsgf-free .common-section-gsc-promo-content ul {
+  list-style: disc;
+  padding-left: 18px;
+  text-decoration: none;
+  margin-top: 20px;
+}
+.gsgf-free .common-section-gsc-promo-content ul li {
+  color: #555;
+  font-size: 14px;
+  position: relative;
+  line-height: 25px;
+}
 .gsgf-free .common-section-gsc-promo-content p {
   font-size: 16px;
   color: #6b7280;

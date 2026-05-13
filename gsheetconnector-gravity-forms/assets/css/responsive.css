@@ -16,6 +16,27 @@
     min-width: auto;
   }
   /**End Tab Panel Section**/
+
+  /**Start Dashboard Section**/
+  .gsgf-free .dashboard-pro-features {
+  grid-template-columns: 6fr 6fr !important;
+  }
+  .gsgf-free .video-grid {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  .gsgf-free .gsc-support-card {
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  }
+  .gsgf-free .gsc-support-right {
+  border-left: unset;
+  padding-left: 0;
+  }
+  /**End Dashboard Section**/
+
+
+  
 }
 @media (max-width: 1125px) {
   /***START NOTICE SLIDER***/
@@ -102,6 +123,25 @@
     gap: 20px;
   }
   /***End Extensions Tab Panel***/
+
+  /***Start Dashboard Section***/
+  .gsgf-free .gsc-main {
+  grid-template-columns: 1fr;
+  }
+
+  .gsgf-free .gsc-metrics {
+  grid-template-columns: 1fr 1fr;
+  }
+
+  .gsgf-free .gsc-hero {
+  flex-direction: column;
+  gap: 20px;
+  }
+
+  .gsgf-free .gsc-hero-left {
+  max-width: 100%;
+  }
+ /***End Dashboard Section***/
 }
 @media (max-width: 992px) {
   /***Start Extra CSS***/
@@ -156,6 +196,17 @@
     justify-content: center;
   }
   /**End Footer Section**/
+  /**Start Dashboard Section**/
+ .gsgf-free .dashboard-pro-features {
+ grid-template-columns: 12fr !important;
+ }
+ .gsgf-free .plugin-category-section{
+  grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+ }
+ 
+ /**End Dashboard Section**/
+
+
 }
 @media (max-width: 767px) {
   /***START NOTICE SLIDER***/
@@ -275,6 +326,7 @@
     flex-direction: column;
     text-align: center;
     gap: 15px;
+    align-items: center;
   }
   .gsgf-free .gsc-support-left {
     flex-direction: column;
@@ -299,6 +351,28 @@
     bottom: 95px;
   }
   /**End Footer Section**/
+
+  /***Start Dashboard Section***/
+  .gsgf-free .pro-actions {
+  flex-direction: column;
+  }
+  .gsgf-free .gsc-support-right {
+  border-left: none;
+  padding-left: 0;
+  }
+  .gsgf-free .common-section-gsc-promo-content .d-flex {
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  }
+  .gsgf-free .d-flex-responsiveness{
+    flex-direction: column;
+  }
+  .gsgf-free .d-flex-responsiveness .w-50{
+    width:100%;
+  }
+  /***End Dashboard Section***/
+
 }
 @media (max-width: 600px) {
   /**Start Form Feed Tab Panel Section**/
@@ -318,4 +392,9 @@
     flex-wrap: wrap;
   }
   /**End Form Feed Tab Panel Section**/
+    /**Start Dashboard Section**/
+  .gsgf-free .video-grid {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  /**End Dashboard Section**/
 }

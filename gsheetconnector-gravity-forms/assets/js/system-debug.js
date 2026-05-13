@@ -1,73 +1,133 @@
 /** for using settingstab -> system status */
 jQuery(document).ready(function ($) {
-  function copySystemInfo() {
-    const systemInfoContainer = document.querySelector(".info-container");
-    if (!systemInfoContainer) return;
+ 
+  /**
+   * Copy formatted system info and show message below the button
+   */
+   function copySystemInfo(btn) {
 
-    const systemInfoElements = systemInfoContainer.querySelectorAll(
-      ".info-content h3, .info-content td",
-      );
+    if (!btn) return;
 
-    let systemInfoText = "";
+    var wrapper = document.querySelector("#system-info-wrapper");
 
-    systemInfoElements.forEach((element) => {
-      const tagName = element.tagName.toLowerCase();
+    if (!wrapper) return;
 
-      if (tagName === "h3") {
-        systemInfoText += `\n${element.innerText.trim()}\n\n`;
-      }
+    var textToCopy = "";
 
-      if (tagName === "td") {
-        const labelElement = element.previousElementSibling;
-        if (labelElement) {
-          systemInfoText += `${labelElement.innerText.trim()}: ${element.innerText.trim()}\n`;
+    /* ===== LOOP ALL SECTIONS ===== */
+    wrapper.querySelectorAll(".info-button").forEach(function (button) {
+
+      /* ===== SECTION TITLE ===== */
+      var sectionTitle = button.childNodes[0].textContent.trim();
+
+      textToCopy += "\n====================================\n";
+      textToCopy += sectionTitle + "\n";
+      textToCopy += "====================================\n\n";
+
+      /* ===== GET NEXT CONTENT DIV ===== */
+      var contentDiv = button.parentElement.nextElementSibling;
+
+      if (!contentDiv) return;
+
+      /* ===== LOOP TABLE ROWS ===== */
+      contentDiv.querySelectorAll("table tr").forEach(function (row) {
+
+        var cols = row.querySelectorAll("td");
+
+        if (cols.length >= 2) {
+
+          var label = cols[0].innerText.trim();
+          var value = cols[1].innerText.trim();
+
+          textToCopy += label + ": " + value + "\n";
         }
-      }
+      });
+
+      textToCopy += "\n";
     });
 
-    systemInfoText = systemInfoText.trim();
+    textToCopy = textToCopy.trim();
 
-    // copy (modern + fallback)
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(systemInfoText).then(showSuccessMsg);
+    if (!textToCopy) {
+      console.error("Nothing to copy");
+      return;
+    }
+
+    /* ===== MESSAGE ===== */
+    var msgDiv = btn.parentNode.querySelector(".gsc-copy-msg");
+
+    if (!msgDiv) {
+
+      msgDiv = document.createElement("div");
+
+      msgDiv.className = "gsc-copy-msg";
+
+      msgDiv.style.display = "none";
+
+      btn.parentNode.appendChild(msgDiv);
+    }
+
+    function showCopied() {
+
+      msgDiv.innerHTML = "Copied successfully.";
+
+      msgDiv.style.display = "block";
+
+      setTimeout(function () {
+
+        msgDiv.style.display = "none";
+
+      }, 2000);
+    }
+
+    /* ===== COPY ===== */
+    if (navigator.clipboard && window.isSecureContext) {
+
+      navigator.clipboard.writeText(textToCopy)
+      .then(showCopied)
+      .catch(function (err) {
+        console.error("Clipboard error:", err);
+      });
+
     } else {
-      const textarea = document.createElement("textarea");
-      textarea.value = systemInfoText;
+
+      var textarea = document.createElement("textarea");
+
+      textarea.value = textToCopy;
+
       textarea.style.position = "fixed";
-      textarea.style.opacity = "0";
+
+      textarea.style.left = "-9999px";
 
       document.body.appendChild(textarea);
-      textarea.select();
-      document.execCommand("copy");
-      document.body.removeChild(textarea);
 
-      showSuccessMsg();
+      textarea.focus();
+
+      textarea.select();
+
+      try {
+
+        document.execCommand("copy");
+
+        showCopied();
+
+      } catch (e) {
+
+        console.error("Copy failed", e);
+      }
+
+      document.body.removeChild(textarea);
     }
   }
 
-  function showSuccessMsg() {
-    // purana message hatao
-    $(".gsc-copy-msg").remove();
-
-    const msgDiv = document.createElement("div");
-    msgDiv.className = "gsc-copy-msg";
-    msgDiv.innerText = "Copied successfully";
-
-    // 🔹 BUTTON KE NICHE ADD KARO
-    $("#copy-system-info-free").after(msgDiv);
-
-    // auto remove
-    setTimeout(() => {
-      $(msgDiv).fadeOut(300, function () {
-        $(this).remove();
-      });
-    }, 3000);
-  }
-
-  // button click
+  /* ===== BUTTON CLICK ===== */
   $(document).on("click", "#copy-system-info-free", function () {
-    copySystemInfo();
+
+    copySystemInfo(this);
+
   });
+
+  
 
   $("#info-container").show();
 

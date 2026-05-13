@@ -51,6 +51,15 @@ class GFGS_Connector_Service
 
         add_action('wp_ajax_dismiss_pro_notice', array($this, 'gsheet_dismiss_pro_notice'));
 
+        /* dismiss  notification */
+        add_action('wp_ajax_gscgff_dismiss_notice', array($this, 'gscgff_dismiss_notice_callback'));
+
+        /* snooze notitiacation  */
+        add_action('wp_ajax_gscgff_snooze_notice', array($this, 'gscgff_snooze_notice_callback'));
+
+
+
+
     }
 
  /**
@@ -801,6 +810,35 @@ public function gsheet_dismiss_pro_notice() {
 
     wp_send_json_success();
 }
+
+
+public function gscgff_dismiss_notice_callback(){
+     if (!isset($_POST['security']) || !wp_verify_nonce($_POST['security'], 'gf-ajax-nonce')) {
+      wp_send_json_error('Invalid nonce');
+      }
+      
+      if (!isset($_POST['key'])) {
+      wp_send_json_error('Missing key');
+      }
+      
+      $key = sanitize_text_field($_POST['key']);
+      update_option('gscgff_notice_' . $key, 'dismissed');
+      wp_send_json_success();
+    }
+
+public function gscgff_snooze_notice_callback()
+   {
+      if (!isset($_POST['security']) || !wp_verify_nonce($_POST['security'], 'gf-ajax-nonce')) {
+      wp_send_json_error('Invalid nonce');
+      }
+      if (!isset($_POST['key'])) {
+      wp_send_json_error('Missing key');
+      }
+      $key = sanitize_text_field($_POST['key']);
+      update_option('gscgff_notice_' . $key . '_time', time());
+      wp_send_json_success();
+   }
+
 
 }
 $GFGS_Connector_Service = new GFGS_Connector_Service();

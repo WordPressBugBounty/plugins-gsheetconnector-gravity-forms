@@ -60,7 +60,7 @@ class gravityforms_gs_Connector_Adds
 
    if ($auth_expired == "true") {
       if (empty($get_display_interval) || current_time('timestamp') > $adds_interval_timestamp) {
-         add_action('admin_notices', array($this, 'show_gravityforms_gs_auth_expired_adds'));
+         /*add_action('admin_notices', array($this, 'show_gravityforms_gs_auth_expired_adds'));*/
       }
    }
 
@@ -111,9 +111,10 @@ public function gravityforms_gs_close_auth_expired_adds_interval()
  *
  * @return void
  */
+/*
 public function show_gravityforms_gs_auth_expired_adds()
 {
-      // Check conditions, like admin page, plugin active, etc...
+      
 
    $ajax_nonce = wp_create_nonce('gravityforms_gs_auth_expired_adds_ajax');
 
@@ -133,6 +134,7 @@ public function show_gravityforms_gs_auth_expired_adds()
    echo '<input type="hidden" name="gravityforms_gs_auth_expired_adds_ajax_nonce" id="gravityforms_gs_auth_expired_adds_ajax_nonce" value="' . esc_attr($ajax_nonce) . '" />';
    echo '</div>';
 }
+*/
 
 
 

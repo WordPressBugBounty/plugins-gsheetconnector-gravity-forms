@@ -86,7 +86,7 @@ small {
   border-radius: 0 4px 0 0;
 }
 .gsgf-free .nav-tab {
-  padding: 2px 15px;
+  /*padding: 2px 15px;
   width: 100%;
   border: 1px solid #b5bfc9;
   border-right: 0;
@@ -94,6 +94,16 @@ small {
   background: #f0f2f4;
   font-size: 16px;
   line-height: 45px;
+  margin-left: 0;
+  margin-bottom: -1px;
+  */
+  padding: 10px 20px;
+  width: auto;
+  border: 1px solid #B5BFC9;
+  border-right: 0;
+  color: #5B646C;
+  background: #F0F2F4;
+  font-size: 15px;
   margin-left: 0;
   margin-bottom: -1px;
 }

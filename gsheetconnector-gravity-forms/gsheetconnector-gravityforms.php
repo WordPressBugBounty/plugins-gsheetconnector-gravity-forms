@@ -7,7 +7,7 @@
  * Requires PHP:7.4
  * Author: GSheetConnector
  * Author URI: https://www.gsheetconnector.com/
- * Version: 1.4.0
+ * Version: 1.4.1
  * Text Domain: gsheetconnector-gravity-forms
  * License: GPLv2
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -89,8 +89,8 @@ if (Gforms_Gsheet_Connector_Free_Init::gscgf_is_pugin_active('Gforms_Gsheet_Conn
 }
 
 /* Declare some global constants */
-define('GRAVITY_GOOGLESHEET_VERSION', '1.4.0');
-define('GRAVITY_GOOGLESHEET_DB_VERSION', '1.4.0');
+define('GRAVITY_GOOGLESHEET_VERSION', '1.4.1');
+define('GRAVITY_GOOGLESHEET_DB_VERSION', '1.4.1');
 define('GRAVITY_GOOGLESHEET_ROOT', dirname(__FILE__));
 define('GRAVITY_GOOGLESHEET_URL', plugins_url('/', __FILE__));
 define('GRAVITY_GOOGLESHEET_BASE_FILE', basename(dirname(__FILE__)) . '/gsheetconnector-gravity-forms.php');
@@ -507,7 +507,7 @@ private function enqueue_gsheetconnector_js()
 
 
    if ((!empty($authenticated) && $gsc_gf_is_valid == 'valid' && $gscgff_gravityform_manual_setting == 0)) {
-    $selected_method = esc_html__('Existing', 'gsheetconnector-gravityforms-pro');
+    $selected_method = esc_html__('Existing', 'gsheetconnector-gravity-forms');
   }
 
 
@@ -622,21 +622,9 @@ private function enqueue_gsheetconnector_css()
        'all'
      );
 
-      wp_enqueue_style(
-       'gsc-connector-global-free',
-       GRAVITY_GOOGLESHEET_URL . 'assets/css/global.css',
-       [],
-       GRAVITY_GOOGLESHEET_VERSION,
-       'all'
-     );
+      
 
-      wp_enqueue_style(
-       'gsc-connector-responsive-free',
-       GRAVITY_GOOGLESHEET_URL . 'assets/css/responsive.css',
-       [],
-       GRAVITY_GOOGLESHEET_VERSION,
-       'all'
-     );
+     
 
       wp_enqueue_style(
        'gsc-connector-pro-feature',
@@ -653,6 +641,22 @@ private function enqueue_gsheetconnector_css()
        'all'
      );
 
+     wp_enqueue_style(
+       'gsc-connector-global-free',
+       GRAVITY_GOOGLESHEET_URL . 'assets/css/global.css',
+       [],
+       GRAVITY_GOOGLESHEET_VERSION,
+       'all'
+     );
+
+      wp_enqueue_style(
+       'gsc-connector-responsive-free',
+       GRAVITY_GOOGLESHEET_URL . 'assets/css/responsive.css',
+       [],
+       GRAVITY_GOOGLESHEET_VERSION,
+       'all'
+     );
+        
       wp_enqueue_style(
        'gsc-connector-font-awesome-free',
        GRAVITY_GOOGLESHEET_URL . 'assets/css/fontawesome.css',
@@ -678,6 +682,10 @@ public function run_on_upgrade()
 
   if ($plugin_options['version'] == '1.3.31') {
     $this->upgrade_database_1331();
+  }
+
+  if ($plugin_options['version'] == '1.4.0') {
+    $this->upgrade_database_140();
   }
 
   /* update the version value */
@@ -740,6 +748,23 @@ public function upgrade_database_1331(){
  /** Create Error LOg Table during  plugin update */
  $this->create_errorlog_table_in_database();
 
+
+  /** save date for plugin activation  */
+  if(!get_option('gscgff_plugin_activated_at')){
+      update_option('gscgff_plugin_activated_at',time());
+  }
+
+}
+
+
+public function upgrade_database_140(){
+   /** Create Error LOg Table during  plugin update */
+  $this->create_errorlog_table_in_database();
+
+  /** save date for plugin activation  */
+  if(!get_option('gscgff_plugin_activated_at')){
+      update_option('gscgff_plugin_activated_at',time());
+  }
 }
 
 /**

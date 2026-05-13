@@ -8,7 +8,7 @@ jQuery(document).ready(function () {
       sheetId +
       "/edit#gid=" +
       tabId +
-      '" target="_blank">Get Sheet URL</a>',
+      '" target="_blank">View Spreadsheet</a>',
       );
     // jQuery("#sheet_iframe").html('<iframe src="https://docs.google.com/spreadsheets/d/'+sheetId+'/edit#gid='+tabId+'" style="position:absolute; width:100%; height:100%; border:none;  padding:0; overflow:hidden; z-index:999999;border: 2px solid #000000; margin-left: -22px; margin-top: 20%;" />');
   } else {
@@ -20,7 +20,7 @@ jQuery(document).ready(function () {
         sheetId +
         "/edit#gid=" +
         tabId +
-        '" target="_blank">Get Sheet URL</a>',
+        '" target="_blank">View Spreadsheet</a>',
         );
     }
   }
@@ -53,7 +53,7 @@ jQuery(document).ready(function () {
         jQuery(".loading-sign").removeClass("loading");
         jQuery("#gsc-validation-message").empty();
         jQuery(
-          "<span class='gsc-msg gsc-error fw-400 text-dark text-center pt-10 pb-10 manual-margin'>Access code Can't be blank</span>",
+          "<span class='gsc-msg gsc-error fw-400 text-dark text-center pt-10 pb-10 manual-margin'>Access code Can't be blank.</span>",
           ).appendTo("#gsc-validation-message");
       } else {
         jQuery(".loading-sign").removeClass("loading");
@@ -124,7 +124,7 @@ jQuery(document).ready(function () {
         }
 
         jQuery(
-          "<div class='gsc-msg gsc-success fw-400 text-dark text-center pt-10 pb-10 manual-margin'>Your account is removed. Reauthenticate again to integrate Gravity Form with Google Sheet.</div>",
+          "<div class='gsc-msg gsc-success fw-400 text-dark text-center pt-10 pb-10 manual-margin'>Your account is removed. Reauthenticate again to integrate Gravity Forms with Google Sheet.</div>",
           ).appendTo("#gsc-validation-deactivate-message");
 
         setTimeout(function () {
@@ -178,7 +178,7 @@ jQuery(document).ready(function () {
         jQuery(".loading-sign").removeClass("loading");
         jQuery("#gsc-validation-message").empty();
         jQuery(
-          "<span class='gsc-msg gsc-error fw-400 text-dark text-center pt-10 pb-10 manual-margin'>Access code Can't be blank</span>",
+          "<span class='gsc-msg gsc-error fw-400 text-dark text-center pt-10 pb-10 manual-margin'>Access code Can't be blank.</span>",
           ).appendTo("#gsc-validation-message");
       } else {
         jQuery(".loading-sign").removeClass("loading");
@@ -193,33 +193,8 @@ jQuery(document).ready(function () {
     });
   });
 
-  /**
-   * Display Error logs
-   */
 
-   jQuery(document).on("click", ".closeView", function () {
-    jQuery(".closeView").text("View").removeClass("closeView");
-    jQuery("button").addClass("gravity-logs");
-    jQuery(".system-Error-logs-gf").hide(); // Instead of toggle, we directly hide it
-  });
-
-   jQuery(document).on("click", ".gravity-logs", function () {
-    jQuery(".gravity-logs").text("Close").addClass("closeView");
-    jQuery("button").removeClass("gravity-logs");
-    jQuery(".system-Error-logs-gf").show(); // Instead of toggle, we directly show it
-  });
-
-   jQuery(document).ready(function ($) {
-    // Hide .cf7-system-Error-logs initially
-    $(".system-Error-logs-gf").hide();
-
-    // Prevent system-Error-logs-gf from toggling when clicking the div itself
-    $(".system-Error-logs-gf").on("click", function (e) {
-      e.stopPropagation(); // Prevents the click event from propagating further
-    });
-  });
-
-  /**
+ /**
    * Sync with google account to fetch latest sheet and tab name list.
    */
    jQuery(document).on("click", "#gfgs-sync", function () {
@@ -655,7 +630,7 @@ jQuery(document).ready(function ($) {
 
           $msg
           .addClass("gsc-success")
-          .text("Plugin preferences updated successfully");
+          .text("Plugin preferences updated successfully.");
 
           setTimeout(function () {
             $msg.addClass("d-none").text("");
@@ -1017,41 +992,48 @@ jQuery(document).ready(function ($) {
 /* save button will enable then the all field input */
 jQuery(document).ready(function ($) {
 
+  var fields = [
+    '#gf-gs-sheet-name',
+    '#gf-gs-sheet-id',
+    '#gf-gs-sheet-tab-name',
+    '#gf-gs-tab-id',
+    '#feedName'
+  ];
+
+  function fieldVal(id) {
+    var el = $(id);
+    return el.length ? el.val().trim() : '';
+  }
+
   function isFormValid() {
-    return (
-      $('#gf-gs-sheet-name').val().trim() !== '' &&
-      $('#gf-gs-sheet-id').val().trim() !== '' &&
-      $('#gf-gs-sheet-tab-name').val().trim() !== '' &&
-      $('#gf-gs-tab-id').val().trim() !== '' &&
-      $('#feedName').val().trim() !== ''
-      
-      );
+    return fields.every(function (id) {
+      return fieldVal(id) !== '';
+    });
   }
 
   function toggleButton() {
     if (isFormValid()) {
       $('#gform-settings-save')
-      .removeClass('disabled')
-      .css({'pointer-events': 'auto', 'opacity': '1'});
+        .removeClass('disabled')
+        .css({ 'pointer-events': 'auto', 'opacity': '1' });
       $('#sheet_url').removeClass('d-none');
     } else {
       $('#gform-settings-save')
-      .addClass('disabled')
-      .css({'pointer-events': 'none', 'opacity': '0.5'});
-      
+        .addClass('disabled')
+        .css({ 'pointer-events': 'none', 'opacity': '0.5' });
       $('#sheet_url').addClass('d-none');
     }
   }
 
-    // Initial check
+  // Initial check
+  toggleButton();
+
+  // Listen to all fields
+  $(document).on('keyup change', fields.join(', '), function () {
     toggleButton();
-
-    // Listen to all fields
-    $(document).on('keyup change', '#gf-gs-sheet-name, #gf-gs-sheet-id, #gf-gs-sheet-tab-name, #gf-gs-tab-id, #feedName', function () {
-      toggleButton();
-    });
-
   });
+
+});
 
 jQuery(document).ready(function ($) {
 
@@ -1099,3 +1081,175 @@ jQuery(document).ready(function ($) {
       });
 
   });
+
+
+  jQuery(document).ready(function ($) {
+  let totalSlides = $(
+    ".notification-gscgff-slider-track .notification-gscgff-slide",
+  ).length;
+
+  if (totalSlides <= 1) {
+  
+  }
+
+  function showNextSlide(currentSlide) {
+    var track = currentSlide.closest(".notification-gscgff-slider-track");
+    var slides = track.find(".notification-gscgff-slide");
+    var currentIndex = slides.index(currentSlide);
+    var nextIndex = currentIndex + 1;
+
+    currentSlide.remove();
+
+    slides = track.find(".notification-gscgff-slide");
+
+    if (slides.length > 0) {
+      if (nextIndex >= slides.length) {
+        nextIndex = 0;
+      }
+      slides.hide().eq(nextIndex).show();
+    }
+    location.reload();
+  }
+
+  /** For JQuery for Dismiss notification */
+  jQuery(document).on(
+    "click",
+    ".gscgff-review-close, .gscgff-review-dismiss-btn  , .gscgff-showpro-close, .gscgff-addons-close, .gscgff-enhance-btn-later, .gscgff-review-btn-later, .gscgff-enhance-close",
+    function () {
+      var key = jQuery(this).data("key");
+      var currentSlide = jQuery(this).closest(".notification-gscgff-slide");
+
+      jQuery.post(
+        ajaxurl,
+        {
+          action: "gscgff_dismiss_notice",
+          key: key,
+          security: jQuery("#gf-ajax-nonce").val(),
+        },
+        function () {
+          showNextSlide(currentSlide);
+        },
+      );
+    },
+  );
+
+  /** For JQuery for snooze notification */
+  jQuery(document).on(
+    "click",
+    ".gscgfp-review-btn-later, .gscgff-Showpro-btn-later, .gscgfp-addons-btn-later",
+    function () {
+      var key = jQuery(this).data("key");
+      var currentSlide = jQuery(this).closest(".notification-gscgff-slide");
+
+      jQuery.post(
+        ajaxurl,
+        {
+          action: "gscgff_snooze_notice",
+          key: key,
+          security: jQuery("#gf-ajax-nonce").val(),
+        },
+        function () {
+          showNextSlide(currentSlide);
+        },
+      );
+    },
+  );
+});
+
+
+/** notificatin slider arrow button will hide when slider is 1 or 0 */
+jQuery(document).ready(function ($) {
+  if ($(".notification-gscgff-slide").length <= 1) {
+    $(".notification-gscgff-slider-arrows").hide();
+  }
+
+  if ($(".notification-gscgff-slide").length == 0) {
+    $(".notification-gscgff-notice-slider").hide();
+  }
+
+
+   $(".gravity-free-counter").each(function () {
+    let $this = $(this);
+    let countTo = parseFloat($this.attr("data-count"));
+
+    $({ countNum: 0 }).animate(
+    {
+      countNum: countTo,
+    },
+    {
+      duration: 2500,
+      easing: "swing",
+
+      step: function () {
+        if (countTo % 1 !== 0) {
+          $this.text(this.countNum.toFixed(1));
+        } else {
+          $this.text(Math.floor(this.countNum));
+        }
+      },
+
+      complete: function () {
+        if (countTo % 1 !== 0) {
+          $this.text(countTo.toFixed(1));
+        } else {
+          $this.text(countTo);
+        }
+      },
+    },
+    );
+  });
+});
+
+
+
+/***new slider for without permission for existing method */
+document.addEventListener("DOMContentLoaded", function () {
+  console.log('slider 4');
+  document.querySelectorAll(".gsc-slider-wrapper").forEach(function (wrapper) {
+    const slider = wrapper.querySelector(".gsc-slider");
+    const slides = wrapper.querySelectorAll(".gsc-slide");
+    const prevBtn = wrapper.querySelector(".gsc-nav.prev");
+    const nextBtn = wrapper.querySelector(".gsc-nav.next");
+    let current = 0;
+    function updateSlider() {
+      slider.style.transform = "translateX(" + -current * 100 + "%)";
+    }
+    nextBtn?.addEventListener("click", function () {
+      current = (current + 1) % slides.length;
+      updateSlider();
+    });
+    prevBtn?.addEventListener("click", function () {
+      current = (current - 1 + slides.length) % slides.length;
+      updateSlider();
+    });
+    /*  attach function */
+    wrapper.goToSlide = function (index) {
+      current = index;
+      updateSlider();
+    };
+  });
+
+  /*  AUTO MOVE TO STEP 4   */
+  setTimeout(function () {
+    const errorBox = document.querySelector(".gscgff-permission-error");
+    const target = document.querySelector(".gscgff-connection-guide-slider");
+    if (!errorBox) {
+      /* console.log("No permission error"); */
+      return;
+    }
+    if (!target) {
+      /* console.log("Slider not found"); */
+      return;
+    }
+    if (target.goToSlide) {
+      target.goToSlide(3);
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+       console.log("Auto moved to Step 4"); 
+    } else {
+      console.log("goToSlide not available"); 
+    }
+  }, 800);
+});

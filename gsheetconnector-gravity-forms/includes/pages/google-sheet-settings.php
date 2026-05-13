@@ -9,15 +9,16 @@ if (!defined('ABSPATH')) {
  exit;
 }
 
-$active_tab = 'integration';
+$active_tab = 'dashboard';
 
 if (isset($_GET['tab'])) {
  $tab = sanitize_text_field(wp_unslash($_GET['tab']));
 
  $active_tab = $tab;
 }
-// if the license info is incomplete or license status is invalid, go to the license tab
-$active_tab_name = '';
+
+
+$active_tab_name = 'dashboard';
 if ($active_tab == 'integration') {
  $active_tab_name = 'Integration';
 } elseif ($active_tab == 'gsc_gravityform_settings') {
@@ -34,11 +35,61 @@ $authenticated = get_option('gfgs_token');
 $gscgff_gravityform_manual_setting = get_option('gravityforms_manual_setting');
 $gsc_gf_is_valid = get_option('gfgs_verify');
 
+$is_authenticated = false;
 if ((!empty($authenticated) && $gsc_gf_is_valid == 'valid' && $gscgff_gravityform_manual_setting == 0)) {
  $selected_method = esc_html__('Existing', 'gsheetconnector-gravity-forms');
+  $is_authenticated = true;
 } else {
  $selected_method = esc_html__('Auth Required', 'gsheetconnector-gravity-forms');
+  $is_authenticated = false;
 }
+
+/** notification code start */
+$show_auth_notice =  !$is_authenticated;
+$show_showpro_notice =
+!gscgff_is_dismissed('showpro') &&
+!gscgff_is_snoozed('showpro');
+
+
+$show_enhance_notice =
+!gscgff_is_dismissed('enhance') &&
+!gscgff_is_snoozed('enhance');
+
+if(!get_option('gscgff_plugin_activated_at')){
+    update_option('gscgff_plugin_activated_at',time());
+}
+
+
+$install_time = (get_option('gscgff_plugin_activated_at'));
+$is_time_passed = $install_time && (time() -  $install_time >= 2 * DAY_IN_SECONDS);
+
+$is_dismissed = gscgff_is_dismissed('review');
+$is_snoozed = gscgff_is_snoozed('review');
+
+$show_review_notice =
+$is_time_passed &&
+!$is_dismissed &&
+!$is_snoozed;
+
+
+function gscgff_is_dismissed($key)
+{
+return get_option('gscgff_notice_' . $key) === 'dismissed';
+}
+
+function gscgff_is_snoozed($key)
+{
+$time = get_option('gscgff_notice_' . $key . '_time');
+return $time && (time() - $time < 15 * DAY_IN_SECONDS); 
+} 
+
+ $has_notice =
+        $show_showpro_notice ||
+        $show_review_notice ||
+        $show_auth_notice ||
+        $show_enhance_notice;  
+
+
 ?>
 
 <div class="d-none">
@@ -46,24 +97,198 @@ if ((!empty($authenticated) && $gsc_gf_is_valid == 'valid' && $gscgff_gravityfor
   </div>
 </div>
 
+
 <div class="gsgf-free">
-  <!--Start NOTICE BAR-->
-  <?php if ( ! isset($_COOKIE['gsheet_pro_notice_dismissed']) ) { ?>
+ <!--Start NOTICE BAR-->
+    <?php if ( ! isset($_COOKIE['gsheet_pro_notice_dismissed']) ) { ?>
     <div id="pro-notice-bar" class="pro-header-notice">
-      <span
-      class="pro-notice-bar-message"><?php echo esc_html__("You`re using GSheetConnector for Gravity Forms. To unlock more features consider ", 'gsheetconnector-gravity-forms'); ?><a
-      href="https://www.gsheetconnector.com/gravity-forms-google-sheet-connector" target="_blank"
-      rel="noopener"><?php echo esc_html__('upgrading to Pro', 'gsheetconnector-gravity-forms'); ?></a></span>
-      <button type="button" id="pro-dismiss-header-notice" title="Dismiss this message" data-page="overview"
-      class="pro-dismiss">
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path
-        d="M15.8327 5.34175L14.6577 4.16675L9.99935 8.82508L5.34102 4.16675L4.16602 5.34175L8.82435 10.0001L4.16602 14.6584L5.34102 15.8334L9.99935 11.1751L14.6577 15.8334L15.8327 14.6584L11.1744 10.0001L15.8327 5.34175Z"
-        fill="white"></path>
-      </svg>
-    </button>
-  </div>
-<?php } ?>
+        <span
+            class="pro-notice-bar-message"><?php echo esc_html__("You`re using GSheetConnector for Gravity Forms. To unlock more features consider ", 'gsheetconnector-gravity-forms'); ?><a
+                href="https://www.gsheetconnector.com/gravity-forms-google-sheet-connector" target="_blank"
+                rel="noopener"><?php echo esc_html__('upgrading to Pro', 'gsheetconnector-gravity-forms'); ?></a></span>
+        <button type="button" id="pro-dismiss-header-notice" title="Dismiss this message" data-page="overview"
+            class="pro-dismiss">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M15.8327 5.34175L14.6577 4.16675L9.99935 8.82508L5.34102 4.16675L4.16602 5.34175L8.82435 10.0001L4.16602 14.6584L5.34102 15.8334L9.99935 11.1751L14.6577 15.8334L15.8327 14.6584L11.1744 10.0001L15.8327 5.34175Z"
+                    fill="white"></path>
+            </svg>
+        </button>
+    </div>
+    <?php } ?>
+
+<!-- notification start  -->
+ <div class="notification-gscgff-notice-slider">
+        <div class="notification-gscgff-slider-track">
+              <!--  slider one-->
+              <?php if($show_showpro_notice && $is_authenticated){ ?>
+              <div class="notification-gscgff-slide">
+                <div class="gscgff-Showpro-banner">
+
+                    <div class="gscgff-Showpro-content">
+                        <div class="gscgff-Showpro-heading">
+                            <?php esc_html_e('Unlock Advance Features of Gravity Forms Pro version 🚀', 'gsheetconnector-gravity-forms'); ?>
+                        </div>
+
+                        <p>
+                            <?php esc_html_e('Use advanced features like Manual Authentication and automatic field mapping, no need to create columns in Google Sheets manually.', 'gsheetconnector-gravity-forms'); ?>
+                        </p>
+                         <p>
+                            <?php esc_html_e('Choose only the fields you need with simple toggles, use advanced tags, sync past form entries, and get priority support.', 'gsheetconnector-gravity-forms'); ?>
+                        </p>
+
+                        <div class="gscgff-notification-actions">
+
+                            <a href="<?php echo esc_url('https://www.gsheetconnector.com/gravity-forms-google-sheet-connector'); ?>"
+                                target="_blank" rel="noopener noreferrer" class="gscgff-btn-Showpro gsc-review-btn link-hover-white">
+                                <?php esc_html_e('View License Types', 'gsheetconnector-gravity-forms'); ?>
+                            </a>
+
+                            <a href="<?php echo esc_url('https://www.gsheetconnector.com/gravity-forms-google-sheet-connector#compare'); ?>"
+                                target="_blank" rel="noopener noreferrer" class="gscgff-btn-secondary">
+                                <?php esc_html_e('Compare Features', 'gsheetconnector-gravity-forms'); ?>
+                            </a>
+
+                            <button class="gscgff-Showpro-btn-later" data-key="showpro">
+                                <?php esc_html_e('Maybe Later', 'gsheetconnector-gravity-forms'); ?>
+                            </button>
+
+                        </div>
+                    </div>
+                    <button class="gscgff-showpro-close" data-key="showpro">✕</button>
+                </div>
+            </div>
+            <?php } ?>
+
+            <!--  slider two-->
+
+            <?php if($show_review_notice && $is_authenticated){ ?>
+            <div class="notification-gscgff-slide">
+                <div class="gscgff-review-banner">
+
+                    <div class="gscgff-review-content">
+                        <div class="gscgff-review-heading">
+                            <?php esc_html_e('Enjoying the Plugin?', 'gsheetconnector-gravity-forms'); ?>
+                        </div>
+
+                        <p>
+                            <?php esc_html_e('If you are enjoying the plugin, please consider leaving a 5-star review. Your support helps us improve and grow.', 'gsheetconnector-gravity-forms'); ?>
+                        </p>
+
+                        <div class="gscgff-notification-actions">
+
+                            <a href="<?php echo esc_url('https://wordpress.org/support/plugin/gsheetconnector-gravity-forms/reviews/'); ?>"
+                                target="_blank" rel="noopener noreferrer" class="gscgff-btn-review gsc-review-btn link-hover-white">
+                                <?php esc_html_e('Ok, you deserve it!', 'gsheetconnector-gravity-forms'); ?>
+                            </a>
+
+                            <button class="gscgff-review-dismiss-btn gscgff-dismiss-btn" data-key="review">
+                                <?php esc_html_e('I already did', 'gsheetconnector-gravity-forms'); ?>
+                            </button>
+
+
+                            <a href="<?php echo esc_url('https://www.gsheetconnector.com/docs/gravity-forms-gsheetconnector'); ?>"
+                                target="_blank" rel="noopener noreferrer" class="gscgff-btn-secondary">
+                                <?php esc_html_e('I need help', 'gsheetconnector-gravity-forms'); ?>
+                            </a>
+
+
+                            <button class="gscgff-review-btn-later" data-key="review">
+                                <?php esc_html_e('Maybe Later', 'gsheetconnector-gravity-forms'); ?>
+                            </button>
+
+                        </div>
+                    </div>
+                    <button class="gscgff-review-close" data-key="review">✕</button>
+                </div>
+            </div>
+            <?php } ?>
+
+            <!-- Slider three-->
+             <?php if($show_enhance_notice && $is_authenticated){ ?>
+            <div class="notification-gscgff-slide">
+                <div class="gscgff-enhance-banner">
+                    <div class="gscgff-enhance-content">
+
+                        <div class="gscgff-enhance-content-header">
+                            <?php esc_html_e(' Enhance Your Setup', 'gsheetconnector-gravity-forms'); ?>
+                        </div>
+                        <p>
+
+                            <?php esc_html_e('Extend your workflow with our add-ons.', 'gsheetconnector-gravity-forms'); ?>
+                        </p>
+                        <p>
+                            <?php esc_html_e('Discover tools that integrate seamlessly and help you get more done.', 'gsheetconnector-gravity-forms'); ?>
+                        </p>
+                        <div class="gscgff-notification-actions ">
+                            <a href="https://www.gsheetconnector.com/plugins" target="_blank" class="gsc-btn-ad link-hover-white">
+                                Explore Add-ons
+                            </a>
+                            <a href="<?php echo esc_url('https://www.gsheetconnector.com/plugins'); ?>" target="_blank"
+                                class="gscgff-btn-enhance link-hover-white">
+                                <?php esc_html_e('View Plugins', 'gsheetconnector-gravity-forms'); ?>
+                            </a>
+                            <button class="gscgff-enhance-btn-later" data-key="enhance">Maybe Later</button>
+                        </div>
+
+                    </div>
+
+                    <button class="gscgff-enhance-close" data-key="enhance">✕</button>
+                </div>
+            </div>
+            <?php } ?>
+
+            <!--  slider four -->
+            <?php if($show_auth_notice){ ?>
+            <div class="notification-gscgff-slide">
+                <div class="gscgff-activate-banner">
+
+                    <div class="gscgff-activate-content">
+                        <div class="gscgff-activate-content-header">
+                            <?php esc_html_e('Authenticate with Your Google Account', 'gsheetconnector-gravity-forms'); ?>
+                        </div>
+
+                        <p>
+                            <?php esc_html_e('Your connection has expired or hasn’t been set up yet.', 'gsheetconnector-gravity-forms'); ?>
+                        </p>
+
+                        <p>
+                            <?php esc_html_e('Please reauthenticate with your google account to continue syncing data without interruptions.', 'gsheetconnector-gravity-forms'); ?>
+                        </p>
+
+                        <div class="gscgff-activate-actions">
+
+                            <a href="<?php echo esc_url(admin_url('admin.php?page=gf_googlesheet&tab=integration')); ?>"
+                                class="gscgff-btn-activate link-hover-white text-decoration-none">
+                                <?php esc_html_e('Authenticate Now', 'gsheetconnector-gravity-forms'); ?>
+                            </a>
+
+
+                            <a href="<?php echo esc_url('https://www.gsheetconnector.com/docs/gravity-forms-gsheetconnector'); ?>"
+                                target="_blank" rel="noopener noreferrer" class="gscgff-btn-secondary">
+                                <?php esc_html_e('Learn How', 'gsheetconnector-gravity-forms'); ?>
+                            </a>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <?php } ?>
+
+             <!-- Right Side Arrows -->
+
+             <?php if($has_notice){ ?> 
+            <div class="notification-gscgff-slider-arrows">
+                <button class="notification-gscgff-slider-btn prev">❮</button>
+                <button class="notification-gscgff-slider-btn next">❯</button>
+            </div>
+            <?php } ?>
+
+        </div>
+    </div>
+
+<!-- notification end  -->
 
 <!--Start Gsheet-Header Section-->
 <div class="gsheet-header-wrapper pt-10 pb-10 justify-between bg-white">
@@ -149,6 +374,7 @@ if ((!empty($authenticated) && $gsc_gf_is_valid == 'valid' && $gscgff_gravityfor
   <!--Start Tab Panel Section-->
   <?php
   $tabs = array(
+    'dashboard' => esc_html__('Dashboard', 'gsheetconnector-gravity-forms'),
     'integration' => esc_html__('Integration', 'gsheetconnector-gravity-forms'),
     'gsc_gravityform_settings' => esc_html__('Settings', 'gsheetconnector-gravity-forms'),
     'extension' => esc_html__('Extensions', 'gsheetconnector-gravity-forms'),
@@ -159,7 +385,7 @@ if ((!empty($authenticated) && $gsc_gf_is_valid == 'valid' && $gscgff_gravityfor
   foreach ($tabs as $tab => $name) {
     $class = ($tab == $active_tab) ? ' nav-tab-active' : '';
 
-    echo '<a class="nav-tab text-decoration-none fw-500 text-center text-uppercase' . esc_attr($class) . '" 
+    echo '<a class="nav-tab text-decoration-none fw-500 text-center' . esc_attr($class) . '" 
     href="' . esc_url('?page=gf_googlesheet&amp;tab=' . urlencode($tab)) . '" 
     style="box-shadow: 0 0 0 0px #fff !important; outline: 0px solid transparent !important;">' .
     esc_html($name) .
@@ -169,9 +395,11 @@ if ((!empty($authenticated) && $gsc_gf_is_valid == 'valid' && $gscgff_gravityfor
 
 
   switch ($active_tab) {
+    case 'dashboard':
+    include(GRAVITY_GOOGLESHEET_PATH . "includes/pages/gs-gravityform-dashboard.php");
+    break;
     case 'integration':
     echo '<div class="wrap w-100 m-0"><div class="inner-wrap  w-100 bg-white p-40">';
-
     include GRAVITY_GOOGLESHEET_PATH . 'includes/pages/gs-gravity-integration.php';
     break;
     echo '</div></div>';
@@ -185,70 +413,93 @@ if ((!empty($authenticated) && $gsc_gf_is_valid == 'valid' && $gscgff_gravityfor
   ?>
 </div>
 
+
 <!--Start Common Pro Feature-->
 <div class="gsgf-free">
-  <div class="common-section-gsc-promo-wrapper">
-
-    <!-- Left Image Area -->
-    <div class="d-flex   gap-30 align-center">
-      <div class="common-section-gsc-promo-left">
-        <div class="common-section-gsc-card gsc-card-1">
-          <img src="<?php echo esc_url(GRAVITY_GOOGLESHEET_URL); ?>/assets/image/edd-razpay.webp">
-        </div>
-
-        <div class="common-section-gsc-card gsc-card-2">
-          <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="27" cy="27" r="27" fill="#223139" />
-            <g clip-path="url(#clip0_68_20011)">
-              <path
-              d="M5.58618 26.6897C5.58618 35.2954 10.5592 42.6942 17.8355 46.2099L7.47069 17.8216C6.2667 20.5503 5.58618 23.5413 5.58618 26.6897ZM41.9676 25.5878C41.9676 22.9116 41.0253 21.0225 40.1878 19.6058C39.0885 17.8216 38.0415 16.2999 38.0415 14.5158C38.0415 12.5218 39.5596 10.6852 41.7058 10.6852C41.8105 10.6852 41.9152 10.6852 41.9676 10.6852C38.1462 7.117 32.9638 4.96558 27.3103 4.96558C19.72 4.96558 13.1242 8.37637 9.25049 14.2534C10.7686 14.2534 16.3697 14.2534 16.3697 14.2534C17.5214 14.201 17.6784 16.1425 16.5268 16.2474C16.5268 16.2474 15.3751 16.4049 14.0664 16.4573L21.9709 39.9656L26.7345 25.6927L23.2796 16.5098C22.1279 16.4573 20.9763 16.2999 20.9763 16.2999C19.8247 16.2474 19.9293 14.201 21.1333 14.2534H32.6497C33.8014 14.201 33.9584 16.1425 32.8068 16.2999C32.8068 16.2999 31.6551 16.4573 30.2941 16.5098L38.1462 39.8606L40.2925 32.6192C41.4441 29.7857 41.9676 27.4243 41.9676 25.5878ZM27.7291 28.5788L21.1857 47.5218C23.1225 48.099 25.2164 48.4138 27.3103 48.4138C29.823 48.4138 32.2833 47.9941 34.5343 47.1545C34.4819 47.0495 34.4296 46.9446 34.3772 46.8396L27.7291 28.5788ZM46.4171 16.2474C46.5218 16.9296 46.5741 17.6642 46.5741 18.5038C46.5741 20.7077 46.1554 23.174 44.899 26.2699L38.2509 45.4753C44.6896 41.6972 49.0345 34.7182 49.0345 26.6897C49.0345 22.9116 48.0922 19.3434 46.4171 16.2474Z"
-              fill="white" />
-            </g>
-            <defs>
-              <clipPath id="clip0_68_20011">
-                <rect width="43.4483" height="43.4483" fill="white"
-                transform="translate(5.58618 4.96558)" />
-              </clipPath>
-            </defs>
-          </svg>
-        </div>
-
-        <div class="common-section-gsc-card gsc-card-3">
-          <img src="<?php echo esc_url(GRAVITY_GOOGLESHEET_URL); ?>/assets/image/woocommerce.jpg">
-        </div>
-
-        <div class="common-section-gsc-card gsc-card-4">
-          <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-            d="M19.9013 3.58832C15.9467 4.60444 12.3687 6.6743 9.54398 9.5345C6.45561 12.6205 4.76077 15.6312 3.70619 19.7709C2.76461 23.459 2.76461 26.545 3.70619 30.2332C4.76077 34.373 6.45561 37.3836 9.54398 40.4696C16.2857 47.2814 26.191 48.8996 34.929 44.6846C38.394 42.9912 43.1018 38.2868 44.6838 34.9374C47.772 28.4644 47.772 21.4644 44.6838 15.0667C43.0266 11.6796 38.3186 6.97538 34.929 5.31948C30.2588 3.06144 24.421 2.38404 19.9013 3.58832ZM30.1834 5.05604C33.7238 5.95926 36.8122 7.7657 39.5238 10.4753C43.5914 14.5398 45.5124 19.1688 45.5124 24.8516C45.5124 28.0504 44.872 31.9644 44.3824 31.9644C43.3656 31.9644 37.5278 27.072 32.4432 21.916C26.7184 16.1581 26.2288 15.7441 24.7222 15.6312C22.7638 15.443 21.9728 15.8194 21.1818 17.3624C20.165 19.2817 13.5739 25.83 9.61931 28.803C7.58551 30.346 5.77767 31.588 5.58934 31.588C4.49713 31.588 4.12049 23.3086 5.02441 19.7333C6.79456 12.9592 12.8207 6.90012 19.5624 5.09368C22.2364 4.37864 27.4716 4.341 30.1834 5.05604ZM30.4846 21.9538C33.2342 24.8138 34.7784 26.6956 34.2886 26.545C33.2718 26.2064 33.2718 26.3568 34.251 28.2386C34.6654 29.1042 34.929 29.8568 34.8536 29.9698C34.6276 30.158 32.4808 28.088 30.1834 25.4536C27.773 22.744 27.434 22.9698 27.434 27.1848C27.434 30.2332 27.321 30.7976 26.6808 31.3998C25.9652 32.0396 25.8898 32.0396 24.308 30.3084C22.4624 28.3138 21.9728 28.3138 20.843 30.346C19.7884 32.303 18.9598 32.4912 19.2987 30.6848C19.6 29.0288 18.9974 28.8784 17.0013 30.1202C16.2857 30.5718 15.6077 30.8354 15.4948 30.6848C15.3818 30.5718 15.8337 29.2924 16.474 27.8246C17.1519 26.3568 17.6416 24.9268 17.5286 24.6634C17.4156 24.4 18.2065 23.158 19.2987 21.8784C20.391 20.6366 21.6716 19.0559 22.0858 18.3408C22.8014 17.2118 23.065 17.0613 24.3832 17.0613C25.7768 17.0989 26.1158 17.3624 30.4846 21.9538Z"
-            fill="url(#paint0_linear_68_17590)" />
-            <defs>
-              <linearGradient id="paint0_linear_68_17590" x1="25" y1="47" x2="25" y2="3"
-              gradientUnits="userSpaceOnUse">
-              <stop stop-color="#2D93FC" />
-              <stop offset="1" stop-color="#5147FB" />
-            </linearGradient>
-          </defs>
-        </svg>
+<?php if($active_tab != 'dashboard'){ ?>
+    <div class="common-section-gsc-promo-wrapper">
+              <!-- Left Image Area -->     
+      <div class="d-flex flex-wrap gap-50 align-center">         
+          <div class="cf7-to-gsheet">
+                <img src="<?php echo esc_url(GRAVITY_GOOGLESHEET_URL); ?>/assets/image/pro-gravity-gsc.webp">
+          </div>
+          <!-- Right Content -->
+          <div class="common-section-gsc-promo-content">
+            <div class="common-section-heading"><?php echo esc_html(__('Advanced Tools for Easy Spreadsheet Control', 'gsheetconnector-gravity-forms')); ?></div>          
+            <p class="mb-0"><?php echo esc_html(__('Improve your sheet management with smart automation and flexible customization features.', 'gsheetconnector-gravity-forms')); ?></p>
+            <div class="d-flex gap-40">
+                <ul>                  
+                  <li><?php echo esc_html__('Google Sheets API v4', 'gsheetconnector-gravity-forms'); ?></li>                 
+                  <li><?php echo esc_html__('One-Click Authentication', 'gsheetconnector-gravity-forms'); ?></li>
+                  <li><?php echo esc_html__('Authenticated Email Display', 'gsheetconnector-gravity-forms'); ?></li>
+                  <li><?php echo esc_html__('Click & Fetch Automation', 'gsheetconnector-gravity-forms'); ?></li>
+                  <li><?php echo esc_html__('Create New Spreadsheet', 'gsheetconnector-gravity-forms'); ?></li>
+                  <li><?php echo esc_html__('Manual Sheet / Tab Name', 'gsheetconnector-gravity-forms'); ?></li>
+                </ul>
+                <ul>
+                  <li><?php echo esc_html__('Automated Sheet & Tab', 'gsheetconnector-gravity-forms'); ?></li>
+                  <li><?php echo esc_html__('Custom / Merge Tags', 'gsheetconnector-gravity-forms'); ?></li>
+                  <li><?php echo esc_html__('Drag-and-Drop Column Order', 'gsheetconnector-gravity-forms'); ?></li>
+                  <li><?php echo esc_html__('Headers On / Off + Rename', 'gsheetconnector-gravity-forms'); ?></li>
+                  <li><?php echo esc_html__('Image / PDF Attachment Link', 'gsheetconnector-gravity-forms'); ?></li>
+                  <li><?php echo esc_html__('Freeze & Color Headers', 'gsheetconnector-gravity-forms'); ?></li>
+                  <li><?php echo esc_html__('Conditional Options', 'gsheetconnector-gravity-forms'); ?></li>
+                </ul>
+                <ul>
+                  <li><?php echo esc_html__('Sync Past Entries', 'gsheetconnector-gravity-forms'); ?></li>
+                  <li><?php echo esc_html__('Role Management', 'gsheetconnector-gravity-forms'); ?></li>
+                  <li><?php echo esc_html__('Quick Configuration', 'gsheetconnector-gravity-forms'); ?></li>
+                  <li><?php echo esc_html__('Multi-Language Support', 'gsheetconnector-gravity-forms'); ?></li>
+                  <li><?php echo esc_html__('Multi-Site Support', 'gsheetconnector-gravity-forms'); ?></li>
+                  <li><?php echo esc_html__('Latest WP & PHP Support', 'gsheetconnector-gravity-forms'); ?></li>
+                </ul>
+            </div>
+            <div class="mt-30 d-flex align-center gap-20">
+                <a href="https://www.gsheetconnector.com/gravity-forms-google-sheet-connector" target="_blank" class="btn btn-primary link-hover-white text-decoration-none">Upgrad Now</a>
+                <a class="text-decoration-none free-pro-btn" href="https://www.gsheetconnector.com/gravity-forms-google-sheet-connector#compare" target="_blank">Free vs Pro</a>     
+            </div>
+          </div>
       </div>
     </div>
-
-    <!-- Right Content -->
-    <div class="common-section-gsc-promo-content">
-      <div class="common-section-heading">
-        <?php echo esc_html(__('Upgrade to GSheetConnector Pro', 'gsheetconnector-gravity-forms')); ?></div>
-        <p class="mb-0">
-          <?php echo esc_html(__('Unlock advanced automation, better control, and powerful syncing tools to manage your Google Sheets integration more efficiently.', 'gsheetconnector-gravity-forms')); ?>
-        </p>
-        <a href="https://www.gsheetconnector.com/plugins" target="_blank"
-        class="btn btn-primary link-hover-white text-decoration-none mt-30"><?php echo esc_html__('Learn More', 'gsheetconnector-gravity-forms'); ?></a>
-      </div>
-    </div>
-  </div>
-</div>
+<?php } ?>
 <!--End Common Pro Feature-->
+</div>
+
 
 <!--End Tab Panel Section-->
 
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const slides = document.querySelectorAll(".notification-gscgff-slide");
+    const prevBtn = document.querySelector(".notification-gscgff-slider-btn.prev");
+    const nextBtn = document.querySelector(".notification-gscgff-slider-btn.next");
 
+    let index = 0;
+    function updateSlider() {
+        if (!slides || slides.length === 0) return;
+        slides.forEach(slide => slide.classList.remove("active"));
+        if (slides[index]) {
+            slides[index].classList.add("active");
+        }
+    }
+
+    nextBtn.addEventListener("click", function() {
+        index++;
+        if (index >= slides.length) {
+            index = 0;
+        }
+        updateSlider();
+    });
+
+
+    prevBtn.addEventListener("click", function() {
+        index--;
+        if (index < 0) {
+            index = slides.length - 1;
+        }
+        updateSlider();
+    });
+    updateSlider();
+});
+</script>
 <?php include(GRAVITY_GOOGLESHEET_PATH . "/includes/pages/admin-footer.php"); ?>

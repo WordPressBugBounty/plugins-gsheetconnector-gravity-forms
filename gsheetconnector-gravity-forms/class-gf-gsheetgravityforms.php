@@ -141,18 +141,18 @@ public function settings_display_note($field)
         </svg>
       </div>
       <div class="gscgff-alert-content">
-        <div class="feed-alert-header"><?php esc_html_e('Google Sheets Setup Required', 'gsheetconnector-gravityforms-pro'); ?></div>
-        <p><?php esc_html_e('your selected Method is : ', 'gsheetconnector-gravityforms-pro'); ?>Existing Client / Secret Key (Auto Setup).</p>
-        <p><?php esc_html_e('To start sending form entries to Google Sheets, please connect your Google account first.', 'gsheetconnector-gravityforms-pro'); ?></p>
+        <div class="feed-alert-header"><?php esc_html_e('Google Sheets Setup Required', 'gsheetconnector-gravity-forms'); ?></div>
+        <p><?php esc_html_e('your selected Method is : ', 'gsheetconnector-gravity-forms'); ?>Existing Client / Secret Key (Auto Setup).</p>
+        <p><?php esc_html_e('To start sending form entries to Google Sheets, please connect your Google account first.', 'gsheetconnector-gravity-forms'); ?></p>
         <ul>
-          <li><?php esc_html_e('✔ Click on the Sign in with Google button', 'gsheetconnector-gravityforms-pro'); ?></li>
-          <li><?php esc_html_e('✔ Log in using your Google account', 'gsheetconnector-gravityforms-pro'); ?></li>
-          <li><?php esc_html_e('✔ Select the Google account where your Sheets are stored', 'gsheetconnector-gravityforms-pro'); ?></li>
-          <li><?php esc_html_e('✔ Grant access to: Google Drive & Google Sheets', 'gsheetconnector-gravityforms-pro'); ?></li>
-          <li><?php esc_html_e('✔ Save the authentication code if prompted', 'gsheetconnector-gravityforms-pro'); ?></li>
+          <li><?php esc_html_e('✔ Click on the Sign in with Google button', 'gsheetconnector-gravity-forms'); ?></li>
+          <li><?php esc_html_e('✔ Log in using your Google account', 'gsheetconnector-gravity-forms'); ?></li>
+          <li><?php esc_html_e('✔ Select the Google account where your Sheets are stored', 'gsheetconnector-gravity-forms'); ?></li>
+          <li><?php esc_html_e('✔ Grant access to: Google Drive & Google Sheets', 'gsheetconnector-gravity-forms'); ?></li>
+          <li><?php esc_html_e('✔ Save the authentication code if prompted', 'gsheetconnector-gravity-forms'); ?></li>
         </ul>
         <a href="admin.php?page=gf_googlesheet&tab=integration" class="gscgff-alert-btn link-hover-white">
-          <?php esc_html_e('Go to Integration Setup', 'gsheetconnector-gravityforms-pro'); ?>
+          <?php esc_html_e('Go to Integration Setup', 'gsheetconnector-gravity-forms'); ?>
         </a>
       </div>
     </div>
@@ -202,7 +202,7 @@ public function settings_display_sheet_details($field)
   $fields = $form['fields'];
   $fields_inputs = array("name", "address", "consent", "product");
 
-   
+
   $field_list = $this->get_form_field_list($form);
 
 
@@ -453,17 +453,17 @@ echo wp_kses_post($tab_id_text_field) ?>
 
   <div class="edit-gs-pro-title">
    <div class="heading mt-0">
-    <?php esc_html_e('Unlock Advanced Features with Form Feeds', 'gsheetconnector-gravityforms-pro'); ?>
+    <?php esc_html_e('Unlock Advanced Features with Form Feeds', 'gsheetconnector-gravity-forms'); ?>
   </div>
 
   <div class="d-flex align-items-center gap-15">
     <span class="edit-gs-pro-badge">
-     <?php esc_html_e('FREE users get special upgrade pricing', 'gsheetconnector-gravityforms-pro'); ?>
+     <?php esc_html_e('FREE users get special upgrade pricing', 'gsheetconnector-gravity-forms'); ?>
    </span>
 
    <span class="edit-gs-upgrade-btn">
      <a href="https://www.gsheetconnector.com/gravity-forms-google-sheet-connector" target="_blank" class="text-decoration-none link-hover-white">
-      <?php esc_html_e('Get Advanced Features', 'gsheetconnector-gravityforms-pro'); ?>
+      <?php esc_html_e('Get Advanced Features', 'gsheetconnector-gravity-forms'); ?>
     </a>
   </span>
 </div>
@@ -478,16 +478,16 @@ echo wp_kses_post($tab_id_text_field) ?>
   <div class="edit-gs-feature-col">
    <div class="mb-20">
     <a href="#auto-googlesheet-configuration">
-     <?php esc_html_e('Automatically Google Sheet Configuration', 'gsheetconnector-gravityforms-pro'); ?>
+     <?php esc_html_e('Automatically Google Sheet Configuration', 'gsheetconnector-gravity-forms'); ?>
    </a>
  </div>
 
  <div class="gsc-pro-grid">
   <ul>
-   <li><?php esc_html_e('Auto fetch Google Sheets list', 'gsheetconnector-gravityforms-pro'); ?></li>
-   <li><?php esc_html_e('Auto detect sheet tabs', 'gsheetconnector-gravityforms-pro'); ?></li>
-   <li><?php esc_html_e('One-click configuration', 'gsheetconnector-gravityforms-pro'); ?></li>
-   <li><?php esc_html_e('Real-time entry sync', 'gsheetconnector-gravityforms-pro'); ?></li>
+   <li><?php esc_html_e('Auto fetch Google Sheets list', 'gsheetconnector-gravity-forms'); ?></li>
+   <li><?php esc_html_e('Auto detect sheet tabs', 'gsheetconnector-gravity-forms'); ?></li>
+   <li><?php esc_html_e('One-click configuration', 'gsheetconnector-gravity-forms'); ?></li>
+   <li><?php esc_html_e('Real-time entry sync', 'gsheetconnector-gravity-forms'); ?></li>
  </ul>
 </div>
 </div>
@@ -495,14 +495,14 @@ echo wp_kses_post($tab_id_text_field) ?>
 <div class="edit-gs-feature-col">
  <div class="mb-20">
   <a href="#field-mapping">
-   <?php esc_html_e('Select Fields to Sync', 'gsheetconnector-gravityforms-pro'); ?>
+   <?php esc_html_e('Select Fields to Sync', 'gsheetconnector-gravity-forms'); ?>
  </a>
 </div>
 <div class="gsc-pro-grid">
   <ul>
-   <li><?php esc_html_e('Drag & drop field reordering', 'gsheetconnector-gravityforms-pro'); ?></li>
-   <li><?php esc_html_e('Rename column headers', 'gsheetconnector-gravityforms-pro'); ?></li>
-   <li><?php esc_html_e('Select specific fields to sync', 'gsheetconnector-gravityforms-pro'); ?></li>
+   <li><?php esc_html_e('Drag & drop field reordering', 'gsheetconnector-gravity-forms'); ?></li>
+   <li><?php esc_html_e('Rename column headers', 'gsheetconnector-gravity-forms'); ?></li>
+   <li><?php esc_html_e('Select specific fields to sync', 'gsheetconnector-gravity-forms'); ?></li>
  </ul>
 </div>
 </div>
@@ -510,16 +510,16 @@ echo wp_kses_post($tab_id_text_field) ?>
 <div class="edit-gs-feature-col">
  <div class="mb-20">
   <a href="#header-settings-sheet-sorting">
-   <?php esc_html_e('Header Settings &amp; Sheet Sorting', 'gsheetconnector-gravityforms-pro'); ?>
+   <?php esc_html_e('Header Settings &amp; Sheet Sorting', 'gsheetconnector-gravity-forms'); ?>
  </a>
 </div>
 
 <div class="gsc-pro-grid">
   <ul>
-   <li><?php esc_html_e('Freeze header row', 'gsheetconnector-gravityforms-pro'); ?></li>
-   <li><?php esc_html_e('Custom font styling', 'gsheetconnector-gravityforms-pro'); ?></li>
-   <li><?php esc_html_e('Header &amp; row color control', 'gsheetconnector-gravityforms-pro'); ?></li>
-   <li><?php esc_html_e('Sort by any column', 'gsheetconnector-gravityforms-pro'); ?></li>
+   <li><?php esc_html_e('Freeze header row', 'gsheetconnector-gravity-forms'); ?></li>
+   <li><?php esc_html_e('Custom font styling', 'gsheetconnector-gravity-forms'); ?></li>
+   <li><?php esc_html_e('Header &amp; row color control', 'gsheetconnector-gravity-forms'); ?></li>
+   <li><?php esc_html_e('Sort by any column', 'gsheetconnector-gravity-forms'); ?></li>
  </ul>
 </div>
 </div>
@@ -527,13 +527,13 @@ echo wp_kses_post($tab_id_text_field) ?>
 <div class="edit-gs-feature-col">
  <div class="mb-20">
   <a href="#spreadsheet-download-sync">
-   <?php esc_html_e('Spreadsheet Download', 'gsheetconnector-gravityforms-pro'); ?>
+   <?php esc_html_e('Spreadsheet Download', 'gsheetconnector-gravity-forms'); ?>
  </a>
 </div>
 
 <div class="gsc-pro-grid">
   <ul>
-   <li><?php esc_html_e('Download spreadsheet as file', 'gsheetconnector-gravityforms-pro'); ?></li>
+   <li><?php esc_html_e('Download spreadsheet as file', 'gsheetconnector-gravity-forms'); ?></li>
  </ul>
 </div>
 </div>
@@ -541,14 +541,14 @@ echo wp_kses_post($tab_id_text_field) ?>
 
 <div class="edit-gs-pro-footer">
   <label for="toggle-features" class="edit-gs-show-btn show">
-   <?php esc_html_e('Show Features', 'gsheetconnector-gravityforms-pro'); ?>  
+   <?php esc_html_e('Show Features', 'gsheetconnector-gravity-forms'); ?>  
    <svg fill="#000000" width="800px" height="800px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <path d="M0.256 8.606c0-0.269 0.106-0.544 0.313-0.75 0.412-0.412 1.087-0.412 1.5 0l14.119 14.119 13.913-13.912c0.413-0.412 1.087-0.412 1.5 0s0.413 1.088 0 1.5l-14.663 14.669c-0.413 0.413-1.088 0.413-1.5 0l-14.869-14.869c-0.213-0.213-0.313-0.481-0.313-0.756z"></path>
   </svg>
 </label>
 
 <label for="toggle-features" class="edit-gs-show-btn hide">
- <?php esc_html_e('Hide Features', 'gsheetconnector-gravityforms-pro'); ?>  
+ <?php esc_html_e('Hide Features', 'gsheetconnector-gravity-forms'); ?>  
  <svg width="800px" height="800px" viewBox="0 -4.5 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
     <g id="Dribbble-Light-Preview" transform="translate(-260.000000, -6684.000000)" fill="#000000">
@@ -579,7 +579,7 @@ echo wp_kses_post($tab_id_text_field) ?>
                     <strong><?php echo esc_html__("Google Sheets", "gsheetconnector-gravity-forms"); ?></strong>, <br />
                     <?php echo esc_html__("Now available for popular", "gsheetconnector-gravity-forms"); ?>
                   </p>
-                  <div class="button-bar"> <a href="https://www.gsheetconnector.com/docs/gravity-forms-to-google-sheet-free"
+                  <div class="button-bar"> <a href="https://www.gsheetconnector.com/docs/gravity-forms-gsheetconnector"
                     target="_blank"><?php echo esc_html__("Refer Documentation", "gsheetconnector-gravity-forms"); ?></a> | <a
                     href="https://www.gsheetconnector.com/gravity-forms-google-sheet-connector"
                     target="_blank"><?php echo esc_html__("Buy Now", "gsheetconnector-gravity-forms"); ?></a></div>
@@ -1264,12 +1264,12 @@ echo wp_kses_post($tab_id_text_field) ?>
       // error_log("⚙️ Static Sheet Settings Found — Sending to Sheet");
       $this->send_entry($sheetId, $sheet_name, $tabid, $sheet_tab_name, $entry, $form);
     } else {
-      GravityForms_GsFree_Connector_Utility::gfgs_debug_log("⚠️ No static sheet settings found for form ID: {$form_id} ");
+     
     }
 
     // Dynamic feed-based integration
     $feeds = $this->get_active_feeds($form['id']);
-    // error_log("📦 Found " . count($feeds) . " active feeds for form ID: {$form_id}");
+  
 
     $processable_feeds = [];
     foreach ($feeds as $feed) {
@@ -1304,28 +1304,29 @@ echo wp_kses_post($tab_id_text_field) ?>
 
 
 
-  // Modified code ahmed.
-  // since v-1.0.19
+
+// since v-1.0.19
   public function send_entry($sheetId, $sheet_name, $tabid, $sheet_tab_name, $entry, $form)
   {
     $form_id = $form['id'];
     $entry_id = $entry['id'];
 
     // $Date = $entry['date_created'];
-    // Convert UTC to WordPress timezone (IST)
+     // ✅ STEP 1: Get UTC date from Gravity Forms
     $utc_date = $entry['date_created'];
 
-    // Create DateTime object in UTC
+    // ✅ STEP 2: Convert UTC → WordPress timezone
     $date = new DateTime($utc_date, new DateTimeZone('UTC'));
+    $date->setTimezone(wp_timezone());
 
-    // Convert to WordPress timezone (auto picks Kolkata if set)
-    $wp_timezone = wp_timezone(); // WP timezone
-    $date->setTimezone($wp_timezone);
+    // ✅ STEP 3: Apply WordPress Date + Time format
+    $Date = wp_date(
+      get_option('date_format') . ' ' . get_option('time_format'),
+      $date->getTimestamp(),
+      wp_timezone()
+    );
 
-    // Format date as needed
-    $Date = $date->format('d-m-Y H:i:s');
-
-    if ($sheet_name !== "" && $sheet_tab_name !== "") {
+if ($sheet_name !== "" && $sheet_tab_name !== "") {
       try {
         include_once(GRAVITY_GOOGLESHEET_ROOT . "/lib/google-sheets.php");
         $doc = new Gfgscf_googlesheet();
@@ -1334,6 +1335,9 @@ echo wp_kses_post($tab_id_text_field) ?>
         $doc->setWorkTabId($tabid);
 
         $data_value['Entry Date'] = $Date;
+        $data_value['date'] = $Date;
+        $data_value['Date'] = $Date;
+        $data_value['Submission Date'] = $Date;
         $data_value['Entry ID'] = $entry_id;
 
         foreach ($form['fields'] as $field) {
@@ -1341,8 +1345,10 @@ echo wp_kses_post($tab_id_text_field) ?>
           $value = is_object($field) ? $field->get_value_export($entry) : '';
           $raw_value = isset($entry[$field->id]) ? $entry[$field->id] : '';
 
+
+         
           
-          // Address Field
+          /*  Address Field */
           if ($field->type == 'address' && isset($field->inputs) && !empty($field->inputs)) {
             foreach ($field->inputs as $input) {
               $subfield_id = $input['id'];
@@ -1355,7 +1361,7 @@ echo wp_kses_post($tab_id_text_field) ?>
               }
             }
           }
-          // Checkbox Field
+          /*  Checkbox Field */
           else if ($field->type == 'checkbox' && isset($field->inputs)) {
             $checkbox_values = [];
             foreach ($field->inputs as $input) {
@@ -1367,31 +1373,55 @@ echo wp_kses_post($tab_id_text_field) ?>
             $data_value[$label] = implode(', ', $checkbox_values);
 
           }
-          // Dropdown / Select
+          /*  Dropdown / Select */
           else if ($field->type == 'select') {
             $data_value[$label] = isset($entry[$field->id]) ? $entry[$field->id] : '';
             
           }
-          // File Upload
+          /*  File Upload */
           else if ($field->type == 'fileupload') {
             $file_url = isset($entry[$field->id]) ? $entry[$field->id] : '';
             $data_value[$label] = !empty($file_url) ? $file_url : 'No file uploaded';
 
           }
-          // Consent Field
+
+          
+          /*  Consent Field */
           else if ($field->type == 'consent') {
             if (isset($field->checkboxLabel) && !empty($field->checkboxLabel)) {
               $data_value[$label] = $field->checkboxLabel;
               
             }
           }
-          // Catch-all for other fields
+          /*  Catch-all for other fields */
           else if ($field->type == 'product' && isset($field->inputs)) {
             $quantity_input = $field->inputs[2]['id'] ?? null;
             $quantity_value = $quantity_input ? rgar($entry, $quantity_input) : '';
             $data_value[$label] = $quantity_value;
             
-          } else {
+           } 
+            else if ($field->type == 'date') {
+
+              $date_value = isset($entry[$field->id]) ? $entry[$field->id] : '';
+                if (!empty($date_value)) {
+                    $date_format = get_option('date_format'); 
+                    $data_value[$label] = date_i18n($date_format, strtotime($date_value));
+                } else {
+                    $data_value[$label] = '';
+                }
+          } 
+          else if ($field->type == 'time') {
+           
+            $time_value = isset($entry[$field->id]) ? $entry[$field->id] : '';
+              if (!empty($time_value)) {
+                  $time_format = get_option('time_format'); 
+                  $data_value[$label] = date_i18n($time_format, strtotime($time_value));
+              } else {
+                  $data_value[$label] = '';
+              }
+            
+          } 
+          else {
             $final_value = !empty($value) ? $value : $raw_value;
             $data_value[$label] = $final_value;
             

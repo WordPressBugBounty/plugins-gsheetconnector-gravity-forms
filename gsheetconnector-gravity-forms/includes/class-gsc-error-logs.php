@@ -221,36 +221,42 @@ public function gsgf_render_page_html()
     <div class="error-log-main shadow-box mt-40 p-30">
 
         <div class="error-log-head flex-wrap gap-20">
-            <div class="heading mt-0 mb-0"><?php echo esc_html__("Error Log", 'gsheetconnector-gravity-forms'); ?> </div>
+            <div>
+                <div class="heading mt-0 mb-0"><?php echo esc_html__("Error Log", 'gsheetconnector-gravity-forms'); ?> </div>
+
+                <p><?php echo esc_html__('Error logs are saved in the database. Please clear them regularly to avoid increasing the database size.', 'gsheetconnector-gravity-forms'); ?></p>
+
+            </div>
 
 
+            <?php if (!empty($logs)) : ?>
 
-            <div class="errorlog-button-list">
-                <a href="<?php echo esc_url(
-                    wp_nonce_url(
-                        admin_url('admin-post.php?action=gsgf_clear_logs'),
-                        'gsc_clear_logs_nonce'
-                    )
-                    ); ?>"
-                    class="button btn-logs"><?php echo esc_html__("Clear Logs", 'gsheetconnector-gravity-forms'); ?></a>
-
+                <div class="errorlog-button-list">
                     <a href="<?php echo esc_url(
                         wp_nonce_url(
-                            admin_url('admin-post.php?action=gsgf_download_logs'),
-                            'gsc_download_logs_nonce'
+                            admin_url('admin-post.php?action=gsgf_clear_logs'),
+                            'gsc_clear_logs_nonce'
                         )
                         ); ?>"
-                        class="button button-primary"><?php echo esc_html__("Download CSV", 'gsheetconnector-gravity-forms'); ?></a>
+                        class="button btn-logs"><?php echo esc_html__("Clear Logs", 'gsheetconnector-gravity-forms'); ?></a>
 
-                        <button type="button" id="gscgff-copy-logs-info"
-                        class="button btn-logs"><?php echo esc_html__("Copy Logs", 'gsheetconnector-gravity-forms'); ?></button>
-                        <div class="gsc-copy-msg d-none"></div>
-                    </div>
+                        <a href="<?php echo esc_url(
+                            wp_nonce_url(
+                                admin_url('admin-post.php?action=gsgf_download_logs'),
+                                'gsc_download_logs_nonce'
+                            )
+                            ); ?>"
+                            class="button button-primary"><?php echo esc_html__("Download CSV", 'gsheetconnector-gravity-forms'); ?></a>
+
+                            <button type="button" id="gscgff-copy-logs-info"
+                            class="button btn-logs"><?php echo esc_html__("Copy Logs", 'gsheetconnector-gravity-forms'); ?></button>
+                            <div class="gsc-copy-msg d-none"></div>
+                        </div>
+                    <?php endif; ?>
 
                 </div> <!-- error head #end -->
 
-                <p>Error logs are saved in the database. Please clear them regularly to avoid increasing the database
-                size.</P>
+
                 <div class="debug-log-div">
                     <table class="widefat striped error-log-table mt-30">
                         <thead>
@@ -315,16 +321,12 @@ public function gsgf_render_page_html()
                                         <?php else: ?>
                                             <?php echo esc_html($log['details']); ?>
                                         <?php endif; ?>
-
-
-
-
                                     </td>
                                 </tr>
                             <?php endforeach;
                             else: ?>
                                 <tr>
-                                    <td colspan="5"><?php echo esc_html__("No logs found", 'gsheetconnector-gravity-forms'); ?></td>
+                                    <td colspan="5" class="text-center"><?php echo esc_html__("No error logs found.", 'gsheetconnector-gravity-forms'); ?></td>
                                 </tr>
                             <?php endif; ?>
                         </tbody>
@@ -340,16 +342,16 @@ public function gsgf_render_page_html()
                     // ---------- More info toggle (UNCHANGED) ----------
                     $('.more-error-display').each(function() {
 
-                     var box = $(this);
-                     var maxHeight = 75;
+                       var box = $(this);
+                       var maxHeight = 75;
 
-                     box.css({
+                       box.css({
                         'max-height': maxHeight + 'px',
                         'overflow': 'hidden'
                     });
 
-                     var clone = box.clone();
-                     clone.css({
+                       var clone = box.clone();
+                       clone.css({
                         'max-height': 'none',
                         'height': 'auto',
                         'position': 'absolute',
@@ -357,9 +359,9 @@ public function gsgf_render_page_html()
                         'overflow': 'visible'
                     });
 
-                     $('body').append(clone);
+                       $('body').append(clone);
 
-                     if (clone.outerHeight() > maxHeight) {
+                       if (clone.outerHeight() > maxHeight) {
                         if (box.next('.more-error-toggle').length === 0) {
                             var link = $('<a href="#" class="more-error-toggle">More info</a>');
                             box.after(link);
@@ -405,7 +407,7 @@ public function gsgf_render_page_html()
  */
 public function clear_logs()
 {
-   if (!current_user_can('manage_options')) {
+ if (!current_user_can('manage_options')) {
     wp_die('Permission denied.');
 }
 

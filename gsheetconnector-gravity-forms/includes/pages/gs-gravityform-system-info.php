@@ -25,250 +25,251 @@ if (! current_user_can('manage_options')) {
                 </svg><?php esc_html_e('Copy System Info', 'gsheetconnector-gravity-forms'); ?>
             </button>
         </div>
-        <?php
-        global $wpdb;
+        <div id="system-info-wrapper">
+            <?php
+            global $wpdb;
 
         // Get WordPress version.
-        $wp_version = get_bloginfo('version');
+            $wp_version = get_bloginfo('version');
 
         // Get theme info.
-        $theme_data = wp_get_theme();
-        $theme_name_version = $theme_data->get('Name') . ' ' . $theme_data->get('Version');
-        $parent_theme = $theme_data->get('Template');
+            $theme_data = wp_get_theme();
+            $theme_name_version = $theme_data->get('Name') . ' ' . $theme_data->get('Version');
+            $parent_theme = $theme_data->get('Template');
 
-        if (!empty($parent_theme)) {
-            $parent_theme_data = wp_get_theme($parent_theme);
-            $parent_theme_name_version = $parent_theme_data->get('Name') . ' ' . $parent_theme_data->get('Version');
-        } else {
-            $parent_theme_name_version = 'N/A';
-        }
+            if (!empty($parent_theme)) {
+                $parent_theme_data = wp_get_theme($parent_theme);
+                $parent_theme_name_version = $parent_theme_data->get('Name') . ' ' . $parent_theme_data->get('Version');
+            } else {
+                $parent_theme_name_version = 'N/A';
+            }
 
         // Check plugin version and subscription plan.
-        $plugin_version = defined('GRAVITY_GOOGLESHEET_VERSION') ? GRAVITY_GOOGLESHEET_VERSION : 'N/A';
+            $plugin_version = defined('GRAVITY_GOOGLESHEET_VERSION') ? GRAVITY_GOOGLESHEET_VERSION : 'N/A';
 
-        $subscription_plan = 'FREE';
+            $subscription_plan = 'FREE';
 
-        $api_token_auto = get_option('gfgs_token');
-        $auth_method = get_option('gravityforms_manual_setting');
-        $auth = "";
+            $api_token_auto = get_option('gfgs_token');
+            $auth_method = get_option('gravityforms_manual_setting');
+            $auth = "";
 
 
-        if ($auth_method === '0') {
-            $google_sheet_auto = new Gfgscf_googlesheet();
-            $email_account_auto = $google_sheet_auto->gsheet_print_google_account_email();
-            $connected_email = !empty($email_account_auto) ? esc_html($email_account_auto) : 'Not Auth';
+            if ($auth_method === '0') {
+                $google_sheet_auto = new Gfgscf_googlesheet();
+                $email_account_auto = $google_sheet_auto->gsheet_print_google_account_email();
+                $connected_email = !empty($email_account_auto) ? esc_html($email_account_auto) : 'Not Auth';
 
-            $auth = 'Authenticated Using Existing Method';
-        } else {
+                $auth = 'Authenticated Using Existing Method';
+            } else {
             // Auto authentication is the  method available.
-            $connected_email = 'Not Connected';
-            $auth = 'No Method';
-        }
+                $connected_email = 'Not Connected';
+                $auth = 'No Method';
+            }
 
-        /*  Check Google Permission. */
-        $gsc_verify_status = get_option('gfgs_verify');
-        $search_permission = ($gsc_verify_status === 'valid') ? 'Granted' : 'Denied';
-        /*  Create the system info HTML. */
-        ?>
+            /*  Check Google Permission. */
+            $gsc_verify_status = get_option('gfgs_verify');
+            $search_permission = ($gsc_verify_status === 'valid') ? 'Granted' : 'Denied';
+            /*  Create the system info HTML. */
+            ?>
 
 
-        <div class="mb-20 mt-20">
-            <button id="gscgff-show-info-button" class="info-button">
-                <?php echo esc_html__('GSheetConnector Status', 'gsheetconnector-gravity-forms'); ?>
-                <span class="dashicons dashicons-arrow-down"></span>
-            </button>
-        </div>
+            <div class="mb-20 mt-20">
+                <button id="gscgff-show-info-button" class="info-button">
+                    <?php echo esc_html__('GSheetConnector Status', 'gsheetconnector-gravity-forms'); ?>
+                    <span class="dashicons dashicons-arrow-down"></span>
+                </button>
+            </div>
 
-        <div id="info-container" class="info-content shadow-box pt-20 pb-20 pl-30 pr-30" style="display:none;">
-            <table>
-                <tr>
-                    <td><?php echo esc_html__('Plugin Name', 'gsheetconnector-gravity-forms'); ?></td>
-                    <td class="fw-600 common-badge-table info-name-blue">
-                        <?php echo esc_html('GSheetConnector For Gravity Forms'); ?> </td>
-                    </tr>
+            <div id="info-container" class="info-content shadow-box pt-20 pb-20 pl-30 pr-30" style="display:none;">
+                <table>
                     <tr>
-                        <td><?php echo esc_html__('Plugin Version', 'gsheetconnector-gravity-forms'); ?></td>
+                        <td><?php echo esc_html__('Plugin Name', 'gsheetconnector-gravity-forms'); ?></td>
                         <td class="fw-600 common-badge-table info-name-blue">
-                            <?php echo esc_html($plugin_version); ?>
-                        </td>
-                    </tr>
+                            <?php echo esc_html('GSheetConnector For Gravity Forms'); ?> </td>
+                        </tr>
+                        <tr>
+                            <td><?php echo esc_html__('Plugin Version', 'gsheetconnector-gravity-forms'); ?></td>
+                            <td class="fw-600 common-badge-table info-name-blue">
+                                <?php echo esc_html($plugin_version); ?>
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td><?php echo esc_html__('Plugin Subscription Plan', 'gsheetconnector-gravity-forms'); ?></td>
-                        <td class="fw-600 common-badge-table pro-badge">
-                            <?php echo esc_html($subscription_plan); ?>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td><?php echo esc_html__('Plugin Subscription Plan', 'gsheetconnector-gravity-forms'); ?></td>
+                            <td class="fw-600 common-badge-table pro-badge">
+                                <?php echo esc_html($subscription_plan); ?>
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td><?php echo esc_html__('Connected Email Account', 'gsheetconnector-gravity-forms'); ?></td>
+                        <tr>
+                            <td><?php echo esc_html__('Connected Email Account', 'gsheetconnector-gravity-forms'); ?></td>
+                            <td class="fw-600">
+                                <?php echo esc_html($connected_email); ?>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><?php echo esc_html__('Authentication method for connecting to Google Sheets', 'gsheetconnector-gravity-forms'); ?>
+                        </td>
                         <td class="fw-600">
-                            <?php echo esc_html($connected_email); ?>
+                            <?php echo esc_html($auth); ?>
+                        </td>
+                    </tr>
+                    <?php
+                    $permission_class = ($search_permission === 'Granted') ? 'permission-given' : 'permission-not-given';
+                    ?>
+
+                    <tr>
+                        <td> <?php echo esc_html__('Google Drive Permission', 'gsheetconnector-gravity-forms'); ?></td>
+                        <td class="fw-700 permission-badge ' <?php echo esc_attr($permission_class); ?>">
+                            <?php echo esc_html($search_permission); ?>
                         </td>
                     </tr>
 
                     <tr>
-                        <td><?php echo esc_html__('Authentication method for connecting to Google Sheets', 'gsheetconnector-gravity-forms'); ?>
+                        <td><?php echo esc_html__('Google Sheet Permission', 'gsheetconnector-gravity-forms'); ?></td>
+                        <td class="fw-700 permission-badge ' . esc_attr($permission_class) . '">
+                            <?php echo  esc_html($search_permission); ?>
+                        </td>
+                    </tr>
+
+
+
+                </table>
+
+            </div>
+
+
+
+            <div class="mb-20 mt-20">
+                <button id="gscgff-show-wordpress-info-button" class="info-button">
+                    <?php echo esc_html__('WordPress', 'gsheetconnector-gravity-forms'); ?>
+                    <span class="dashicons dashicons-arrow-down"></span>
+                </button>
+            </div>
+
+            <div id="wordpress-info-container" class="info-content shadow-box pt-20 pb-20 pl-30 pr-30"
+            style="display:none;">
+            <table>
+
+                <tr>
+                    <td><?php echo esc_html__('Version', 'gsheetconnector-gravity-forms'); ?></td>
+                    <td class="fw-600 common-badge-table info-name-blue">
+                        <?php echo esc_html(get_bloginfo('version')); ?>
                     </td>
+                </tr>
+
+                <tr>
+                    <td><?php echo esc_html__('Site Language', 'gsheetconnector-gravity-forms'); ?></td>
                     <td class="fw-600">
-                        <?php echo esc_html($auth); ?>
-                    </td>
-                </tr>
-                <?php
-                $permission_class = ($search_permission === 'Granted') ? 'permission-given' : 'permission-not-given';
-                ?>
-
-                <tr>
-                    <td> <?php echo esc_html__('Google Drive Permission', 'gsheetconnector-gravity-forms'); ?></td>
-                    <td class="fw-700 permission-badge ' <?php echo esc_attr($permission_class); ?>">
-                        <?php echo esc_html($search_permission); ?>
+                        <?php echo esc_html(get_bloginfo('language')); ?>
                     </td>
                 </tr>
 
                 <tr>
-                    <td><?php echo esc_html__('Google Sheet Permission', 'gsheetconnector-gravity-forms'); ?></td>
-                    <td class="fw-700 permission-badge ' . esc_attr($permission_class) . '">
-                        <?php echo  esc_html($search_permission); ?>
+                    <td><?php echo esc_html__('Debug Mode', 'gsheetconnector-gravity-forms'); ?></td>
+                    <td class="fw-600 common-badge-table info-name-yellow">
+                        <?php echo esc_html(WP_DEBUG ? __('Enabled', 'gsheetconnector-gravity-forms') : __('Disabled', 'gsheetconnector-gravity-forms')); ?>
                     </td>
                 </tr>
 
+                <tr>
+                    <td><?php echo esc_html__('Home URL', 'gsheetconnector-gravity-forms'); ?></td>
+                    <td class="fw-600 common-badge-table info-name-blue">
+                        <?php echo esc_url(get_home_url()); ?>
+                    </td>
+                </tr>
 
+                <tr>
+                    <td><?php echo esc_html__('Site URL', 'gsheetconnector-gravity-forms'); ?></td>
+                    <td class="fw-600 common-badge-table info-name-blue">
+                        <?php echo esc_url(get_site_url()); ?>
+                    </td>
+                </tr>
 
-            </table>
+                <tr>
+                    <td><?php echo esc_html__('Permalink structure', 'gsheetconnector-gravity-forms'); ?></td>
+                    <td class="fw-600">
+                        <?php echo esc_html(get_option('permalink_structure')); ?>
+                    </td>
+                </tr>
 
-        </div>
+                <tr>
+                    <td><?php echo esc_html__('Is this site using HTTPS?', 'gsheetconnector-gravity-forms'); ?></td>
+                    <td class="fw-600">
+                        <?php echo esc_html(is_ssl() ? __('Yes', 'gsheetconnector-gravity-forms') : __('No', 'gsheetconnector-gravity-forms')); ?>
+                    </td>
+                </tr>
 
+                <tr>
+                    <td><?php echo esc_html__('Is this a multisite?', 'gsheetconnector-gravity-forms'); ?></td>
+                    <td class="fw-600">
+                        <?php echo esc_html(is_multisite() ? __('Yes', 'gsheetconnector-gravity-forms') : __('No', 'gsheetconnector-gravity-forms')); ?>
+                    </td>
+                </tr>
 
-
-        <div class="mb-20 mt-20">
-            <button id="gscgff-show-wordpress-info-button" class="info-button">
-                <?php echo esc_html__('WordPress', 'gsheetconnector-gravity-forms'); ?>
-                <span class="dashicons dashicons-arrow-down"></span>
-            </button>
-        </div>
-
-        <div id="wordpress-info-container" class="info-content shadow-box pt-20 pb-20 pl-30 pr-30"
-        style="display:none;">
-        <table>
-
-            <tr>
-                <td><?php echo esc_html__('Version', 'gsheetconnector-gravity-forms'); ?></td>
-                <td class="fw-600 common-badge-table info-name-blue">
-                    <?php echo esc_html(get_bloginfo('version')); ?>
+                <tr>
+                    <td><?php echo esc_html__('Can anyone register on this site?', 'gsheetconnector-gravity-forms'); ?>
                 </td>
-            </tr>
-
-            <tr>
-                <td><?php echo esc_html__('Site Language', 'gsheetconnector-gravity-forms'); ?></td>
                 <td class="fw-600">
-                    <?php echo esc_html(get_bloginfo('language')); ?>
+                    <?php echo esc_html(get_option('users_can_register') ? __('Yes', 'gsheetconnector-gravity-forms') : __('No', 'gsheetconnector-gravity-forms')); ?>
                 </td>
             </tr>
 
             <tr>
-                <td><?php echo esc_html__('Debug Mode', 'gsheetconnector-gravity-forms'); ?></td>
-                <td class="fw-600 common-badge-table info-name-yellow">
-                    <?php echo esc_html(WP_DEBUG ? __('Enabled', 'gsheetconnector-gravity-forms') : __('Disabled', 'gsheetconnector-gravity-forms')); ?>
-                </td>
-            </tr>
-
-            <tr>
-                <td><?php echo esc_html__('Home URL', 'gsheetconnector-gravity-forms'); ?></td>
-                <td class="fw-600 common-badge-table info-name-blue">
-                    <?php echo esc_url(get_home_url()); ?>
-                </td>
-            </tr>
-
-            <tr>
-                <td><?php echo esc_html__('Site URL', 'gsheetconnector-gravity-forms'); ?></td>
-                <td class="fw-600 common-badge-table info-name-blue">
-                    <?php echo esc_url(get_site_url()); ?>
-                </td>
-            </tr>
-
-            <tr>
-                <td><?php echo esc_html__('Permalink structure', 'gsheetconnector-gravity-forms'); ?></td>
-                <td class="fw-600">
-                    <?php echo esc_html(get_option('permalink_structure')); ?>
-                </td>
-            </tr>
-
-            <tr>
-                <td><?php echo esc_html__('Is this site using HTTPS?', 'gsheetconnector-gravity-forms'); ?></td>
-                <td class="fw-600">
-                    <?php echo esc_html(is_ssl() ? __('Yes', 'gsheetconnector-gravity-forms') : __('No', 'gsheetconnector-gravity-forms')); ?>
-                </td>
-            </tr>
-
-            <tr>
-                <td><?php echo esc_html__('Is this a multisite?', 'gsheetconnector-gravity-forms'); ?></td>
-                <td class="fw-600">
-                    <?php echo esc_html(is_multisite() ? __('Yes', 'gsheetconnector-gravity-forms') : __('No', 'gsheetconnector-gravity-forms')); ?>
-                </td>
-            </tr>
-
-            <tr>
-                <td><?php echo esc_html__('Can anyone register on this site?', 'gsheetconnector-gravity-forms'); ?>
+                <td><?php echo esc_html__('Is this site discouraging search engines?', 'gsheetconnector-gravity-forms'); ?>
             </td>
             <td class="fw-600">
-                <?php echo esc_html(get_option('users_can_register') ? __('Yes', 'gsheetconnector-gravity-forms') : __('No', 'gsheetconnector-gravity-forms')); ?>
+                <?php echo esc_html(get_option('blog_public') ? __('No', 'gsheetconnector-gravity-forms') : __('Yes', 'gsheetconnector-gravity-forms')); ?>
             </td>
         </tr>
 
         <tr>
-            <td><?php echo esc_html__('Is this site discouraging search engines?', 'gsheetconnector-gravity-forms'); ?>
+            <td><?php echo esc_html__('Default comment status', 'gsheetconnector-gravity-forms'); ?></td>
+            <td class="fw-600">
+                <?php echo esc_html(get_option('default_comment_status')); ?>
+            </td>
+        </tr>
+        <?php
+        $server_ip = isset($_SERVER['REMOTE_ADDR']) ? filter_var(wp_unslash($_SERVER['REMOTE_ADDR']), FILTER_VALIDATE_IP) : '';
+
+        if (filter_var($server_ip, FILTER_VALIDATE_IP) === false) {
+            $environment_type = __('Unknown', 'gsheetconnector-gravity-forms');
+        } else {
+            $known_local_ips = array('127.0.0.1', '::1');
+            $isLocalhost = in_array($server_ip, $known_local_ips, true);
+            $environment_type = $isLocalhost
+            ? __('Localhost', 'gsheetconnector-gravity-forms')
+            : __('Production', 'gsheetconnector-gravity-forms');
+        }
+        ?>
+
+        <tr>
+            <td><?php echo esc_html__('Environment type', 'gsheetconnector-gravity-forms'); ?></td>
+            <td class="fw-600 common-badge-table info-name-yellow">
+                <?php echo esc_html($environment_type); ?>
+            </td>
+        </tr>
+
+        <?php
+        $user_count  = count_users();
+        $total_users = isset($user_count['total_users']) ? (int) $user_count['total_users'] : 0;
+        ?>
+
+        <tr>
+            <td><?php echo esc_html__('User Count', 'gsheetconnector-gravity-forms'); ?></td>
+            <td class="fw-600">
+                <?php echo esc_html($total_users); ?>
+            </td>
+        </tr>
+
+        <tr>
+            <td><?php echo esc_html__('Communication with WordPress.org', 'gsheetconnector-gravity-forms'); ?>
         </td>
         <td class="fw-600">
-            <?php echo esc_html(get_option('blog_public') ? __('No', 'gsheetconnector-gravity-forms') : __('Yes', 'gsheetconnector-gravity-forms')); ?>
+            <?php echo esc_html(get_option('blog_publicize') ? __('Yes', 'gsheetconnector-gravity-forms') : __('No', 'gsheetconnector-gravity-forms')); ?>
         </td>
     </tr>
-
-    <tr>
-        <td><?php echo esc_html__('Default comment status', 'gsheetconnector-gravity-forms'); ?></td>
-        <td class="fw-600">
-            <?php echo esc_html(get_option('default_comment_status')); ?>
-        </td>
-    </tr>
-    <?php
-    $server_ip = isset($_SERVER['REMOTE_ADDR']) ? filter_var(wp_unslash($_SERVER['REMOTE_ADDR']), FILTER_VALIDATE_IP) : '';
-
-    if (filter_var($server_ip, FILTER_VALIDATE_IP) === false) {
-        $environment_type = __('Unknown', 'gsheetconnector-gravity-forms');
-    } else {
-        $known_local_ips = array('127.0.0.1', '::1');
-        $isLocalhost = in_array($server_ip, $known_local_ips, true);
-        $environment_type = $isLocalhost
-        ? __('Localhost', 'gsheetconnector-gravity-forms')
-        : __('Production', 'gsheetconnector-gravity-forms');
-    }
-    ?>
-
-    <tr>
-        <td><?php echo esc_html__('Environment type', 'gsheetconnector-gravity-forms'); ?></td>
-        <td class="fw-600 common-badge-table info-name-yellow">
-            <?php echo esc_html($environment_type); ?>
-        </td>
-    </tr>
-
-    <?php
-    $user_count  = count_users();
-    $total_users = isset($user_count['total_users']) ? (int) $user_count['total_users'] : 0;
-    ?>
-
-    <tr>
-        <td><?php echo esc_html__('User Count', 'gsheetconnector-gravity-forms'); ?></td>
-        <td class="fw-600">
-            <?php echo esc_html($total_users); ?>
-        </td>
-    </tr>
-
-    <tr>
-        <td><?php echo esc_html__('Communication with WordPress.org', 'gsheetconnector-gravity-forms'); ?>
-    </td>
-    <td class="fw-600">
-        <?php echo esc_html(get_option('blog_publicize') ? __('Yes', 'gsheetconnector-gravity-forms') : __('No', 'gsheetconnector-gravity-forms')); ?>
-    </td>
-</tr>
 
 </table>
 </div>
@@ -340,7 +341,7 @@ if (is_multisite()) {
     $network_active_plugins = get_site_option('active_sitewide_plugins', array());
     if (!empty($network_active_plugins)) { ?>
         <div class="mb-20 mt-20"><button id="gscgff-show-netplug-info-button" class="info-button">Network Active
-            plugins<span class="dashicons dashicons-arrow-down"></span></div>';
+            plugins<span class="dashicons dashicons-arrow-down"></span></button></div>';
             <div id="netplug-info-container" class="info-content shadow-box pt-20 pb-20 pl-30 pr-30" style="display:none;">
                 ';
                 <table>
@@ -879,53 +880,67 @@ if (is_multisite()) {
 
 
 </div>
+</div>
+
+<?php
+$debug_log_file = WP_CONTENT_DIR . '/debug.log';
+
+$log_lines = [];
+
+if (file_exists($debug_log_file)) {
+    $log_lines = file(
+        $debug_log_file,
+        FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES
+    );
+
+    $log_lines = array_slice(array_reverse($log_lines), 0, 100);
+}
+
+$has_logs = !empty($log_lines);
+?>
 
 <div class="system-error shadow-box mt-40 p-30">
     <div class="error-container">
+
         <div class="error-log-head flex-wrap gap-20">
-            <div class="heading mt-0 mb-0"><?php esc_html_e('Error Log', 'gsheetconnector-gravity-forms'); ?></div>
-
-
-            <div class="errorlog-button-list">
-
-                <span class="clear-loading-sign"></span>
-                <button type="button" class="button btn-logs gsgff-clear-content-logs">
-                    <?php esc_html_e('Clear Logs', 'gsheetconnector-gravity-forms'); ?></button>
-
-                    <button type="button" class="button button-primary"
-                    id="gscgff-csv-info"><?php esc_html_e('Download CSV', 'gsheetconnector-gravity-forms'); ?></button>
-
-                    <button type="button" class="button btn-logs"
-                    id="gscgff-copy-logs-info"><?php esc_html_e('Copy Logs', 'gsheetconnector-gravity-forms'); ?></button>
-                    <div class="gsc-copy-msg d-none"></div>
-                </div>
+            <div class="heading mt-0 mb-0">
+                <?php esc_html_e('Error Log', 'gsheetconnector-gravity-forms'); ?>
             </div>
 
+            <?php if ($has_logs) { ?>
+                <div class="errorlog-button-list">
+                    <span class="clear-loading-sign"></span>
+
+                    <button type="button" class="button btn-logs gsgff-clear-content-logs">
+                        <?php esc_html_e('Clear Logs', 'gsheetconnector-gravity-forms'); ?>
+                    </button>
+
+                    <button type="button" class="button button-primary" id="gscgff-csv-info">
+                        <?php esc_html_e('Download CSV', 'gsheetconnector-gravity-forms'); ?>
+                    </button>
+
+                    <button type="button" class="button btn-logs" id="gscgff-copy-logs-info">
+                        <?php esc_html_e('Copy Logs', 'gsheetconnector-gravity-forms'); ?>
+                    </button>
+
+                    <div class="gsc-copy-msg d-none"></div>
+                </div>
+            <?php } ?>
         </div>
 
         <div class="gscgff-validation-message"></div>
-        <input type="hidden" name="gscgff-ajax-nonce" id="gscgff-ajax-nonce"
+
+        <input type="hidden"
+        name="gscgff-ajax-nonce"
+        id="gscgff-ajax-nonce"
         value="<?php echo esc_attr(wp_create_nonce('gscgff-ajax-nonce')); ?>" />
-        <div class="gsc-copy-msg d-none">
-            <?php esc_html_e('copied successfully', 'gsheetconnector-gravity-forms'); ?>
-        </div>
 
-        <!-- Log  Start-->
+        <!-- Log Start -->
         <?php
-        $debug_log_file = WP_CONTENT_DIR . '/debug.log';
-
-        if (!file_exists($debug_log_file)) {
-            echo '<p>Debug log file not found.</p>';
-            return;
-        }
-
-        $log_lines = file($debug_log_file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-
-
-        $log_lines = array_slice(array_reverse($log_lines), 0, 100);
 
         echo '<div style="max-height:500px; overflow:auto;">';
         echo '<table class="widefat striped mt-30">';
+
         echo '<thead>
         <tr>
         <th>Date</th>
@@ -934,34 +949,49 @@ if (is_multisite()) {
         <th>File</th>
         </tr>
         </thead>';
+
         echo '<tbody>';
 
-        foreach ($log_lines as $line) {
+        if ($has_logs) {
 
-            if (preg_match('/\[(.*?)\]\s(.*?):\s(.*)/', $line, $matches)) {
+            foreach ($log_lines as $line) {
 
-                $date    = str_replace(' UTC', '', $matches[1]);
-                $type    = str_replace('PHP ', '', $matches[2]);
-                $message = $matches[3];
+                if (preg_match('/\[(.*?)\]\s(.*?):\s(.*)/', $line, $matches)) {
 
-                $file = '-';
-                if (preg_match('/in (.*?) on line/', $message, $file_match)) {
-                    $file = $file_match[1];
+                    $date    = str_replace(' UTC', '', $matches[1]);
+                    $type    = str_replace('PHP ', '', $matches[2]);
+                    $message = $matches[3];
+
+                    $file = '-';
+
+                    if (preg_match('/in (.*?) on line/', $message, $file_match)) {
+                        $file = $file_match[1];
+                    }
+
+                    echo '<tr>';
+                    echo '<td>' . esc_html($date) . '</td>';
+                    echo '<td>' . esc_html($type) . '</td>';
+                    echo '<td>' . esc_html($message) . '</td>';
+                    echo '<td>' . esc_html($file) . '</td>';
+                    echo '</tr>';
                 }
-
-                echo '<tr>';
-                echo '<td>' . esc_html($date) . '</td>';
-                echo '<td>' . esc_html($type) . '</td>';
-                echo '<td>' . esc_html($message) . '</td>';
-                echo '<td>' . esc_html($file) . '</td>';
-                echo '</tr>';
             }
+
+        } else {
+
+            echo '<tr>';
+            echo '<td colspan="4" class="text-center">'
+            . esc_html__('No error logs found.', 'gsheetconnector-gravity-forms')
+            . '</td>';
+            echo '</tr>';
         }
 
         echo '</tbody>';
         echo '</table>';
         echo '</div>';
         ?>
-        <!--Log End -->
+        <!-- Log End -->
+
     </div>
+</div>
 </div>
