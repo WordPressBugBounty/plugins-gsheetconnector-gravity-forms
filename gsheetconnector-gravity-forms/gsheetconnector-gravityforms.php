@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Plugin Name: GSheetConnector For Gravity Forms
  * Plugin URI: https://www.gsheetconnector.com/gravity-forms-google-sheet-connector
@@ -7,7 +8,7 @@
  * Requires PHP:7.4
  * Author: GSheetConnector
  * Author URI: https://www.gsheetconnector.com/
- * Version: 1.4.1
+ * Version: 1.4.2
  * Text Domain: gsheetconnector-gravity-forms
  * License: GPLv2
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -89,11 +90,11 @@ if (Gforms_Gsheet_Connector_Free_Init::gscgf_is_pugin_active('Gforms_Gsheet_Conn
 }
 
 /* Declare some global constants */
-define('GRAVITY_GOOGLESHEET_VERSION', '1.4.1');
-define('GRAVITY_GOOGLESHEET_DB_VERSION', '1.4.1');
+define('GRAVITY_GOOGLESHEET_VERSION', '1.4.2');
+define('GRAVITY_GOOGLESHEET_DB_VERSION', '1.4.2');
 define('GRAVITY_GOOGLESHEET_ROOT', dirname(__FILE__));
 define('GRAVITY_GOOGLESHEET_URL', plugins_url('/', __FILE__));
-define('GRAVITY_GOOGLESHEET_BASE_FILE', basename(dirname(__FILE__)) . '/gsheetconnector-gravity-forms.php');
+define('GRAVITY_GOOGLESHEET_BASE_FILE', basename(dirname(__FILE__)) . '/gsheetconnector-gravityforms.php');
 define('GRAVITY_GOOGLESHEET_BASE_NAME', plugin_basename(__FILE__));
 define('GRAVITY_GOOGLESHEET_API_URL', 'https://oauth.gsheetconnector.com/api-cred.php');
 define('GRAVITY_GOOGLESHEET_PATH', plugin_dir_path(__FILE__)); //use for include files to other files
@@ -115,22 +116,22 @@ if ($activate_the_plugin) {
    /* Include Freemius SDK. */
    require_once dirname(__FILE__) . '/lib/vendor/freemius/start.php';
 
-   $gg_fs = fs_dynamic_init(array(
-     'id' => '17696',
-     'slug' => 'gsheetconnector-gravity-forms',
-     'type' => 'plugin',
-     'public_key' => 'pk_de0da0604d68aa61a14ce400551de',
-     'is_premium' => false,
-     'has_addons' => false,
-     'has_paid_plans' => false,
-     'is_org_compliant' => true,
-     'menu' => array(
-      'slug' => 'gsheetconnector-gravity-forms',
-      'first-path' => 'admin.php?page=gf_googlesheet',
-      'account' => false,
-      'support' => false,
+    $gg_fs = fs_dynamic_init(array(
+    'id' => '17696',
+    'slug' => 'gsheetconnector-gravity-forms',
+    'type' => 'plugin',
+    'public_key' => 'pk_de0da0604d68aa61a14ce400551de',
+    'is_premium' => false,
+    'has_addons' => false,
+    'has_paid_plans' => false,
+
+    'menu' => array(
+    'slug' => 'gf_googlesheet',
+    'first-path' => 'admin.php?page=gf_googlesheet',
+
+    'support' => false,
     ),
-   ));
+    ));
  }
 
  return $gg_fs;
@@ -177,7 +178,9 @@ class Gforms_Gsheet_Connector_Free_Init
   add_action('init', array($this, 'load_all_classes'));
 
   /*  Setting option */
-  add_filter('plugin_action_links_' . GRAVITY_GOOGLESHEET_BASE_FILE, array($this, 'grvt_connector_pro_plugin_action_links'));
+  add_filter(
+    'plugin_action_links_' . GRAVITY_GOOGLESHEET_BASE_FILE,array( $this, 'grvt_connector_pro_plugin_action_links' )
+);
 
   /** For using Row Meta */
   add_filter('plugin_row_meta', [$this, 'plugin_row_meta'], 10, 2);
@@ -224,8 +227,8 @@ public function plugin_row_meta($plugin_meta, $plugin_file)
 {
   if (GRAVITY_GOOGLESHEET_BASE_NAME === $plugin_file) {
    $row_meta = [
-    'docs' => '<a href="https://support.gsheetconnector.com/kb-category/gravity-forms-gsheetconnector" target="_blank" aria-label="' . esc_attr(esc_html__('View Documentation', 'gsheetconnector-gravity-forms')) . '" target="_blank">' . esc_html__('Docs', 'gsheetconnector-gravity-forms') . '</a>',
-    'ideo' => '<a href="https://www.gsheetconnector.com/support" aria-label="' . esc_attr(esc_html__('Get Support', 'gsheetconnector-gravity-forms')) . '" target="_blank">' . esc_html__('Support', 'gsheetconnector-gravity-forms') . '</a>',
+    'docs' => '<a href="https://www.gsheetconnector.com/docs/gravity-forms-gsheetconnector" target="_blank" aria-label="' . esc_attr(esc_html__('View Documentation', 'gsheetconnector-gravity-forms')) . '" target="_blank">' . esc_html__('Docs', 'gsheetconnector-gravity-forms') . '</a>',
+    'ideo' => '<a href="https://wordpress.org/support/plugin/gsheetconnector-gravity-forms/" aria-label="' . esc_attr(esc_html__('Get Support', 'gsheetconnector-gravity-forms')) . '" target="_blank">' . esc_html__('Support', 'gsheetconnector-gravity-forms') . '</a>',
   ];
 
   $plugin_meta = array_merge($plugin_meta, $row_meta);
@@ -1009,30 +1012,18 @@ public function display_error_log()
 * @return array Amended array of links.    * 
 * @since 1.5
 */
-public function grvt_connector_pro_plugin_action_links($links)
-{
-  /* We shouldn't encourage editing our plugin directly. */
-  unset($links['edit']);
+public function grvt_connector_pro_plugin_action_links( $links ) {
 
-  /* Define the settings link. */
-  $settings_link = '<a href="' . admin_url('admin.php?page=gf_googlesheet') . '">' . __('Settings', 'gsheetconnector-gravity-forms') . '</a>';
+    /* Remove the edit link. */
+    unset( $links['edit'] );
 
-  /* Check if the Pro version of the plugin is installed and activated. */
-  if (is_plugin_active('gsheetconnector-gravity-forms-pro/gsheetconnector-gravity-forms-pro.php')) {
-   /* If Pro version is active, return links with the settings link. */
-   return array_merge(array($settings_link), $links);
- }
+    /* Define the settings link. */
+    $settings_link = '<a href="' . esc_url( admin_url( 'admin.php?page=gf_googlesheet' ) ) . '">'
+        . esc_html__( 'Settings', 'gsheetconnector-gravity-forms' )
+        . '</a>';
 
- /* Define the "Get Pro" link. */
- $go_pro_text = esc_html__('Get GSheetConnector Gravity Pro', 'gsheetconnector-gravity-forms');
- $pro_link = sprintf(
-   '<a href="%s" target="_blank" class="gsheetconnector-pro-link" style="color: green; font-weight: bold;">%s</a>',
-   esc_url('https://www.gsheetconnector.com/gravity-forms-google-sheet-connector'),
-   $go_pro_text
- );
-
- /* Merge both links and return. */
- return array_merge(array($settings_link, $pro_link), $links);
+    /* Prepend the settings link and return. */
+    return array_merge( array( 'settings' => $settings_link ), $links );
 }
 
 
@@ -1098,4 +1089,28 @@ function gsheetconnector_gravityforms_pro_version_notice()
  $message = esc_html__("Deactivated GSheetConnector Gravity Forms (Pro Version) to activate GSheetConnector Gravity Forms Free.", "gsheetconnector-gravity-forms");
  /* $message = esc_html__("Heads up! <br><br> Your site already has Gravity Forms GSheetConnector PRO is activated. If you want to switch to Gravity Forms GSheetConnector Free version then, please first go to Plugins → Installed Plugins and deactivate Gravity Forms GSheetConnector PRO. Then, you can activate Gravity Forms GSheetConnector Free." , "gsheetconnector-gravity-forms");*/
  printf('<div class="%1$s"><p>%2$s</p></div>', esc_attr($class), esc_html($message));
+}
+
+
+/*  Add custom link for our plugin */ 
+add_filter('plugin_action_links_' . GRAVITY_GOOGLESHEET_BASE_NAME, 'gravity_gs_connector_pro_plugin_action_links');
+function gravity_gs_connector_pro_plugin_action_links($links)
+{
+    /* Define the text for the "Upgrade to Pro" link */
+    $go_pro_text = esc_html__('Upgrade to Pro', 'gsheetconnector-gravity-forms');
+
+    /*  Check if the Pro version of the plugin is installed and activated */
+    if (is_plugin_active('gsheetconnector-gravityforms-pro/gsheetconnector-for-elementor-forms-pro.php')) {
+            /*  If Pro version is active, return the links without adding the "Upgrade to Pro" link */
+        return $links;
+    }
+
+        /*  Add the action link to the plugin page with green color styling */
+    $links['go_pro'] = sprintf(
+        '<a href="%s" target="_blank" class="gsheetconnector-pro-link" style="color: green;">%s</a>',
+        esc_url('https://www.gsheetconnector.com/gravity-forms-google-sheet-connector'),
+        $go_pro_text
+    );
+
+    return $links;
 }

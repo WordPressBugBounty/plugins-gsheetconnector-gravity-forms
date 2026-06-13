@@ -4,40 +4,40 @@ jQuery(document).ready(function () {
 
   if (sheetId != "" && tabId != "") {
     jQuery("#sheet_url").html(
-      '<a class="gr_sheet_url sheet_url common-sheet-url btn mr-10 text-dark text-decoration-none mt-20 blinking-button" href="https://docs.google.com/spreadsheets/d/' +
-      sheetId +
-      "/edit#gid=" +
-      tabId +
-      '" target="_blank">View Spreadsheet</a>',
-      );
+      '<a class="gr_sheet_url sheet_url common-sheet-url btn-sheet mr-10 text-dark text-decoration-none mt-20 blinking-button" href="https://docs.google.com/spreadsheets/d/' +
+        sheetId +
+        "/edit#gid=" +
+        tabId +
+        '" target="_blank">View Spreadsheet</a><a class="gf-sheet-reset-button btn btn-reset">Reset</a>',
+    );
     // jQuery("#sheet_iframe").html('<iframe src="https://docs.google.com/spreadsheets/d/'+sheetId+'/edit#gid='+tabId+'" style="position:absolute; width:100%; height:100%; border:none;  padding:0; overflow:hidden; z-index:999999;border: 2px solid #000000; margin-left: -22px; margin-top: 20%;" />');
   } else {
     if (sheetId != "") {
       var tabId = jQuery("#gf-gs-tab-id").val(0);
       var tabId = 0;
       jQuery("#sheet_url").html(
-        '<a class="gr_sheet_url sheet_url common-sheet-url btn mr-10 text-dark text-decoration-none mt-20 blinking-button" href="https://docs.google.com/spreadsheets/d/' +
-        sheetId +
-        "/edit#gid=" +
-        tabId +
-        '" target="_blank">View Spreadsheet</a>',
-        );
+        '<a class="gr_sheet_url sheet_url common-sheet-url btn-sheet mr-10 text-dark text-decoration-none mt-20 blinking-button" href="https://docs.google.com/spreadsheets/d/' +
+          sheetId +
+          "/edit#gid=" +
+          tabId +
+          '" target="_blank">View Spreadsheet</a><a class="gf-sheet-reset-button btn btn-reset">Reset</a>',
+      );
     }
   }
   jQuery("#gr_pre_sheet").on("click", function () {
     console.log("here scroll");
     jQuery([document.documentElement, document.body]).animate(
-    {
-      scrollTop: jQuery("#sheet_iframe").offset().top,
-    },
-    1000,
+      {
+        scrollTop: jQuery("#sheet_iframe").offset().top,
+      },
+      1000,
     );
   });
   /**
    * verify the api code
    * @since 1.0
    */
-   jQuery(document).on("click", "#save-code", function () {
+  jQuery(document).on("click", "#save-code", function () {
     jQuery(".loading-sign").addClass("loading");
     var data = {
       action: "verify_code_integation",
@@ -54,13 +54,13 @@ jQuery(document).ready(function () {
         jQuery("#gsc-validation-message").empty();
         jQuery(
           "<span class='gsc-msg gsc-error fw-400 text-dark text-center pt-10 pb-10 manual-margin'>Access code Can't be blank.</span>",
-          ).appendTo("#gsc-validation-message");
+        ).appendTo("#gsc-validation-message");
       } else {
         jQuery(".loading-sign").removeClass("loading");
         jQuery("#gsc-validation-message").empty();
         jQuery(
           "<div class='gsc-msg gsc-success fw-400 text-dark text-center pt-10 pb-10 manual-margin'>Your Google Access Code is Authorized and Saved.</div>",
-          ).appendTo("#gsc-validation-message");
+        ).appendTo("#gsc-validation-message");
 
         setTimeout(function () {
           window.location.href = jQuery("#redirect_auth_gravityforms").val();
@@ -85,7 +85,7 @@ jQuery(document).ready(function () {
     function () {
       jQuery("#gscgff-confirm-deactive-popup-free").addClass("d-none");
     },
-    );
+  );
 
   // Click outside popup to close
   jQuery(document).on(
@@ -96,7 +96,7 @@ jQuery(document).ready(function () {
         jQuery(this).addClass("d-none");
       }
     },
-    );
+  );
 
   // Confirm Deactivate
   jQuery(document).on(
@@ -125,19 +125,19 @@ jQuery(document).ready(function () {
 
         jQuery(
           "<div class='gsc-msg gsc-success fw-400 text-dark text-center pt-10 pb-10 manual-margin'>Your account is removed. Reauthenticate again to integrate Gravity Forms with Google Sheet.</div>",
-          ).appendTo("#gsc-validation-deactivate-message");
+        ).appendTo("#gsc-validation-deactivate-message");
 
         setTimeout(function () {
           location.reload();
         }, 1000);
       });
     },
-    );
+  );
 
   /**
    * Clear debug
    */
-   jQuery(document).on("click", ".clear-debug", function () {
+  jQuery(document).on("click", ".clear-debug", function () {
     jQuery(".clear-loading-sign").addClass("loading");
     var data = {
       action: "gfgs_clear_log",
@@ -153,7 +153,7 @@ jQuery(document).ready(function () {
         jQuery("#gsheet-validation-message").empty();
         jQuery(
           "<span class='gs-valid-message'>" + clear_msg + "</span>",
-          ).appendTo("#gsheet-validation-message");
+        ).appendTo("#gsheet-validation-message");
         setTimeout(function () {
           location.reload();
         }, 1000);
@@ -163,7 +163,7 @@ jQuery(document).ready(function () {
   /**
    * Clear debug for system status tab
    */
-   jQuery(document).on("click", ".clear-content-logs-gf", function () {
+  jQuery(document).on("click", ".clear-content-logs-gf", function () {
     jQuery(".loading-sign").addClass("loading");
     var data = {
       action: "gf_clear_debug_log",
@@ -179,13 +179,13 @@ jQuery(document).ready(function () {
         jQuery("#gsc-validation-message").empty();
         jQuery(
           "<span class='gsc-msg gsc-error fw-400 text-dark text-center pt-10 pb-10 manual-margin'>Access code Can't be blank.</span>",
-          ).appendTo("#gsc-validation-message");
+        ).appendTo("#gsc-validation-message");
       } else {
         jQuery(".loading-sign").removeClass("loading");
         jQuery("#gsc-validation-message").empty();
         jQuery(
           "<div class='gsc-msg gsc-success fw-400 text-dark text-center pt-10 pb-10 manual-margin'>Your Google Access Code is Authorized and Saved.</div>",
-          ).appendTo("#gsc-validation-message");
+        ).appendTo("#gsc-validation-message");
         setTimeout(function () {
           window.location.href = jQuery("#redirect_auth_gravityform").val();
         }, 1000);
@@ -193,11 +193,10 @@ jQuery(document).ready(function () {
     });
   });
 
-
- /**
+  /**
    * Sync with google account to fetch latest sheet and tab name list.
    */
-   jQuery(document).on("click", "#gfgs-sync", function () {
+  jQuery(document).on("click", "#gfgs-sync", function () {
     jQuery(this).parent().children(".loading-sign").addClass("loading");
     var integration = jQuery(this).data("init");
     var data = {
@@ -217,7 +216,7 @@ jQuery(document).ready(function () {
         jQuery("#gsheet-validation-message").empty();
         jQuery(
           "<span class='gsheet-valid-message'>Fetched all sheet details.</span>",
-          ).appendTo("#gsheet-validation-message");
+        ).appendTo("#gsheet-validation-message");
       } else {
         jQuery(this).parent().children(".loading-sign").removeClass("loading");
         location.reload(); // simply reload the page
@@ -227,7 +226,7 @@ jQuery(document).ready(function () {
   /**
    * Get tab name list
    */
-   jQuery(document).on("change", "#sheetname", function () {
+  jQuery(document).on("change", "#sheetname", function () {
     var sheetnames = jQuery(this).val();
     var nonce = jQuery("#gf-ajax-nonce").val();
 
@@ -270,7 +269,7 @@ jQuery(document).ready(function () {
       if (response.success) {
         jQuery("#gaddon-setting-row-sheeturl>td").html(
           html_decode(response.data),
-          );
+        );
       }
       jQuery(".loading-sign").removeClass("loading");
     });
@@ -342,10 +341,10 @@ jQuery(document).ready(function () {
   if (
     jQuery(".gform-settings-field__display_note :first-child").hasClass(
       "gs-display-note",
-      )
-    ) {
+    )
+  ) {
     jQuery("#gform-settings-save").css("display", "none");
-}
+  }
 });
 
 // Msg Hide ///
@@ -374,8 +373,8 @@ jQuery(document).ready(function ($) {
     var pluginSlug = button.data("plugin");
     var downloadUrl = button.data("download");
     var loaderSpan = button
-    .closest(".button-bar")
-    .find(".loading-sign-install");
+      .closest(".button-bar")
+      .find(".loading-sign-install");
     loaderSpan.addClass("loading");
     jQuery.ajax({
       url: ajaxurl,
@@ -411,7 +410,7 @@ jQuery(document).ready(function ($) {
    * - On error or failure, resets button and removes loading state
    */
 
-   jQuery(document).on("click", ".gf-activate-plugin-btn", function () {
+  jQuery(document).on("click", ".gf-activate-plugin-btn", function () {
     var button = jQuery(this);
     var pluginSlug = button.data("plugin");
     var loaderSpan = button.siblings(".loading-sign-active");
@@ -450,7 +449,7 @@ jQuery(document).ready(function ($) {
    * - On error, shows AJAX error alert
    */
 
-   jQuery(".gf-deactivate-plugin").on("click", function () {
+  jQuery(".gf-deactivate-plugin").on("click", function () {
     var pluginSlug = jQuery(this).data("plugin");
     jQuery.ajax({
       url: ajaxurl,
@@ -472,7 +471,7 @@ jQuery(document).ready(function ($) {
       },
     });
   });
- });
+});
 
 /** Slider for integration page  */
 document.addEventListener("DOMContentLoaded", function () {
@@ -581,84 +580,84 @@ jQuery(document).ready(function ($) {
      POPUP CONFIRM BUTTON
      ========================= */
 
-     $("#gscgff-confirm-enable-uninstall-free").on("click", function () {
-      $checkbox.prop("checked", true);
+  $("#gscgff-confirm-enable-uninstall-free").on("click", function () {
+    $checkbox.prop("checked", true);
 
-      $popup.addClass("d-none");
+    $popup.addClass("d-none");
 
-      $saveBtn.prop("disabled", false).removeClass("common-disable");
-    });
+    $saveBtn.prop("disabled", false).removeClass("common-disable");
+  });
 
   /* =========================
      POPUP CANCEL BUTTON
      ========================= */
 
-     $("#gscgff-cancel-uninstall-free").on("click", function () {
-      $checkbox.prop("checked", false);
+  $("#gscgff-cancel-uninstall-free").on("click", function () {
+    $checkbox.prop("checked", false);
 
-      $popup.addClass("d-none");
-    });
+    $popup.addClass("d-none");
+  });
 
   /* =========================
      SAVE SETTINGS
      ========================= */
 
-     $saveBtn.on("click", function (e) {
-      e.preventDefault();
+  $saveBtn.on("click", function (e) {
+    e.preventDefault();
 
-      var isChecked = $checkbox.is(":checked");
+    var isChecked = $checkbox.is(":checked");
 
-      $.ajax({
-        url: ajaxurl,
-        type: "POST",
-        dataType: "json",
-        data: {
-          action: "gscgff_save_uninstall_settings_ajax_free",
-          uninstall_setting: isChecked ? 1 : 0,
-          security: $("#gscgff-gravity-setting-ajax-nonce").val(),
-        },
+    $.ajax({
+      url: ajaxurl,
+      type: "POST",
+      dataType: "json",
+      data: {
+        action: "gscgff_save_uninstall_settings_ajax_free",
+        uninstall_setting: isChecked ? 1 : 0,
+        security: $("#gscgff-gravity-setting-ajax-nonce").val(),
+      },
 
-        beforeSend: function () {
-          $loader.addClass("loading");
-          $saveBtn.prop("disabled", true).addClass("common-disable");
-        },
+      beforeSend: function () {
+        $loader.addClass("loading");
+        $saveBtn.prop("disabled", true).addClass("common-disable");
+      },
 
-        success: function (response) {
-          if (!response.success) return;
+      success: function (response) {
+        if (!response.success) return;
 
-          $msg.removeClass("gsc-success gsc-error d-none");
+        $msg.removeClass("gsc-success gsc-error d-none");
 
-          $msg
+        $msg
           .addClass("gsc-success")
           .text("Plugin preferences updated successfully.");
 
-          setTimeout(function () {
-            $msg.addClass("d-none").text("");
-          }, 2000);
-        },
+        setTimeout(function () {
+          $msg.addClass("d-none").text("");
+        }, 2000);
+      },
 
-        error: function () {
-          $msg
+      error: function () {
+        $msg
           .removeClass("d-none")
           .addClass("gsc-error")
           .text("Something went wrong");
 
-          $saveBtn.prop("disabled", false).removeClass("common-disable");
-        },
+        $saveBtn.prop("disabled", false).removeClass("common-disable");
+      },
 
-        complete: function () {
-          $loader.removeClass("loading");
-        },
-      });
+      complete: function () {
+        $loader.removeClass("loading");
+      },
     });
-   });
+  });
+});
 
 jQuery(document).ready(function (jQuery) {
   /**
    * Hide empty addon sections and mark them with a CSS class on page load.
    */
 
-   jQuery(".gsheetconnector-addons-list").each(function () {
+  jQuery(".gsheetconnector-addons-list").each(function () {
     if (jQuery(this).html().trim().length === 0) {
       jQuery(this).addClass("blank_div");
       jQuery(this).prev("div").hide();
@@ -674,13 +673,13 @@ jQuery(document).ready(function (jQuery) {
    * - On error or failure, resets button state
    */
 
-   jQuery(".gscgff-install-plugin-btn").on("click", function () {
+  jQuery(".gscgff-install-plugin-btn").on("click", function () {
     var button = jQuery(this);
     var pluginSlug = button.data("plugin");
     var downloadUrl = button.data("download");
     var loaderSpan = button
-    .closest(".button-bar")
-    .find(".loading-sign-install");
+      .closest(".button-bar")
+      .find(".loading-sign-install");
 
     loaderSpan.addClass("loading");
     button.prop("disabled", true);
@@ -704,15 +703,15 @@ jQuery(document).ready(function (jQuery) {
           button.hide();
 
           button
-          .closest(".button-bar")
-          .find(".gscgff-activate-plugin-btn")
-          .show();
+            .closest(".button-bar")
+            .find(".gscgff-activate-plugin-btn")
+            .show();
         } else {
           // ❌ Permission or other error → open popup
           jQuery(".popup-actions-active-msg-free").text(
             response.data.message ||
-            "You do not have permission to install this plugin.",
-            );
+              "You do not have permission to install this plugin.",
+          );
 
           jQuery("#gscgff-confirm-active-popup-free").removeClass("d-none");
 
@@ -725,7 +724,7 @@ jQuery(document).ready(function (jQuery) {
 
         jQuery(".popup-actions-active-msg-free").text(
           "Something went wrong. Please try again.",
-          );
+        );
 
         jQuery("#gscgff-confirm-active-popup-free").removeClass("d-none");
 
@@ -743,7 +742,7 @@ jQuery(document).ready(function (jQuery) {
    * - On error or failure, resets button and removes loading state
    */
 
-   jQuery(document).on("click", ".gscgff-activate-plugin-btn", function () {
+  jQuery(document).on("click", ".gscgff-activate-plugin-btn", function () {
     var button = jQuery(this);
     var pluginSlug = button.data("plugin");
     var loaderSpan = button.siblings(".loading-sign-active");
@@ -771,8 +770,8 @@ jQuery(document).ready(function (jQuery) {
           // ❌ Permission denied → open popup
           jQuery(".popup-actions-active-msg-free").text(
             response.data.message ||
-            "You do not have permission to activate this plugin.",
-            );
+              "You do not have permission to activate this plugin.",
+          );
 
           jQuery("#gscgff-confirm-active-popup-free").removeClass("d-none");
 
@@ -785,7 +784,7 @@ jQuery(document).ready(function (jQuery) {
 
         jQuery(".popup-actions-active-msg-free").text(
           "Something went wrong. Please try again.",
-          );
+        );
 
         jQuery("#gscgff-confirm-active-popup-free").removeClass("d-none");
 
@@ -802,7 +801,7 @@ jQuery(document).ready(function (jQuery) {
    * - On error, shows AJAX error alert
    */
 
-   let selectedPluginSlug = "";
+  let selectedPluginSlug = "";
   // Open popup on deactivate click
   jQuery(".gscgff-deactivate-plugin").on("click", function (e) {
     selectedPluginSlug = jQuery(this).data("plugin");
@@ -820,9 +819,9 @@ jQuery(document).ready(function (jQuery) {
 
     jQuery("#gscgff-confirm-dective-popup-free").addClass("d-none");
     jQuery(".gscgff-deactivate-plugin")
-    .siblings(".loading-sign-deactive")
-    .first()
-    .addClass("loading");
+      .siblings(".loading-sign-deactive")
+      .first()
+      .addClass("loading");
 
     jQuery.ajax({
       url: ajaxurl,
@@ -848,8 +847,8 @@ jQuery(document).ready(function (jQuery) {
       let filter = this.dataset.filter;
 
       document
-      .querySelectorAll(".market-tab")
-      .forEach((t) => t.classList.remove("active"));
+        .querySelectorAll(".market-tab")
+        .forEach((t) => t.classList.remove("active"));
 
       this.classList.add("active");
 
@@ -858,8 +857,8 @@ jQuery(document).ready(function (jQuery) {
           card.style.display = "block";
         } else {
           card.style.display = card.classList.contains(filter)
-          ? "block"
-          : "none";
+            ? "block"
+            : "none";
         }
       });
     });
@@ -880,18 +879,18 @@ document.addEventListener("DOMContentLoaded", function () {
     var badgeText = el.dataset.value.trim();
 
     document
-    .querySelectorAll(".nav-tab-wrapper .nav-tab")
-    .forEach(function (tab) {
-      var href = tab.getAttribute("href") || "";
+      .querySelectorAll(".nav-tab-wrapper .nav-tab")
+      .forEach(function (tab) {
+        var href = tab.getAttribute("href") || "";
 
-      if (href.indexOf("tab=integration") !== -1) {
-        tab.style.position = "relative";
+        if (href.indexOf("tab=integration") !== -1) {
+          tab.style.position = "relative";
 
-        if (tab.querySelector(".gscgff-selected-badge")) return;
+          if (tab.querySelector(".gscgff-selected-badge")) return;
 
-        var badge = document.createElement("div");
+          var badge = document.createElement("div");
 
-        if (badgeText == "Auth Required") {
+          if (badgeText == "Auth Required") {
             badge.className = "gscgff-auth-required-selected-badge"; // ✅ IMPORTANT
             badge.textContent = badgeText;
           } else {
@@ -909,55 +908,54 @@ jQuery(document).ready(function ($) {
   if (
     typeof gscExtensionVars !== "undefined" &&
     gscExtensionVars.selected_method !== ""
-    ) {
+  ) {
     $("nav.gform-settings__navigation a .label").each(function () {
       if ($(this).text().trim() === "Googlesheet") {
         if (!$(this).next(".gscgff-inner-tab-method-badge").length) {
           if (gscExtensionVars.selected_method == "Auth Required") {
             $(this).after(
               '<span class="gscgff-inner-tab-authrequired-badge">' +
-              gscExtensionVars.selected_method +
-              "</span>",
-              );
+                gscExtensionVars.selected_method +
+                "</span>",
+            );
           } else {
             $(this).after(
               '<span class="gscgff-inner-tab-method-badge">' +
-              gscExtensionVars.selected_method +
-              "</span>",
-              );
+                gscExtensionVars.selected_method +
+                "</span>",
+            );
           }
         }
       }
     });
-}
+  }
 });
 
 /** add auth badge in GF outer of tab settings */
 jQuery(document).ready(function ($) {
-
   if (
     typeof gscExtensionVars !== "undefined" &&
     gscExtensionVars.selected_method !== ""
-    ) {
+  ) {
     if (gscExtensionVars.selected_method == "") {
       $(
         '.simplebar-content a[href*="subview=gsheetconnector-gravity-forms"]',
-        ).append(
+      ).append(
         ' <span class="gscgff-outer-tab-authrequired-badge">' +
-        gscExtensionVars.selected_method +
-        "</span>",
-        );
-      } else {
-        $(
-          '.simplebar-content a[href*="subview=gsheetconnector-gravity-forms"]',
-          ).append(
-          ' <span class="gscgff-outer-tab-method-badge">' +
           gscExtensionVars.selected_method +
           "</span>",
-          );
-        }
-      }
-    });
+      );
+    } else {
+      $(
+        '.simplebar-content a[href*="subview=gsheetconnector-gravity-forms"]',
+      ).append(
+        ' <span class="gscgff-outer-tab-method-badge">' +
+          gscExtensionVars.selected_method +
+          "</span>",
+      );
+    }
+  }
+});
 
 /** hide notice  */
 jQuery(document).on("click", "#pro-dismiss-header-notice", function () {
@@ -971,57 +969,52 @@ jQuery(document).on("click", "#pro-dismiss-header-notice", function () {
   });
 });
 
-jQuery(document).ready(function($){
+jQuery(document).ready(function ($) {
   var el = $('a[href*="gsheetconnector-gravity-forms"] i.gform-icon');
-  el.removeClass().addClass('dashicons dashicons-update-alt');
+  el.removeClass().addClass("dashicons dashicons-update-alt");
 });
-
 
 jQuery(document).ready(function ($) {
+  var $field = $("#gform_setting_feedName");
 
-  var $field = $('#gform_setting_feedName');
-
-  var $label = $field.find('.gform-settings-label');
-  var $tooltip = $field.find('.gf_tooltip');
+  var $label = $field.find(".gform-settings-label");
+  var $tooltip = $field.find(".gf_tooltip");
 
   $label.append($tooltip);
-
 });
-
 
 /* save button will enable then the all field input */
 jQuery(document).ready(function ($) {
-
   var fields = [
-    '#gf-gs-sheet-name',
-    '#gf-gs-sheet-id',
-    '#gf-gs-sheet-tab-name',
-    '#gf-gs-tab-id',
-    '#feedName'
+    "#gf-gs-sheet-name",
+    "#gf-gs-sheet-id",
+    "#gf-gs-sheet-tab-name",
+    "#gf-gs-tab-id",
+    "#feedName",
   ];
 
   function fieldVal(id) {
     var el = $(id);
-    return el.length ? el.val().trim() : '';
+    return el.length ? el.val().trim() : "";
   }
 
   function isFormValid() {
     return fields.every(function (id) {
-      return fieldVal(id) !== '';
+      return fieldVal(id) !== "";
     });
   }
 
   function toggleButton() {
     if (isFormValid()) {
-      $('#gform-settings-save')
-        .removeClass('disabled')
-        .css({ 'pointer-events': 'auto', 'opacity': '1' });
-      $('#sheet_url').removeClass('d-none');
+      $("#gform-settings-save")
+        .removeClass("disabled")
+        .css({ "pointer-events": "auto", opacity: "1" });
+      $("#sheet_url").removeClass("d-none");
     } else {
-      $('#gform-settings-save')
-        .addClass('disabled')
-        .css({ 'pointer-events': 'none', 'opacity': '0.5' });
-      $('#sheet_url').addClass('d-none');
+      $("#gform-settings-save")
+        .addClass("disabled")
+        .css({ "pointer-events": "none", opacity: "0.5" });
+      $("#sheet_url").addClass("d-none");
     }
   }
 
@@ -1029,67 +1022,57 @@ jQuery(document).ready(function ($) {
   toggleButton();
 
   // Listen to all fields
-  $(document).on('keyup change', fields.join(', '), function () {
+  $(document).on("keyup change", fields.join(", "), function () {
     toggleButton();
   });
-
 });
 
 jQuery(document).ready(function ($) {
+  // CHECK ALL
+  $("#checkall").on("change", function () {
+    var isChecked = $(this).is(":checked");
 
-    // CHECK ALL
-    $('#checkall').on('change', function () {
+    $(".gsgf-toggle").each(function () {
+      if ($(this).is(":disabled")) return;
 
-      var isChecked = $(this).is(':checked');
+      $(this).prop("checked", isChecked);
 
-      $('.gsgf-toggle').each(function () {
+      // Toggle UI class
+      $(this)
+        .closest(".gform-settings-field__toggle")
+        .toggleClass("gform-field__toggle--on", isChecked);
 
-        if ($(this).is(':disabled')) return;
-
-        $(this).prop('checked', isChecked);
-
-            // Toggle UI class
-            $(this).closest('.gform-settings-field__toggle')
-            .toggleClass('gform-field__toggle--on', isChecked);
-
-            // Show/hide row
-            var id = $(this).attr('id');
-            $('.row_grvt[data-id="' + id + '"]')
-            .toggle(isChecked);
-          });
-
+      // Show/hide row
+      var id = $(this).attr("id");
+      $('.row_grvt[data-id="' + id + '"]').toggle(isChecked);
     });
-
-    // INDIVIDUAL TOGGLE
-    $(document).on('change', '.gsgf-toggle', function () {
-
-      var isChecked = $(this).is(':checked');
-
-      $(this).closest('.gform-settings-field__toggle')
-      .toggleClass('gform-field__toggle--on', isChecked);
-
-      var id = $(this).attr('id');
-      $('.row_grvt[data-id="' + id + '"]')
-      .toggle(isChecked);
-
-        // Update Check All
-        var total = $('.gsgf-toggle:not(:disabled)').length;
-        var checked = $('.gsgf-toggle:checked').length;
-
-        $('#checkall').prop('checked', total === checked);
-
-      });
-
   });
 
+  // INDIVIDUAL TOGGLE
+  $(document).on("change", ".gsgf-toggle", function () {
+    var isChecked = $(this).is(":checked");
 
-  jQuery(document).ready(function ($) {
+    $(this)
+      .closest(".gform-settings-field__toggle")
+      .toggleClass("gform-field__toggle--on", isChecked);
+
+    var id = $(this).attr("id");
+    $('.row_grvt[data-id="' + id + '"]').toggle(isChecked);
+
+    // Update Check All
+    var total = $(".gsgf-toggle:not(:disabled)").length;
+    var checked = $(".gsgf-toggle:checked").length;
+
+    $("#checkall").prop("checked", total === checked);
+  });
+});
+
+jQuery(document).ready(function ($) {
   let totalSlides = $(
     ".notification-gscgff-slider-track .notification-gscgff-slide",
   ).length;
 
   if (totalSlides <= 1) {
-  
   }
 
   function showNextSlide(currentSlide) {
@@ -1156,7 +1139,6 @@ jQuery(document).ready(function ($) {
   );
 });
 
-
 /** notificatin slider arrow button will hide when slider is 1 or 0 */
 jQuery(document).ready(function ($) {
   if ($(".notification-gscgff-slide").length <= 1) {
@@ -1167,44 +1149,40 @@ jQuery(document).ready(function ($) {
     $(".notification-gscgff-notice-slider").hide();
   }
 
-
-   $(".gravity-free-counter").each(function () {
+  $(".gravity-free-counter").each(function () {
     let $this = $(this);
     let countTo = parseFloat($this.attr("data-count"));
 
     $({ countNum: 0 }).animate(
-    {
-      countNum: countTo,
-    },
-    {
-      duration: 2500,
-      easing: "swing",
-
-      step: function () {
-        if (countTo % 1 !== 0) {
-          $this.text(this.countNum.toFixed(1));
-        } else {
-          $this.text(Math.floor(this.countNum));
-        }
+      {
+        countNum: countTo,
       },
+      {
+        duration: 2500,
+        easing: "swing",
 
-      complete: function () {
-        if (countTo % 1 !== 0) {
-          $this.text(countTo.toFixed(1));
-        } else {
-          $this.text(countTo);
-        }
+        step: function () {
+          if (countTo % 1 !== 0) {
+            $this.text(this.countNum.toFixed(1));
+          } else {
+            $this.text(Math.floor(this.countNum));
+          }
+        },
+
+        complete: function () {
+          if (countTo % 1 !== 0) {
+            $this.text(countTo.toFixed(1));
+          } else {
+            $this.text(countTo);
+          }
+        },
       },
-    },
     );
   });
 });
 
-
-
 /***new slider for without permission for existing method */
 document.addEventListener("DOMContentLoaded", function () {
-  console.log('slider 4');
   document.querySelectorAll(".gsc-slider-wrapper").forEach(function (wrapper) {
     const slider = wrapper.querySelector(".gsc-slider");
     const slides = wrapper.querySelectorAll(".gsc-slide");
@@ -1247,9 +1225,52 @@ document.addEventListener("DOMContentLoaded", function () {
         behavior: "smooth",
         block: "center",
       });
-       console.log("Auto moved to Step 4"); 
+      console.log("Auto moved to Step 4");
     } else {
-      console.log("goToSlide not available"); 
+      console.log("goToSlide not available");
     }
   }, 800);
+});
+
+/** when the return auth with code will scroll down to token save button */
+jQuery(document).ready(function ($) {
+  /* Check if URL has "code" parameter */
+  const code = new URLSearchParams(window.location.search).get("code");
+
+  if (!code) return;
+
+  /*possible targets */
+  const selectors = ["#gfgs-code"];
+
+  let target = null;
+
+  /* find which ID exists  */
+  for (let sel of selectors) {
+    if (document.querySelector(sel)) {
+      target = sel;
+      break;
+    }
+  }
+
+  if (target) {
+    window.location.hash = target.replace("#", "");
+
+    document.querySelector(target).scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+});
+
+
+/** Reset sheet details */
+jQuery(document).ready(function ($) {
+  jQuery('.gf-sheet-reset-button').on('click', function() {
+      jQuery('#gf-gs-sheet-name, #gf-gs-sheet-id, #gf-gs-sheet-tab-name, #gf-gs-tab-id').val('');
+      jQuery('#sheet_url').addClass('d-none');
+      jQuery('.gf-sheet-reset-button').addClass('d-none');
+        jQuery("#gform-settings-save")
+        .addClass("disabled")
+        .css({ "pointer-events": "none", opacity: "0.5" });
+  });
 });

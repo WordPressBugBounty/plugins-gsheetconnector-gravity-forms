@@ -145,7 +145,22 @@ public static function updateToken($tokenData)
      update_option('gfgs_verify', 'valid');
    } else {
      update_option('gfgs_verify', 'invalid-auth');
-   }
+
+     if (class_exists('gscgf_error_logs')) {
+    gscgf_error_logs::log_to_db(
+        'Google_Auth_Permission_Error',                                   
+        403,                                                               
+        'Google Drive and Google Sheets permissions not granted',         
+        [                                                                  
+            'error_type'             => 'Missing Permissions',
+            'message'                => 'User did not grant Google Drive and/or Google Sheets permissions during OAuth authentication',
+            'granted_scopes'         => $tokenData['scope'] ?? '',
+            'required_drive_scope'   => 'https://www.googleapis.com/auth/drive.file OR https://www.googleapis.com/auth/drive.metadata.readonly',
+            'required_sheets_scope'  => 'https://www.googleapis.com/auth/spreadsheets',
+        ]
+    );
+}
+    }
  }
 
          // Encode and store the token data in WordPress options
@@ -529,6 +544,7 @@ public function gsheet_print_google_account_email()
 
    return $email;
  } catch (Exception $e) {
+
    GravityForms_GsFree_Connector_Utility::gfgs_debug_log($e->getMessage());
    return false;
  }

@@ -1,6 +1,6 @@
 <?php
 if (!defined('ABSPATH')) {
-  exit; // Exit if accessed directly
+    exit; // Exit if accessed directly
 }
 
 
@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) {
 
 function remove_footer_admin()
 {
-    ?>
+?>
 
     <!---Start Footer Section--->
     <div class="gsgf-free">
@@ -105,7 +105,7 @@ function remove_footer_admin()
                 <div class="gsc-footer-version">
                     <?php
                     echo esc_html__('Version:', 'gsheetconnector-gravity-forms') . ' ' .
-                    esc_html(GRAVITY_GOOGLESHEET_VERSION);
+                        esc_html(GRAVITY_GOOGLESHEET_VERSION);
                     ?>
                 </div>
 
@@ -121,42 +121,42 @@ function remove_footer_admin()
             <!-- Bear Icon -->
             <div class="assistant-icon" id="assistantBtn">
                 <img src="<?php echo esc_url(GRAVITY_GOOGLESHEET_URL); ?>/assets/image/gsheet-logo.svg"
-                alt="GSheetConnectorSupport">
+                    alt="GSheetConnectorSupport">
             </div>
 
             <!-- Popup Menu -->
             <div class="assistant-menu" id="assistantMenu">
 
                 <a href="https://www.gsheetconnector.com/docs/gravity-forms-gsheetconnector" target="_blank"
-                class="menu-item d-flex align-center gap-10 fw-500">
-                <span class="menu-icon">
-                    <!-- Docs Icon -->
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                        <polyline points="14 2 14 8 20 8" />
-                    </svg>
+                    class="menu-item d-flex align-center gap-10 fw-500">
+                    <span class="menu-icon">
+                        <!-- Docs Icon -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                            <polyline points="14 2 14 8 20 8" />
+                        </svg>
                     </span> <?php echo esc_html__('Docs', 'gsheetconnector-gravity-forms'); ?>
                 </a>
                 <a href="https://www.gsheetconnector.com/plugins" target="_blank"
-                class="menu-item d-flex align-center gap-10 fw-500">
-                <span class="menu-icon">
-                    <!-- Plugin Icon -->
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 16V8a2 2 0 0 0-2-2h-4" />
-                        <path d="M3 8v8a2 2 0 0 0 2 2h4" />
-                        <rect x="7" y="2" width="10" height="20" rx="2" />
-                    </svg>
+                    class="menu-item d-flex align-center gap-10 fw-500">
+                    <span class="menu-icon">
+                        <!-- Plugin Icon -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 16V8a2 2 0 0 0-2-2h-4" />
+                            <path d="M3 8v8a2 2 0 0 0 2 2h4" />
+                            <rect x="7" y="2" width="10" height="20" rx="2" />
+                        </svg>
                     </span><?php echo esc_html__('Plugins', 'gsheetconnector-gravity-forms'); ?>
                 </a>
-                <a href="https://www.gsheetconnector.com/support" target="_blank"
-                class="menu-item d-flex align-center gap-10 fw-500">
-                <span class="menu-icon">
-                    <!-- Support Icon -->
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 12a10 10 0 1 0-20 0" />
-                        <path d="M2 12v4a2 2 0 0 0 2 2h4" />
-                        <path d="M22 12v4a2 2 0 0 1-2 2h-4" />
-                    </svg>
+                <a href="https://wordpress.org/support/plugin/gsheetconnector-gravity-forms/" target="_blank"
+                    class="menu-item d-flex align-center gap-10 fw-500">
+                    <span class="menu-icon">
+                        <!-- Support Icon -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 12a10 10 0 1 0-20 0" />
+                            <path d="M2 12v4a2 2 0 0 0 2 2h4" />
+                            <path d="M22 12v4a2 2 0 0 1-2 2h-4" />
+                        </svg>
                     </span> <?php echo esc_html__('Support', 'gsheetconnector-gravity-forms'); ?>
                 </a>
             </div>
@@ -173,15 +173,15 @@ function remove_footer_admin()
             menu.classList.toggle("active");
         });
 
-// Close when clicking outside
-document.addEventListener("click", function(e) {
+        // Close when clicking outside
+        document.addEventListener("click", function(e) {
 
-    if (!btn.contains(e.target) && !menu.contains(e.target)) {
-        menu.classList.remove("active");
-    }
+            if (!btn.contains(e.target) && !menu.contains(e.target)) {
+                menu.classList.remove("active");
+            }
 
-});
-</script>
+        });
+    </script>
 
 
 <?php

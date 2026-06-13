@@ -2,9 +2,9 @@
 Contributors: westerndeal, abdullah17, gsheetconnector
 Tags: gravity forms, gravity forms google sheets, gravity forms to google sheets, google sheets, gravity forms spreadsheet, export gravity forms entries, gravity forms sync
 Requires at least: 5.6
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.4.1
+Stable tag: 1.4.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Author URI: https://www.gsheetconnector.com/
@@ -180,6 +180,10 @@ Your Gravity Forms submissions will now sync automatically to Google Sheets in r
 
 
 == Changelog ==
+
+= 1.4.2 = (13-06-2026)
+* Added: UI for Dashboard Tab.
+* Fixed: UI for Inner Feed Settings.
 
 = 1.4.1 = (13-05-2026)
 * Added: Dashboard section.

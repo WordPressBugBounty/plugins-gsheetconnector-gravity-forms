@@ -16,7 +16,7 @@
                                 </p>
                             </div>
                             <div class="unlock-pro-button-sections mt-20">
-                                <a class="btn btn-primary link-hover-white text-decoration-none" href="<?php echo admin_url('admin.php?page=gf_googlesheet&tab=integration');?>" >
+                                <a class="btn btn-primary link-hover-white text-decoration-none" href="<?php echo admin_url('admin.php?page=gf_googlesheet&tab=integration'); ?>">
                                     <?php echo esc_html__("Let's Connect", 'gsheetconnector-gravity-forms'); ?>
                                 </a>
                             </div>
@@ -61,6 +61,7 @@
                                             <li><a href="https://www.gsheetconnector.com/docs/gravity-forms-gsheetconnector/integration-with-google-manual-method" target="_blank"><?php echo esc_html__('Integration with Google (Manual Method)', 'gsheetconnector-gravity-forms'); ?></a></li>
                                             <li><a href="https://www.gsheetconnector.com/docs/gravity-forms-gsheetconnector/service-account-setting-pro-version" target="_blank"><?php echo esc_html__('Integration with Google (Service Method)', 'gsheetconnector-gravity-forms'); ?></a></li>
                                             <li><a href="https://www.gsheetconnector.com/docs/gravity-forms-gsheetconnector/plugin-settings-pro-version#toc-heading-6" target="_blank"><?php echo esc_html__('Automatic Select Spreadsheet', 'gsheetconnector-gravity-forms'); ?></a></li>
+                                            <li><a href="https://www.gsheetconnector.com/docs/gravity-forms-gsheetconnector/role-settings-pro-version" target="_blank"><?php echo esc_html__('Role Settings', 'gsheetconnector-gravity-forms'); ?></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -103,7 +104,7 @@
                                 </div>
                             </a>
 
-                            <a href="https://www.gsheetconnector.com/plugins#ecommerce"  target="_blank" class="plugin-category-box text-decoration-none">
+                            <a href="https://www.gsheetconnector.com/plugins#ecommerce" target="_blank" class="plugin-category-box text-decoration-none">
                                 <div class="plugin-category-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart w-6 h-6 text-emerald-600" aria-hidden="true">
                                         <circle cx="8" cy="21" r="1"></circle>
@@ -151,7 +152,7 @@
                                 </div>
                             </a>
 
-            
+
 
                             <a href="https://www.gsheetconnector.com/gsheetconnector-for-wp-core" class="plugin-category-box text-decoration-none" target="_blank">
                                 <div class="plugin-category-icon">
@@ -279,7 +280,7 @@
                                 <li><?php echo esc_html__('Image / PDF Attachment Link', 'gsheetconnector-gravity-forms'); ?></li>
                                 <li><?php echo esc_html__('Freeze & Color Headers', 'gsheetconnector-gravity-forms'); ?></li>
                                 <li><?php echo esc_html__('Conditional Options', 'gsheetconnector-gravity-forms'); ?></li>
-                              
+
                             </ul>
                             <ul>
                                 <li><?php echo esc_html__('Sync Past Entries', 'gsheetconnector-gravity-forms'); ?></li>
@@ -290,7 +291,7 @@
                                 <li><?php echo esc_html__('Latest WP & PHP Support', 'gsheetconnector-gravity-forms'); ?></li>
                             </ul>
                         </div>
-                       
+
 
                         <div class="pro-actions mt-30 gap-20">
                             <a href="https://www.gsheetconnector.com/gravity-forms-google-sheet-connector" target="_blank"><button class="pro-btn"> <?php echo esc_html(__('Upgrade to Pro', 'gsheetconnector-gravity-forms')); ?></button></a>
@@ -348,7 +349,7 @@
                         <iframe class="w-100" height="400" src="https://www.youtube.com/embed/0I6weqeb7RM" title="Integration of Google Sheets with WordPress Gravity Forms | Step by Step Guide | FREE Version" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
 
-                   
+
                 </div>
             </div>
             <!---End Video Tutorial Section--->
