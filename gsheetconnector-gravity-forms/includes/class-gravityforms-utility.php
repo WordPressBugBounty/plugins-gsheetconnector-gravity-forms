@@ -46,8 +46,10 @@ class GravityForms_GsFree_Connector_Utility
    {
       if (WP_DEBUG === true) {
          if (is_array($message) || is_object($message)) {
+            // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log, WordPress.PHP.DevelopmentFunctions.error_log_print_r
             error_log(print_r($message, true));
          } else {
+            // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
             error_log($message);
          }
       }

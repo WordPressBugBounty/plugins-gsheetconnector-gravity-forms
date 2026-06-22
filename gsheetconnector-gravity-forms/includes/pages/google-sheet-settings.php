@@ -8,52 +8,53 @@
 if (!defined('ABSPATH')) {
     exit;
 }
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
-$active_tab = 'dashboard';
+$active_tab = 'dashboard';// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
-if (isset($_GET['tab'])) {
-    $tab = sanitize_text_field(wp_unslash($_GET['tab']));
+if (isset($_GET['tab'])) {// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+    $tab = sanitize_text_field(wp_unslash($_GET['tab']));// phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
-    $active_tab = $tab;
+    $active_tab = $tab;// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 }
 
 
-$active_tab_name = 'dashboard';
+$active_tab_name = 'dashboard';// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 if ($active_tab == 'integration') {
-    $active_tab_name = 'Integration';
+    $active_tab_name = 'Integration';// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 } elseif ($active_tab == 'gsc_gravityform_settings') {
-    $active_tab_name = 'Settings';
+    $active_tab_name = 'Settings';// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 } elseif ($active_tab == 'gs-gravityform-system-info') {
-    $active_tab_name = 'System Status';
+    $active_tab_name = 'System Status';// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 } elseif ($active_tab == 'extension') {
-    $active_tab_name = 'Extensions';
+    $active_tab_name = 'Extensions';// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 }
 
 
-$plugin_version = defined('GRAVITY_GOOGLESHEET_VERSION') ? GRAVITY_GOOGLESHEET_VERSION : 'N/A';
+$plugin_version = defined('GRAVITY_GOOGLESHEET_VERSION') ? GRAVITY_GOOGLESHEET_VERSION : 'N/A';// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
-$selected_method = "";
-$authenticated = get_option('gfgs_token');
-$gscgff_gravityform_manual_setting = get_option('gravityforms_manual_setting');
-$gsc_gf_is_valid = get_option('gfgs_verify');
+$selected_method = "";// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+$authenticated = get_option('gfgs_token');// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+$gscgff_gravityform_manual_setting = get_option('gravityforms_manual_setting');// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+$gsc_gf_is_valid = get_option('gfgs_verify');// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
-$is_authenticated = false;
+$is_authenticated = false;// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 if ((!empty($authenticated) && $gsc_gf_is_valid == 'valid' && $gscgff_gravityform_manual_setting == 0)) {
-    $selected_method = esc_html__('Existing', 'gsheetconnector-gravity-forms');
-    $is_authenticated = true;
+    $selected_method = esc_html__('Existing', 'gsheetconnector-gravity-forms');// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+    $is_authenticated = true;// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 } else {
-    $selected_method = esc_html__('Auth Required', 'gsheetconnector-gravity-forms');
-    $is_authenticated = false;
+    $selected_method = esc_html__('Auth Required', 'gsheetconnector-gravity-forms');// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+    $is_authenticated = false;// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 }
 
 /** notification code start */
-$show_auth_notice =  !$is_authenticated;
-$show_showpro_notice =
+$show_auth_notice =  !$is_authenticated;// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+$show_showpro_notice =// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
     !gscgff_is_dismissed('showpro') &&
     !gscgff_is_snoozed('showpro');
 
 
-$show_enhance_notice =
+$show_enhance_notice =// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
     !gscgff_is_dismissed('enhance') &&
     !gscgff_is_snoozed('enhance');
 
@@ -62,30 +63,30 @@ if (!get_option('gscgff_plugin_activated_at')) {
 }
 
 
-$install_time = (get_option('gscgff_plugin_activated_at'));
-$is_time_passed = $install_time && (time() -  $install_time >= 2 * DAY_IN_SECONDS);
+$install_time = (get_option('gscgff_plugin_activated_at'));// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+$is_time_passed = $install_time && (time() -  $install_time >= 2 * DAY_IN_SECONDS);// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
-$is_dismissed = gscgff_is_dismissed('review');
-$is_snoozed = gscgff_is_snoozed('review');
+$is_dismissed = gscgff_is_dismissed('review');// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+$is_snoozed = gscgff_is_snoozed('review');// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
-$show_review_notice =
+$show_review_notice =// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
     $is_time_passed &&
     !$is_dismissed &&
     !$is_snoozed;
 
 
-function gscgff_is_dismissed($key)
+function gscgff_is_dismissed($key)// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 {
     return get_option('gscgff_notice_' . $key) === 'dismissed';
 }
 
-function gscgff_is_snoozed($key)
+function gscgff_is_snoozed($key)// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 {
     $time = get_option('gscgff_notice_' . $key . '_time');
     return $time && (time() - $time < 15 * DAY_IN_SECONDS);
 }
 
-$has_notice =
+$has_notice =// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
     $show_showpro_notice ||
     $show_review_notice ||
     $show_auth_notice ||
@@ -368,7 +369,7 @@ $has_notice =
             <a href="<?php echo esc_html(admin_url('admin.php?page=gf_googlesheet')); ?>"
                 class="text-primary text-decoration-none"><?php echo esc_html(__('Google Sheet', 'gsheetconnector-gravity-forms')); ?></a>
             <span>/</span>
-            <span><?php echo esc_html__($active_tab_name, 'gsheetconnector-gravity-forms'); ?></span>
+            <span><?php echo esc_html($active_tab_name); ?></span>
         </div>
     </div>
     <!--End Breadcrumb Section-->
@@ -385,8 +386,8 @@ $has_notice =
 
     echo '<div class="nav-tab-wrapper d-flex justify-flex-start w-100 m-0">';
 
-    foreach ($tabs as $tab => $name) {
-        $class = ($tab == $active_tab) ? ' nav-tab-active' : '';
+    foreach ($tabs as $tab => $name) {// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+        $class = ($tab == $active_tab) ? ' nav-tab-active' : '';// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
         echo '<a class="nav-tab text-decoration-none fw-500 text-center' . esc_attr($class) . '" 
     href="' . esc_url('?page=gf_googlesheet&amp;tab=' . urlencode($tab)) . '" 

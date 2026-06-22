@@ -3,16 +3,16 @@ msgstr ""
 "Project-Id-Version: Gravity Form GSC Free\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-12 18:47+0530\n"
-"PO-Revision-Date: 2026-06-12 18:50+0530\n"
+"PO-Revision-Date: 2026-06-22 15:08+0530\n"
 "Last-Translator: POForge <noreply@poforge.com>\n"
 "Language-Team: ar <noreply@poforge.com>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
-"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5);\n"
-"X-Generator: Poedit 3.9\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && "
+"n%100<=10 ? 3 : n%100>=11 ? 4 : 5);\n"
+"X-Generator: Poedit 2.4.3\n"
 
 #: class-gf-gsheetgravityforms.php:96
 msgid "Feed Name"
@@ -23,10 +23,8 @@ msgid "Enter a feed name to uniquely identify this setup."
 msgstr "أدخل اسم تغذية لتحديد هذه الإعدادات بشكل فريد."
 
 #: class-gf-gsheetgravityforms.php:104
-#, fuzzy
-#| msgid "Manually Google Sheets Configuration"
 msgid "Manual Google Sheets Configuration"
-msgstr "تكوين جوجل شيت يدويًا"
+msgstr "الإعداد اليدوي لـ Google Sheets"
 
 #: class-gf-gsheetgravityforms.php:111
 msgid "Field List"
@@ -94,8 +92,7 @@ msgstr "معرف التبويب"
 
 #: class-gf-gsheetgravityforms.php:272
 msgid "Connect your Google Sheet by entering the required sheet information."
-msgstr ""
-"قم بتوصيل ورقة Google الخاصة بك عن طريق إدخال المعلومات المطلوبة للورقة."
+msgstr "قم بتوصيل ورقة Google الخاصة بك عن طريق إدخال المعلومات المطلوبة للورقة."
 
 #: class-gf-gsheetgravityforms.php:444
 msgid "Unlock Advanced Features with Form Feeds"
@@ -114,7 +111,7 @@ msgstr "احصل على الميزات المتقدمة"
 #, fuzzy
 #| msgid "Automatically Google Sheet Configuration"
 msgid "Automatic Google Sheets Configuration"
-msgstr "تكوين ورقة Google تلقائيًا"
+msgstr "الإعداد التلقائي لـ Google Sheets"
 
 #: class-gf-gsheetgravityforms.php:475
 msgid "Auto fetch Google Sheets list"
@@ -169,10 +166,8 @@ msgid "Sort by any column"
 msgstr "فرز حسب أي عمود"
 
 #: class-gf-gsheetgravityforms.php:519
-#, fuzzy
-#| msgid "Conditional Options"
 msgid "Conditional Logic"
-msgstr "خيارات شرطية"
+msgstr "منطق شرطی"
 
 #: class-gf-gsheetgravityforms.php:524
 msgid "Apply rules based on form values"
@@ -220,14 +215,13 @@ msgid ""
 "manually.)\n"
 "                    "
 msgstr ""
-" (بالنسبة للإصدار المجاني من المكون الإضافي، ستحتاج إلى إدخال الأعمدة "
-"يدويًا.)\n"
+" (بالنسبة للإصدار المجاني من المكون الإضافي، ستحتاج إلى إدخال الأعمدة يدويًا.)\n"
 "                    "
 
 #: class-gf-gsheetgravityforms.php:575
 msgid ""
-"Ensure that after inputting the Google Sheet Name, Sheet ID, Tab Name, and "
-"Tab ID above, you must enter the label names of your form into Row 1 of your "
+"Ensure that after inputting the Google Sheet Name, Sheet ID, Tab Name, and Tab "
+"ID above, you must enter the label names of your form into Row 1 of your "
 "Google Sheet, as illustrated in the image."
 msgstr ""
 "تأكد أنه بعد إدخال اسم ورقة Google، ومعرف الورقة، واسم التبويب، ومعرف التبويب "
@@ -337,10 +331,8 @@ msgid "Add"
 msgstr "أضف"
 
 #: class-gf-gsheetgravityforms.php:860
-#, fuzzy
-#| msgid "Save Settings"
 msgid "Header Settings"
-msgstr "حفظ الإعدادات"
+msgstr "إعدادات الهيدر"
 
 #: class-gf-gsheetgravityforms.php:876
 msgid ""
@@ -350,10 +342,8 @@ msgstr ""
 "قم بتخصيص شكل وسلوك عناوين الأوراق والصفوف لتحسين سهولة القراءة والتنظيم."
 
 #: class-gf-gsheetgravityforms.php:887
-#, fuzzy
-#| msgid "Freeze header row"
 msgid "Freeze Header"
-msgstr "تجميد صف الرأس"
+msgstr "تجميد العنوان"
 
 #: class-gf-gsheetgravityforms.php:922
 msgid "Header Style"
@@ -373,10 +363,8 @@ msgstr "فرز الورقة"
 
 #: class-gf-gsheetgravityforms.php:1005 class-gf-gsheetgravityforms.php:1072
 #: class-gf-gsheetgravityforms.php:1078
-#, fuzzy
-#| msgid "Conditional Options"
 msgid "Condition"
-msgstr "خيارات شرطية"
+msgstr "الحالة"
 
 #: class-gf-gsheetgravityforms.php:1036
 msgid "Sort Column Name"
@@ -399,20 +387,16 @@ msgid "Spreadsheet Download"
 msgstr "تنزيل جدول البيانات"
 
 #: class-gf-gsheetgravityforms.php:1121
-#, fuzzy
-#| msgid "Download CSV"
 msgid "Download"
-msgstr "تنزيل CSV"
+msgstr "تحميل"
 
 #: class-gf-gsheetgravityforms.php:1128
 msgid "Google Sheets Data Sync"
 msgstr "مزامنة بيانات Google Sheets"
 
 #: class-gf-gsheetgravityforms.php:1144
-#, fuzzy
-#| msgid "Sync Past Entries"
 msgid "Sync Entries"
-msgstr "مزامنة الإدخالات السابقة"
+msgstr "مزامنة الإدخالات"
 
 #: class-gf-gsheetgravityforms.php:1297
 #: includes/pages/gs-gravityform-system-info.php:296
@@ -693,19 +677,18 @@ msgstr "بناء بواسطة خبراء. موثوق به من قبل الآلا
 #: includes/pages/extensions.php:27
 msgid ""
 "Led by experienced developers and powered by a passionate team, "
-"GSheetConnector helps WordPress users automate their workflows with "
-"confidence."
+"GSheetConnector helps WordPress users automate their workflows with confidence."
 msgstr ""
 "بقيادة مطورين ذوي خبرة وبدعم من فريق شغوف، يساعد GSheetConnector مستخدمي "
 "WordPress على أتمتة سير العمل بثقة."
 
 #: includes/pages/extensions.php:34
 msgid ""
-"We focus on building tools that are fast, secure, and easy to use - so you "
-"can spend less time managing data."
+"We focus on building tools that are fast, secure, and easy to use - so you can "
+"spend less time managing data."
 msgstr ""
-"نركز على بناء أدوات سريعة وآمنة وسهلة الاستخدام - حتى تتمكن من قضاء وقت أقل "
-"في إدارة البيانات."
+"نركز على بناء أدوات سريعة وآمنة وسهلة الاستخدام - حتى تتمكن من قضاء وقت أقل في "
+"إدارة البيانات."
 
 #: includes/pages/extensions.php:55
 msgid "Meet Our Core Team"
@@ -817,9 +800,9 @@ msgstr "موصل جوجل شيت لـ Gravity Forms"
 
 #: includes/pages/extensions.php:202
 msgid ""
-"Connect Gravity Forms to Google Sheets and automatically push form "
-"submissions to your spreadsheet. Simplify data management, improve workflow "
-"automation, and keep all entries organized in one secure location."
+"Connect Gravity Forms to Google Sheets and automatically push form submissions "
+"to your spreadsheet. Simplify data management, improve workflow automation, "
+"and keep all entries organized in one secure location."
 msgstr ""
 "قم بتوصيل Gravity Forms بجوجل شيت ودفع تقديمات النماذج تلقائيًا إلى جدول "
 "البيانات الخاص بك. قم بتبسيط إدارة البيانات، تحسين أتمتة سير العمل، واحتفظ "
@@ -880,14 +863,14 @@ msgid ""
 "Automatically sync Fluent Forms submissions to Google Sheets in real-time. "
 "Every form entry is instantly added to your selected spreadsheet, helping you "
 "manage leads, customer inquiries, and business data without manual export. "
-"Streamline your workflow, improve reporting accuracy, and keep all "
-"submissions organized with seamless Google Sheets integration."
+"Streamline your workflow, improve reporting accuracy, and keep all submissions "
+"organized with seamless Google Sheets integration."
 msgstr ""
 "قم بمزامنة تقديمات Fluent Forms تلقائيًا إلى جوجل شيت في الوقت الحقيقي. يتم "
 "إضافة كل إدخال نموذج على الفور إلى جدول البيانات المحدد، مما يساعدك في إدارة "
 "العملاء المحتملين، استفسارات العملاء، وبيانات الأعمال دون تصدير يدوي. قم "
-"بتبسيط سير العمل الخاص بك، تحسين دقة التقارير، واحتفظ بجميع التقديمات منظمة "
-"مع تكامل جوجل شيت السلس."
+"بتبسيط سير العمل الخاص بك، تحسين دقة التقارير، واحتفظ بجميع التقديمات منظمة مع "
+"تكامل جوجل شيت السلس."
 
 #: includes/pages/extensions.php:298
 msgid "Elementor Forms Google Sheet Connector"
@@ -910,8 +893,8 @@ msgstr "موصل نماذج Avada مع Google Sheets"
 #: includes/pages/extensions.php:320
 msgid ""
 "Connect Avada Forms to Google Sheets and automatically transfer form entries "
-"to your spreadsheet. Streamline lead management, automate data collection, "
-"and improve business reporting with seamless integration."
+"to your spreadsheet. Streamline lead management, automate data collection, and "
+"improve business reporting with seamless integration."
 msgstr ""
 "قم بتوصيل نماذج Avada بـ Google Sheets وانقل إدخالات النماذج تلقائيًا إلى جدول "
 "البيانات الخاص بك. قم بتبسيط إدارة العملاء المحتملين، وأتمتة جمع البيانات، "
@@ -942,8 +925,8 @@ msgstr "موصل WP Core مع Google Sheets"
 #: includes/pages/extensions.php:360
 msgid ""
 "Automatically send WordPress core data (like comments or custom submissions) "
-"to Google Sheets. Simplify website data tracking, automate record keeping, "
-"and centralize important information in one organized spreadsheet."
+"to Google Sheets. Simplify website data tracking, automate record keeping, and "
+"centralize important information in one organized spreadsheet."
 msgstr ""
 "قم بإرسال بيانات WordPress الأساسية (مثل التعليقات أو الإرساليات المخصصة) "
 "تلقائيًا إلى Google Sheets. قم بتبسيط تتبع بيانات الموقع، وأتمتة حفظ السجلات، "
@@ -955,12 +938,12 @@ msgstr "موصل WooCommerce مع Google Sheets"
 
 #: includes/pages/extensions.php:380
 msgid ""
-"Sync WooCommerce orders with Google Sheets automatically. Store order "
-"details, customer information, and transaction data in real-time for easy "
-"reporting, accounting, and business analysis."
+"Sync WooCommerce orders with Google Sheets automatically. Store order details, "
+"customer information, and transaction data in real-time for easy reporting, "
+"accounting, and business analysis."
 msgstr ""
-"قم بمزامنة طلبات WooCommerce مع Google Sheets تلقائيًا. قم بتخزين تفاصيل "
-"الطلب، ومعلومات العملاء، وبيانات المعاملات في الوقت الفعلي لتسهيل التقارير، "
+"قم بمزامنة طلبات WooCommerce مع Google Sheets تلقائيًا. قم بتخزين تفاصيل الطلب، "
+"ومعلومات العملاء، وبيانات المعاملات في الوقت الفعلي لتسهيل التقارير، "
 "والمحاسبة، وتحليل الأعمال."
 
 #: includes/pages/extensions.php:397
@@ -970,12 +953,12 @@ msgstr "موصل Easy Digital Downloads مع Google Sheets"
 #: includes/pages/extensions.php:400
 msgid ""
 "Automatically send Easy Digital Downloads (EDD) order details to Google "
-"Sheets. Track digital product sales, monitor transactions, and manage "
-"customer data effortlessly with real-time spreadsheet integration."
+"Sheets. Track digital product sales, monitor transactions, and manage customer "
+"data effortlessly with real-time spreadsheet integration."
 msgstr ""
-"قم بإرسال تفاصيل طلبات Easy Digital Downloads (EDD) تلقائيًا إلى Google "
-"Sheets. تتبع مبيعات المنتجات الرقمية، وراقب المعاملات، وأدر بيانات العملاء "
-"بسهولة مع تكامل جدول البيانات في الوقت الفعلي."
+"قم بإرسال تفاصيل طلبات Easy Digital Downloads (EDD) تلقائيًا إلى Google Sheets. "
+"تتبع مبيعات المنتجات الرقمية، وراقب المعاملات، وأدر بيانات العملاء بسهولة مع "
+"تكامل جدول البيانات في الوقت الفعلي."
 
 #: includes/pages/extensions.php:416
 msgid "Installed & Active Plugins"
@@ -986,8 +969,8 @@ msgid ""
 "View and manage all currently installed and active connectors on your site. "
 "You can activate, deactivate, or upgrade plugins from here."
 msgstr ""
-"عرض وإدارة جميع الموصلات المثبتة والنشطة حاليًا على موقعك. يمكنك تفعيل أو "
-"تعطيل أو ترقية الإضافات من هنا."
+"عرض وإدارة جميع الموصلات المثبتة والنشطة حاليًا على موقعك. يمكنك تفعيل أو تعطيل "
+"أو ترقية الإضافات من هنا."
 
 #: includes/pages/extensions.php:492 includes/pages/extensions.php:676
 #: includes/pages/extensions.php:712 includes/pages/extensions.php:862
@@ -1028,8 +1011,7 @@ msgid "Explore More Plugins"
 msgstr "استكشاف المزيد من الإضافات"
 
 #: includes/pages/extensions.php:782
-msgid ""
-"Discover the right connector for your workflow and automate data syncing."
+msgid "Discover the right connector for your workflow and automate data syncing."
 msgstr "اكتشف الموصل المناسب لسير العمل الخاص بك وأتمتة مزامنة البيانات."
 
 #: includes/pages/extensions.php:789
@@ -1123,8 +1105,8 @@ msgid ""
 "If you are enjoying the plugin, please consider leaving a 5-star review. Your "
 "support helps us improve and grow."
 msgstr ""
-"إذا كنت تستمتع بالمكون الإضافي، يرجى التفكير في ترك تقييم 5 نجوم. دعمك "
-"يساعدنا على التحسين والنمو."
+"إذا كنت تستمتع بالمكون الإضافي، يرجى التفكير في ترك تقييم 5 نجوم. دعمك يساعدنا "
+"على التحسين والنمو."
 
 #: includes/pages/google-sheet-settings.php:184
 msgid "Ok, you deserve it!"
@@ -1151,10 +1133,8 @@ msgid "Discover tools that integrate seamlessly and help you get more done."
 msgstr "اكتشف أدوات تتكامل بسلاسة وتساعدك على إنجاز المزيد."
 
 #: includes/pages/google-sheet-settings.php:231
-#, fuzzy
-#| msgid "Details"
 msgid "View Details"
-msgstr "التفاصيل"
+msgstr "عرض التفاصيل"
 
 #: includes/pages/google-sheet-settings.php:250
 #: includes/pages/gs-gravity-integration.php:85
@@ -1170,8 +1150,8 @@ msgid ""
 "Please reauthenticate with your google account to continue syncing data "
 "without interruptions."
 msgstr ""
-"يرجى إعادة المصادقة باستخدام حساب Google الخاص بك لمتابعة مزامنة البيانات "
-"بدون انقطاع."
+"يرجى إعادة المصادقة باستخدام حساب Google الخاص بك لمتابعة مزامنة البيانات بدون "
+"انقطاع."
 
 #: includes/pages/google-sheet-settings.php:265
 msgid "Authenticate Now"
@@ -1211,8 +1191,8 @@ msgstr "أدوات متقدمة للتحكم السهل في جداول البي
 
 #: includes/pages/google-sheet-settings.php:435
 msgid ""
-"Improve your sheet management with smart automation and flexible "
-"customization features."
+"Improve your sheet management with smart automation and flexible customization "
+"features."
 msgstr ""
 "حسن إدارة جداول البيانات الخاصة بك مع الأتمتة الذكية وميزات التخصيص المرنة."
 
@@ -1339,7 +1319,7 @@ msgstr "اختر كيف يجب أن تصادق Gravity Forms مع Google Sheets.
 #, fuzzy
 #| msgid "CF7 Google Sheet Connector"
 msgid "Google Account Connection"
-msgstr "موصل جوجل شيت لـ CF7"
+msgstr "ربط حساب Google"
 
 #: includes/pages/gs-gravity-integration.php:72
 msgid "Auto Setup"
@@ -1389,25 +1369,24 @@ msgstr "احفظ رمز المصادقة إذا طُلب منك."
 #: includes/pages/gs-gravity-integration.php:131
 msgid ""
 "This allows the plugin to securely sync your form data with Google Sheets."
-msgstr ""
-"هذا يسمح للملحق بمزامنة بيانات النموذج الخاصة بك بأمان مع Google Sheets."
+msgstr "هذا يسمح للملحق بمزامنة بيانات النموذج الخاصة بك بأمان مع Google Sheets."
 
 #: includes/pages/gs-gravity-integration.php:146
 msgid ""
-"<p class=\"fw-400 text-dark\"><strong>Google Drive</strong> and "
-"<strong>Google Sheets</strong> permissions were not granted during "
-"authentication with Google.</p>\n"
-"                                            <p class=\"fw-400 text-"
-"dark\"><strong>Refer to Step 4 in the Connection Guide shown alongside.</"
-"strong><br> Then, deactivate the connection and re-authorize it, ensuring "
-"both Google Drive and Google Sheets permissions are enabled.</p>"
+"<p class=\"fw-400 text-dark\"><strong>Google Drive</strong> and <strong>Google "
+"Sheets</strong> permissions were not granted during authentication with Google."
+"</p>\n"
+"                                            <p class=\"fw-400 text-dark"
+"\"><strong>Refer to Step 4 in the Connection Guide shown alongside.</"
+"strong><br> Then, deactivate the connection and re-authorize it, ensuring both "
+"Google Drive and Google Sheets permissions are enabled.</p>"
 msgstr ""
 "<p class=\"fw-400 text-dark\"><strong>لم يتم منح أذونات Google Drive</strong> "
 "و<strong>Google Sheets</strong> أثناء المصادقة مع Google.</p>\n"
-"                                            <p class=\"fw-400 text-"
-"dark\"><strong>راجع الخطوة 4 في دليل الاتصال المعروض بجانب.</strong><br> ثم، "
-"قم بإلغاء تنشيط الاتصال وأعد تفويضه، مع التأكد من تمكين أذونات كل من Google "
-"Drive وGoogle Sheets.</p>"
+"                                            <p class=\"fw-400 text-dark"
+"\"><strong>راجع الخطوة 4 في دليل الاتصال المعروض بجانب.</strong><br> ثم، قم "
+"بإلغاء تنشيط الاتصال وأعد تفويضه، مع التأكد من تمكين أذونات كل من Google Drive "
+"وGoogle Sheets.</p>"
 
 #: includes/pages/gs-gravity-integration.php:178
 msgid "Connected Google Account"
@@ -1441,8 +1420,8 @@ msgstr "رمز العميل"
 #: includes/pages/gs-gravity-integration.php:261
 msgid ""
 "Something went wrong! It looks you have not given the permission of Google "
-"Drive and Google Sheets from your google account.Please Deactivate Auth and "
-"Re-Authenticate again with the permissions."
+"Drive and Google Sheets from your google account.Please Deactivate Auth and Re-"
+"Authenticate again with the permissions."
 msgstr ""
 "حدث خطأ ما! يبدو أنك لم تمنح إذن Google Drive و Google Sheets من حسابك في "
 "Google. يرجى إلغاء تفعيل المصادقة وإعادة المصادقة مرة أخرى مع الأذونات."
@@ -1451,7 +1430,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Client Token"
 msgid "Save Client Token"
-msgstr "رمز العميل"
+msgstr "حفظ رمز العميل"
 
 #: includes/pages/gs-gravity-integration.php:305
 msgid ""
@@ -1474,8 +1453,8 @@ msgstr "حالة الاتصال والخطوات التالية"
 
 #: includes/pages/gs-gravity-integration.php:327
 msgid ""
-"Your Google account has been successfully connected. You are now ready to "
-"sync your form submissions with Google Sheets securely and automatically."
+"Your Google account has been successfully connected. You are now ready to sync "
+"your form submissions with Google Sheets securely and automatically."
 msgstr ""
 "تم توصيل حساب Google الخاص بك بنجاح. أنت الآن جاهز لمزامنة تقديمات النموذج "
 "الخاصة بك مع Google Sheets بأمان وبشكل تلقائي."
@@ -1825,8 +1804,8 @@ msgstr "الوصول إلى برنامج بيتا"
 #: includes/pages/gs-gravityform-beta-version.php:102
 msgid ""
 "Get early access to upcoming features and improvements before they are "
-"officially released. Beta versions may include experimental updates and "
-"should be used for testing purposes only."
+"officially released. Beta versions may include experimental updates and should "
+"be used for testing purposes only."
 msgstr ""
 "احصل على وصول مبكر إلى الميزات والتحسينات القادمة قبل إصدارها رسميًا. قد تتضمن "
 "إصدارات بيتا تحديثات تجريبية ويجب استخدامها لأغراض الاختبار فقط."
@@ -1882,16 +1861,16 @@ msgstr "مرحبًا بك في GSheetConnector"
 
 #: includes/pages/gs-gravityform-dashboard.php:15
 msgid ""
-"GSheetConnector is a powerful automation plugin that syncs WordPress data "
-"with Google Sheets in real time. It supports WooCommerce, Easy Digital "
-"Downloads, and popular form plugins such as Gravity Forms, Contact Form 7, "
-"Elementor Forms, along with 10+ additional WordPress integrations for "
-"efficient data management."
+"GSheetConnector is a powerful automation plugin that syncs WordPress data with "
+"Google Sheets in real time. It supports WooCommerce, Easy Digital Downloads, "
+"and popular form plugins such as Gravity Forms, Contact Form 7, Elementor "
+"Forms, along with 10+ additional WordPress integrations for efficient data "
+"management."
 msgstr ""
 "GSheetConnector هو إضافة قوية للأتمتة تقوم بمزامنة بيانات WordPress مع Google "
 "Sheets في الوقت الحقيقي. يدعم WooCommerce وEasy Digital Downloads، بالإضافة "
-"إلى إضافات النماذج الشائعة مثل Gravity Forms وContact Form 7 وElementor "
-"Forms، إلى جانب أكثر من 10 تكاملات إضافية لـ WordPress لإدارة البيانات بكفاءة."
+"إلى إضافات النماذج الشائعة مثل Gravity Forms وContact Form 7 وElementor Forms، "
+"إلى جانب أكثر من 10 تكاملات إضافية لـ WordPress لإدارة البيانات بكفاءة."
 
 #: includes/pages/gs-gravityform-dashboard.php:20
 msgid "Let's Connect"
@@ -1957,10 +1936,8 @@ msgid "Automatic Select Spreadsheet"
 msgstr "اختيار جدول البيانات تلقائيًا"
 
 #: includes/pages/gs-gravityform-dashboard.php:64
-#, fuzzy
-#| msgid "Save Settings"
 msgid "Role Settings"
-msgstr "حفظ الإعدادات"
+msgstr "إعدادات الدور"
 
 #: includes/pages/gs-gravityform-dashboard.php:75
 msgid "Plugins by Category"
@@ -2091,8 +2068,7 @@ msgstr "تفضيلات الإضافة"
 
 #: includes/pages/gs-gravityform-general-setting.php:17
 msgid ""
-"Manage how plugin settings and data are handled when the plugin is "
-"uninstalled."
+"Manage how plugin settings and data are handled when the plugin is uninstalled."
 msgstr ""
 "إدارة كيفية التعامل مع إعدادات الإضافة والبيانات عند إلغاء تثبيت الإضافة."
 
@@ -2120,8 +2096,8 @@ msgstr "سيتم إزالة جميع إعدادات وبيانات المكون 
 #: includes/pages/gs-gravityform-general-setting.php:52
 msgid "Incorrect settings can delete all sensitive form and user data"
 msgstr ""
-"يمكن أن تؤدي الإعدادات غير الصحيحة إلى حذف جميع بيانات النماذج الحساسة "
-"وبيانات المستخدم"
+"يمكن أن تؤدي الإعدادات غير الصحيحة إلى حذف جميع بيانات النماذج الحساسة وبيانات "
+"المستخدم"
 
 #: includes/pages/gs-gravityform-general-setting.php:78
 msgid "Confirm Data Deletion"
@@ -2136,16 +2112,16 @@ msgid ""
 "Enabling this option will permanently delete all plugin data, including "
 "settings and integrations, when the plugin is uninstalled."
 msgstr ""
-"تمكين هذا الخيار سيؤدي إلى حذف جميع بيانات إضافة GSheetConnector لـ Gravity "
-"Forms بشكل دائم عند إلغاء تثبيت الإضافة."
+"سيؤدي تمكين هذا الخيار إلى حذف جميع بيانات المكون الإضافي نهائيًا، بما في ذلك "
+"الإعدادات وعمليات التكامل، عند إلغاء تثبيت المكون الإضافي."
 
 #: includes/pages/gs-gravityform-general-setting.php:84
 msgid ""
 "If you plan to upgrade from Free to Pro, you may lose your existing "
 "configuration data."
 msgstr ""
-"إذا كنت تخطط للترقية من الإصدار المجاني إلى الإصدار الاحترافي، فقد تفقد "
-"بيانات التكوين الحالية."
+"إذا كنت تخطط للترقية من الإصدار المجاني إلى الإصدار الاحترافي، فقد تفقد بيانات "
+"التكوين الحالية."
 
 #: includes/pages/gs-gravityform-general-setting.php:88
 msgid ""
@@ -2157,7 +2133,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Enable Fields to Sync"
 msgid "Enable Deletion"
-msgstr "تمكين الحقول للمزامنة"
+msgstr "تمكين الحذف"
 
 #: includes/pages/gs-gravityform-role-setting.php:9
 msgid "Permission Not Allowed"
@@ -2252,7 +2228,7 @@ msgstr "الحفاظ على مسؤولية المدير"
 #, fuzzy
 #| msgid "Role Management"
 msgid "Access Management"
-msgstr "إدارة الأدوار"
+msgstr "إدارة الوصول"
 
 #: includes/pages/gs-gravityform-role-setting.php:126
 msgid ""
@@ -2266,7 +2242,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Access Control"
 msgid "Plugin Access Control"
-msgstr "تحكم الوصول"
+msgstr "التحكم في الوصول إلى المكونات الإضافية"
 
 #: includes/pages/gs-gravityform-role-setting.php:142
 msgid "Administrator"
@@ -2279,18 +2255,18 @@ msgstr "إرشادات الأذونات"
 #: includes/pages/gs-gravityform-role-setting.php:190
 #, fuzzy
 #| msgid ""
-#| "Control which user roles are allowed to access and manage the Google "
-#| "Sheets integration for your forms."
+#| "Control which user roles are allowed to access and manage the Google Sheets "
+#| "integration for your forms."
 msgid "Control which user roles can access the GSheetConnector plugin"
 msgstr ""
-"تحكم في أدوار المستخدمين المسموح لهم بالوصول وإدارة تكامل Google Sheets "
-"لنماذجك."
+"التحكم في أدوار المستخدمين التي يمكنها الوصول إلى المكون الإضافي "
+"GSheetConnector"
 
 #: includes/pages/gs-gravityform-role-setting.php:192
 #, fuzzy
 #| msgid "Automatic Google Sheets Integration"
 msgid "Allow selected users to manage Google Sheets integration settings"
-msgstr "تكامل Google Sheets تلقائيًا"
+msgstr "السماح للمستخدمين المحددين بإدارة إعدادات التكامل مع «جوجل شيتس»"
 
 #: includes/pages/gs-gravityform-role-setting.php:194
 msgid ""
@@ -2299,8 +2275,7 @@ msgstr "تقييد الوصول إلى الميزات الحساسة مثل مو
 
 #: includes/pages/gs-gravityform-role-setting.php:196
 msgid "Only enabled roles will see the plugin menu in the admin panel"
-msgstr ""
-"لن يرى قائمة المكونات الإضافية في لوحة الإدارة سوى أصحاب الأدوار المُفعَّلة"
+msgstr "لن يرى قائمة المكونات الإضافية في لوحة الإدارة سوى أصحاب الأدوار المُفعَّلة"
 
 #: includes/pages/gs-gravityform-role-setting.php:198
 msgid "Recommended: Allow only Administrators and trusted Editors"
@@ -2668,8 +2643,7 @@ msgstr "إذن نظام الملفات"
 
 #: includes/pages/gs-gravityform-system-info.php:828
 msgid ""
-"Shows whether WordPress is able to write to the directories it needs access "
-"to."
+"Shows whether WordPress is able to write to the directories it needs access to."
 msgstr ""
 "يظهر ما إذا كانت ووردبريس قادرة على الكتابة إلى الدلائل التي تحتاج إلى الوصول "
 "إليها."
@@ -2695,10 +2669,8 @@ msgid "The themes directory"
 msgstr "دليل القوالب"
 
 #: includes/pages/gs-gravityform-system-info.php:907
-#, fuzzy
-#| msgid "Debug Mode"
 msgid "Debug Log"
-msgstr "وضع التصحيح"
+msgstr "بيانات وضع التصحيح (Debug Log)"
 
 #. Plugin URI of the plugin/theme
 msgid "https://www.gsheetconnector.com/gravity-forms-google-sheet-connector"
@@ -2727,9 +2699,9 @@ msgstr "https://www.gsheetconnector.com/"
 
 #~ msgid ""
 #~ "Automatically connect Gravity Forms with Google Sheets using built-in API "
-#~ "setup. By authorizing your Google account, the plugin will handle API "
-#~ "setup and authentication automatically, enabling seamless form data sync. "
-#~ "Learn more in the documentation"
+#~ "setup. By authorizing your Google account, the plugin will handle API setup "
+#~ "and authentication automatically, enabling seamless form data sync. Learn "
+#~ "more in the documentation"
 #~ msgstr ""
 #~ "اتصل تلقائيًا بـ Gravity Forms مع Google Sheets باستخدام إعداد API المدمج. "
 #~ "من خلال تفويض حساب Google الخاص بك، ستقوم الإضافة بإدارة إعداد API "

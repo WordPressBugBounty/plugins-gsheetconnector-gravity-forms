@@ -1,3 +1,9 @@
+<?php 
+if (!defined('ABSPATH')) {
+  exit;
+}
+?>
+
 <div class="wrap w-100 m-0">
     <div class="inner-wrap  w-100 bg-white p-40">
         <div class="gsc-dashboard">
@@ -16,7 +22,7 @@
                                 </p>
                             </div>
                             <div class="unlock-pro-button-sections mt-20">
-                                <a class="btn btn-primary link-hover-white text-decoration-none" href="<?php echo admin_url('admin.php?page=gf_googlesheet&tab=integration'); ?>">
+                                <a class="btn btn-primary link-hover-white text-decoration-none" href="<?php echo esc_url(admin_url('admin.php?page=gf_googlesheet&tab=integration')); ?>">
                                     <?php echo esc_html__("Let's Connect", 'gsheetconnector-gravity-forms'); ?>
                                 </a>
                             </div>

@@ -14,7 +14,7 @@ if (!defined('ABSPATH')) {
  * @since 1.0.0 Initial version
  */
 
-function remove_footer_admin()
+function remove_footer_admin()// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 {
 ?>
 

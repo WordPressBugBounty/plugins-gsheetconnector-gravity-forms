@@ -101,13 +101,16 @@ public static function preauth($access_code)
     Google_Service_Drive::DRIVE_METADATA_READONLY
   ]);
   $client->setAccessType('offline');
+  $client->fetchAccessTokenWithAuthCode($access_code);
+	$tokenData = $client->getAccessToken();
+	self::updateToken($tokenData);
 
          // Fetch the access token using the provided code
   $tokenData = $client->fetchAccessTokenWithAuthCode($access_code);
 
          // Check for token errors
   if (isset($tokenData['error'])) {
-    GravityForms_GsFree_Connector_Utility::gfgs_debug_log('Error fetching token: ' . $tokenData['error_description']);
+    /*GravityForms_GsFree_Connector_Utility::gfgs_debug_log('Error fetching token: ' . $tokenData['error_description']);*/
     return;
   }
 
@@ -129,7 +132,7 @@ public static function preauth($access_code)
  * @param array $tokenData Token data returned from Google OAuth.
  * @return void
  */
-public static function updateToken($tokenData)
+/*public static function updateToken($tokenData)
 {
       // Set token expiration timestamp
   $tokenData['expire'] = time() + intval($tokenData['expires_in']);
@@ -146,20 +149,20 @@ public static function updateToken($tokenData)
    } else {
      update_option('gfgs_verify', 'invalid-auth');
 
-     if (class_exists('gscgf_error_logs')) {
-    gscgf_error_logs::log_to_db(
-        'Google_Auth_Permission_Error',                                   
-        403,                                                               
-        'Google Drive and Google Sheets permissions not granted',         
-        [                                                                  
-            'error_type'             => 'Missing Permissions',
-            'message'                => 'User did not grant Google Drive and/or Google Sheets permissions during OAuth authentication',
-            'granted_scopes'         => $tokenData['scope'] ?? '',
-            'required_drive_scope'   => 'https://www.googleapis.com/auth/drive.file OR https://www.googleapis.com/auth/drive.metadata.readonly',
-            'required_sheets_scope'  => 'https://www.googleapis.com/auth/spreadsheets',
-        ]
-    );
-}
+			 if (class_exists('gscgf_error_logs')) {
+			gscgf_error_logs::log_to_db(
+				'Google_Auth_Permission_Error',                                   
+				403,                                                               
+				'Google Drive and Google Sheets permissions not granted',         
+				[                                                                  
+					'error_type'             => 'Missing Permissions',
+					'message'                => 'User did not grant Google Drive and/or Google Sheets permissions during OAuth authentication',
+					'granted_scopes'         => $tokenData['scope'] ?? '',
+					'required_drive_scope'   => 'https://www.googleapis.com/auth/drive.file OR https://www.googleapis.com/auth/drive.metadata.readonly',
+					'required_sheets_scope'  => 'https://www.googleapis.com/auth/spreadsheets',
+				]
+			);
+		}
     }
  }
 
@@ -169,7 +172,76 @@ public static function updateToken($tokenData)
 } catch (Exception $e) {
  GravityForms_GsFree_Connector_Utility::gfgs_debug_log("Token write failed: " . $e->getMessage());
 }
+}*/
+
+public static function updateToken( $tokenData ) {
+	
+  // Invalid token response
+	if (empty($tokenData['access_token'])) {
+
+
+		/*update_option('wcgsc_email_account', '');*/
+
+		update_option(
+			'gfgs_token',
+			wp_json_encode($tokenData)
+		);
+
+		/*if (class_exists('gscgf_error_logs')) {
+
+			gscgf_error_logs::log_to_db(
+				'Google_Access_Token_Invalid_Existing',
+				403,
+				'Google access token is invalid or expired (Existing Method)',
+				[
+					'error_type' => 'invalid_token',
+					'authentication_method' => 'Existing',
+					'message' => 'Authentication failed. The stored Google access token is invalid, expired, or refresh token is no longer valid. Please re-authenticate your Google account.',
+				]
+			);
+		}*/
+
+		return;
+	}
+
+	if ( isset( $tokenData['expires_in'] ) ) {
+		$tokenData['expire'] = time() + intval( $tokenData['expires_in'] );
+	}
+
+	try {
+		if(isset($tokenData['scope'])){
+			$permission = explode(" ", $tokenData['scope']);
+			if ( ( in_array("https://www.googleapis.com/auth/drive.metadata.readonly",$permission ) || in_array( 'https://www.googleapis.com/auth/drive.file', $permission ) ) && ( in_array( 'https://www.googleapis.com/auth/spreadsheets', $permission ) ) ) {
+				update_option('gfgs_verify', 'valid');
+			}else{
+				update_option('gfgs_verify', 'invalid-auth');
+           // Log permission error to error logs
+				if (class_exists('gscgf_error_logs')) {
+					gscgf_error_logs::log_to_db(
+						'Google_Auth_Permission_Error',
+						403,
+						'Google Drive and Google Sheets permissions not granted',
+						[
+							'error_type' => 'Missing Permissions',
+							'message' => 'User did not grant Google Drive and/or Google Sheets permissions during OAuth authentication',
+							'granted_scopes' => $tokenData['scope'] ?? '',
+							'required_drive_scope' => 'https://www.googleapis.com/auth/drive.file OR https://www.googleapis.com/auth/drive.metadata.readonly',
+							'required_sheets_scope' => 'https://www.googleapis.com/auth/spreadsheets',
+						]
+					);
+				}
+			}
+		}
+		$tokenJson = json_encode( $tokenData );
+	
+		
+		update_option( 'gfgs_token', $tokenJson );
+	} catch ( Exception $e ) {
+		GravityForms_GsFree_Connector_Utility::gfgs_debug_log($e->getMessage());
+		return;
+	}
 }
+
 
 /**
  * Authenticate Google Client using stored refresh token.
@@ -604,28 +676,44 @@ return $user;
  * @param string $access_code JSON string containing access_token.
  * @return void
  */
+
+
+
 public static function revokeToken_auto($access_code)
 {
-      // Get API credentials based on multisite setup
-  if (is_multisite()) {
-   $api_creds = get_site_option('Gfgsc_api_creds');
- } else {
-   $api_creds = get_option('Gfgsc_api_creds');
- }
+    // Get API credentials based on multisite setup
+    if (is_multisite()) {
+        $api_creds = get_site_option('Gfgsc_api_creds');
+    } else {
+        $api_creds = get_option('Gfgsc_api_creds');
+    }
 
- $newClientSecret = get_option('is_new_client_secret_gravityformsgsc');
- $clientId = ($newClientSecret == 1) ? $api_creds['client_id_web'] : $api_creds['client_id_desk'];
- $clientSecret = ($newClientSecret == 1) ? $api_creds['client_secret_web'] : $api_creds['client_secret_desk'];
+    $newClientSecret = get_option('is_new_client_secret_gravityformsgsc');
+    $clientId = ($newClientSecret == 1) ? $api_creds['client_id_web'] : $api_creds['client_id_desk'];
+    $clientSecret = ($newClientSecret == 1) ? $api_creds['client_secret_web'] : $api_creds['client_secret_desk'];
 
- $client = new Google_Client();
- $client->setClientId($clientId);
- $client->setClientSecret($clientSecret);
+    $client = new Google_Client();
+    $client->setClientId($clientId);
+    $client->setClientSecret($clientSecret);
 
- $tokendecode = json_decode($access_code);
- $token = $tokendecode->access_token;
+    // Guard against empty / invalid / already-array input
+    if (empty($access_code)) {
+        return false; // nothing to revoke
+    }
 
-      // Revoke token using Google's OAuth client
- $client->revokeToken($token);
+    $tokendecode = is_array($access_code) ? (object) $access_code : json_decode($access_code);
+
+    // json_decode failed, or no access_token present
+    if (!is_object($tokendecode) || empty($tokendecode->access_token)) {
+        return false;
+    }
+
+    $token = $tokendecode->access_token;
+
+    // Revoke token using Google's OAuth client
+    $client->revokeToken($token);
+
+    return true;
 }
 
 }

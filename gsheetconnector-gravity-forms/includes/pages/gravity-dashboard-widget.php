@@ -11,9 +11,9 @@ if (!defined('ABSPATH')) {
 ?>
 <div class="dashboard-content">
     <?php
-    $gs_connector_service = new GFGS_Connector_Service();
+    $gs_connector_service = new GFGS_Connector_Service();// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
-    $forms_list = $gs_connector_service->get_forms_connected_to_sheet();
+    $forms_list = $gs_connector_service->get_forms_connected_to_sheet();// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
     ?>
     <div class="main-content">
         <div>
@@ -56,7 +56,7 @@ if (!defined('ABSPATH')) {
 
 
                 if (!empty($forms_list)) {
-                    foreach ($forms_list as $key => $value) {
+                    foreach ($forms_list as $key => $value) { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
                         if (!empty($value->title)) {
                                 // Assuming $value->sheet_url contains the URL for the connected Google Sheet
                                 // $sheet_url = !empty($value->sheet_url) ? esc_url($value->sheet_url) : '#'; // Use '#' if no URL is provided

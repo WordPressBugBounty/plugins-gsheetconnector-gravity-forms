@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Gravity Form GSC Free\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-12 18:47+0530\n"
-"PO-Revision-Date: 2026-06-12 18:56+0530\n"
+"PO-Revision-Date: 2026-06-22 15:09+0530\n"
 "Last-Translator: POForge <noreply@poforge.com>\n"
 "Language-Team: de_DE <noreply@poforge.com>\n"
 "Language: de_DE\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.9\n"
+"X-Generator: Poedit 2.4.3\n"
 
 #: class-gf-gsheetgravityforms.php:96
 msgid "Feed Name"
@@ -23,8 +23,6 @@ msgstr ""
 "Geben Sie einen Feed-Namen ein, um dieses Setup eindeutig zu identifizieren."
 
 #: class-gf-gsheetgravityforms.php:104
-#, fuzzy
-#| msgid "Manually Google Sheets Configuration"
 msgid "Manual Google Sheets Configuration"
 msgstr "Manuelle Google Sheets-Konfiguration"
 
@@ -114,10 +112,8 @@ msgid "Get Advanced Features"
 msgstr "Erweiterte Funktionen erhalten"
 
 #: class-gf-gsheetgravityforms.php:469 class-gf-gsheetgravityforms.php:602
-#, fuzzy
-#| msgid "Automatically Google Sheet Configuration"
 msgid "Automatic Google Sheets Configuration"
-msgstr "Automatische Google Sheet-Konfiguration"
+msgstr "Automatische Google Sheets-Konfiguration"
 
 #: class-gf-gsheetgravityforms.php:475
 msgid "Auto fetch Google Sheets list"
@@ -172,10 +168,8 @@ msgid "Sort by any column"
 msgstr "Nach jeder Spalte sortieren"
 
 #: class-gf-gsheetgravityforms.php:519
-#, fuzzy
-#| msgid "Conditional Options"
 msgid "Conditional Logic"
-msgstr "Bedingte Optionen"
+msgstr "Bedingte Logik"
 
 #: class-gf-gsheetgravityforms.php:524
 msgid "Apply rules based on form values"
@@ -341,10 +335,8 @@ msgid "Add"
 msgstr "Hinzufügen"
 
 #: class-gf-gsheetgravityforms.php:860
-#, fuzzy
-#| msgid "Save Settings"
 msgid "Header Settings"
-msgstr "Einstellungen speichern"
+msgstr "Header-Einstellungen"
 
 #: class-gf-gsheetgravityforms.php:876
 msgid ""
@@ -355,10 +347,8 @@ msgstr ""
 "und Zeilen an, um die Lesbarkeit und Übersichtlichkeit zu verbessern."
 
 #: class-gf-gsheetgravityforms.php:887
-#, fuzzy
-#| msgid "Freeze header row"
 msgid "Freeze Header"
-msgstr "Header-Zeile einfrieren"
+msgstr "Header einfrieren"
 
 #: class-gf-gsheetgravityforms.php:922
 msgid "Header Style"
@@ -378,10 +368,8 @@ msgstr "Blatt-Sortierung"
 
 #: class-gf-gsheetgravityforms.php:1005 class-gf-gsheetgravityforms.php:1072
 #: class-gf-gsheetgravityforms.php:1078
-#, fuzzy
-#| msgid "Conditional Options"
 msgid "Condition"
-msgstr "Bedingte Optionen"
+msgstr "Zustand"
 
 #: class-gf-gsheetgravityforms.php:1036
 msgid "Sort Column Name"
@@ -412,10 +400,8 @@ msgid "Google Sheets Data Sync"
 msgstr "Google Sheets-Daten-Synchronisierung"
 
 #: class-gf-gsheetgravityforms.php:1144
-#, fuzzy
-#| msgid "Sync Past Entries"
 msgid "Sync Entries"
-msgstr "Vergangene Einträge synchronisieren"
+msgstr "Einträge synchronisieren"
 
 #: class-gf-gsheetgravityforms.php:1297
 #: includes/pages/gs-gravityform-system-info.php:296
@@ -1181,10 +1167,8 @@ msgstr ""
 "erledigen."
 
 #: includes/pages/google-sheet-settings.php:231
-#, fuzzy
-#| msgid "Details"
 msgid "View Details"
-msgstr "Details"
+msgstr "Details anzeigen"
 
 #: includes/pages/google-sheet-settings.php:250
 #: includes/pages/gs-gravity-integration.php:85
@@ -1436,20 +1420,19 @@ msgid ""
 "<p class=\"fw-400 text-dark\"><strong>Google Drive</strong> and "
 "<strong>Google Sheets</strong> permissions were not granted during "
 "authentication with Google.</p>\n"
-"                                            <p class=\"fw-400 text-"
-"dark\"><strong>Refer to Step 4 in the Connection Guide shown alongside.</"
+"                                            <p class=\"fw-400 text-dark"
+"\"><strong>Refer to Step 4 in the Connection Guide shown alongside.</"
 "strong><br> Then, deactivate the connection and re-authorize it, ensuring "
 "both Google Drive and Google Sheets permissions are enabled.</p>"
 msgstr ""
 "<p class=\"fw-400 text-dark\"><strong>Google Drive</strong> und "
 "<strong>Google Sheets</strong> Berechtigungen wurden während der "
 "Authentifizierung mit Google nicht gewährt.</p>\n"
-"                                            <p class=\"fw-400 text-"
-"dark\"><strong>Siehe Schritt 4 im Verbindungsleitfaden, der daneben "
-"angezeigt wird.</strong><br> Deaktivieren Sie dann die Verbindung und "
-"autorisieren Sie sie erneut, wobei Sie sicherstellen, dass sowohl die "
-"Berechtigungen für Google Drive als auch für Google Sheets aktiviert sind.</"
-"p>"
+"                                            <p class=\"fw-400 text-dark"
+"\"><strong>Siehe Schritt 4 im Verbindungsleitfaden, der daneben angezeigt "
+"wird.</strong><br> Deaktivieren Sie dann die Verbindung und autorisieren Sie "
+"sie erneut, wobei Sie sicherstellen, dass sowohl die Berechtigungen für "
+"Google Drive als auch für Google Sheets aktiviert sind.</p>"
 
 #: includes/pages/gs-gravity-integration.php:178
 msgid "Connected Google Account"
@@ -2759,10 +2742,8 @@ msgid "The themes directory"
 msgstr "Das Themes-Verzeichnis"
 
 #: includes/pages/gs-gravityform-system-info.php:907
-#, fuzzy
-#| msgid "Debug Mode"
 msgid "Debug Log"
-msgstr "Debug-Modus"
+msgstr "Debug-Log"
 
 #. Plugin URI of the plugin/theme
 msgid "https://www.gsheetconnector.com/gravity-forms-google-sheet-connector"

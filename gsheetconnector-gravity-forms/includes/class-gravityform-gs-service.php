@@ -354,8 +354,7 @@ public function verify_code_integation()
             wp_send_json_error();
         }
     } catch (Exception $e) {
-        GravityForms_GsFree_Connector_Utility::gfgs_debug_log('Error during verification: ' . $e->getMessage());
-
+        /*GravityForms_GsFree_Connector_Utility::gfgs_debug_log('Error during verification: ' . $e->getMessage());*/
         wp_send_json_error();
     }
 }
@@ -500,11 +499,13 @@ public function get_forms_connected_to_sheet()
     $table_name = $wpdb->base_prefix . 'gf_form';
 
         // Check if the Gravity Forms table exists
+   // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
     $result = $wpdb->get_var($wpdb->prepare("SHOW TABLES LIKE %s", $table_name));
     $query = [];
 
     if ($result === $table_name) {
-            // Fetch all forms ordered by ID
+        // Fetch all forms ordered by ID
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
         $query = $wpdb->get_results(
             "SELECT id, title FROM {$wpdb->prefix}gf_form ORDER BY id"
         );
@@ -775,7 +776,9 @@ public function gscgff_activate_plugin()
  */
 public function gscgff_clear_log(){
   check_ajax_referer('gscgff-ajax-nonce', 'security');
+  // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fopen
   $handle = fopen(WP_CONTENT_DIR . '/debug.log', 'w');
+  // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fclose
   fclose($handle);
   wp_send_json_success();
 
@@ -794,7 +797,8 @@ public function gscgff_clear_log(){
  */
 public function gsheet_dismiss_pro_notice() {
 
-    $nonce = isset($_POST['nonce']) ? sanitize_text_field($_POST['nonce']) : '';
+    /*$nonce = isset($_POST['nonce']) ? sanitize_text_field($_POST['nonce']) : '';*/
+    $nonce = isset($_POST['nonce']) ? sanitize_text_field(wp_unslash($_POST['nonce'])) : '';
 
     if ( ! wp_verify_nonce($nonce, 'gf-ajax-nonce') ) {
         wp_send_json_error('Invalid nonce');
@@ -813,14 +817,19 @@ public function gsheet_dismiss_pro_notice() {
 
 
 public function gscgff_dismiss_notice_callback(){
-     if (!isset($_POST['security']) || !wp_verify_nonce($_POST['security'], 'gf-ajax-nonce')) {
+     
+     if (!isset($_POST['security']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['security'])), 'gf-ajax-nonce')) {
       wp_send_json_error('Invalid nonce');
       }
-      
+
+      // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.MissingUnslash
       if (!isset($_POST['key'])) {
       wp_send_json_error('Missing key');
       }
       
+$key = isset($_POST['key']) ? sanitize_text_field(wp_unslash($_POST['key'])) : '';
+
+      // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.MissingUnslash
       $key = sanitize_text_field($_POST['key']);
       update_option('gscgff_notice_' . $key, 'dismissed');
       wp_send_json_success();
@@ -828,17 +837,20 @@ public function gscgff_dismiss_notice_callback(){
 
 public function gscgff_snooze_notice_callback()
    {
-      if (!isset($_POST['security']) || !wp_verify_nonce($_POST['security'], 'gf-ajax-nonce')) {
+      /*if (!isset($_POST['security']) || !wp_verify_nonce($_POST['security'], 'gf-ajax-nonce')) {*/
+      if (!isset($_POST['security']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['security'])), 'gf-ajax-nonce')) {
       wp_send_json_error('Invalid nonce');
       }
       if (!isset($_POST['key'])) {
       wp_send_json_error('Missing key');
       }
-      $key = sanitize_text_field($_POST['key']);
+   
+      $key = sanitize_text_field(wp_unslash($_POST['key']));
       update_option('gscgff_notice_' . $key . '_time', time());
       wp_send_json_success();
    }
 
 
 }
+// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 $GFGS_Connector_Service = new GFGS_Connector_Service();

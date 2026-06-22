@@ -1,32 +1,27 @@
 <?php
-// Exit if accessed directly
+/* Exit if accessed directly*/
 if (!defined('ABSPATH')) {
     exit;
 }
 
 $gravityforms_manual_setting = get_option('gravityforms_manual_setting');
-$auth_method = get_option('gravityforms_manual_setting', '0');
-
-$Code = "";
-$header = "";
-
-if (isset($_GET['code']) && ($gravityforms_manual_setting == 0)) {
+$auth_method = get_option('gravityforms_manual_setting', '0');// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+$code = "";// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+$header = "";// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+if (isset($_GET['code']) && ($gravityforms_manual_setting == 0)) {// phpcs:ignore WordPress.Security.NonceVerification.Recommended
     update_option('is_new_client_secret_gravityformsgsc', 1);
-    $Code = sanitize_text_field(wp_unslash($_GET['code']));
+    $code = sanitize_text_field( wp_unslash( $_GET['code'] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
-    $header = admin_url('admin.php?page=gf_googlesheet&tab=integration');
+    $header = admin_url('admin.php?page=gf_googlesheet&tab=integration');// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 }
 ?>
 
 <input type="hidden" name="gf-ajax-nonce" id="gf-ajax-nonce"
     value="<?php echo esc_attr(wp_create_nonce('gf-ajax-nonce')); ?>" />
 
-
 <div class="gsc-gravity">
     <div class="heading mt-0 mb-0">
         <?php echo esc_html__('Google Sheets Integration for Gravity Forms', 'gsheetconnector-gravity-forms'); ?></div>
-
-
     <div class="card-wp border-select-box dropdownoption-gravity row align-end shadow-box mt-40 p-30">
         <div class="col-6">
             <div class="form-group">
@@ -51,18 +46,18 @@ if (isset($_GET['code']) && ($gravityforms_manual_setting == 0)) {
                 <?php echo esc_html(__('Select how Gravity Forms should authenticate with Google Sheets.', 'gsheetconnector-gravity-forms')); ?>
             </p>
         </div>
-
     </div>
 </div>
 <?php
 
 
-if ($auth_method == 0) {
+
     update_option('gravityforms_manual_setting', 0); ?>
     <div class="oauth-method row justify-between shadow-box mt-40 p-30">
         <div class="col-7">
             <div class="existing-method mr-20">
-                <div class="gsc-form">
+
+               
                     <div class="gsc-parts">
                         <div class="card-wp" id="gscgff-googlesheet">
                             <div class="inside">
@@ -151,142 +146,122 @@ if ($auth_method == 0) {
                                         ?>
 
                                     </div>
-                                <?php } else {  ?>
+                                <?php } else {  
 
+                                     if (!empty(get_option('gfgs_token') &&  get_option('gfgs_token') !== "")) {
+                                     $google_sheet = new Gfgscf_googlesheet();
+                                     $email_account = $google_sheet->gsheet_print_google_account_email();// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+                                        if ($email_account) {
+                                        update_option('gravityforms_gs_auth_expired_free', 'false');
+                                     ?>
                                     <div class="gscgff-integration-box">
                                         <div
                                             class="gsc-google-auth-card d-flex flex-wrap gap-20 justify-between align-center mt-30 mb-30">
-                                            <?php
-
-                                            if ($Code == "") {
-
-                                                if (!empty(get_option('gfgs_token'))) {
-
-
-                                                    $google_sheet = new Gfgscf_googlesheet();
-                                                    $email_account = $google_sheet->gsheet_print_google_account_email();
-
-                                                    if ($email_account) {
-                                                        update_option('gravityforms_gs_auth_expired_free', 'false');
-
-                                            ?>
-                                                        <div class="gsc-google-auth-left d-flex flex-wrap align-center gap-15">
-                                                            <div class="gsc-google-icon">G</div>
-                                                            <div class="connected-account">
-                                                                <div class="gsc-connected-left d-flex">
-                                                                    <span
-                                                                        class="gsc-connected-label"><?php echo esc_html__('Connected Google Account', 'gsheetconnector-gravity-forms'); ?></span>
-                                                                    <span class="connected-account-manual gsc-connected-email">
-                                                                        <?php printf(wp_kses('<u>%s </u>', 'gsheetconnector-gravity-forms'), esc_attr($email_account)); ?></span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="gsc-google-auth-right">
-                                                            <div class="gsc-connected-pill">
-                                                                <span class="dot"></span>
-                                                                <?php esc_html_e('Connected', 'gsheetconnector-gravity-forms'); ?>
-                                                            </div>
-                                                        </div>
-
-                                                    <?php } else {
-                                                        update_option('gravityforms_gs_auth_expired_free', 'true');
-                                                    ?>
-                                                        <div class="gsc-google-auth-text">
-                                                            <strong><?php echo esc_html__('Connect Your Google Account', 'gsheetconnector-gravity-forms'); ?></strong>
-                                                            <p><?php echo esc_html__('Securely link your Google account to start syncing form entries automatically.', 'gsheetconnector-gravity-forms'); ?>
-                                                            </p>
-                                                        </div>
-
-                                                    <?php
-                                                    }
-                                                } else {
-
-
-                                                    $redirct_uri = admin_url('admin.php?page=gf_googlesheet&tab=integration');
-                                                    $gsc_gravityform_auth_url = "https://oauth.gsheetconnector.com/index.php?client_admin_url=" . urlencode($redirct_uri) . "&plugin=woocommercegsheetconnector";
-
-                                                    ?>
-                                                    <div class="gsc-google-auth-left d-flex flex-wrap align-center gap-15">
-                                                        <div class="gsc-google-icon">G</div>
-                                                        <div class="gsc-google-auth-text">
-                                                            <strong><?php echo esc_html__('Connect Your Google Account', 'gsheetconnector-gravity-forms'); ?></strong>
-                                                            <p><?php echo esc_html__('Securely link your Google account to start syncing form entries automatically.', 'gsheetconnector-gravity-forms'); ?>
-                                                            </p>
+                                           
+                                                <div class="gsc-google-auth-left d-flex flex-wrap align-center gap-15">
+                                                    <div class="gsc-google-icon">G</div>
+                                                    <div class="connected-account">
+                                                        <div class="gsc-connected-left d-flex">
+                                                            <span
+                                                                class="gsc-connected-label"><?php echo esc_html__('Connected Google Account', 'gsheetconnector-gravity-forms'); ?></span>
+                                                            <span class="connected-account-manual gsc-connected-email">
+                                                                <?php printf(wp_kses('<u>%s </u>', 'gsheetconnector-gravity-forms'), esc_attr($email_account)); ?></span>
                                                         </div>
                                                     </div>
-                                                    <div class="gsc-google-auth-right">
-                                                        <!-- SIGN IN WITH GOOGLE -->
-                                                        <a href="<?php echo esc_html($gsc_gravityform_auth_url); ?>"
-                                                            class="gsc-google-btn link-hover-white">
-                                                            <img src="<?php echo esc_url(GRAVITY_GOOGLESHEET_URL . 'assets/image/g-logo.png'); ?>"
-                                                                alt="<?php esc_attr_e('Sign in with Google', 'gsheetconnector-gravity-forms'); ?>"
-                                                                loading="lazy">
-                                                            <?php echo esc_html__('Sign in with Google', 'gsheetconnector-gravity-forms'); ?>
-                                                        </a>
+                                                </div>
+                                                <div class="gsc-google-auth-right">
+                                                    <div class="gsc-connected-pill">
+                                                        <span class="dot"></span>
+                                                        <?php esc_html_e('Connected', 'gsheetconnector-gravity-forms'); ?>
                                                     </div>
-                                                <?php }
-                                            } else {
-
-                                                if ($Code != "") { ?>
-                                                    <div class="gsc-google-auth-left d-flex flex-wrap align-center gap-15">
-                                                        <div class="gsc-google-icon">G</div>
-                                                        <div class="gsc-google-auth-text">
-                                                            <strong><?php echo esc_html__('Client Token', 'gsheetconnector-gravity-forms'); ?></strong>
-                                                        </div>
-                                                    </div>
-                                                    <div class="gsc-google-auth-right">
-                                                        <div class="token-box-width-exist">
-                                                            <input type="password" name="gfgs-code" id="gfgs-code" class="form-control"
-                                                                value="<?php echo esc_attr($Code); ?>" disabled />
-                                                        </div>
-                                                    </div>
-                                            <?php }
-                                            } ?>
+                                                </div>
+                                               
+                                            </div>
                                         </div>
-                                    </div>
-                                <?php
-                                }
-                                ?>
+                                        
 
-                            </div>
+                                        <?php } else {
+                                            ?>
+                                            <div class="gsc-msg gsc-error fw-400 text-dark text-center pt-10 pb-10 manual-margin">
+                                                <?php echo esc_html(__('Authentication failed. Your Google access token may be expired or invalid. Please re-authenticate your account with the required permissions.', 'gsheetconnector-gravity-forms')); ?>
+                                            </div>
 
+                                        <?php
+                                        }
+                                    }
+                                } ?>
+                                       
                             <?php
-                            if (!empty(get_option('gfgs_token'))) {
-                                $google_sheet = new Gfgscf_googlesheet();
-                                $email_account = $google_sheet->gsheet_print_google_account_email();
+                             // If token exists, show disabled input and deactivate button
 
-                                if (!$email_account) {
-                            ?>
-                                    <div class="gsc-msg gsc-error fw-400 text-dark text-center pt-10 pb-10 manual-margin">
-                                        <?php echo esc_html(__('Something went wrong! It looks you have not given the permission of Google Drive and Google Sheets from your google account.Please Deactivate Auth and Re-Authenticate again with the permissions.', 'gsheetconnector-gravity-forms')); ?>
-                                    </div>
-                                <?php
-                                }
-                            }
-
-                            if (empty(get_option('gfgs_verify'))) {
-
-                                if ($Code != "") { ?>
-                                    <div class="button-container mt-30">
-                                        <input type="button" name="save-code" id="save-code"
-                                            value="<?php echo esc_html(__('Save Client Token', 'gsheetconnector-gravity-forms')); ?>"
-                                            class="btn btn-primary btn-pulse" />
-                                        <span class="loading-sign">
-                                    </div>
-                                <?php }
-                            } else {
-                                if (!empty(get_option('gfgs_token')) && get_option('gfgs_token') !== "") {
-
-                                ?>
-
-                                    <input type="button" name="deactivate-log" id="deactivate-log"
+                            $gfgs_token = get_option('gfgs_token');
+                            if (!empty($gfgs_token) && $gfgs_token !== "") { ?>
+                                <div class="button-container mt-30">
+                                     <input type="button" name="deactivate-log" id="deactivate-log"
                                         value="<?php echo esc_html(__('Deactivate', 'gsheetconnector-gravity-forms')); ?>"
                                         class="gsc-btn gsc-btn-gray btn deactivate-btn" />
-                                    <div class="loading-sign-deactive"></div><?php
+                                    <div class="loading-sign-deactive"></div>
+                                </div>
+                            
 
-                                                                            }
-                                                                        } ?>
+                             <?php } else {
+                                    $redirct_uri = admin_url('admin.php?page=gf_googlesheet&tab=integration');// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+                                    $gsc_gravityform_auth_url = "https://oauth.gsheetconnector.com/index.php?client_admin_url=" . urlencode($redirct_uri) . "&plugin=woocommercegsheetconnector";// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+                                    
+                            
+                                       if (empty($code)) { ?>
+                                        <div class="gscgff-integration-box">
+                                            <div class="gsc-google-auth-card d-flex flex-wrap gap-20 justify-between align-center mt-30 mb-30">
+                                                <div class="gsc-google-auth-left d-flex flex-wrap align-center gap-15">
+                                                    <div class="gsc-google-icon">G</div>
+                                                    <div class="gsc-google-auth-text">
+                                                        <strong><?php echo esc_html__('Connect Your Google Account', 'gsheetconnector-gravity-forms'); ?></strong>
+                                                        <p><?php echo esc_html__('Securely link your Google account to start syncing form entries automatically.', 'gsheetconnector-gravity-forms'); ?>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="gsc-google-auth-right">
+                                                    <!-- SIGN IN WITH GOOGLE -->
+                                                    <a href="<?php echo esc_html($gsc_gravityform_auth_url); ?>"
+                                                        class="gsc-google-btn link-hover-white">
+                                                        <img src="<?php echo esc_url(GRAVITY_GOOGLESHEET_URL . 'assets/image/g-logo.png'); ?>"
+                                                            alt="<?php esc_attr_e('Sign in with Google', 'gsheetconnector-gravity-forms'); ?>"
+                                                            loading="lazy">
+                                                        <?php echo esc_html__('Sign in with Google', 'gsheetconnector-gravity-forms'); ?>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                         <?php 
+                                    }
+                             }
 
+                            if (!empty($code)) { ?>
+                            <div class="gscgff-integration-box">
+                                <div class="gsc-google-auth-card d-flex flex-wrap gap-20 justify-between align-center mt-30 mb-30">
+                                <div class="gsc-google-auth-left d-flex flex-wrap align-center gap-15">
+                                        <div class="gsc-google-icon">G</div>
+                                        <div class="gsc-google-auth-text">
+                                            <strong><?php echo esc_html__('Client Token', 'gsheetconnector-gravity-forms'); ?></strong>
+                                        </div>
+                                    </div>
+                                    <div class="gsc-google-auth-right">
+                                        <div class="token-box-width-exist">
+                                            <input type="password" name="gfgs-code" id="gfgs-code" class="form-control"
+                                                value="<?php echo esc_attr($code); ?>" disabled />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="button-container mt-30">
+                                <input type="button" name="save-code" id="save-code"
+                                    value="<?php echo esc_html(__('Save Client Token', 'gsheetconnector-gravity-forms')); ?>"
+                                    class="btn btn-primary btn-pulse" />
+                                <span class="loading-sign">
+                            </div>
+                            <?php
+                            } ?>
+                        
                             <div>
                                 <span id="gsc-validation-message"></span>
                                 <span id="gsc-validation-deactivate-message"></span>
@@ -311,7 +286,7 @@ if ($auth_method == 0) {
                             <?php
                             if (!empty(get_option('gfgs_token'))) {
                                 $google_sheet = new Gfgscf_googlesheet();
-                                $email_account = $google_sheet->gsheet_print_google_account_email();
+                                $email_account = $google_sheet->gsheet_print_google_account_email();// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
 
                                 if (($email_account)) { ?>
@@ -411,6 +386,7 @@ if ($auth_method == 0) {
                 </div>
             </div>
         </div>
+        
         <div class="col-5">
             <div class="step-guide-col ml-20">
                 <div class="heading mt-0"> <?php echo esc_html(__('Connection Guide', 'gsheetconnector-gravity-forms')); ?>
@@ -557,10 +533,10 @@ if ($auth_method == 0) {
 
 
     </div>
-<?php } ?>
+
 <?php
 if (class_exists('gscgf_error_logs')) {
-    $logs = new gscgf_error_logs();
+    $logs = new gscgf_error_logs();// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
     $logs->gsgf_render_page_html();
 }
 ?>

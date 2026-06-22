@@ -3,6 +3,7 @@
 if (!defined('ABSPATH')) {
     exit;
 }
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
 // 🔒 Prevent Subscribers from seeing sensitive info
 if (! current_user_can('manage_options')) {
@@ -348,11 +349,12 @@ if (! current_user_can('manage_options')) {
                             <?php
                             foreach ($network_active_plugins as $plugin => $plugin_data) {
                                 $plugin_data = get_plugin_data(WP_PLUGIN_DIR . '/' . $plugin);
-                                echo $system_info .= '<tr>
-                        <td>' . $plugin_data['Name'] . '</td>
-                        <td>' . $plugin_data['Version'] . '</td>
-                        </tr>';
-                            }
+                                ?>
+                               <tr>
+                        <td><?php echo esc_html($plugin_data['Name']);?> </td>
+                        <td><?php echo esc_html($plugin_data['Version']);?> </td>
+                        </tr>
+                           <?php }
 
                             ?>
                         </table>
@@ -413,10 +415,9 @@ if (! current_user_can('manage_options')) {
                     $counter = 0;
                     foreach ($active_plugins_data as $plugin_data) { ?>
                         <tr>
-                            <td><?php echo $plugin_data['name']; ?> </td>
-                            <td class="fw-600 common-badge-table info-name-blue"> <?php echo $plugin_data['version']; ?></td>
+                            <td><?php echo esc_html($plugin_data['name']); ?> </td>
+                            <td class="fw-600 common-badge-table info-name-blue"> <?php echo esc_html($plugin_data['version']); ?></td>
                         </tr>
-
                     <?php }
                     ?>
                 </table>
@@ -590,7 +591,7 @@ if (! current_user_can('manage_options')) {
                 <table>
                     <?php
                     $database_extension = 'mysqli';
-                    $database_server_version = $wpdb->get_var('SELECT VERSION() as version');
+                    $database_server_version = $wpdb->get_var('SELECT VERSION() as version');// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
                     $database_client_version = $wpdb->db_version();
                     $database_username = DB_USER;
                     $database_host = DB_HOST;
@@ -598,8 +599,8 @@ if (! current_user_can('manage_options')) {
                     $table_prefix = $wpdb->prefix;
                     $database_charset = $wpdb->charset;
                     $database_collation = $wpdb->collate;
-                    $max_allowed_packet_size = $wpdb->get_var("SHOW VARIABLES LIKE 'max_allowed_packet'");
-                    $max_connections_number = $wpdb->get_var("SHOW VARIABLES LIKE 'max_connections'");
+                    $max_allowed_packet_size = $wpdb->get_var("SHOW VARIABLES LIKE 'max_allowed_packet'");// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+                    $max_connections_number = $wpdb->get_var("SHOW VARIABLES LIKE 'max_connections'");// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
                     ?>
                     <tr>
                         <td><?php echo esc_html__('Extension', 'gsheetconnector-gravity-forms'); ?></td>

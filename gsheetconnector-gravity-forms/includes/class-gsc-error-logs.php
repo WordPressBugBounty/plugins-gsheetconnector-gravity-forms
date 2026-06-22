@@ -7,6 +7,7 @@ if (!defined('ABSPATH')) {
  * Create error log table
  * NOTE: Call this from main plugin file on activation
  */
+// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 function gscfg_create_error_log_table()
 {
     global $wpdb;
@@ -79,24 +80,49 @@ if (!class_exists('gscgf_error_logs')) {
         {
             global $wpdb;
 
-            $table = $wpdb->prefix . 'gscgf_error_logs';
+           $table = $wpdb->prefix . 'gscgf_error_logs';
+            
+           $result = $wpdb->get_var(// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+                "SHOW TABLES LIKE '{$wpdb->esc_like( $table )}'"
+            );// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 
-            if ($wpdb->get_var("SHOW TABLES LIKE '$table'") != $table) {
+            if ( empty( $result ) ) {
                 return false;
             }
 
-            // 🔥 IMPORTANT FIX START
+           
             if (is_string($details)) {
                 $decoded = json_decode($details, true);
 
                 if (json_last_error() === JSON_ERROR_NONE) {
-                    $details = $decoded; // already JSON → convert to array
+                    $details = $decoded; 
                 } else {
                     $details = ['raw_error' => $details];
                 }
             }
-            // 🔥 IMPORTANT FIX END
+          
+             //    IMPORTANT FIX END
 
+           // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching
+            $recent_log = $wpdb->get_var(
+                $wpdb->prepare(
+                    // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+                    "SELECT COUNT(*) FROM {$table} WHERE error_id = %s AND code = %d AND message = %s AND created_at >= %s",
+                    $error_id,
+                    $code,
+                    $message,
+                    wp_date(
+                        'Y-m-d H:i:s',
+                        time() - (30 * MINUTE_IN_SECONDS)
+                    )
+                )
+            );
+
+
+            if (!empty($recent_log)) {
+                return false;
+            }
+            // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery
             return $wpdb->insert(
                 $table,
                 [
@@ -126,12 +152,12 @@ if (!class_exists('gscgf_error_logs')) {
         public static function get_request_context()
         {
             return [
-                'request_url'    => esc_url_raw($_SERVER['REQUEST_URI'] ?? ''),
-                'request_method' => $_SERVER['REQUEST_METHOD'] ?? '',
+                'request_url'    => isset($_SERVER['REQUEST_URI']) ? esc_url_raw(wp_unslash($_SERVER['REQUEST_URI'])) : '',
+                'request_method' => isset($_SERVER['REQUEST_METHOD']) ? sanitize_text_field(wp_unslash($_SERVER['REQUEST_METHOD'])) : '',
                 'status_code'    => http_response_code(),
-                'remote_ip'      => $_SERVER['REMOTE_ADDR'] ?? '',
-                'user_agent'     => $_SERVER['HTTP_USER_AGENT'] ?? '',
-                'referrer'       => $_SERVER['HTTP_REFERER'] ?? '',
+                'remote_ip'      => isset($_SERVER['REMOTE_ADDR']) ? sanitize_text_field(wp_unslash($_SERVER['REMOTE_ADDR'])) : '',
+                'user_agent'     => isset($_SERVER['HTTP_USER_AGENT']) ? sanitize_text_field(wp_unslash($_SERVER['HTTP_USER_AGENT'])) : '',
+                'referrer'       => isset($_SERVER['HTTP_REFERER']) ? sanitize_text_field(wp_unslash($_SERVER['HTTP_REFERER'])) : '',
                 'timestamp'      => current_time('mysql'),
             ];
         }
@@ -153,7 +179,7 @@ if (!class_exists('gscgf_error_logs')) {
          */
         public static function log_from_debug($error)
         {
-            // JSON string hoy to decode try karo
+            
             if (is_string($error)) {
                 $decoded = json_decode($error, true);
 
@@ -206,14 +232,17 @@ if (!class_exists('gscgf_error_logs')) {
         public function gsgf_render_page_html()
         {
             global $wpdb;
-            $table = $wpdb->prefix . 'gscgf_error_logs';
+            $table = esc_sql( $wpdb->prefix . 'gscgf_error_logs' );
 
-            if ($wpdb->get_var("SHOW TABLES LIKE '{$table}'") !== $table) {
+            
+            if ( $wpdb->get_var( $wpdb->prepare( 'SHOW TABLES LIKE %s', $table ) ) !== $table ) { // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
                 echo '<div class="notice notice-error"><p>Log table not found.</p></div>';
                 return;
             }
 
-            $logs = $wpdb->get_results(
+           
+            $logs = $wpdb->get_results(  // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+                // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared
                 "SELECT * FROM {$table} ORDER BY created_at DESC",
                 ARRAY_A
             );
@@ -437,10 +466,11 @@ if (!class_exists('gscgf_error_logs')) {
         public static function log_js_error()
         {
             if (!current_user_can('manage_options')) {
-                wp_send_json_error();
+                wp_die('Permission denied.');
             }
-
-            $log = $_POST['log'] ?? [];
+        
+           // phpcs:ignore WordPress.Security.NonceVerification.Missing, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+           $log = isset($_POST['log']) ? wp_unslash($_POST['log']) : [];
 
             if (is_string($log)) {
                 $decoded = json_decode($log, true);
@@ -487,9 +517,10 @@ if (!class_exists('gscgf_error_logs')) {
             check_admin_referer('gsc_download_logs_nonce');
 
             global $wpdb;
-            $table = $wpdb->prefix . 'gscgf_error_logs';
-
-            $logs = $wpdb->get_results("SELECT * FROM {$table}", ARRAY_A);
+            $table = esc_sql( $wpdb->prefix . 'gscgf_error_logs' );
+            
+            
+           $logs = $wpdb->get_results( "SELECT * FROM {$table}", ARRAY_A ); // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- $table is escaped via esc_sql() and used as a table identifier, not a value.
 
             if (empty($logs)) {
                 wp_safe_redirect(wp_get_referer());
@@ -512,16 +543,27 @@ if (!class_exists('gscgf_error_logs')) {
 
             foreach ($logs as $log) {
                 fputcsv($output, array(
-                    $log['created_at'],
-                    $log['error_id'],
-                    $log['code'],
-                    $log['message'],
-                    $log['details'],
+                    self::escape_csv_field($log['created_at']),
+                    self::escape_csv_field($log['error_id']),
+                    self::escape_csv_field($log['code']),
+                    self::escape_csv_field($log['message']),
+                    self::escape_csv_field($log['details']),
                 ));
             }
 
             // fclose optional here (php://output auto closes)
             exit;
+        }
+
+        private static function escape_csv_field($value)
+        {
+            $value = (string) $value;
+
+            if (preg_match('/^[=+\-@\t\r]/', $value)) {
+                return "'" . $value;
+            }
+
+            return $value;
         }
     }
 

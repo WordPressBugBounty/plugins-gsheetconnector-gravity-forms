@@ -145,8 +145,8 @@ if (!defined('ABSPATH')) {
                 <p><?php echo esc_html__('Extend your Google Sheets integration with powerful add-ons. Install, manage, and activate extensions to unlock advanced features.', 'gsheetconnector-gravity-forms'); ?></p>
 
                 <?php
-                $all_plugins = get_plugins();
-                $active_theme = wp_get_theme();
+                $all_plugins = get_plugins();// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+                $active_theme = wp_get_theme();// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
                 $plugins = [
                     'contact-form-7/wp-contact-form-7.php' => [
                         'connector' => 'cf7-google-sheets-connector/google-sheet-connector.php',
@@ -372,8 +372,8 @@ if (!defined('ABSPATH')) {
                     ],
 
                     'woocommerce/woocommerce.php' => [
-                        'connector' => 'gsheetconnector-gravity-forms/gsheetconnector-gravity-forms.php',
-                        'connector-pro' => 'gsheetconnector-gravity-forms/wc-gsheetconnector.php',
+                        'connector' => 'wc-gsheetconnector/wc-gsheetconnector.php',
+						'connector-pro' => 'wc-gsheetconnector-pro/wc-gsheetconnector-pro.php',
                         'name' => __('WooCommerce Google Sheet Connector', 'gsheetconnector-gravity-forms'),
                         'link' => 'https://www.gsheetconnector.com/woocommerce-google-sheet-connector-pro',
                         'img' => esc_url(GRAVITY_GOOGLESHEET_URL) . '/assets/image/pro-woo-gsc.webp',
@@ -422,47 +422,47 @@ if (!defined('ABSPATH')) {
                 <div class="gsheetconnector-addons-list gsc-ext-grid">
 
                     <?php
-                    foreach ($plugins as $plugin => $details) {
+                    foreach ($plugins as $plugin => $details ) {// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
                         // =========================
                         // MAIN PLUGIN CHECK
                         // =========================
-                        $is_main_installed = false;
-                        $is_main_active    = false;
+                        $is_main_installed = false;// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+                        $is_main_active    = false;// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
                         if (!empty($details['mainPlugin']) && is_array($details['mainPlugin'])) {
 
-                            foreach ($details['mainPlugin'] as $main_plugin) {
+                            foreach ($details['mainPlugin'] as $main_plugin) { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
                                 if (isset($all_plugins[$main_plugin])) {
-                                    $is_main_installed = true;
+                                    $is_main_installed = true;// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
                                 }
 
                                 if (is_plugin_active($main_plugin)) {
-                                    $is_main_active = true;
+                                    $is_main_active = true;// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
                                     break;
                                 }
                             }
                         } elseif (!empty($details['mainPlugin']) && is_string($details['mainPlugin'])) {
 
-                            $is_main_installed = isset($all_plugins[$details['mainPlugin']]);
+                            $is_main_installed = isset($all_plugins[$details['mainPlugin']]);// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
-                            $is_main_active = is_plugin_active($details['mainPlugin']);
+                            $is_main_active = is_plugin_active($details['mainPlugin']);// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
                         }
 
                         // =========================
                         // FREE / PRO STATUS
                         // =========================
-                        $is_pro_installed = !empty($details['pro_plugin_active']) &&
+                        $is_pro_installed = !empty($details['pro_plugin_active']) && // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
                             isset($all_plugins[$details['pro_plugin_active']]);
 
-                        $is_pro_active = !empty($details['pro_plugin_active']) &&
+                        $is_pro_active = !empty($details['pro_plugin_active']) && // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
                             is_plugin_active($details['pro_plugin_active']);
 
-                        $is_free_installed = !empty($details['connector']) &&
+                        $is_free_installed = !empty($details['connector']) && // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
                             isset($all_plugins[$details['connector']]);
 
-                        $is_free_active = !empty($details['connector']) &&
+                        $is_free_active = !empty($details['connector']) && // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
                             is_plugin_active($details['connector']);
 
                         // =========================
@@ -634,24 +634,24 @@ if (!defined('ABSPATH')) {
                     </div>
                 </div>
                 <div class="gsheetconnector-addons-list gsc-ext-grid">
-                    <?php foreach ($plugins as $plugin => $data):
-                        $is_main_active = false;
+                    <?php foreach ($plugins as $plugin => $data): // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+                        $is_main_active = false; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
                         if (!empty($data['mainPlugin'])) {
-                            $main_plugins = is_array($data['mainPlugin']) ? $data['mainPlugin'] : [$data['mainPlugin']];
-                            foreach ($main_plugins as $main_plugin) {
+                            $main_plugins = is_array($data['mainPlugin']) ? $data['mainPlugin'] : [$data['mainPlugin']]; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+                            foreach ($main_plugins as $main_plugin) { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
                                 if (is_plugin_active($main_plugin)) {
-                                    $is_main_active = true;
+                                    $is_main_active = true;// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
                                     break;
                                 }
                             }
                         }
-                        $active_theme      = wp_get_theme();
-                        $active_theme_slug = $active_theme->get_stylesheet();
-                        $is_theme_match    = ($active_theme_slug === $data['theme']);
-                        $is_pro_installed  = !empty($data['pro_plugin_active']) && isset($all_plugins[$data['pro_plugin_active']]);
-                        $is_pro_active     = !empty($data['pro_plugin_active']) && is_plugin_active($data['pro_plugin_active']);
-                        $is_free_installed = !empty($data['connector']) && isset($all_plugins[$data['connector']]);
-                        $is_free_active    = !empty($data['connector']) && is_plugin_active($data['connector']);
+                        $active_theme      = wp_get_theme(); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+                        $active_theme_slug = $active_theme->get_stylesheet(); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+                        $is_theme_match    = ($active_theme_slug === $data['theme']); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+                        $is_pro_installed  = !empty($data['pro_plugin_active']) && isset($all_plugins[$data['pro_plugin_active']]); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+                        $is_pro_active     = !empty($data['pro_plugin_active']) && is_plugin_active($data['pro_plugin_active']);  // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+                        $is_free_installed = !empty($data['connector']) && isset($all_plugins[$data['connector']]);// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+                        $is_free_active    = !empty($data['connector']) && is_plugin_active($data['connector']);// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
                         if (!$is_theme_match) {
                             if (!$is_main_active)                        continue;
                             if ($is_pro_active)                          continue;
@@ -797,33 +797,33 @@ if (!defined('ABSPATH')) {
 
                     <div class="gsheetconnector-addons-list gsc-ext-grid">
 
-                        <?php foreach ($plugins as $plugin => $data):
+                        <?php foreach ($plugins as $plugin => $data): // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
                             // ---------------------------------
                             // MAIN PLUGIN ACTIVE CHECK
                             // ---------------------------------
-                            $is_main_active = false;
+                            $is_main_active = false; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
                             if (!empty($data['mainPlugin'])) {
                                 if (is_array($data['mainPlugin'])) {
-                                    foreach ($data['mainPlugin'] as $main_plugin) {
+                                    foreach ($data['mainPlugin'] as $main_plugin) { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
                                         if (is_plugin_active($main_plugin)) {
-                                            $is_main_active = true;
+                                            $is_main_active = true; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
                                             break;
                                         }
                                     }
                                 } elseif (is_string($data['mainPlugin'])) {
-                                    $is_main_active = is_plugin_active($data['mainPlugin']);
+                                    $is_main_active = is_plugin_active($data['mainPlugin']); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
                                 }
                             }
 
                             // ---------------------------------
                             // FREE / PRO INSTALLED CHECK
                             // ---------------------------------
-                            $is_free_installed = !empty($data['connector'])
+                            $is_free_installed = !empty($data['connector']) // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
                                 && isset($all_plugins[$data['connector']]);
 
-                            $is_pro_installed  = !empty($data['pro_plugin_active'])
+                            $is_pro_installed  = !empty($data['pro_plugin_active']) // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
                                 && isset($all_plugins[$data['pro_plugin_active']]);
 
                             /**
@@ -838,12 +838,12 @@ if (!defined('ABSPATH')) {
                             // ---------------------------------
                             // CATEGORY (FILTERING SAFE)
                             // ---------------------------------
-                            $category = 'forms';
+                            $category = 'forms'; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
                             if (in_array($data['theme'], ['Avada', 'Divi', 'elements'], true)) {
-                                $category = 'builders';
+                                $category = 'builders'; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
                             } elseif (in_array($data['theme'], ['woocommerce', 'easy-digital-downloads'], true)) {
-                                $category = 'shop';
+                                $category = 'shop'; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
                             }
                         ?>
 

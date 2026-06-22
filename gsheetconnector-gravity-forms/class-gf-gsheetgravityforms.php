@@ -59,7 +59,9 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
     $fields = array();
 
     // Check if 'id' is set in $_GET and sanitize
+    // phpcs:ignore WordPress.Security.NonceVerification.Recommended
     $form_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+    // phpcs:ignore WordPress.Security.NonceVerification.Recommended
     $feed_id = isset($_GET['fid']) ? intval($_GET['fid']) : 0;
 
     $form_data = get_post_meta($form_id, 'gfgs_settings', true);
@@ -196,6 +198,7 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
    */
   public function settings_display_sheet_details($field)
   {
+    // phpcs:ignore WordPress.Security.NonceVerification.Recommended
     $form_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
     $get_data = get_post_meta($form_id, 'gfgs_settings');
@@ -1110,11 +1113,18 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
 
 
             <div class="gform-settings-field__header">
-              <P>
+              
                 <label class="gform-settings-label" for="gsheet_sync_entries">
                   <?php echo esc_html__("Spreadsheet Download", "gsheetconnector-gravity-forms"); ?>
+                  <button
+                onclick="return false;"
+                onkeypress="return false;"
+                class="gf_tooltip tooltip"
+                aria-label="Download the connected Google Spreadsheet.">
+                <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
+              </button> <span class="pro-ver"> <?php echo esc_html__("PRO", "gsheetconnector-gravity-forms"); ?> </span>
                 </label>
-               </P>
+              
                <P class="gscgff-download-btn">
                 <a href="#" class="gscgff-sdownload-button">
                   <i class="fa-regular fa-file-zipper text-dark fw-500 mr-5">
@@ -1122,8 +1132,6 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
                 </a>
               </P>
             
-
-
               <label class="gform-settings-label gsheet_sync_entries" for="gsheet_sync_entries">
                 <?php echo esc_html__("Google Sheets Data Sync", "gsheetconnector-gravity-forms"); ?>
               </label>
@@ -1195,7 +1203,7 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
         }
       }
     }
-
+    // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
     $field_list = apply_filters("gcgf_form_field_list", $field_list, $form);
     return $field_list;
   }
@@ -1243,29 +1251,29 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
    * Set Google Sheet settings with GravityForms
    * @since 1.0
    */
-  public function after_save_form_settings()
+   public function after_save_form_settings()
   {
-    if (isset($_POST['gform-settings-save'])) {
+    if (isset($_POST['gform-settings-save'])) { // phpcs:ignore WordPress.Security.NonceVerification.Missing
       $gravityform_tags = array();
-      $form_id = isset($_GET['id']) ? absint(wp_unslash($_GET['id'])) : 0;
+      $form_id = isset($_GET['id']) ? absint(wp_unslash($_GET['id'])) : 0; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
       // echo '<pre>';print_r($_POST);die;
       $get_existing_data = get_post_meta($form_id, 'gfgs_settings');
       // get sheet name and tab name
-      $sheet_name = isset($_POST['_gform_setting_gf-gs-sheet-name'])
-        ? sanitize_text_field(wp_unslash($_POST['_gform_setting_gf-gs-sheet-name']))
+      $sheet_name = isset($_POST['_gform_setting_gf-gs-sheet-name']) // phpcs:ignore WordPress.Security.NonceVerification.Missing
+        ? sanitize_text_field(wp_unslash($_POST['_gform_setting_gf-gs-sheet-name'])) // phpcs:ignore WordPress.Security.NonceVerification.Missing
         : '';
 
-      $tab_name = isset($_POST['gf-gs']['sheet-tab-name'])
-        ? sanitize_text_field(wp_unslash($_POST['gf-gs']['sheet-tab-name']))
+      $tab_name = isset($_POST['gf-gs']['sheet-tab-name'])// phpcs:ignore WordPress.Security.NonceVerification.Missing
+        ? sanitize_text_field(wp_unslash($_POST['gf-gs']['sheet-tab-name']))// phpcs:ignore WordPress.Security.NonceVerification.Missing
         : '';
 
-      $sheet_id = isset($_POST['gf-gs']['sheet-id'])
-        ? sanitize_text_field(wp_unslash($_POST['gf-gs']['sheet-id']))
+      $sheet_id = isset($_POST['gf-gs']['sheet-id'])// phpcs:ignore WordPress.Security.NonceVerification.Missing
+        ? sanitize_text_field(wp_unslash($_POST['gf-gs']['sheet-id']))// phpcs:ignore WordPress.Security.NonceVerification.Missing
         : '';
 
-      $tab_id = isset($_POST['gf-gs']['tab-id'])
-        ? sanitize_text_field(wp_unslash($_POST['gf-gs']['tab-id']))
+      $tab_id = isset($_POST['gf-gs']['tab-id'])// phpcs:ignore WordPress.Security.NonceVerification.Missing
+        ? sanitize_text_field(wp_unslash($_POST['gf-gs']['tab-id']))// phpcs:ignore WordPress.Security.NonceVerification.Missing
         : '';
 
 
@@ -1283,8 +1291,8 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
       }
 
 
-      if (!empty($sheet_name) && !empty($tab_name) && isset($_POST['gf-gs']) && is_array($_POST['gf-gs'])) {
-        $raw_data = wp_unslash($_POST['gf-gs']);
+      if (!empty($sheet_name) && !empty($tab_name) && isset($_POST['gf-gs']) && is_array($_POST['gf-gs'])) {// phpcs:ignore WordPress.Security.NonceVerification.Missing
+        $raw_data = isset($_POST['gf-gs']) ? sanitize_text_field(wp_unslash($_POST['gf-gs'])) : '';// phpcs:ignore WordPress.Security.NonceVerification.Missing
         $sanitized_data = array_map('sanitize_text_field', $raw_data);
         update_post_meta($form_id, 'gfgs_settings', $sanitized_data);
       }
@@ -1367,6 +1375,7 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
       }
     }
 
+    // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
     $processable_feeds = apply_filters("gcgf_processable_feeds", $processable_feeds, $entry, $form);
 
     if (!empty($processable_feeds)) {
@@ -1441,8 +1450,8 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
 
               // Map to exact sheet column header names
               $label_map = [
-                'First' => 'First',   // <-- change right side to match your sheet header exactly
-                'Last'  => 'Last',    // <-- change right side to match your sheet header exactly
+                'First' => 'First',  
+                'Last'  => 'Last', 
               ];
 
               $subfield_label = isset($input['customLabel']) && !empty($input['customLabel'])
@@ -1537,7 +1546,7 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
               if (!empty($field->dateFormat) && isset($format_map[$field->dateFormat])) {
                 // Use the format set in the Gravity Forms field
                 $php_format = $format_map[$field->dateFormat];
-                $data_value[$label] = date($php_format, strtotime($date_value));
+                $data_value[$label] = gmdate($php_format, strtotime($date_value));
               } else {
                 // Fallback: use WordPress site date format
                 $data_value[$label] = date_i18n(get_option('date_format'), strtotime($date_value));

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Gravity Form GSC Free\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-12 18:47+0530\n"
-"PO-Revision-Date: 2026-06-12 19:37+0530\n"
+"PO-Revision-Date: 2026-06-22 15:11+0530\n"
 "Last-Translator: POForge <noreply@poforge.com>\n"
 "Language-Team: zh_CN <noreply@poforge.com>\n"
 "Language: zh_CN\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.9\n"
+"X-Generator: Poedit 2.4.3\n"
 
 #: class-gf-gsheetgravityforms.php:96
 msgid "Feed Name"
@@ -1105,10 +1105,8 @@ msgid "Discover tools that integrate seamlessly and help you get more done."
 msgstr "发现无缝集成的工具，帮助您完成更多工作。"
 
 #: includes/pages/google-sheet-settings.php:231
-#, fuzzy
-#| msgid "Details"
 msgid "View Details"
-msgstr "详细信息"
+msgstr "查看详情"
 
 #: includes/pages/google-sheet-settings.php:250
 #: includes/pages/gs-gravity-integration.php:85
@@ -1345,16 +1343,16 @@ msgid ""
 "<p class=\"fw-400 text-dark\"><strong>Google Drive</strong> and "
 "<strong>Google Sheets</strong> permissions were not granted during "
 "authentication with Google.</p>\n"
-"                                            <p class=\"fw-400 text-"
-"dark\"><strong>Refer to Step 4 in the Connection Guide shown alongside.</"
+"                                            <p class=\"fw-400 text-dark"
+"\"><strong>Refer to Step 4 in the Connection Guide shown alongside.</"
 "strong><br> Then, deactivate the connection and re-authorize it, ensuring "
 "both Google Drive and Google Sheets permissions are enabled.</p>"
 msgstr ""
 "<p class=\"fw-400 text-dark\"><strong>Google Drive</strong> 和 "
 "<strong>Google Sheets</strong> 权限在与 Google 认证时未被授予。</p>\n"
-"                                            <p class=\"fw-400 text-"
-"dark\"><strong>请参考旁边显示的连接指南中的第 4 步。</strong><br> 然后，停用"
-"连接并重新授权，确保启用 Google Drive 和 Google Sheets 的权限。</p>"
+"                                            <p class=\"fw-400 text-dark"
+"\"><strong>请参考旁边显示的连接指南中的第 4 步。</strong><br> 然后，停用连接"
+"并重新授权，确保启用 Google Drive 和 Google Sheets 的权限。</p>"
 
 #: includes/pages/gs-gravity-integration.php:178
 msgid "Connected Google Account"
@@ -1883,10 +1881,8 @@ msgid "Automatic Select Spreadsheet"
 msgstr "自动选择电子表格"
 
 #: includes/pages/gs-gravityform-dashboard.php:64
-#, fuzzy
-#| msgid "Save Settings"
 msgid "Role Settings"
-msgstr "保存设置"
+msgstr "角色设置"
 
 #: includes/pages/gs-gravityform-dashboard.php:75
 msgid "Plugins by Category"

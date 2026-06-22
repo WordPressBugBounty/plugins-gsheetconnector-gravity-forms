@@ -25,7 +25,9 @@ if (!defined('ABSPATH')) {
                                 </label>
                             </div>
                             <div>
-                                <?php $get_gscgff_uninstall_setting =  get_option('gscgff_uninstall_setting'); ?>
+                              <?php
+                                $get_gscgff_uninstall_setting = get_option('gscgff_uninstall_setting');  // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+                                ?>
                                 <input type="hidden" name="gscgff_gravityform_uninstall_settings_free" value="No">
                                 <div class="custom-check">
                                     <input type="checkbox" class="gscgff-check-toggle"

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Gravity Form GSC Free\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-12 18:47+0530\n"
-"PO-Revision-Date: 2026-06-12 19:02+0530\n"
+"PO-Revision-Date: 2026-06-22 15:09+0530\n"
 "Last-Translator: POForge <noreply@poforge.com>\n"
 "Language-Team: es_ES <noreply@poforge.com>\n"
 "Language: es_ES\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.9\n"
+"X-Generator: Poedit 2.4.3\n"
 
 #: class-gf-gsheetgravityforms.php:96
 msgid "Feed Name"
@@ -366,10 +366,8 @@ msgstr "Ordenación de la Hoja"
 
 #: class-gf-gsheetgravityforms.php:1005 class-gf-gsheetgravityforms.php:1072
 #: class-gf-gsheetgravityforms.php:1078
-#, fuzzy
-#| msgid "Conditional Options"
 msgid "Condition"
-msgstr "Opciones condicionales"
+msgstr "Condición"
 
 #: class-gf-gsheetgravityforms.php:1036
 msgid "Sort Column Name"
@@ -392,20 +390,16 @@ msgid "Spreadsheet Download"
 msgstr "Descargar hoja de cálculo"
 
 #: class-gf-gsheetgravityforms.php:1121
-#, fuzzy
-#| msgid "Download CSV"
 msgid "Download"
-msgstr "Descargar CSV"
+msgstr "Descargar"
 
 #: class-gf-gsheetgravityforms.php:1128
 msgid "Google Sheets Data Sync"
 msgstr "Sincronización de Datos de Google Sheets"
 
 #: class-gf-gsheetgravityforms.php:1144
-#, fuzzy
-#| msgid "Sync Past Entries"
 msgid "Sync Entries"
-msgstr "Sincronizar entradas pasadas"
+msgstr "Sincronizar entradas"
 
 #: class-gf-gsheetgravityforms.php:1297
 #: includes/pages/gs-gravityform-system-info.php:296
@@ -1168,10 +1162,8 @@ msgstr ""
 "más."
 
 #: includes/pages/google-sheet-settings.php:231
-#, fuzzy
-#| msgid "Details"
 msgid "View Details"
-msgstr "Detalles"
+msgstr "Ver detalles"
 
 #: includes/pages/google-sheet-settings.php:250
 #: includes/pages/gs-gravity-integration.php:85
@@ -1355,10 +1347,8 @@ msgid "Select how Gravity Forms should authenticate with Google Sheets."
 msgstr "Selecciona cómo Gravity Forms debe autenticarse con Google Sheets."
 
 #: includes/pages/gs-gravity-integration.php:70
-#, fuzzy
-#| msgid "CF7 Google Sheet Connector"
 msgid "Google Account Connection"
-msgstr "Conector de Google Sheet para CF7"
+msgstr "Conexión de Cuenta de Google"
 
 #: includes/pages/gs-gravity-integration.php:72
 msgid "Auto Setup"
@@ -1418,19 +1408,19 @@ msgid ""
 "<p class=\"fw-400 text-dark\"><strong>Google Drive</strong> and "
 "<strong>Google Sheets</strong> permissions were not granted during "
 "authentication with Google.</p>\n"
-"                                            <p class=\"fw-400 text-"
-"dark\"><strong>Refer to Step 4 in the Connection Guide shown alongside.</"
+"                                            <p class=\"fw-400 text-dark"
+"\"><strong>Refer to Step 4 in the Connection Guide shown alongside.</"
 "strong><br> Then, deactivate the connection and re-authorize it, ensuring "
 "both Google Drive and Google Sheets permissions are enabled.</p>"
 msgstr ""
 "<p class=\"fw-400 text-dark\"><strong>Google Drive</strong> y <strong>Google "
 "Sheets</strong> no se concedieron permisos durante la autenticación con "
 "Google.</p>\n"
-"                                            <p class=\"fw-400 text-"
-"dark\"><strong>Consulta el Paso 4 en la Guía de Conexión que se muestra "
-"junto a esto.</strong><br> Luego, desactiva la conexión y vuelve a "
-"autorizarla, asegurándote de que se habiliten los permisos de Google Drive y "
-"Google Sheets.</p>"
+"                                            <p class=\"fw-400 text-dark"
+"\"><strong>Consulta el Paso 4 en la Guía de Conexión que se muestra junto a "
+"esto.</strong><br> Luego, desactiva la conexión y vuelve a autorizarla, "
+"asegurándote de que se habiliten los permisos de Google Drive y Google "
+"Sheets.</p>"
 
 #: includes/pages/gs-gravity-integration.php:178
 msgid "Connected Google Account"

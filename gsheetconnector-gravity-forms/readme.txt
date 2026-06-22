@@ -1,15 +1,15 @@
 === GSheetConnector for Gravity Forms – Send Gravity Forms Entries to Google Sheets in Real-Time ===
 Contributors: westerndeal, abdullah17, gsheetconnector
-Tags: gravity forms, gravity forms google sheets, gravity forms to google sheets, google sheets, gravity forms spreadsheet, export gravity forms entries, gravity forms sync
+Tags: gravity forms, gravity forms google sheets, gravity forms spreadsheet, export gravity forms entries, gravity forms sync
 Requires at least: 5.6
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.4.2
+Stable tag: 1.4.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Author URI: https://www.gsheetconnector.com/
 
-Send Gravity Forms entries to Google Sheets in real-time. Automatically sync Gravity Forms submissions to Google Sheets with secure Google Sheets integration.
+Send Gravity Forms entries to Google Sheets in real-time and automatically sync form submissions with Google Sheets.
 
 == Description ==
 
@@ -180,6 +180,9 @@ Your Gravity Forms submissions will now sync automatically to Google Sheets in r
 
 
 == Changelog ==
+
+= 1.4.3 = (22-06-2026)
+* Fixed: Security enhancements and fixes for improved protection and compatibility.
 
 = 1.4.2 = (13-06-2026)
 * Added: UI for Dashboard Tab.

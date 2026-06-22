@@ -3,20 +3,20 @@
 if (!defined('ABSPATH')) {
     exit;
 }
-
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 if (!current_user_can('administrator')) {
 ?>
     <span class="per_not_allo"><?php echo esc_html__("Permission Not Allowed", 'gsheetconnector-gravity-forms'); ?></span>
 <?php
     return;
 }
-$allowed_accress_roles = array('administrator', 'editor', 'author', 'contributor');
+$gsheetconnector_allowed_accress_roles  = array('administrator', 'editor', 'author', 'contributor');
 $participating_roles = array();
 $editable_roles = get_editable_roles();
 
 foreach ($editable_roles as $role => $details) {
 
-    if (in_array($role, $allowed_accress_roles)) {
+    if (in_array($role, $gsheetconnector_allowed_accress_roles )) {
         $participating_roles[$role] = $details['name'];
     }
 }

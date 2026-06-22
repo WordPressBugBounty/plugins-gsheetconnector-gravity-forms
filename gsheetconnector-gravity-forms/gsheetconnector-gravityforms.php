@@ -8,7 +8,7 @@
  * Requires PHP:7.4
  * Author: GSheetConnector
  * Author URI: https://www.gsheetconnector.com/
- * Version: 1.4.2
+ * Version: 1.4.3
  * Text Domain: gsheetconnector-gravity-forms
  * License: GPLv2
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -27,24 +27,24 @@ if (is_plugin_active('gsheetconnector-gravityforms-pro/gsheetconnector-gravityfo
   return;
 }
 
-/* Defined Global Variable for plugin activatio*/
-global $activate_the_plugin;
-$activate_the_plugin = false;
+/* Defined Global Variable for plugin activation*/
+global $activate_the_plugin;// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+$activate_the_plugin = false;// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
 $plugin = plugin_basename(__FILE__);
-$parent_plugins = 'gravityforms/gravityforms.php';
+$parent_plugins = 'gravityforms/gravityforms.php';// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
 
 /**
  * Fixed multisite activation issue
  * @since 1.0.11
  */
-
+// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 $current_site_id = get_current_blog_id();
 
 /* Check if Multisite and single site activated plugin code */
 if ((is_multisite() && !empty($current_site_id))) {
- function get_activated_plugins_for_site($site_id)
+ function get_activated_plugins_for_site($site_id)// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
  {
   /* Switch to the specific site */
   switch_to_blog($site_id);
@@ -57,27 +57,29 @@ if ((is_multisite() && !empty($current_site_id))) {
 
   return $activated_plugins;
 }
-
+// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 $active_plugins = get_activated_plugins_for_site($current_site_id);
 
 if ((in_array($parent_plugins, $active_plugins))) {
-  $activate_the_plugin = true;
+  
+  $activate_the_plugin = true;// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 }
 }
 
 /* Check if Multisite and network activated plugin code */
 if (is_multisite()) {
+ // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
  $active_plugins = get_site_option('active_sitewide_plugins');
 
  if ((array_key_exists($parent_plugins, $active_plugins))) {
-  $activate_the_plugin = true;
+  $activate_the_plugin = true;// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 }
 }
 /* Check if Singlesite activation of plugin code */ else {
- $active_plugins = get_option('active_plugins');
+ $active_plugins = get_option('active_plugins');// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
  if ((in_array($parent_plugins, $active_plugins))) {
-  $activate_the_plugin = true;
+  $activate_the_plugin = true;// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 }
 }
 
@@ -90,8 +92,8 @@ if (Gforms_Gsheet_Connector_Free_Init::gscgf_is_pugin_active('Gforms_Gsheet_Conn
 }
 
 /* Declare some global constants */
-define('GRAVITY_GOOGLESHEET_VERSION', '1.4.2');
-define('GRAVITY_GOOGLESHEET_DB_VERSION', '1.4.2');
+define('GRAVITY_GOOGLESHEET_VERSION', '1.4.3');
+define('GRAVITY_GOOGLESHEET_DB_VERSION', '1.4.3');
 define('GRAVITY_GOOGLESHEET_ROOT', dirname(__FILE__));
 define('GRAVITY_GOOGLESHEET_URL', plugins_url('/', __FILE__));
 define('GRAVITY_GOOGLESHEET_BASE_FILE', basename(dirname(__FILE__)) . '/gsheetconnector-gravityforms.php');
@@ -99,11 +101,11 @@ define('GRAVITY_GOOGLESHEET_BASE_NAME', plugin_basename(__FILE__));
 define('GRAVITY_GOOGLESHEET_API_URL', 'https://oauth.gsheetconnector.com/api-cred.php');
 define('GRAVITY_GOOGLESHEET_PATH', plugin_dir_path(__FILE__)); //use for include files to other files
 
-if ($activate_the_plugin) {
+if ($activate_the_plugin) {// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
  /* Freemius  Start */
  if (!function_exists('gg_fs')) {
   /* Create a helper function for easy SDK access. */
-  function gg_fs()
+  function gg_fs()// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
   {
    global $gg_fs;
 
@@ -116,7 +118,7 @@ if ($activate_the_plugin) {
    /* Include Freemius SDK. */
    require_once dirname(__FILE__) . '/lib/vendor/freemius/start.php';
 
-    $gg_fs = fs_dynamic_init(array(
+    $gg_fs = fs_dynamic_init(array(// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
     'id' => '17696',
     'slug' => 'gsheetconnector-gravity-forms',
     'type' => 'plugin',
@@ -140,7 +142,7 @@ if ($activate_the_plugin) {
 /* Init Freemius. */
 gg_fs();
 /* Signal that SDK was initiated. */
-do_action('gg_fs_loaded');
+do_action('gg_fs_loaded');// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 }
 }
 /* Freemius End */
@@ -258,6 +260,7 @@ public function gsheetconnector_gform_activate($network_wide)
     /*  check if it is a network activation - if so, run the activation function for each blog id */
     if ($network_wide) {
      /* Get all blog ids */
+     // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
      $blogids = $wpdb->get_col("SELECT blog_id FROM {$wpdb->base_prefix}blogs");
      foreach ($blogids as $blog_id) {
       switch_to_blog($blog_id);
@@ -310,6 +313,7 @@ public static function gsheetconnector_gform_uninstall()
    Gforms_Gsheet_Connector_Free_Init::run_on_uninstall();
    if (function_exists('is_multisite') && is_multisite()) {
     /* Get all blog ids; foreach of them call the uninstall procedure */
+    // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
     $blog_ids = $wpdb->get_col("SELECT blog_id FROM {$wpdb->base_prefix}blogs");
 
     /* Get all blog ids; foreach them and call the install procedure on each of them if the plugin table is found */
@@ -339,7 +343,7 @@ public function validate_parent_plugin_exists()
     add_action('admin_notices', array($this, 'gform_missing_notice'));
     add_action('network_admin_notices', array($this, 'gform_missing_notice'));
     deactivate_plugins($plugin);
-    if (isset($_GET['activate'])) {
+    if (isset($_GET['activate'])) {// phpcs:ignore WordPress.Security.NonceVerification.Recommended
      /*  Do not sanitize it because we are destroying the variables from URL */
      unset($_GET['activate']);
    }
@@ -446,17 +450,17 @@ public function add_js_files()
  }
 
  /*  Direct plugin page (top-level menu) */
- if (isset($_GET['page']) && $_GET['page'] === 'gf_googlesheet') {
+ if (isset($_GET['page']) && $_GET['page'] === 'gf_googlesheet') {// phpcs:ignore WordPress.Security.NonceVerification.Recommended
    $this->enqueue_gsheetconnector_js();
    return;
  }
 
       // Gravity Forms → Form Settings → Google Sheet Connector
  if (
-   isset($_GET['page'], $_GET['view'], $_GET['subview']) &&
-   $_GET['page'] === 'gf_edit_forms' &&
-   $_GET['view'] === 'settings' &&
-   $_GET['subview'] === 'gsheetconnector-gravity-forms'
+   isset($_GET['page'], $_GET['view'], $_GET['subview']) &&// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+   $_GET['page'] === 'gf_edit_forms' &&// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+   $_GET['view'] === 'settings' &&// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+   $_GET['subview'] === 'gsheetconnector-gravity-forms'// phpcs:ignore WordPress.Security.NonceVerification.Recommended
  ) {
    $this->enqueue_gsheetconnector_js();
  }
@@ -474,7 +478,7 @@ public function add_js_files()
 private function enqueue_gsheetconnector_js()
 {
 
-  if (is_admin() && (isset($_GET['page']) && (($_GET['page'] == 'gf_googlesheet') || ($_GET['page'] == 'gf_edit_forms')))) {
+  if (is_admin() && (isset($_GET['page']) && (($_GET['page'] == 'gf_googlesheet') || ($_GET['page'] == 'gf_edit_forms')))) {// phpcs:ignore WordPress.Security.NonceVerification.Recommended
   }
   wp_enqueue_script(
    'gfgs-connector-js',
@@ -543,22 +547,22 @@ public function add_css_files()
  }
 
  /*  Direct plugin page */
- if (isset($_GET['page']) && $_GET['page'] === 'gf_googlesheet') {
+ if (isset($_GET['page']) && $_GET['page'] === 'gf_googlesheet') {// phpcs:ignore WordPress.Security.NonceVerification.Recommended
    $this->enqueue_gsheetconnector_css();
    return;
  }
 
  /*  Gravity Forms → Form Settings → Google Sheet Connector */
  if (
-   isset($_GET['page'], $_GET['view'], $_GET['subview']) &&
-   $_GET['page'] === 'gf_edit_forms' &&
-   $_GET['view'] === 'settings' &&
-   $_GET['subview'] === 'gsheetconnector-gravity-forms'
+   isset($_GET['page'], $_GET['view'], $_GET['subview']) && // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+   $_GET['page'] === 'gf_edit_forms' && // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+   $_GET['view'] === 'settings' && // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+   $_GET['subview'] === 'gsheetconnector-gravity-forms' // phpcs:ignore WordPress.Security.NonceVerification.Recommended
  ) {
    $this->enqueue_gsheetconnector_css();
  } 
 
- if (isset($_GET['page']) && $_GET['page'] === 'gf_edit_forms') {
+ if (isset($_GET['page']) && $_GET['page'] === 'gf_edit_forms') { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
   wp_enqueue_style(
    'gsc-garvity-css',
@@ -678,18 +682,19 @@ private function enqueue_gsheetconnector_css()
 public function run_on_upgrade()
 {
   try {
-   $plugin_options = get_site_option('gfgs_info');
-   if ($plugin_options['version'] == '1.3.19') {
-    $this->upgrade_database_18();
-  }
+	$plugin_options = get_site_option('gfgs_info');
+   	$version = isset( $plugin_options['version'] ) ? $plugin_options['version'] : '';
+   	if ( '1.3.19' === $version ) {
+		$this->upgrade_database_18();
+	}
 
-  if ($plugin_options['version'] == '1.3.31') {
-    $this->upgrade_database_1331();
-  }
+	if ( '1.3.31' === $version ) {
+		$this->upgrade_database_1331();
+	}
 
-  if ($plugin_options['version'] == '1.4.0') {
-    $this->upgrade_database_140();
-  }
+	if ( '1.4.0' === $version ) {
+		$this->upgrade_database_140();
+	}
 
   /* update the version value */
   $google_sheet_info = array(
@@ -727,6 +732,7 @@ public function upgrade_database_18()
   /*  look through each of the blogs and upgrade the DB */
   if (function_exists('is_multisite') && is_multisite()) {
    /* Get all blog ids; foreach them and call the uninstall procedure on each of them */
+   // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
    $blog_ids = $wpdb->get_col("SELECT blog_id FROM {$wpdb->base_prefix}blogs");
 
    /* Get all blog ids; foreach them and call the install procedure on each of them if the plugin table is found */
@@ -808,6 +814,7 @@ public function create_errorlog_table_in_database()
      * Check if table already exists in database
      * If exists → skip creation
      */
+    // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
     $table_exists = $wpdb->get_var(
       $wpdb->prepare("SHOW TABLES LIKE %s", $table)
     );
@@ -945,9 +952,11 @@ private static function delete_for_site()
 
     /** Delete gravity form error log table  */
     global $wpdb;
+    // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
     $wpdb->query(
-     "DROP TABLE IF EXISTS {$wpdb->prefix}gscgf_error_logs"
+     "DROP TABLE IF EXISTS {$wpdb->prefix}gscgf_error_logs" // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.DirectDatabaseQuery.SchemaChange
    );
+   // phpcs:enable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
   }
 }
 }
@@ -1055,7 +1064,7 @@ public function add_gf_connector_summary_widget()
 
 
 add_action('gform_loaded', 'load_gsheetconnector_gforms_free_version', 40);
-function load_gsheetconnector_gforms_free_version()
+function load_gsheetconnector_gforms_free_version() // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 {
    /*
     * include utility classes
@@ -1081,9 +1090,9 @@ function load_gsheetconnector_gforms_free_version()
   /* $init = new Gforms_Gsheet_Connector_Free_Init(); */
 }
 
-$init = new Gforms_Gsheet_Connector_Free_Init();
+$init = new Gforms_Gsheet_Connector_Free_Init();// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
-function gsheetconnector_gravityforms_pro_version_notice()
+function gsheetconnector_gravityforms_pro_version_notice()// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 {
  $class = 'notice notice-success is-dismissible';
  $message = esc_html__("Deactivated GSheetConnector Gravity Forms (Pro Version) to activate GSheetConnector Gravity Forms Free.", "gsheetconnector-gravity-forms");

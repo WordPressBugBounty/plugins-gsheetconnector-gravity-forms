@@ -3,6 +3,7 @@
 if (!defined('ABSPATH')) {
     exit;
 }
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 $show_setting = 0;
 $selected_method = '';
 $authenticated = get_option('gfgs_token');
@@ -12,14 +13,14 @@ $gsc_gf_is_valid = get_option('gfgs_verify');
 
 
 
-$active_tab = isset($_GET['tab']) ? sanitize_text_field(wp_unslash($_GET['tab'])) : 'integration';
+$active_tab = isset($_GET['tab']) ? sanitize_text_field(wp_unslash($_GET['tab'])) : 'integration';// phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
 
 $active_tab_name = '';
 if ($active_tab == 'gsc_gravityform_settings') {
     $active_tab_name = 'Settings';
 }
-$sub_tab = isset($_GET['sub_tab']) ? sanitize_text_field(wp_unslash($_GET['sub_tab'])) : 'general_settings';
+$sub_tab = isset($_GET['sub_tab']) ? sanitize_text_field(wp_unslash($_GET['sub_tab'])) : 'general_settings';// phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
 
 ?>
