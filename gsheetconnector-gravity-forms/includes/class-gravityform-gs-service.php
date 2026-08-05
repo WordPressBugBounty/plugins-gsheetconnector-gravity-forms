@@ -57,7 +57,8 @@ class GFGS_Connector_Service
         /* snooze notitiacation  */
         add_action('wp_ajax_gscgff_snooze_notice', array($this, 'gscgff_snooze_notice_callback'));
 
-
+        /** getting connected feed data  */
+        add_action('wp_ajax_gscgff_paginate_feed_list',array($this,'gscgff_paginate_feed_list'));
 
 
     }
@@ -835,7 +836,7 @@ $key = isset($_POST['key']) ? sanitize_text_field(wp_unslash($_POST['key'])) : '
       wp_send_json_success();
     }
 
-public function gscgff_snooze_notice_callback()
+    public function gscgff_snooze_notice_callback()
    {
       /*if (!isset($_POST['security']) || !wp_verify_nonce($_POST['security'], 'gf-ajax-nonce')) {*/
       if (!isset($_POST['security']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['security'])), 'gf-ajax-nonce')) {
@@ -849,6 +850,126 @@ public function gscgff_snooze_notice_callback()
       update_option('gscgff_notice_' . $key . '_time', time());
       wp_send_json_success();
    }
+
+    public function gscgff_paginate_feed_list()
+    {
+    check_ajax_referer('gscgff-pagination-nonce', 'security');
+    $gscgff_paged    = isset($_POST['paged']) ? absint($_POST['paged']) : 1;
+    $gscgff_per_page = 3;
+
+      global $wpdb;
+        $gscgff_feed_sheet_list = $wpdb->get_results( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+            "SELECT f.id, f.meta, f.form_id, gf.title AS form_title
+            FROM {$wpdb->prefix}gf_addon_feed f
+            LEFT JOIN {$wpdb->prefix}gf_form gf ON gf.id = f.form_id
+            WHERE f.addon_slug = 'gsheetconnector-gravity-forms'
+            ORDER BY f.id DESC"
+        );
+
+        $gscgff_result = $this->gscgff_render_feed_page($gscgff_feed_sheet_list, $gscgff_paged, $gscgff_per_page);
+        wp_send_json_success($gscgff_result);
+    
+
+    }
+
+
+    public function gscgff_render_feed_page( $gscgff_feed_sheet_list, $gscgff_paged, $gscgff_per_page ) {
+
+    $gscgff_all_feeds = array();
+    if ( ! empty( $gscgff_feed_sheet_list ) ) {
+        foreach ( $gscgff_feed_sheet_list as $row ) {
+
+            $post_content            = maybe_unserialize( $row->meta );
+            $get_post_content_array  = is_array( $post_content ) ? $post_content : json_decode( $post_content, true );
+
+            if ( empty( $get_post_content_array ) ) {
+                continue; // skip forms with no feeds set up
+            }
+
+            $gscgff_all_feeds[] = array(
+                'form_id'    => $row->id,
+                 'form_title' => ! empty( $row->form_title ) ? $row->form_title : '',
+                'feed_name'  => isset( $get_post_content_array['feedName'] ) ? $get_post_content_array['feedName'] : '',
+                'sheet_name' => isset( $get_post_content_array['gf-gs-sheet-name'] ) ? $get_post_content_array['gf-gs-sheet-name'] : '',
+                'sheet_id'   => isset( $get_post_content_array['gf-gs-sheet-id'] ) ? $get_post_content_array['gf-gs-sheet-id'] : '',
+                'tab_id'     => isset( $get_post_content_array['gf-gs-tab-id'] ) ? $get_post_content_array['gf-gs-tab-id'] : '',
+                'tab_name'   => isset( $get_post_content_array['gf-gs-sheet-tab-name'] ) ? $get_post_content_array['gf-gs-sheet-tab-name'] : '',
+            );
+        }
+    }
+
+    $gscgff_total_rows  = count( $gscgff_all_feeds );
+    $gscgff_total_pages = (int) ceil( $gscgff_total_rows / $gscgff_per_page );
+    $gscgff_paged       = max( 1, min( $gscgff_paged, max( 1, $gscgff_total_pages ) ) );
+    $gscgff_offset      = ( $gscgff_paged - 1 ) * $gscgff_per_page;
+
+    $gscgff_list_paged = array_slice( $gscgff_all_feeds, $gscgff_offset, $gscgff_per_page );
+
+    ob_start();
+    if ( ! empty( $gscgff_list_paged ) ) {
+        foreach ( $gscgff_list_paged as $feed ) {
+
+            ?>
+            <tr>
+                <td><?php echo esc_html( $feed['form_title'] ); ?></td>
+                <td>
+                    <a href="<?php echo esc_url( admin_url( 'admin.php?page=gf_edit_forms&view=settings&subview=gsheetconnector-gravity-forms&id=' . urlencode( $feed['form_id'] ) ) ); ?>" target="_blank">
+                        <?php echo esc_html( $feed['feed_name'] ); ?>
+                    </a>
+                </td>
+                <td>
+                    <?php if ( ! empty( $feed['sheet_id'] ) ) { ?>
+                        <a href="<?php echo esc_url( 'https://docs.google.com/spreadsheets/d/' . rawurlencode( $feed['sheet_id'] ) . '/edit#gid=' . rawurlencode( $feed['tab_id'] ) ); ?>" target="_blank">
+                            <?php echo esc_html( $feed['sheet_name'] ); ?><?php echo ! empty( $feed['tab_name'] ) ? ' — ' . esc_html( $feed['tab_name'] ) : ''; ?>
+                        </a>
+                    <?php } else { ?>
+                        <span class="gscgff-not-connected"><?php echo esc_html__( 'Not connected', 'gsheetconnector-gravity-forms' ); ?></span>
+                    <?php } ?>
+                </td>
+            </tr>
+            <?php
+        }
+    } else {
+        ?>
+        <tr>
+            <td colspan="3" class="gscgff-feed-empty-cell">
+                <div class="gscgff-feed-empty text-center">
+                    <div class="heading">
+                        <?php echo esc_html__( 'No Form Feeds Created Yet', 'gsheetconnector-gravity-forms' ); ?>
+                    </div>
+                    <p><?php echo esc_html__( 'Connect your form to Google Sheets to automatically sync submissions in real time. Create a feed to start sending data to your spreadsheet.', 'gsheetconnector-gravity-forms' ); ?></p>
+                    <a class="btn btn-primary link-hover-white"
+                        href="<?php echo esc_url( admin_url( 'admin.php?page=gf_edit_forms' ) ); ?>" target="_blank">
+                        <?php echo esc_html__( 'Create Feed', 'gsheetconnector-gravity-forms' ); ?>
+                    </a>
+                </div>
+            </td>
+        </tr>
+        <?php
+    }
+    $gscgff_rows_html = ob_get_clean();
+
+    ob_start();
+    if ( $gscgff_total_pages > 1 ) {
+        for ( $i = 1; $i <= $gscgff_total_pages; $i++ ) {
+            ?>
+            <a href="javascript:void(0);"
+                class="text-decoration-none gscgff-page-link <?php echo ( $i === $gscgff_paged ) ? 'active' : ''; ?>"
+                data-page="<?php echo esc_attr( $i ); ?>">
+                <?php echo esc_html( $i ); ?>
+            </a>
+            <?php
+        }
+    }
+    $gscgff_pagination_html = ob_get_clean();
+
+    return array(
+        'rows_html'       => $gscgff_rows_html,
+        'pagination_html' => $gscgff_pagination_html,
+    );
+}
+
+    
 
 
 }

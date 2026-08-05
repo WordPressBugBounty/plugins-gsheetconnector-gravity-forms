@@ -10,7 +10,7 @@ $code = "";// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefi
 $header = "";// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 if (isset($_GET['code']) && ($gravityforms_manual_setting == 0)) {// phpcs:ignore WordPress.Security.NonceVerification.Recommended
     update_option('is_new_client_secret_gravityformsgsc', 1);
-    $code = sanitize_text_field( wp_unslash( $_GET['code'] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+    $code = sanitize_text_field( wp_unslash( $_GET['code'] ) );// phpcs:ignore WordPress.Security.NonceVerification.Recommended, WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
     $header = admin_url('admin.php?page=gf_googlesheet&tab=integration');// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 }
@@ -149,14 +149,13 @@ if (isset($_GET['code']) && ($gravityforms_manual_setting == 0)) {// phpcs:ignor
                                 <?php } else {  
 
                                      if (!empty(get_option('gfgs_token') &&  get_option('gfgs_token') !== "")) {
-                                     $google_sheet = new Gfgscf_googlesheet();
+                                     $google_sheet = new Gfgscf_googlesheet();// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
                                      $email_account = $google_sheet->gsheet_print_google_account_email();// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
                                         if ($email_account) {
                                         update_option('gravityforms_gs_auth_expired_free', 'false');
                                      ?>
                                     <div class="gscgff-integration-box">
-                                        <div
-                                            class="gsc-google-auth-card d-flex flex-wrap gap-20 justify-between align-center mt-30 mb-30">
+                                        <div class="gsc-google-auth-card d-flex flex-wrap gap-20 justify-between align-center mt-30 mb-30">
                                            
                                                 <div class="gsc-google-auth-left d-flex flex-wrap align-center gap-15">
                                                     <div class="gsc-google-icon">G</div>
@@ -285,7 +284,7 @@ if (isset($_GET['code']) && ($gravityforms_manual_setting == 0)) {// phpcs:ignor
                             </div>
                             <?php
                             if (!empty(get_option('gfgs_token'))) {
-                                $google_sheet = new Gfgscf_googlesheet();
+                                $google_sheet = new Gfgscf_googlesheet();// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
                                 $email_account = $google_sheet->gsheet_print_google_account_email();// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
 

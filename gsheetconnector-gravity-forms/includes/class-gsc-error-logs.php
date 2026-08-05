@@ -103,10 +103,9 @@ if (!class_exists('gscgf_error_logs')) {
           
              //    IMPORTANT FIX END
 
-           // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching
+           // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching,WordPress.DB.PreparedSQL.InterpolatedNotPrepared,PluginCheck.Security.DirectDB.UnescapedDBParameter
             $recent_log = $wpdb->get_var(
                 $wpdb->prepare(
-                    // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
                     "SELECT COUNT(*) FROM {$table} WHERE error_id = %s AND code = %d AND message = %s AND created_at >= %s",
                     $error_id,
                     $code,

@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Gravity Form GSC Free\n"
+"Project-Id-Version: GSheetConnector For Gravity Forms\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-12 18:47+0530\n"
-"PO-Revision-Date: 2026-06-22 15:10+0530\n"
+"POT-Creation-Date: 2026-08-03 14:41+0530\n"
+"PO-Revision-Date: 2026-08-04 11:35+0530\n"
 "Last-Translator: POForge <noreply@poforge.com>\n"
 "Language-Team: ja <noreply@poforge.com>\n"
 "Language: ja\n"
@@ -11,202 +11,153 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.4.3\n"
+"X-Generator: Poedit 3.9\n"
 
-#: class-gf-gsheetgravityforms.php:96
+msgid "Apply rules based on form values"
+msgstr "フォームの値に基づいてルールを適用"
+
+msgid "Sync data only when conditions match"
+msgstr "条件が一致した場合のみデータを同期"
+
+msgid "Filter unwanted or incomplete entries"
+msgstr "不要または不完全なエントリをフィルタリング"
+
+msgid "Create dynamic workflows automatically"
+msgstr "動的なワークフローを自動で作成"
+
+msgid "Map data conditionally to sheet columns"
+msgstr "データを条件に応じてシートの列にマッピング"
+
+msgid "Support multiple conditions (AND / OR)"
+msgstr "複数条件（AND / OR）に対応"
+
+msgid "Improve accuracy and reduce extra data"
+msgstr "精度を向上させ、余分なデータを削減"
+
 msgid "Feed Name"
 msgstr "フィード名"
 
-#: class-gf-gsheetgravityforms.php:100
 msgid "Enter a feed name to uniquely identify this setup."
 msgstr "この設定を一意に識別するためのフィード名を入力してください。"
 
-#: class-gf-gsheetgravityforms.php:104
 msgid "Manual Google Sheets Configuration"
-msgstr "Google スプレッドシートの手動設定"
+msgstr "手動 Google Sheets 設定"
 
-#: class-gf-gsheetgravityforms.php:111
 msgid "Field List"
 msgstr "フィールドリスト"
 
-#: class-gf-gsheetgravityforms.php:119
 msgid "GSheetConnector Gravity Forms Feed Settings"
 msgstr "GSheetConnector Gravity Forms フィード設定"
 
-#: class-gf-gsheetgravityforms.php:157
 msgid "Google Sheets Setup Required"
 msgstr "Google Sheets の設定が必要です"
 
-#: class-gf-gsheetgravityforms.php:158
 msgid "your selected Method is : "
 msgstr "選択した方法は: "
 
-#: class-gf-gsheetgravityforms.php:159
 msgid ""
 "To start sending form entries to Google Sheets, please connect your Google "
 "account first."
 msgstr ""
-"Google Sheets にフォームエントリを送信するには、まず Google アカウントに接続"
-"してください。"
+"Google Sheets にフォームエントリを送信するには、まず Google アカウントに接続して"
+"ください。"
 
-#: class-gf-gsheetgravityforms.php:161
 msgid "✔ Click on the Sign in with Google button"
 msgstr "✔ Google でサインインボタンをクリック"
 
-#: class-gf-gsheetgravityforms.php:162
 msgid "✔ Log in using your Google account"
 msgstr "✔ Google アカウントを使用してログイン"
 
-#: class-gf-gsheetgravityforms.php:163
 msgid "✔ Select the Google account where your Sheets are stored"
 msgstr "✔ シートが保存されている Google アカウントを選択"
 
-#: class-gf-gsheetgravityforms.php:164
 msgid "✔ Grant access to: Google Drive & Google Sheets"
 msgstr "✔ Google Drive と Google Sheets へのアクセスを許可"
 
-#: class-gf-gsheetgravityforms.php:165
 msgid "✔ Save the authentication code if prompted"
 msgstr "✔ プロンプトが表示された場合は認証コードを保存"
 
-#: class-gf-gsheetgravityforms.php:168
 msgid "Go to Integration Setup"
 msgstr "統合設定に移動"
 
-#: class-gf-gsheetgravityforms.php:226 class-gf-gsheetgravityforms.php:291
 msgid "Sheet Name"
 msgstr "シート名"
 
-#: class-gf-gsheetgravityforms.php:238 class-gf-gsheetgravityforms.php:322
 msgid "Sheet Id"
 msgstr "シートID"
 
-#: class-gf-gsheetgravityforms.php:248 class-gf-gsheetgravityforms.php:355
 msgid "Tab Name"
 msgstr "タブ名"
 
-#: class-gf-gsheetgravityforms.php:258 class-gf-gsheetgravityforms.php:390
 msgid "Tab Id"
 msgstr "タブID"
 
-#: class-gf-gsheetgravityforms.php:272
 msgid "Connect your Google Sheet by entering the required sheet information."
 msgstr "必要なシート情報を入力して、Google シートを接続します。"
 
-#: class-gf-gsheetgravityforms.php:444
 msgid "Unlock Advanced Features with Form Feeds"
 msgstr "フォームフィードで高度な機能をアンロック"
 
-#: class-gf-gsheetgravityforms.php:449
-#: includes/pages/gs-gravityform-role-setting.php:46
 msgid "Advanced options are available in PRO"
-msgstr "PRO版では、詳細設定をご利用いただけます"
+msgstr "高度なオプションはPROで利用可能です"
 
-#: class-gf-gsheetgravityforms.php:454
 msgid "Get Advanced Features"
 msgstr "高度な機能を取得"
 
-#: class-gf-gsheetgravityforms.php:469 class-gf-gsheetgravityforms.php:602
 msgid "Automatic Google Sheets Configuration"
-msgstr "Google スプレッドシートの自動設定"
+msgstr "自動Google Sheets設定"
 
-#: class-gf-gsheetgravityforms.php:475
 msgid "Auto fetch Google Sheets list"
 msgstr "Google シートリストを自動取得"
 
-#: class-gf-gsheetgravityforms.php:476
 msgid "Auto detect sheet tabs"
 msgstr "シートタブを自動検出"
 
-#: class-gf-gsheetgravityforms.php:477
 msgid "One-click configuration"
 msgstr "ワンクリック設定"
 
-#: class-gf-gsheetgravityforms.php:478
 msgid "Real-time entry sync"
 msgstr "リアルタイムエントリー同期"
 
-#: class-gf-gsheetgravityforms.php:486 class-gf-gsheetgravityforms.php:673
 msgid "Select Fields to Sync"
 msgstr "同期するフィールドを選択"
 
-#: class-gf-gsheetgravityforms.php:491
 msgid "Drag & drop field reordering"
 msgstr "ドラッグ＆ドロップフィールドの並べ替え"
 
-#: class-gf-gsheetgravityforms.php:492
 msgid "Rename column headers"
 msgstr "列ヘッダーの名前を変更"
 
-#: class-gf-gsheetgravityforms.php:493
 msgid "Select specific fields to sync"
 msgstr "同期する特定のフィールドを選択"
 
-#: class-gf-gsheetgravityforms.php:501
 msgid "Header Settings &amp; Sheet Order"
 msgstr "ヘッダー設定 &amp; シートの順序"
 
-#: class-gf-gsheetgravityforms.php:507
 msgid "Freeze header row"
 msgstr "ヘッダー行を固定"
 
-#: class-gf-gsheetgravityforms.php:508
 msgid "Custom font styling"
 msgstr "カスタムフォントスタイリング"
 
-#: class-gf-gsheetgravityforms.php:509
 msgid "Header &amp; row color control"
 msgstr "ヘッダー＆行の色制御"
 
-#: class-gf-gsheetgravityforms.php:510
 msgid "Sort by any column"
 msgstr "任意の列でソート"
 
-#: class-gf-gsheetgravityforms.php:519
 msgid "Conditional Logic"
-msgstr "条件判定"
+msgstr "条件付きロジック"
 
-#: class-gf-gsheetgravityforms.php:524
-msgid "Apply rules based on form values"
-msgstr "フォームの値に基づいてルールを適用する"
-
-#: class-gf-gsheetgravityforms.php:525
-msgid "Sync data only when conditions match"
-msgstr "条件が一致する場合にのみデータを同期します"
-
-#: class-gf-gsheetgravityforms.php:526
-msgid "Filter unwanted or incomplete entries"
-msgstr "不要なエントリや不完全なエントリをフィルタリングします"
-
-#: class-gf-gsheetgravityforms.php:527
-msgid "Create dynamic workflows automatically"
-msgstr "動的なワークフローを自動的に作成します"
-
-#: class-gf-gsheetgravityforms.php:528
-msgid "Map data conditionally to sheet columns"
-msgstr "データを条件に応じてシートの列にマッピングする"
-
-#: class-gf-gsheetgravityforms.php:529
-msgid "Support multiple conditions (AND / OR)"
-msgstr "複数の条件（AND／OR）に対応しています"
-
-#: class-gf-gsheetgravityforms.php:530
-msgid "Improve accuracy and reduce extra data"
-msgstr "精度を向上させ、余分なデータを削減する"
-
-#: class-gf-gsheetgravityforms.php:538
 msgid "Show Features"
 msgstr "機能を表示"
 
-#: class-gf-gsheetgravityforms.php:545
 msgid "Hide Features"
 msgstr "機能を非表示"
 
-#: class-gf-gsheetgravityforms.php:570
 msgid "Please proceed to the Final Step."
 msgstr "最終ステップに進んでください。"
 
-#: class-gf-gsheetgravityforms.php:571
 msgid ""
 " (For the FREE version of the plugin, you'll need to input the columns "
 "manually.)\n"
@@ -215,231 +166,167 @@ msgstr ""
 "（プラグインの無料版では、列を手動で入力する必要があります。）\n"
 "                    "
 
-#: class-gf-gsheetgravityforms.php:575
 msgid ""
-"Ensure that after inputting the Google Sheet Name, Sheet ID, Tab Name, and "
-"Tab ID above, you must enter the label names of your form into Row 1 of your "
-"Google Sheet, as illustrated in the image."
+"Ensure that after inputting the Google Sheet Name, Sheet ID, Tab Name, and Tab "
+"ID above, you must enter the label names of your form into Row 1 of your Google "
+"Sheet, as illustrated in the image."
 msgstr ""
-"Google シート名、シート ID、タブ名、タブ ID を入力した後、画像に示されている"
-"ように、フォームのラベル名を Google シートの行 1 に入力する必要があります。"
+"Google シート名、シート ID、タブ名、タブ ID を入力した後、画像に示されているよう"
+"に、フォームのラベル名を Google シートの行 1 に入力する必要があります。"
 
-#: class-gf-gsheetgravityforms.php:576
-#: includes/pages/gs-gravity-integration.php:112
 msgid "Google Sheets"
 msgstr "Googleシート"
 
-#: class-gf-gsheetgravityforms.php:577
 msgid "Now available for popular"
 msgstr "現在、人気のある"
 
-#: class-gf-gsheetgravityforms.php:580
 msgid "Refer Documentation"
 msgstr "ドキュメントを参照"
 
-#: class-gf-gsheetgravityforms.php:582
 msgid "Buy Now"
 msgstr "今すぐ購入"
 
-#: class-gf-gsheetgravityforms.php:584
 msgid "In PRO version it will be managed with Below settings."
 msgstr "PRO バージョンでは、以下の設定で管理されます。"
 
-#: class-gf-gsheetgravityforms.php:594
 msgid " Click to enlarge image"
 msgstr "画像を拡大するにはクリックしてください"
 
-#: class-gf-gsheetgravityforms.php:602 class-gf-gsheetgravityforms.php:871
-#: class-gf-gsheetgravityforms.php:974 class-gf-gsheetgravityforms.php:998
-#: class-gf-gsheetgravityforms.php:1074 class-gf-gsheetgravityforms.php:1137
-#: includes/pages/extensions.php:166 includes/pages/extensions.php:186
-#: includes/pages/extensions.php:206 includes/pages/extensions.php:226
-#: includes/pages/extensions.php:305 includes/pages/extensions.php:364
-#: includes/pages/extensions.php:384 includes/pages/extensions.php:404
-#: includes/pages/gs-gravity-integration.php:373
-#: includes/pages/gs-gravity-integration.php:384
-#: includes/pages/gs-gravity-integration.php:395
 msgid "PRO"
 msgstr "PRO"
 
-#: class-gf-gsheetgravityforms.php:603
 msgid ""
 "Automatic configure your Google Sheets and start syncing form submissions in "
 "real time."
 msgstr ""
-"Google スプレッドシートを自動的に設定し、フォームへの入力内容をリアルタイムで"
-"同期し始めましょう。"
+"Google Sheetsを自動的に設定し、フォームの送信をリアルタイムで同期し始めます。"
 
-#: class-gf-gsheetgravityforms.php:682
 msgid ""
 "Enable the fields you want to send to Google Sheets and rename columns if "
 "needed."
 msgstr ""
-"Google Sheetsに送信したいフィールドを有効にし、必要に応じて列名を変更してくだ"
-"さい。"
+"Google Sheetsに送信したいフィールドを有効にし、必要に応じて列名を変更してくださ"
+"い。"
 
-#: class-gf-gsheetgravityforms.php:694
 msgid "Check All"
 msgstr "すべて選択"
 
-#: class-gf-gsheetgravityforms.php:716 class-gf-gsheetgravityforms.php:824
 msgid "Entry ID"
 msgstr "エントリーID"
 
-#: class-gf-gsheetgravityforms.php:796
 msgid "Column Name"
 msgstr "列名"
 
-#: class-gf-gsheetgravityforms.php:800
 msgid "Merge Tag / Formulas"
 msgstr "マージタグ / 数式"
 
-#: class-gf-gsheetgravityforms.php:818
 msgid "Select a Field"
 msgstr "フィールドを選択"
 
-#: class-gf-gsheetgravityforms.php:820 class-gf-gsheetgravityforms.php:821
 msgid "Untitled"
 msgstr "無題"
 
-#: class-gf-gsheetgravityforms.php:825
 msgid "Entry Date"
 msgstr "エントリ日"
 
-#: class-gf-gsheetgravityforms.php:827
 msgid "User IP"
 msgstr "ユーザー IP"
 
-#: class-gf-gsheetgravityforms.php:828
 msgid "Source Url"
 msgstr "ソースURL"
 
-#: class-gf-gsheetgravityforms.php:830
 msgid "Form Title"
 msgstr "フォームタイトル"
 
-#: class-gf-gsheetgravityforms.php:833
 msgid "Add Custom Value"
 msgstr "カスタム値を追加"
 
-#: class-gf-gsheetgravityforms.php:842
 msgid "Add"
 msgstr "追加"
 
-#: class-gf-gsheetgravityforms.php:860
 msgid "Header Settings"
 msgstr "ヘッダー設定"
 
-#: class-gf-gsheetgravityforms.php:876
 msgid ""
-"Customize the appearance and behavior of your sheet headers and rows for "
-"better readability and organization."
+"Customize the appearance and behavior of your sheet headers and rows for better "
+"readability and organization."
 msgstr ""
-"シートのヘッダーや行の外観や動作をカスタマイズして、読みやすさと整理整頓を向"
-"上させましょう。"
+"シートのヘッダーと行の外観と動作をカスタマイズして、読みやすさと整理を向上させま"
+"す。"
 
-#: class-gf-gsheetgravityforms.php:887
 msgid "Freeze Header"
-msgstr "ヘッダーのフリーズ"
+msgstr "ヘッダーを固定"
 
-#: class-gf-gsheetgravityforms.php:922
 msgid "Header Style"
 msgstr "ヘッダースタイル"
 
-#: class-gf-gsheetgravityforms.php:960
 msgid "Color Appearance"
-msgstr "色の見え方"
+msgstr "色の外観"
 
-#: class-gf-gsheetgravityforms.php:974
 msgid "Colors"
 msgstr "色"
 
-#: class-gf-gsheetgravityforms.php:994
 msgid "Sheet Sorting"
 msgstr "シートの並べ替え"
 
-#: class-gf-gsheetgravityforms.php:1005 class-gf-gsheetgravityforms.php:1072
-#: class-gf-gsheetgravityforms.php:1078
 msgid "Condition"
 msgstr "条件"
 
-#: class-gf-gsheetgravityforms.php:1036
 msgid "Sort Column Name"
 msgstr "ソート列名"
 
-#: class-gf-gsheetgravityforms.php:1050
 msgid "Order"
 msgstr "順序"
 
-#: class-gf-gsheetgravityforms.php:1058
 msgid "Ascending"
 msgstr "昇順"
 
-#: class-gf-gsheetgravityforms.php:1060
 msgid "Descending"
 msgstr "降順"
 
-#: class-gf-gsheetgravityforms.php:1115
 msgid "Spreadsheet Download"
 msgstr "スプレッドシートのダウンロード"
 
-#: class-gf-gsheetgravityforms.php:1121
 msgid "Download"
 msgstr "ダウンロード"
 
-#: class-gf-gsheetgravityforms.php:1128
 msgid "Google Sheets Data Sync"
 msgstr "Google Sheets データ同期"
 
-#: class-gf-gsheetgravityforms.php:1144
 msgid "Sync Entries"
-msgstr "エントリを同期する"
+msgstr "エントリを同期"
 
-#: class-gf-gsheetgravityforms.php:1297
-#: includes/pages/gs-gravityform-system-info.php:296
 msgid "Name"
 msgstr "名前"
 
-#: gsheetconnector-gravityforms.php:229
 msgid "View Documentation"
 msgstr "ドキュメントを見る"
 
-#: gsheetconnector-gravityforms.php:229 includes/pages/admin-footer.php:138
 msgid "Docs"
 msgstr "ドキュメント"
 
-#: gsheetconnector-gravityforms.php:230
 msgid "Get Support"
 msgstr "サポートを受ける"
 
-#: gsheetconnector-gravityforms.php:230 includes/pages/admin-footer.php:160
 msgid "Support"
 msgstr "サポート"
 
-#: gsheetconnector-gravityforms.php:364
 msgid ""
-"Google Sheet Connector Gravityforms Add-on requires Gravityforms plugin to "
-"be installed and activated."
+"Google Sheet Connector Gravityforms Add-on requires Gravityforms plugin to be "
+"installed and activated."
 msgstr ""
-"Google Sheet Connector Gravityforms アドオンは、Gravityforms プラグインがイン"
-"ストールされ、アクティブ化されている必要があります。"
+"Google Sheet Connector Gravityforms アドオンは、Gravityforms プラグインがインス"
+"トールされ、アクティブ化されている必要があります。"
 
-#: gsheetconnector-gravityforms.php:512
-#: includes/pages/google-sheet-settings.php:42
 msgid "Existing"
 msgstr "既存"
 
-#: gsheetconnector-gravityforms.php:1021
-#: includes/pages/google-sheet-settings.php:381
 msgid "Settings"
 msgstr "設定"
 
-#. Plugin Name of the plugin/theme
-#: gsheetconnector-gravityforms.php:1036
 msgid "GSheetConnector For Gravity Forms"
 msgstr "Gravity Forms 用 GSheetConnector"
 
-#: gsheetconnector-gravityforms.php:1088
 msgid ""
 "Deactivated GSheetConnector Gravity Forms (Pro Version) to activate "
 "GSheetConnector Gravity Forms Free."
@@ -447,1170 +334,893 @@ msgstr ""
 "GSheetConnector Gravity Forms (Pro バージョン) を無効化して、GSheetConnector "
 "Gravity Forms Free をアクティブ化しました。"
 
-#: gsheetconnector-gravityforms.php:1099
-#: includes/pages/gs-gravityform-dashboard.php:297
 msgid "Upgrade to Pro"
 msgstr "Proにアップグレード"
 
-#: includes/class-gravityform-gs-service.php:89
 msgid "You do not have permission to deactivate plugins."
 msgstr "プラグインを無効化する権限がありません。"
 
-#: includes/class-gravityform-gs-service.php:96
-#: includes/class-gravityform-gs-service.php:293
 msgid "Invalid plugin slug."
 msgstr "無効なプラグインスラグ。"
 
-#: includes/class-gravityform-gs-service.php:112
 msgid "Failed to deactivate plugin."
 msgstr "プラグインの無効化に失敗しました。"
 
-#: includes/class-gravityform-gs-service.php:116
 msgid "Plugin deactivated successfully."
 msgstr "プラグインが正常に無効化されました。"
 
-#: includes/class-gravityform-gs-service.php:143
 msgid "You do not have permission to install or update plugins."
 msgstr "プラグインをインストールまたは更新する権限がありません。"
 
-#: includes/class-gravityform-gs-service.php:153
 msgid "Missing or invalid parameters."
 msgstr "パラメータが不足しているか、無効です。"
 
-#: includes/class-gravityform-gs-service.php:159
 msgid "Invalid download URL."
 msgstr "無効なダウンロードURL。"
 
-#: includes/class-gravityform-gs-service.php:169
 msgid "Unsupported download source."
 msgstr "サポートされていないダウンロードソース。"
 
-#: includes/class-gravityform-gs-service.php:179
 msgid "Unsupported download path."
 msgstr "サポートされていないダウンロードパス。"
 
-#: includes/class-gravityform-gs-service.php:212
 msgid "Could not verify plugin package."
 msgstr "プラグインパッケージを確認できませんでした。"
 
-#: includes/class-gravityform-gs-service.php:219
 msgid "Package is not a valid ZIP file."
 msgstr "パッケージは有効なZIPファイルではありません。"
 
-#: includes/class-gravityform-gs-service.php:226
 msgid "Plugin package is too large."
 msgstr "プラグインパッケージが大きすぎます。"
 
-#: includes/class-gravityform-gs-service.php:236
-#: includes/class-gravityform-gs-service.php:689
 msgid "Installation failed: "
 msgstr "インストールに失敗しました: "
 
-#: includes/class-gravityform-gs-service.php:241
 msgid "Plugin installed successfully."
 msgstr "プラグインが正常にインストールされました。"
 
-#: includes/class-gravityform-gs-service.php:268
 msgid "You do not have permission to activate plugins."
 msgstr "プラグインを有効化する権限がありません。"
 
-#: includes/class-gravityform-gs-service.php:279
 msgid "Missing plugin slug."
 msgstr "プラグインのスラッグがありません。"
 
-#: includes/class-gravityform-gs-service.php:310
 msgid "Plugin activation failed."
 msgstr "プラグインの有効化に失敗しました。"
 
-#: includes/class-gravityform-gs-service.php:317
 msgid "Plugin activated successfully."
 msgstr "プラグインが正常に有効化されました。"
 
-#: includes/class-gravityform-gs-service.php:608
-#: includes/class-gravityform-gs-service.php:718
 msgid "Invalid security token"
 msgstr "無効なセキュリティトークン"
 
-#: includes/class-gravityform-gs-service.php:615
 msgid "You do not have permission to install plugin"
 msgstr "プラグインをインストールする権限がありません"
 
-#: includes/class-gravityform-gs-service.php:621
 msgid "Missing required parameters"
 msgstr "必須パラメータが不足しています"
 
-#: includes/class-gravityform-gs-service.php:630
 msgid "Invalid plugin data"
 msgstr "無効なプラグインデータ"
 
-#: includes/class-gravityform-gs-service.php:667
 msgid "Upgrade failed: "
 msgstr "アップグレードに失敗しました: "
 
-#: includes/class-gravityform-gs-service.php:672
 msgid "Plugin upgraded successfully"
 msgstr "プラグインが正常にアップグレードされました"
 
-#: includes/class-gravityform-gs-service.php:677
 msgid "Plugin already installed and up to date"
 msgstr "プラグインはすでにインストールされており、最新です"
 
-#: includes/class-gravityform-gs-service.php:694
 msgid "Plugin installed successfully"
 msgstr "プラグインが正常にインストールされました"
 
-#: includes/class-gravityform-gs-service.php:725
 msgid "You do not have permission to activate plugin"
 msgstr "プラグインを有効化する権限がありません"
 
-#: includes/class-gravityform-gs-service.php:732
 msgid "Plugin slug is missing"
 msgstr "プラグインのスラッグが不足しています"
 
-#: includes/class-gravityform-gs-service.php:746
 msgid "Plugin is already activated"
 msgstr "プラグインはすでに有効化されています"
 
-#: includes/class-gravityform-gs-service.php:760
 msgid "Plugin activated successfully"
 msgstr "プラグインが正常に有効化されました"
 
-#: includes/class-gravityforms-utility.php:86
+msgid "Not connected"
+msgstr "未接続"
+
+msgid "No Form Feeds Created Yet"
+msgstr "まだフォームフィードが作成されていません"
+
+msgid ""
+"Connect your form to Google Sheets to automatically sync submissions in real "
+"time. Create a feed to start sending data to your spreadsheet."
+msgstr ""
+"フォームを Google Sheets に接続すると、送信内容をリアルタイムで自動同期できま"
+"す。フィードを作成して、データのスプレッドシートへの送信を開始してください。"
+
+msgid "Create Feed"
+msgstr "フィードを作成"
+
 msgid "There's something wrong with your code..."
 msgstr "コードに何か問題があります..."
 
-#: includes/class-gsc-error-logs.php:225
 msgid "Error Log"
 msgstr "エラーログ"
 
-#: includes/class-gsc-error-logs.php:227
 msgid ""
 "Error logs are saved in the database. Please clear them regularly to avoid "
 "increasing the database size."
 msgstr ""
-"エラーログはデータベースに保存されています。データベースのサイズが増加しない"
-"ように、定期的にクリアしてください。"
+"エラーログはデータベースに保存されています。データベースのサイズが増加しないよう"
+"に、定期的にクリアしてください。"
 
-#: includes/class-gsc-error-logs.php:241
-#: includes/pages/gs-gravityform-system-info.php:915
 msgid "Clear Logs"
 msgstr "ログをクリア"
 
-#: includes/class-gsc-error-logs.php:249
-#: includes/pages/gs-gravityform-system-info.php:919
 msgid "Download CSV"
 msgstr "CSVをダウンロード"
 
-#: includes/class-gsc-error-logs.php:252
-#: includes/pages/gs-gravityform-system-info.php:923
 msgid "Copy Logs"
 msgstr "ログをコピー"
 
-#: includes/class-gsc-error-logs.php:264
 msgid "Date"
 msgstr "日付"
 
-#: includes/class-gsc-error-logs.php:265
 msgid "Error ID"
 msgstr "エラーID"
 
-#: includes/class-gsc-error-logs.php:266
 msgid "Code"
 msgstr "コード"
 
-#: includes/class-gsc-error-logs.php:267
 msgid "Message"
 msgstr "メッセージ"
 
-#: includes/class-gsc-error-logs.php:268
 msgid "Details"
 msgstr "詳細"
 
-#: includes/class-gsc-error-logs.php:329
-#: includes/pages/gs-gravityform-system-info.php:983
 msgid "No error logs found."
 msgstr "エラーログは見つかりませんでした。"
 
-#: includes/class-gsc-error-logs.php:484
 msgid "Permission denied."
 msgstr "権限が拒否されました。"
 
-#: includes/pages/admin-footer.php:28
 msgid "Please rate"
 msgstr "評価してください"
 
-#: includes/pages/admin-footer.php:31
-#: includes/pages/google-sheet-settings.php:309
 msgid "GSheetConnector for Gravity Forms"
 msgstr "Gravity Forms 用の GSheetConnector"
 
-#: includes/pages/admin-footer.php:36
 msgid "on"
 msgstr "オン"
 
-#: includes/pages/admin-footer.php:39
 msgid "WordPress.org"
 msgstr "WordPress.org"
 
-#: includes/pages/admin-footer.php:42
 msgid "to help us spread the word."
 msgstr "私たちが情報を広める手助けをするために。"
 
-#: includes/pages/admin-footer.php:107
 msgid "Version:"
 msgstr "バージョン:"
 
-#: includes/pages/admin-footer.php:149
 msgid "Plugins"
 msgstr "プラグイン"
 
-#: includes/pages/extensions.php:17
 msgid "About GSheetConnector"
 msgstr "GSheetConnectorについて"
 
-#: includes/pages/extensions.php:20
 msgid "Built by Experts. Trusted by Thousands."
 msgstr "専門家によって構築され、何千人もの信頼を得ています。"
 
-#: includes/pages/extensions.php:27
 msgid ""
-"Led by experienced developers and powered by a passionate team, "
-"GSheetConnector helps WordPress users automate their workflows with "
-"confidence."
+"Led by experienced developers and powered by a passionate team, GSheetConnector "
+"helps WordPress users automate their workflows with confidence."
 msgstr ""
 "経験豊富な開発者によって主導され、情熱的なチームによって支えられる"
-"GSheetConnectorは、WordPressユーザーが自信を持ってワークフローを自動化するの"
-"を助けます。"
+"GSheetConnectorは、WordPressユーザーが自信を持ってワークフローを自動化するのを助"
+"けます。"
 
-#: includes/pages/extensions.php:34
 msgid ""
-"We focus on building tools that are fast, secure, and easy to use - so you "
-"can spend less time managing data."
+"We focus on building tools that are fast, secure, and easy to use - so you can "
+"spend less time managing data."
 msgstr ""
-"私たちは、迅速で安全、かつ使いやすいツールの構築に注力しています。これによ"
-"り、データ管理にかかる時間を短縮できます。"
+"私たちは、迅速で安全、かつ使いやすいツールの構築に注力しています。これにより、"
+"データ管理にかかる時間を短縮できます。"
 
-#: includes/pages/extensions.php:55
 msgid "Meet Our Core Team"
 msgstr "私たちのコアチームに会いましょう"
 
-#: includes/pages/extensions.php:79
 msgid "Our Mission"
 msgstr "私たちの使命"
 
-#: includes/pages/extensions.php:84
 msgid ""
-"Our mission is to make form automation simple, secure, and reliable for "
-"every WordPress user - from beginners to enterprise teams."
+"Our mission is to make form automation simple, secure, and reliable for every "
+"WordPress user - from beginners to enterprise teams."
 msgstr ""
-"私たちの使命は、すべてのWordPressユーザーにとって、フォームの自動化をシンプル"
-"で安全、かつ信頼できるものにすることです。初心者から企業チームまで。"
+"私たちの使命は、すべてのWordPressユーザーにとって、フォームの自動化をシンプルで"
+"安全、かつ信頼できるものにすることです。初心者から企業チームまで。"
 
-#: includes/pages/extensions.php:92
 msgid "Fast & Reliable Data Sync"
 msgstr "迅速かつ信頼性の高いデータ同期"
 
-#: includes/pages/extensions.php:94
 msgid "100% Secure Authentication"
 msgstr "100%安全な認証"
 
-#: includes/pages/extensions.php:96
 msgid "Real-Time Google Sheets Updates"
 msgstr "リアルタイムのGoogle Sheets更新"
 
-#: includes/pages/extensions.php:98
 msgid "Easy Setup & Configuration"
 msgstr "簡単なセットアップと構成"
 
-#: includes/pages/extensions.php:100
 msgid "Dedicated Support Team"
 msgstr "専任サポートチーム"
 
-#: includes/pages/extensions.php:115
 msgid "Forms Successfully Synced"
 msgstr "フォームが正常に同期されました"
 
-#: includes/pages/extensions.php:122
 msgid "Trusted by Active Users"
 msgstr "アクティブユーザーに信頼されています"
 
-#: includes/pages/extensions.php:129
 msgid "Reliable Uptime"
 msgstr "信頼性のある稼働時間"
 
-#: includes/pages/extensions.php:136
 msgid "Dedicated Support"
 msgstr "専任サポート"
 
-#: includes/pages/extensions.php:144
 msgid "Add-ons & Extensions"
 msgstr "アドオン & 拡張機能"
 
-#: includes/pages/extensions.php:145
 msgid ""
-"Extend your Google Sheets integration with powerful add-ons. Install, "
-"manage, and activate extensions to unlock advanced features."
+"Extend your Google Sheets integration with powerful add-ons. Install, manage, "
+"and activate extensions to unlock advanced features."
 msgstr ""
-"強力なアドオンでGoogle Sheets統合を拡張します。拡張機能をインストール、管理、"
-"アクティブ化して、先進的な機能をアンロックします。"
+"強力なアドオンでGoogle Sheets統合を拡張します。拡張機能をインストール、管理、ア"
+"クティブ化して、先進的な機能をアンロックします。"
 
-#: includes/pages/extensions.php:155
 msgid "CF7 Google Sheet Connector"
 msgstr "CF7 Google シートコネクタ"
 
-#: includes/pages/extensions.php:160
 msgid ""
 "Easily connect Contact Form 7 to Google Sheets and automatically sync form "
 "submissions in real-time. Every entry is instantly added to your selected "
-"spreadsheet, helping you manage leads, inquiries, and customer data "
-"efficiently without manual export."
+"spreadsheet, helping you manage leads, inquiries, and customer data efficiently "
+"without manual export."
 msgstr ""
-"Contact Form 7をGoogle Sheetsに簡単に接続し、フォームの送信をリアルタイムで自"
-"動的に同期します。すべてのエントリーは選択したスプレッドシートに即座に追加さ"
-"れ、リード、問い合わせ、顧客データを手動でエクスポートせずに効率的に管理でき"
-"ます。"
+"Contact Form 7をGoogle Sheetsに簡単に接続し、フォームの送信をリアルタイムで自動"
+"的に同期します。すべてのエントリーは選択したスプレッドシートに即座に追加され、"
+"リード、問い合わせ、顧客データを手動でエクスポートせずに効率的に管理できます。"
 
-#: includes/pages/extensions.php:165 includes/pages/extensions.php:185
-#: includes/pages/extensions.php:205 includes/pages/extensions.php:225
-#: includes/pages/extensions.php:245 includes/pages/extensions.php:264
-#: includes/pages/extensions.php:284 includes/pages/extensions.php:304
-#: includes/pages/extensions.php:323 includes/pages/extensions.php:343
-#: includes/pages/extensions.php:363 includes/pages/extensions.php:383
-#: includes/pages/extensions.php:403
 msgid "Install"
 msgstr "インストール"
 
-#: includes/pages/extensions.php:179
 msgid "WPForms Google Sheet Connector"
 msgstr "WPForms Google シートコネクタ"
 
-#: includes/pages/extensions.php:182
 msgid ""
 "Integrate WPForms with Google Sheets and send form entries directly to your "
 "spreadsheet automatically. Track leads, manage customer data, and streamline "
 "reporting with seamless Google Sheets integration and real-time sync."
 msgstr ""
-"WPFormsをGoogle Sheetsと統合し、フォームのエントリーをスプレッドシートに直接"
-"自動送信します。リードを追跡し、顧客データを管理し、シームレスなGoogle Sheets"
-"統合とリアルタイム同期でレポートを効率化します。"
+"WPFormsをGoogle Sheetsと統合し、フォームのエントリーをスプレッドシートに直接自動"
+"送信します。リードを追跡し、顧客データを管理し、シームレスなGoogle Sheets統合と"
+"リアルタイム同期でレポートを効率化します。"
 
-#: includes/pages/extensions.php:199
 msgid "Gravity Forms Google Sheet Connector"
 msgstr "Gravity Forms Google シートコネクタ"
 
-#: includes/pages/extensions.php:202
 msgid ""
-"Connect Gravity Forms to Google Sheets and automatically push form "
-"submissions to your spreadsheet. Simplify data management, improve workflow "
-"automation, and keep all entries organized in one secure location."
+"Connect Gravity Forms to Google Sheets and automatically push form submissions "
+"to your spreadsheet. Simplify data management, improve workflow automation, and "
+"keep all entries organized in one secure location."
 msgstr ""
-"Gravity FormsをGoogle Sheetsに接続し、フォームの送信をスプレッドシートに自動"
-"的にプッシュします。データ管理を簡素化し、ワークフローの自動化を改善し、すべ"
-"てのエントリーを1つの安全な場所に整理します。"
+"Gravity FormsをGoogle Sheetsに接続し、フォームの送信をスプレッドシートに自動的に"
+"プッシュします。データ管理を簡素化し、ワークフローの自動化を改善し、すべてのエン"
+"トリーを1つの安全な場所に整理します。"
 
-#: includes/pages/extensions.php:219
 msgid "Ninja Forms Google Sheet Connector"
 msgstr "Ninja Forms Google シートコネクタ"
 
-#: includes/pages/extensions.php:222
 msgid ""
 "Automatically sync Ninja Forms submissions to Google Sheets with one-click "
-"integration. Capture leads, monitor responses, and manage data efficiently "
-"with instant spreadsheet updates and easy reporting."
+"integration. Capture leads, monitor responses, and manage data efficiently with "
+"instant spreadsheet updates and easy reporting."
 msgstr ""
 "Ninja Formsの送信をワンクリック統合でGoogle Sheetsに自動同期します。リードを"
-"キャッチし、応答を監視し、即時のスプレッドシート更新と簡単なレポートでデータ"
-"を効率的に管理します。"
+"キャッチし、応答を監視し、即時のスプレッドシート更新と簡単なレポートでデータを効"
+"率的に管理します。"
 
-#: includes/pages/extensions.php:239
 msgid "Forminator Forms Google Sheet Connector"
 msgstr "Forminator Forms Google シートコネクタ"
 
-#: includes/pages/extensions.php:242
 msgid ""
 "Integrate Forminator Forms with Google Sheets to automatically store form "
-"entries in your spreadsheet. Eliminate manual data entry and ensure "
-"accurate, real-time syncing for better data tracking and analysis."
+"entries in your spreadsheet. Eliminate manual data entry and ensure accurate, "
+"real-time syncing for better data tracking and analysis."
 msgstr ""
-"Forminator FormsをGoogle Sheetsと統合し、フォームのエントリーをスプレッドシー"
-"トに自動的に保存します。手動データ入力を排除し、正確でリアルタイムの同期を確"
-"保して、データの追跡と分析を向上させます。"
+"Forminator FormsをGoogle Sheetsと統合し、フォームのエントリーをスプレッドシート"
+"に自動的に保存します。手動データ入力を排除し、正確でリアルタイムの同期を確保し"
+"て、データの追跡と分析を向上させます。"
 
-#: includes/pages/extensions.php:246 includes/pages/extensions.php:265
-#: includes/pages/extensions.php:285 includes/pages/extensions.php:569
-#: includes/pages/extensions.php:716 includes/pages/extensions.php:859
 msgid "Free"
 msgstr "無料"
 
-#: includes/pages/extensions.php:258
 msgid "Formidable Forms Google Sheet Connector"
 msgstr "Formidable Forms Google シートコネクタ"
 
-#: includes/pages/extensions.php:261
 msgid ""
 "Automatically sync Formidable Forms entries to Google Sheets. Manage leads, "
 "track submissions, and simplify data reporting with real-time integration."
 msgstr ""
-"Formidable Forms のエントリーを Google シートに自動的に同期します。リードを管"
-"理し、提出を追跡し、リアルタイム統合でデータ報告を簡素化します。"
+"Formidable Forms のエントリーを Google シートに自動的に同期します。リードを管理"
+"し、提出を追跡し、リアルタイム統合でデータ報告を簡素化します。"
 
-#: includes/pages/extensions.php:278
 msgid "Fluent Forms Google Sheet Connector"
 msgstr "Fluent Forms Google シートコネクタ"
 
-#: includes/pages/extensions.php:281
 msgid ""
 "Automatically sync Fluent Forms submissions to Google Sheets in real-time. "
-"Every form entry is instantly added to your selected spreadsheet, helping "
-"you manage leads, customer inquiries, and business data without manual "
-"export. Streamline your workflow, improve reporting accuracy, and keep all "
-"submissions organized with seamless Google Sheets integration."
+"Every form entry is instantly added to your selected spreadsheet, helping you "
+"manage leads, customer inquiries, and business data without manual export. "
+"Streamline your workflow, improve reporting accuracy, and keep all submissions "
+"organized with seamless Google Sheets integration."
 msgstr ""
 "Fluent Formsの送信をリアルタイムでGoogle Sheetsに自動的に同期します。すべての"
-"フォームエントリーは即座に選択したスプレッドシートに追加され、リード、顧客の"
-"問い合わせ、ビジネスデータを手動でエクスポートすることなく管理できます。ワー"
-"クフローを合理化し、報告の正確性を向上させ、すべての送信を整理された状態で保"
-"つためにシームレスなGoogle Sheets統合を実現します。"
+"フォームエントリーは即座に選択したスプレッドシートに追加され、リード、顧客の問い"
+"合わせ、ビジネスデータを手動でエクスポートすることなく管理できます。ワークフロー"
+"を合理化し、報告の正確性を向上させ、すべての送信を整理された状態で保つためにシー"
+"ムレスなGoogle Sheets統合を実現します。"
 
-#: includes/pages/extensions.php:298
 msgid "Elementor Forms Google Sheet Connector"
 msgstr "Elementor Forms Google シートコネクタ"
 
-#: includes/pages/extensions.php:301
 msgid ""
-"Sync Elementor Forms with Google Sheets instantly. Automatically add new "
-"form submissions to your spreadsheet, manage leads efficiently, and simplify "
+"Sync Elementor Forms with Google Sheets instantly. Automatically add new form "
+"submissions to your spreadsheet, manage leads efficiently, and simplify "
 "reporting with real-time data synchronization."
 msgstr ""
-"Elementor Forms を Google シートと瞬時に同期します。新しいフォームの提出を自"
-"動的にスプレッドシートに追加し、リードを効率的に管理し、リアルタイムデータ同"
-"期で報告を簡素化します。"
+"Elementor Forms を Google シートと瞬時に同期します。新しいフォームの提出を自動的"
+"にスプレッドシートに追加し、リードを効率的に管理し、リアルタイムデータ同期で報告"
+"を簡素化します。"
 
-#: includes/pages/extensions.php:317
 msgid "Avada Forms Google Sheet Connector"
 msgstr "Avada Forms Google シートコネクタ"
 
-#: includes/pages/extensions.php:320
 msgid ""
-"Connect Avada Forms to Google Sheets and automatically transfer form entries "
-"to your spreadsheet. Streamline lead management, automate data collection, "
-"and improve business reporting with seamless integration."
+"Connect Avada Forms to Google Sheets and automatically transfer form entries to "
+"your spreadsheet. Streamline lead management, automate data collection, and "
+"improve business reporting with seamless integration."
 msgstr ""
-"Avada Forms を Google シートに接続し、フォームエントリーを自動的にスプレッド"
-"シートに転送します。リード管理を効率化し、データ収集を自動化し、シームレスな"
-"統合でビジネス報告を改善します。"
+"Avada Forms を Google シートに接続し、フォームエントリーを自動的にスプレッドシー"
+"トに転送します。リード管理を効率化し、データ収集を自動化し、シームレスな統合でビ"
+"ジネス報告を改善します。"
 
-#: includes/pages/extensions.php:324 includes/pages/extensions.php:344
 msgid "Available PRO Version"
 msgstr "利用可能な PRO バージョン"
 
-#: includes/pages/extensions.php:337
 msgid "Divi Forms Google Sheet Connector"
 msgstr "Divi Forms Google シートコネクタ"
 
-#: includes/pages/extensions.php:340
 msgid ""
-"Integrate Divi Forms with Google Sheets and automatically sync submissions "
-"in real-time. Store customer data securely, track inquiries efficiently, and "
+"Integrate Divi Forms with Google Sheets and automatically sync submissions in "
+"real-time. Store customer data securely, track inquiries efficiently, and "
 "eliminate manual spreadsheet updates."
 msgstr ""
-"Divi Forms を Google シートと統合し、リアルタイムで提出を自動的に同期します。"
-"顧客データを安全に保存し、問い合わせを効率的に追跡し、手動のスプレッドシート"
-"更新を排除します。"
+"Divi Forms を Google シートと統合し、リアルタイムで提出を自動的に同期します。顧"
+"客データを安全に保存し、問い合わせを効率的に追跡し、手動のスプレッドシート更新を"
+"排除します。"
 
-#: includes/pages/extensions.php:357
 msgid "WP Core Google Sheet Connector"
 msgstr "WP Core Google シートコネクタ"
 
-#: includes/pages/extensions.php:360
 msgid ""
-"Automatically send WordPress core data (like comments or custom submissions) "
-"to Google Sheets. Simplify website data tracking, automate record keeping, "
-"and centralize important information in one organized spreadsheet."
+"Automatically send WordPress core data (like comments or custom submissions) to "
+"Google Sheets. Simplify website data tracking, automate record keeping, and "
+"centralize important information in one organized spreadsheet."
 msgstr ""
-"WordPress コアデータ（コメントやカスタム提出など）を Google シートに自動的に"
-"送信します。ウェブサイトのデータ追跡を簡素化し、記録管理を自動化し、重要な情"
-"報を整理されたスプレッドシートに集中させます。"
+"WordPress コアデータ（コメントやカスタム提出など）を Google シートに自動的に送信"
+"します。ウェブサイトのデータ追跡を簡素化し、記録管理を自動化し、重要な情報を整理"
+"されたスプレッドシートに集中させます。"
 
-#: includes/pages/extensions.php:377
 msgid "WooCommerce Google Sheet Connector"
 msgstr "WooCommerce Google シートコネクタ"
 
-#: includes/pages/extensions.php:380
 msgid ""
-"Sync WooCommerce orders with Google Sheets automatically. Store order "
-"details, customer information, and transaction data in real-time for easy "
-"reporting, accounting, and business analysis."
+"Sync WooCommerce orders with Google Sheets automatically. Store order details, "
+"customer information, and transaction data in real-time for easy reporting, "
+"accounting, and business analysis."
 msgstr ""
-"WooCommerce の注文を Google シートと自動的に同期します。注文の詳細、顧客情"
-"報、取引データをリアルタイムで保存し、報告、会計、ビジネス分析を容易にしま"
-"す。"
+"WooCommerce の注文を Google シートと自動的に同期します。注文の詳細、顧客情報、取"
+"引データをリアルタイムで保存し、報告、会計、ビジネス分析を容易にします。"
 
-#: includes/pages/extensions.php:397
 msgid "Easy Digital Downloads Google Sheet Connector"
 msgstr "Easy Digital Downloads Google シートコネクタ"
 
-#: includes/pages/extensions.php:400
 msgid ""
-"Automatically send Easy Digital Downloads (EDD) order details to Google "
-"Sheets. Track digital product sales, monitor transactions, and manage "
-"customer data effortlessly with real-time spreadsheet integration."
+"Automatically send Easy Digital Downloads (EDD) order details to Google Sheets. "
+"Track digital product sales, monitor transactions, and manage customer data "
+"effortlessly with real-time spreadsheet integration."
 msgstr ""
-"Easy Digital Downloads (EDD) の注文詳細を Google シートに自動的に送信します。"
-"デジタル製品の販売を追跡し、取引を監視し、リアルタイムのスプレッドシート統合"
-"で顧客データを簡単に管理します。"
+"Easy Digital Downloads (EDD) の注文詳細を Google シートに自動的に送信します。デ"
+"ジタル製品の販売を追跡し、取引を監視し、リアルタイムのスプレッドシート統合で顧客"
+"データを簡単に管理します。"
 
-#: includes/pages/extensions.php:416
 msgid "Installed & Active Plugins"
 msgstr "インストール済み & アクティブなプラグイン"
 
-#: includes/pages/extensions.php:418
 msgid ""
-"View and manage all currently installed and active connectors on your site. "
-"You can activate, deactivate, or upgrade plugins from here."
+"View and manage all currently installed and active connectors on your site. You "
+"can activate, deactivate, or upgrade plugins from here."
 msgstr ""
-"現在インストールされているすべてのコネクタを表示および管理します。ここからプ"
-"ラグインをアクティブ化、非アクティブ化、またはアップグレードできます。"
+"現在インストールされているすべてのコネクタを表示および管理します。ここからプラグ"
+"インをアクティブ化、非アクティブ化、またはアップグレードできます。"
 
-#: includes/pages/extensions.php:492 includes/pages/extensions.php:676
-#: includes/pages/extensions.php:712 includes/pages/extensions.php:862
 msgid "Pro"
 msgstr "プロ"
 
-#: includes/pages/extensions.php:523 includes/pages/extensions.php:600
-#: includes/pages/extensions.php:734 includes/pages/extensions.php:889
 msgid "View Docs"
 msgstr "ドキュメントを見る"
 
-#: includes/pages/extensions.php:532 includes/pages/extensions.php:609
-#: includes/pages/extensions.php:937
-#: includes/pages/gs-gravity-integration.php:283
-#: includes/pages/gs-gravity-integration.php:815
 msgid "Deactivate"
 msgstr "無効化"
 
-#: includes/pages/extensions.php:630
 msgid "Recommended Plugins"
 msgstr "推奨プラグイン"
 
-#: includes/pages/extensions.php:632
 msgid ""
-"Discover recommended plugins that enhance your workflow and help you get "
-"more value from your Google Sheets integration."
+"Discover recommended plugins that enhance your workflow and help you get more "
+"value from your Google Sheets integration."
 msgstr ""
-"ワークフローを強化し、Google Sheets統合からより多くの価値を得るための推奨プラ"
-"グインを見つけましょう。"
+"ワークフローを強化し、Google Sheets統合からより多くの価値を得るための推奨プラグ"
+"インを見つけましょう。"
 
-#: includes/pages/extensions.php:739 includes/pages/extensions.php:745
-#: includes/pages/extensions.php:758
 msgid "Activate"
 msgstr "有効化"
 
-#: includes/pages/extensions.php:780
 msgid "Explore More Plugins"
 msgstr "さらにプラグインを探す"
 
-#: includes/pages/extensions.php:782
-msgid ""
-"Discover the right connector for your workflow and automate data syncing."
-msgstr ""
-"ワークフローに適したコネクタを見つけて、データの同期を自動化しましょう。"
+msgid "Discover the right connector for your workflow and automate data syncing."
+msgstr "ワークフローに適したコネクタを見つけて、データの同期を自動化しましょう。"
 
-#: includes/pages/extensions.php:789
 msgid "All"
 msgstr "すべて"
 
-#: includes/pages/extensions.php:790
 msgid "Forms"
 msgstr "フォーム"
 
-#: includes/pages/extensions.php:791
 msgid "Page Builders"
 msgstr "ページビルダー"
 
-#: includes/pages/extensions.php:792
 msgid "eCommerce"
 msgstr "eコマース"
 
-#: includes/pages/extensions.php:899
 msgid "View Demo"
 msgstr "デモを見る"
 
-#: includes/pages/extensions.php:929
 msgid "Deactivate plugin"
 msgstr "プラグインを無効化する"
 
-#: includes/pages/extensions.php:930
 msgid " Are you sure you want to deactivate this plugin?"
 msgstr "このプラグインを無効化してもよろしいですか？"
 
-#: includes/pages/extensions.php:934 includes/pages/extensions.php:959
-#: includes/pages/gs-gravity-integration.php:812
-#: includes/pages/gs-gravityform-general-setting.php:94
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: includes/pages/google-sheet-settings.php:45
 msgid "Auth Required"
 msgstr "認証が必要"
 
-#: includes/pages/google-sheet-settings.php:108
 msgid ""
 "You`re using GSheetConnector for Gravity Forms. To unlock more features "
 "consider "
 msgstr ""
-"あなたは GSheetConnector for Gravity Forms を使用しています。より多くの機能を"
-"アンロックするには、"
+"あなたは GSheetConnector for Gravity Forms を使用しています。より多くの機能をア"
+"ンロックするには、"
 
-#: includes/pages/google-sheet-settings.php:110
 msgid "upgrading to Pro"
 msgstr "Pro にアップグレードする"
 
-#: includes/pages/google-sheet-settings.php:132
 msgid "Unlock Advance Features of Gravity Forms Pro version 🚀"
 msgstr "Gravity Forms Pro バージョンの高度な機能をアンロック 🚀"
 
-#: includes/pages/google-sheet-settings.php:136
 msgid ""
-"Use advanced features like Manual Authentication and automatic field "
-"mapping, no need to create columns in Google Sheets manually."
+"Use advanced features like Manual Authentication and automatic field mapping, "
+"no need to create columns in Google Sheets manually."
 msgstr ""
-"手動認証や自動フィールドマッピングなどの高度な機能を使用し、Google シートで手"
-"動で列を作成する必要はありません。"
+"手動認証や自動フィールドマッピングなどの高度な機能を使用し、Google シートで手動"
+"で列を作成する必要はありません。"
 
-#: includes/pages/google-sheet-settings.php:139
 msgid ""
 "Choose only the fields you need with simple toggles, use advanced tags, sync "
 "past form entries, and get priority support."
 msgstr ""
-"必要なフィールドだけをシンプルなトグルで選択し、高度なタグを使用し、過去の"
-"フォームエントリーを同期し、優先サポートを受けます。"
+"必要なフィールドだけをシンプルなトグルで選択し、高度なタグを使用し、過去のフォー"
+"ムエントリーを同期し、優先サポートを受けます。"
 
-#: includes/pages/google-sheet-settings.php:146
 msgid "View License Types"
 msgstr "ライセンスタイプを見る"
 
-#: includes/pages/google-sheet-settings.php:151
 msgid "Compare Features"
 msgstr "機能を比較する"
 
-#: includes/pages/google-sheet-settings.php:155
-#: includes/pages/google-sheet-settings.php:199
 msgid "Maybe Later"
 msgstr "後で"
 
-#: includes/pages/google-sheet-settings.php:173
 msgid "Enjoying the Plugin?"
 msgstr "プラグインを楽しんでいますか？"
 
-#: includes/pages/google-sheet-settings.php:177
 msgid ""
-"If you are enjoying the plugin, please consider leaving a 5-star review. "
-"Your support helps us improve and grow."
+"If you are enjoying the plugin, please consider leaving a 5-star review. Your "
+"support helps us improve and grow."
 msgstr ""
-"プラグインを楽しんでいる場合は、5つ星のレビューを残すことを検討してください。"
-"あなたのサポートが私たちの改善と成長に役立ちます。"
+"プラグインを楽しんでいる場合は、5つ星のレビューを残すことを検討してください。あ"
+"なたのサポートが私たちの改善と成長に役立ちます。"
 
-#: includes/pages/google-sheet-settings.php:184
 msgid "Ok, you deserve it!"
 msgstr "はい、あなたはそれに値します！"
 
-#: includes/pages/google-sheet-settings.php:188
 msgid "I already did"
 msgstr "私はすでにしました"
 
-#: includes/pages/google-sheet-settings.php:194
 msgid "I need help"
 msgstr "助けが必要です"
 
-#: includes/pages/google-sheet-settings.php:216
 msgid " Enhance Your Setup"
 msgstr "設定を強化する"
 
-#: includes/pages/google-sheet-settings.php:220
 msgid "Extend your workflow with our add-ons."
 msgstr "アドオンでワークフローを拡張しましょう。"
 
-#: includes/pages/google-sheet-settings.php:223
 msgid "Discover tools that integrate seamlessly and help you get more done."
 msgstr ""
 "シームレスに統合され、より多くの作業を行うのに役立つツールを見つけましょう。"
 
-#: includes/pages/google-sheet-settings.php:231
 msgid "View Details"
 msgstr "詳細を見る"
 
-#: includes/pages/google-sheet-settings.php:250
-#: includes/pages/gs-gravity-integration.php:85
 msgid "Authenticate with Your Google Account"
 msgstr "Googleアカウントで認証する"
 
-#: includes/pages/google-sheet-settings.php:254
 msgid "Your connection has expired or hasn’t been set up yet."
 msgstr "接続が期限切れまたはまだ設定されていません。"
 
-#: includes/pages/google-sheet-settings.php:258
 msgid ""
-"Please reauthenticate with your google account to continue syncing data "
-"without interruptions."
+"Please reauthenticate with your google account to continue syncing data without "
+"interruptions."
 msgstr ""
 "データの同期を中断なく続けるために、Google アカウントで再認証してください。"
 
-#: includes/pages/google-sheet-settings.php:265
 msgid "Authenticate Now"
 msgstr "今すぐ認証する"
 
-#: includes/pages/google-sheet-settings.php:271
 msgid "Learn How"
 msgstr "方法を学ぶ"
 
-#: includes/pages/google-sheet-settings.php:313
 msgid "v"
 msgstr "v"
 
-#: includes/pages/google-sheet-settings.php:369
 msgid "Google Sheet"
 msgstr "Google シート"
 
-#: includes/pages/google-sheet-settings.php:379
 msgid "Dashboard"
 msgstr "ダッシュボード"
 
-#: includes/pages/google-sheet-settings.php:380
 msgid "Integration"
 msgstr "統合"
 
-#: includes/pages/google-sheet-settings.php:382
 msgid "System Status"
 msgstr "システムステータス"
 
-#: includes/pages/google-sheet-settings.php:383
 msgid "Extensions"
 msgstr "拡張機能"
 
-#: includes/pages/google-sheet-settings.php:434
 msgid "Advanced Tools for Easy Spreadsheet Control"
 msgstr "簡単なスプレッドシート管理のための高度なツール"
 
-#: includes/pages/google-sheet-settings.php:435
 msgid ""
-"Improve your sheet management with smart automation and flexible "
-"customization features."
+"Improve your sheet management with smart automation and flexible customization "
+"features."
 msgstr "スマートな自動化と柔軟なカスタマイズ機能でシート管理を改善します。"
 
-#: includes/pages/google-sheet-settings.php:438
-#: includes/pages/gs-gravityform-dashboard.php:268
 msgid "Google Sheets API v4"
 msgstr "Google Sheets API v4"
 
-#: includes/pages/google-sheet-settings.php:439
-#: includes/pages/gs-gravityform-dashboard.php:269
 msgid "One-Click Authentication"
 msgstr "ワンクリック認証"
 
-#: includes/pages/google-sheet-settings.php:440
-#: includes/pages/gs-gravityform-dashboard.php:270
 msgid "Authenticated Email Display"
 msgstr "認証済みメール表示"
 
-#: includes/pages/google-sheet-settings.php:441
-#: includes/pages/gs-gravityform-dashboard.php:271
 msgid "Click & Fetch Automation"
 msgstr "クリック＆フェッチ自動化"
 
-#: includes/pages/google-sheet-settings.php:442
-#: includes/pages/gs-gravityform-dashboard.php:272
 msgid "Create New Spreadsheet"
 msgstr "新しいスプレッドシートを作成"
 
-#: includes/pages/google-sheet-settings.php:443
-#: includes/pages/gs-gravityform-dashboard.php:273
 msgid "Manual Sheet / Tab Name"
 msgstr "手動シート / タブ名"
 
-#: includes/pages/google-sheet-settings.php:446
-#: includes/pages/gs-gravityform-dashboard.php:276
 msgid "Automated Sheet & Tab"
 msgstr "自動シート＆タブ"
 
-#: includes/pages/google-sheet-settings.php:447
-#: includes/pages/gs-gravityform-dashboard.php:277
 msgid "Custom / Merge Tags"
 msgstr "カスタム / マージタグ"
 
-#: includes/pages/google-sheet-settings.php:448
-#: includes/pages/gs-gravityform-dashboard.php:278
 msgid "Drag-and-Drop Column Order"
 msgstr "ドラッグ＆ドロップ列順"
 
-#: includes/pages/google-sheet-settings.php:449
-#: includes/pages/gs-gravityform-dashboard.php:279
 msgid "Headers On / Off + Rename"
 msgstr "ヘッダーのオン / オフ + 名前変更"
 
-#: includes/pages/google-sheet-settings.php:450
-#: includes/pages/gs-gravityform-dashboard.php:280
 msgid "Image / PDF Attachment Link"
 msgstr "画像 / PDF 添付リンク"
 
-#: includes/pages/google-sheet-settings.php:451
-#: includes/pages/gs-gravityform-dashboard.php:281
 msgid "Freeze & Color Headers"
 msgstr "ヘッダーを固定＆色付け"
 
-#: includes/pages/google-sheet-settings.php:452
-#: includes/pages/gs-gravityform-dashboard.php:282
 msgid "Conditional Options"
 msgstr "条件付きオプション"
 
-#: includes/pages/google-sheet-settings.php:455
-#: includes/pages/gs-gravityform-dashboard.php:286
 msgid "Sync Past Entries"
 msgstr "過去のエントリーを同期"
 
-#: includes/pages/google-sheet-settings.php:456
-#: includes/pages/gs-gravityform-dashboard.php:287
 msgid "Role Management"
 msgstr "役割管理"
 
-#: includes/pages/google-sheet-settings.php:457
-#: includes/pages/gs-gravityform-dashboard.php:288
 msgid "Quick Configuration"
 msgstr "クイック設定"
 
-#: includes/pages/google-sheet-settings.php:458
-#: includes/pages/gs-gravityform-dashboard.php:289
 msgid "Multi-Language Support"
 msgstr "多言語サポート"
 
-#: includes/pages/google-sheet-settings.php:459
-#: includes/pages/gs-gravityform-dashboard.php:290
 msgid "Multi-Site Support"
 msgstr "マルチサイトサポート"
 
-#: includes/pages/google-sheet-settings.php:460
-#: includes/pages/gs-gravityform-dashboard.php:291
 msgid "Latest WP & PHP Support"
 msgstr "最新のWP＆PHPサポート"
 
-#: includes/pages/gs-gravity-integration.php:27
 msgid "Google Sheets Integration for Gravity Forms"
 msgstr "Gravity Forms用のGoogle Sheets統合"
 
-#: includes/pages/gs-gravity-integration.php:36
 msgid "Choose Google API Setting"
 msgstr "Google API設定を選択"
 
-#: includes/pages/gs-gravity-integration.php:40
 msgid "Existing Client / Secret Key (Auto Setup)"
 msgstr "既存のクライアント/シークレットキー（自動セットアップ）"
 
-#: includes/pages/gs-gravity-integration.php:43
 msgid "Manual Client/Secret Key (Use Your Google API Configuration)"
 msgstr "手動クライアント/シークレットキー（Google API設定を使用）"
 
-#: includes/pages/gs-gravity-integration.php:46
 msgid "Service Account (Recommended)"
 msgstr "サービスアカウント（推奨）"
 
-#: includes/pages/gs-gravity-integration.php:51
 msgid "Select how Gravity Forms should authenticate with Google Sheets."
 msgstr "Gravity FormsがGoogle Sheetsとどのように認証するかを選択します。"
 
-#: includes/pages/gs-gravity-integration.php:70
 msgid "Google Account Connection"
-msgstr "Googleアカウントの連携"
+msgstr "Googleアカウント接続"
 
-#: includes/pages/gs-gravity-integration.php:72
 msgid "Auto Setup"
 msgstr "自動セットアップ"
 
-#: includes/pages/gs-gravity-integration.php:75
 msgid ""
-"Sign in with your Google account to connect Gravity Forms with Google "
-"Sheets. Once connected, your data syncs based on your settings. Learn more "
-"in the documentation"
+"Sign in with your Google account to connect Gravity Forms with Google Sheets. "
+"Once connected, your data syncs based on your settings. Learn more in the "
+"documentation"
 msgstr ""
-"Google アカウントでログインして、Gravity Forms と Google スプレッドシートを連"
-"携させてください。連携が完了すると、設定に基づいてデータが同期されます。詳細"
-"については、ドキュメントをご覧ください。"
+"Google アカウントでサインインして、Gravity Forms を Google Sheets に接続してくだ"
+"さい。接続後、設定に基づいてデータが同期されます。詳細はドキュメントをご覧くださ"
+"い"
 
-#: includes/pages/gs-gravity-integration.php:77
 msgid "click here"
 msgstr "ここをクリック"
 
-#: includes/pages/gs-gravity-integration.php:92
 msgid "Click on the <strong>Sign in with Google</strong> button."
 msgstr "<strong>Googleでサインイン</strong>ボタンをクリックします。"
 
-#: includes/pages/gs-gravity-integration.php:98
 msgid "Log in using your Google account."
 msgstr "Googleアカウントを使用してログインします。"
 
-#: includes/pages/gs-gravity-integration.php:102
 msgid "Select the Google account where your Sheets are stored."
 msgstr "シートが保存されているGoogleアカウントを選択します。"
 
-#: includes/pages/gs-gravity-integration.php:106
 msgid "Grant access to:"
 msgstr "アクセスを許可する:"
 
-#: includes/pages/gs-gravity-integration.php:109
 msgid "Google Drive"
 msgstr "Googleドライブ"
 
-#: includes/pages/gs-gravity-integration.php:120
 msgid "Click <strong>Allow</strong> to finish authorization."
 msgstr "<strong>許可</strong>をクリックして認証を完了します。"
 
-#: includes/pages/gs-gravity-integration.php:126
 msgid "Save the authentication code if prompted."
 msgstr "プロンプトが表示された場合は、認証コードを保存してください。"
 
-#: includes/pages/gs-gravity-integration.php:131
-msgid ""
-"This allows the plugin to securely sync your form data with Google Sheets."
+msgid "This allows the plugin to securely sync your form data with Google Sheets."
 msgstr ""
 "これにより、プラグインはGoogle Sheetsと安全にフォームデータを同期できます。"
 
-#: includes/pages/gs-gravity-integration.php:146
 msgid ""
-"<p class=\"fw-400 text-dark\"><strong>Google Drive</strong> and "
-"<strong>Google Sheets</strong> permissions were not granted during "
-"authentication with Google.</p>\n"
-"                                            <p class=\"fw-400 text-dark"
-"\"><strong>Refer to Step 4 in the Connection Guide shown alongside.</"
-"strong><br> Then, deactivate the connection and re-authorize it, ensuring "
-"both Google Drive and Google Sheets permissions are enabled.</p>"
+"<p class=\"fw-400 text-dark\"><strong>Google Drive</strong> and <strong>Google "
+"Sheets</strong> permissions were not granted during authentication with Google."
+"</p>\n"
+"                                            <p class=\"fw-400 text-"
+"dark\"><strong>Refer to Step 4 in the Connection Guide shown alongside.</"
+"strong><br> Then, deactivate the connection and re-authorize it, ensuring both "
+"Google Drive and Google Sheets permissions are enabled.</p>"
 msgstr ""
-"<p class=\"fw-400 text-dark\"><strong>Google Drive</strong> と "
-"<strong>Google Sheets</strong> の権限が Google との認証中に付与されませんでし"
-"た。</p>\n"
-"                                            <p class=\"fw-400 text-dark"
-"\"><strong>隣に表示されている接続ガイドのステップ 4 を参照してください。</"
-"strong><br> その後、接続を無効にして再認証し、Google Drive と Google Sheets "
-"の権限が有効になっていることを確認してください。</p>"
+"<p class=\"fw-400 text-dark\"><strong>Google Drive</strong> と <strong>Google "
+"Sheets</strong> の権限が Google との認証中に付与されませんでした。</p>\n"
+"                                            <p class=\"fw-400 text-"
+"dark\"><strong>隣に表示されている接続ガイドのステップ 4 を参照してください。</"
+"strong><br> その後、接続を無効にして再認証し、Google Drive と Google Sheets の権"
+"限が有効になっていることを確認してください。</p>"
 
-#: includes/pages/gs-gravity-integration.php:178
 msgid "Connected Google Account"
 msgstr "接続されたGoogleアカウント"
 
-#: includes/pages/gs-gravity-integration.php:187
 msgid "Connected"
 msgstr "接続済み"
 
-#: includes/pages/gs-gravity-integration.php:195
-#: includes/pages/gs-gravity-integration.php:212
+msgid ""
+"Authentication failed. Your Google access token may be expired or invalid. "
+"Please re-authenticate your account with the required permissions."
+msgstr ""
+"認証に失敗しました。Googleアクセス トークンが期限切れまたは無効である可能性があ"
+"ります。必要な権限でアカウントを再認証してください。"
+
 msgid "Connect Your Google Account"
 msgstr "Googleアカウントを接続する"
 
-#: includes/pages/gs-gravity-integration.php:196
-#: includes/pages/gs-gravity-integration.php:213
 msgid ""
-"Securely link your Google account to start syncing form entries "
-"automatically."
+"Securely link your Google account to start syncing form entries automatically."
 msgstr ""
 "安全にGoogleアカウントをリンクして、フォームエントリの自動同期を開始します。"
 
-#: includes/pages/gs-gravity-integration.php:222
-#: includes/pages/gs-gravity-integration.php:224
-#: includes/pages/gs-gravity-integration.php:439
 msgid "Sign in with Google"
 msgstr "Google でサインイン"
 
-#: includes/pages/gs-gravity-integration.php:234
 msgid "Client Token"
 msgstr "クライアントトークン"
 
-#: includes/pages/gs-gravity-integration.php:261
-msgid ""
-"Something went wrong! It looks you have not given the permission of Google "
-"Drive and Google Sheets from your google account.Please Deactivate Auth and "
-"Re-Authenticate again with the permissions."
-msgstr ""
-"何かがうまくいきませんでした！あなたのGoogleアカウントからGoogleドライブと"
-"Googleシートの許可を与えていないようです。認証を無効にし、再度許可を与えて認"
-"証してください。"
-
-#: includes/pages/gs-gravity-integration.php:272
 msgid "Save Client Token"
-msgstr "クライアントトークンを保存する"
+msgstr "クライアントトークンを保存"
 
-#: includes/pages/gs-gravity-integration.php:305
 msgid ""
 "We do not store any of the data from your Google account on our servers, "
-"everything is processed & stored on your server. We take your privacy "
-"extremely seriously and ensure it is never misused. Learn more in the "
-"documentation"
+"everything is processed & stored on your server. We take your privacy extremely "
+"seriously and ensure it is never misused. Learn more in the documentation"
 msgstr ""
-"私たちは、あなたのGoogleアカウントからのデータをサーバーに保存することはあり"
-"ません。すべてはあなたのサーバーで処理および保存されます。私たちはあなたのプ"
-"ライバシーを非常に重視しており、決して悪用されることはありません。詳細はド"
-"キュメントをご覧ください。"
+"私たちは、あなたのGoogleアカウントからのデータをサーバーに保存することはありませ"
+"ん。すべてはあなたのサーバーで処理および保存されます。私たちはあなたのプライバ"
+"シーを非常に重視しており、決して悪用されることはありません。詳細はドキュメントを"
+"ご覧ください。"
 
-#: includes/pages/gs-gravity-integration.php:307
 msgid "click here."
 msgstr "ここをクリック。"
 
-#: includes/pages/gs-gravity-integration.php:321
 msgid "Connection Status & Next Steps"
 msgstr "接続状況と次のステップ"
 
-#: includes/pages/gs-gravity-integration.php:327
 msgid ""
-"Your Google account has been successfully connected. You are now ready to "
-"sync your form submissions with Google Sheets securely and automatically."
+"Your Google account has been successfully connected. You are now ready to sync "
+"your form submissions with Google Sheets securely and automatically."
 msgstr ""
-"あなたのGoogleアカウントは正常に接続されました。これで、Google Sheetsと安全か"
-"つ自動的にフォーム送信を同期する準備が整いました。"
+"あなたのGoogleアカウントは正常に接続されました。これで、Google Sheetsと安全かつ"
+"自動的にフォーム送信を同期する準備が整いました。"
 
-#: includes/pages/gs-gravity-integration.php:342
 msgid "Create New Feed"
 msgstr "新しいフィードを作成"
 
-#: includes/pages/gs-gravity-integration.php:352
 msgid "Select Google Spreadsheet"
 msgstr "Google スプレッドシートを選択"
 
-#: includes/pages/gs-gravity-integration.php:362
 msgid "Add Labels in Sheet Headers Manually"
 msgstr "シートヘッダーにラベルを手動で追加"
 
-#: includes/pages/gs-gravity-integration.php:372
 msgid "Enable Fields to Sync"
 msgstr "同期するフィールドを有効にする"
 
-#: includes/pages/gs-gravity-integration.php:383
 msgid "Customize the Headers Appearance"
 msgstr "ヘッダーの外観をカスタマイズ"
 
-#: includes/pages/gs-gravity-integration.php:394
 msgid "Use Sync Settings (Past Entries)"
 msgstr "同期設定を使用する（過去のエントリ）"
 
-#: includes/pages/gs-gravity-integration.php:402
 msgid "Upgrade to unlock"
 msgstr "アップグレードしてロックを解除"
 
-#: includes/pages/gs-gravity-integration.php:416
 msgid "Connection Guide"
 msgstr "接続ガイド"
 
-#: includes/pages/gs-gravity-integration.php:417
 msgid "Step-by-Step"
 msgstr "ステップバイステップ"
 
-#: includes/pages/gs-gravity-integration.php:419
 msgid ""
-"Follow these steps to connect your Google account and start syncing your "
-"form data with Google Sheets."
+"Follow these steps to connect your Google account and start syncing your form "
+"data with Google Sheets."
 msgstr ""
-"これらの手順に従って、Googleアカウントを接続し、フォームデータをGoogle Sheets"
-"と同期させます。"
+"これらの手順に従って、Googleアカウントを接続し、フォームデータをGoogle Sheetsと"
+"同期させます。"
 
-#: includes/pages/gs-gravity-integration.php:427
 msgid "Step-1 Connect Your Google Account"
 msgstr "ステップ1 Googleアカウントを接続"
 
-#: includes/pages/gs-gravity-integration.php:429
 msgid ""
 "Sign in with your Google account to start the automatic Google Sheets "
 "integration."
 msgstr "Googleアカウントでサインインして、自動Google Sheets統合を開始します。"
 
-#: includes/pages/gs-gravity-integration.php:449
 msgid "Step-2 Choose Google Account"
 msgstr "ステップ2 Googleアカウントを選択"
 
-#: includes/pages/gs-gravity-integration.php:451
 msgid "Choose the Google account where your Sheets are stored."
 msgstr "Sheetsが保存されているGoogleアカウントを選択します。"
 
-#: includes/pages/gs-gravity-integration.php:461
-#: includes/pages/gs-gravity-integration.php:480
-#: includes/pages/gs-gravity-integration.php:501
-#: includes/pages/gs-gravity-integration.php:522
-#: includes/pages/gs-gravity-integration.php:544
 msgid "check our detailed guideline"
 msgstr "詳細なガイドラインを確認してください"
 
-#: includes/pages/gs-gravity-integration.php:468
 msgid "Step-3 Review Access Information"
 msgstr "ステップ3 アクセス情報を確認"
 
-#: includes/pages/gs-gravity-integration.php:470
 msgid "Google will show what information the plugin can access."
 msgstr "Googleは、プラグインがアクセスできる情報を表示します。"
 
-#: includes/pages/gs-gravity-integration.php:489
 msgid "Step-4 Grant Required Permissions"
 msgstr "ステップ4 必要な権限を付与"
 
-#: includes/pages/gs-gravity-integration.php:491
 msgid "Allow required permissions for Google Sheets and Drive access."
 msgstr "Google SheetsとDriveへのアクセスに必要な権限を許可します。"
 
-#: includes/pages/gs-gravity-integration.php:510
 msgid "Step-5 Save Authentication Code"
 msgstr "ステップ5 認証コードを保存"
 
-#: includes/pages/gs-gravity-integration.php:512
 msgid "Save the authentication code to complete the Google account connection."
 msgstr "Googleアカウント接続を完了するために認証コードを保存します。"
 
-#: includes/pages/gs-gravity-integration.php:532
 msgid "Step-6 Integration Completed"
 msgstr "ステップ6 統合完了"
 
-#: includes/pages/gs-gravity-integration.php:534
 msgid "Your Google account is now successfully connected."
 msgstr "あなたのGoogleアカウントは正常に接続されました。"
 
-#: includes/pages/gs-gravity-integration.php:576
 msgid "Manual Google Sheets Integration"
 msgstr "手動Google Sheets統合"
 
-#: includes/pages/gs-gravity-integration.php:577
 msgid ""
 "Connect Gravity Forms to Google Sheets using your own Google Cloud project.\n"
-"                            Ideal for advanced users who need full API "
-"control, custom OAuth setup,\n"
+"                            Ideal for advanced users who need full API control, "
+"custom OAuth setup,\n"
 "                            and independent credential management."
 msgstr ""
-"独自のGoogle Cloudプロジェクトを使用してGravity FormsをGoogle Sheetsに接続し"
-"ます。\n"
-"                            完全なAPI制御、カスタムOAuth設定、独立した資格情"
-"報管理が必要な高度なユーザーに最適です。"
+"独自のGoogle Cloudプロジェクトを使用してGravity FormsをGoogle Sheetsに接続しま"
+"す。\n"
+"                            完全なAPI制御、カスタムOAuth設定、独立した資格情報管"
+"理が必要な高度なユーザーに最適です。"
 
-#: includes/pages/gs-gravity-integration.php:596
 msgid "Custom API Credentials"
 msgstr "カスタムAPI資格情報"
 
-#: includes/pages/gs-gravity-integration.php:597
 msgid ""
 "Connect using your own Google Cloud Client ID and Client Secret for full "
 "authentication control."
 msgstr ""
-"完全な認証制御のために独自のGoogle CloudクライアントIDとクライアントシーク"
-"レットを使用して接続します。"
+"完全な認証制御のために独自のGoogle CloudクライアントIDとクライアントシークレット"
+"を使用して接続します。"
 
-#: includes/pages/gs-gravity-integration.php:613
 msgid "Secure Authentication"
 msgstr "安全な認証"
 
-#: includes/pages/gs-gravity-integration.php:614
 msgid ""
 "Authenticate directly with Google using a secure Authentication flow without "
 "third-party dependency."
 msgstr ""
-"サードパーティの依存関係なしに、安全な認証フローを使用してGoogleと直接認証し"
-"ます。"
+"サードパーティの依存関係なしに、安全な認証フローを使用してGoogleと直接認証しま"
+"す。"
 
-#: includes/pages/gs-gravity-integration.php:632
 msgid "Advanced Configuration"
 msgstr "高度な設定"
 
-#: includes/pages/gs-gravity-integration.php:633
 msgid ""
 "Set custom Redirect URIs, manage scopes, and configure API settings based on "
 "your project needs."
@@ -1618,97 +1228,76 @@ msgstr ""
 "プロジェクトのニーズに基づいてカスタムリダイレクトURIを設定し、スコープを管理"
 "し、API設定を構成します。"
 
-#: includes/pages/gs-gravity-integration.php:649
 msgid "Priority Technical Support"
 msgstr "優先技術サポート"
 
-#: includes/pages/gs-gravity-integration.php:651
 msgid ""
 "Get fast assistance from our expert team for setup, troubleshooting, and "
 "optimization."
 msgstr ""
-"セットアップ、トラブルシューティング、最適化のために、専門チームから迅速な支"
-"援を受けます。"
+"セットアップ、トラブルシューティング、最適化のために、専門チームから迅速な支援を"
+"受けます。"
 
-#: includes/pages/gs-gravity-integration.php:661
-#: includes/pages/gs-gravity-integration.php:780
-#: includes/pages/gs-gravityform-beta-version.php:86
-#: includes/pages/gs-gravityform-role-setting.php:114
 msgid "Upgrade to Unlock"
 msgstr "アップグレードしてロックを解除"
 
-#: includes/pages/gs-gravity-integration.php:664
-#: includes/pages/gs-gravity-integration.php:783
 msgid "View Pro Features"
 msgstr "プロ機能を見る"
 
-#: includes/pages/gs-gravity-integration.php:681
 msgid "Service Account Google Sheets Integration"
 msgstr "サービスアカウントGoogleシート統合"
 
-#: includes/pages/gs-gravity-integration.php:684
 msgid ""
 "Securely connect Gravity Forms to Google Sheets using a Google Cloud Service "
 "Account JSON key. Ideal for automated server-to-server syncing without "
 "requiring manual Google login."
 msgstr ""
-"Google CloudサービスアカウントJSONキーを使用してGravity FormsをGoogle Sheets"
-"に安全に接続します。手動のGoogleログインを必要とせず、自動サーバー間同期に最"
-"適です。"
+"Google CloudサービスアカウントJSONキーを使用してGravity FormsをGoogle Sheetsに安"
+"全に接続します。手動のGoogleログインを必要とせず、自動サーバー間同期に最適です。"
 
-#: includes/pages/gs-gravity-integration.php:704
 msgid "Secure JSON Authentication"
 msgstr "安全なJSON認証"
 
-#: includes/pages/gs-gravity-integration.php:706
 msgid ""
-"Authenticate using a secure Google Cloud JSON key file for direct and "
-"encrypted communication with Google Sheets."
+"Authenticate using a secure Google Cloud JSON key file for direct and encrypted "
+"communication with Google Sheets."
 msgstr ""
-"Google Sheetsとの直接かつ暗号化された通信のために、安全なGoogle Cloud JSON"
-"キーファイルを使用して認証します。"
+"Google Sheetsとの直接かつ暗号化された通信のために、安全なGoogle Cloud JSONキー"
+"ファイルを使用して認証します。"
 
-#: includes/pages/gs-gravity-integration.php:725
 msgid "No Authentication Login Required"
 msgstr "認証ログインは必要ありません"
 
-#: includes/pages/gs-gravity-integration.php:727
 msgid ""
 "Enable automatic background syncing without requiring Google account sign-in "
 "during setup."
 msgstr ""
-"セットアップ中にGoogleアカウントのサインインを必要とせず、自動バックグラウン"
-"ド同期を有効にします。"
+"セットアップ中にGoogleアカウントのサインインを必要とせず、自動バックグラウンド同"
+"期を有効にします。"
 
-#: includes/pages/gs-gravity-integration.php:747
 msgid "Direct Spreadsheet Access"
 msgstr "直接スプレッドシートアクセス"
 
-#: includes/pages/gs-gravity-integration.php:748
 msgid ""
-"Share your Google Sheet with the service account email to enable automatic "
-"data transfer."
+"Share your Google Sheet with the service account email to enable automatic data "
+"transfer."
 msgstr ""
-"自動データ転送を有効にするために、サービスアカウントのメールアドレスでGoogle"
-"シートを共有してください。"
+"自動データ転送を有効にするために、サービスアカウントのメールアドレスでGoogleシー"
+"トを共有してください。"
 
-#: includes/pages/gs-gravity-integration.php:768
 msgid "Production-Ready & Reliable"
 msgstr "プロダクション準備完了 & 信頼性の高い"
 
-#: includes/pages/gs-gravity-integration.php:770
 msgid ""
 "Built for stable, uninterrupted syncing in professional and high-traffic "
 "environments."
 msgstr ""
-"プロフェッショナルで高トラフィックな環境での安定した中断のない同期のために構"
-"築されています。"
+"プロフェッショナルで高トラフィックな環境での安定した中断のない同期のために構築さ"
+"れています。"
 
-#: includes/pages/gs-gravity-integration.php:805
 msgid "Deactivate Integration"
 msgstr "統合を無効にする"
 
-#: includes/pages/gs-gravity-integration.php:806
 msgid ""
 "Are you sure you want to deactivate Google Sheets integration?\n"
 "            This will stop syncing your form entries."
@@ -1716,1033 +1305,720 @@ msgstr ""
 "Google Sheetsの統合を無効にしてもよろしいですか？\n"
 "            これにより、フォームエントリーの同期が停止します。"
 
-#: includes/pages/gs-gravityform-beta-version.php:25
 msgid "Unlock Beta Version Control"
 msgstr "ベータ版コントロールを解除"
 
-#: includes/pages/gs-gravityform-beta-version.php:26
 msgid "Test upcoming features before official release"
 msgstr "公式リリース前に今後の機能をテスト"
 
-#: includes/pages/gs-gravityform-beta-version.php:33
 msgid "Early Access"
 msgstr "早期アクセス"
 
-#: includes/pages/gs-gravityform-beta-version.php:36
 msgid "Get updates before public release"
 msgstr "公開リリース前に更新を取得"
 
-#: includes/pages/gs-gravityform-beta-version.php:37
 msgid "Test new features in advance"
 msgstr "新機能を事前にテスト"
 
-#: includes/pages/gs-gravityform-beta-version.php:38
 msgid "Try improvements early"
 msgstr "改善を早期に試す"
 
-#: includes/pages/gs-gravityform-beta-version.php:39
 msgid "Stay ahead with new changes"
 msgstr "新しい変更に先んじる"
 
-#: includes/pages/gs-gravityform-beta-version.php:45
 msgid "Testing Purpose"
 msgstr "テスト目的"
 
-#: includes/pages/gs-gravityform-beta-version.php:48
 msgid "Features may still be under testing"
 msgstr "機能はまだテスト中の可能性があります"
 
-#: includes/pages/gs-gravityform-beta-version.php:49
 msgid "Some options may change later"
 msgstr "いくつかのオプションは後で変更される可能性があります"
 
-#: includes/pages/gs-gravityform-beta-version.php:50
 msgid "Minor issues may occur"
 msgstr "軽微な問題が発生する可能性があります"
 
-#: includes/pages/gs-gravityform-beta-version.php:51
 msgid "Used for feedback and improvements"
 msgstr "フィードバックと改善のために使用されます"
 
-#: includes/pages/gs-gravityform-beta-version.php:57
 msgid "Safety Notice"
 msgstr "安全通知"
 
-#: includes/pages/gs-gravityform-beta-version.php:60
 msgid "Recommended for staging sites"
 msgstr "ステージングサイトに推奨"
 
-#: includes/pages/gs-gravityform-beta-version.php:61
 msgid "Avoid enabling on live websites"
 msgstr "ライブウェブサイトでの有効化は避けてください"
 
-#: includes/pages/gs-gravityform-beta-version.php:62
 msgid "Take backup before testing"
 msgstr "テスト前にバックアップを取ってください"
 
-#: includes/pages/gs-gravityform-beta-version.php:63
 msgid "Disable anytime if needed"
 msgstr "必要に応じていつでも無効にできます"
 
-#: includes/pages/gs-gravityform-beta-version.php:69
 msgid "Update Control"
 msgstr "更新コントロール"
 
-#: includes/pages/gs-gravityform-beta-version.php:72
 msgid "Receive beta notifications"
 msgstr "ベータ通知を受け取る"
 
-#: includes/pages/gs-gravityform-beta-version.php:73
 msgid "Updates are not installed automatically"
 msgstr "更新は自動的にインストールされません"
 
-#: includes/pages/gs-gravityform-beta-version.php:74
 msgid "You control when to update"
 msgstr "更新のタイミングはあなたが決めます"
 
-#: includes/pages/gs-gravityform-beta-version.php:75
 msgid "Switch on/off anytime"
 msgstr "いつでもオン/オフを切り替え"
 
-#: includes/pages/gs-gravityform-beta-version.php:100
 msgid "Beta Program Access"
 msgstr "ベータプログラムアクセス"
 
-#: includes/pages/gs-gravityform-beta-version.php:102
 msgid ""
 "Get early access to upcoming features and improvements before they are "
-"officially released. Beta versions may include experimental updates and "
-"should be used for testing purposes only."
+"officially released. Beta versions may include experimental updates and should "
+"be used for testing purposes only."
 msgstr ""
-"正式にリリースされる前に、今後の機能や改善に早期アクセスを取得します。ベータ"
-"版には実験的な更新が含まれる場合があり、テスト目的のみで使用する必要がありま"
-"す。"
+"正式にリリースされる前に、今後の機能や改善に早期アクセスを取得します。ベータ版に"
+"は実験的な更新が含まれる場合があり、テスト目的のみで使用する必要があります。"
 
-#: includes/pages/gs-gravityform-beta-version.php:106
 msgid "Enable Beta Updates"
 msgstr "ベータ更新を有効にする"
 
-#: includes/pages/gs-gravityform-beta-version.php:109
 msgid ""
 "Receive notifications and access to beta releases. Updates will not be "
 "installed automatically."
 msgstr ""
-"通知を受け取り、ベータリリースにアクセスします。更新は自動的にインストールさ"
-"れません。"
+"通知を受け取り、ベータリリースにアクセスします。更新は自動的にインストールされま"
+"せん。"
 
-#: includes/pages/gs-gravityform-beta-version.php:126
 msgid "Beta Usage Notice"
 msgstr "ベータ使用通知"
 
-#: includes/pages/gs-gravityform-beta-version.php:129
 msgid "Beta versions may include unfinished or experimental features"
 msgstr "ベータ版には未完成または実験的な機能が含まれる場合があります"
 
-#: includes/pages/gs-gravityform-beta-version.php:132
 msgid "Some features may change or be removed in future updates"
 msgstr "将来の更新で一部の機能が変更されたり削除されたりする可能性があります"
 
-#: includes/pages/gs-gravityform-beta-version.php:135
 msgid "Minor bugs or performance issues may occur"
 msgstr "軽微なバグやパフォーマンスの問題が発生する可能性があります"
 
-#: includes/pages/gs-gravityform-beta-version.php:138
 msgid "We recommend enabling beta only on test or staging sites"
-msgstr ""
-"テストまたはステージングサイトでのみベータを有効にすることをお勧めします"
+msgstr "テストまたはステージングサイトでのみベータを有効にすることをお勧めします"
 
-#: includes/pages/gs-gravityform-beta-version.php:141
 msgid ""
 "Beta versions are intended for testing purposes. Do not enable on live "
 "production websites without proper backups."
 msgstr ""
-"ベータ版はテスト目的で使用されます。適切なバックアップなしに本番のライブウェ"
-"ブサイトで有効にしないでください。"
+"ベータ版はテスト目的で使用されます。適切なバックアップなしに本番のライブウェブサ"
+"イトで有効にしないでください。"
 
-#: includes/pages/gs-gravityform-beta-version.php:150
-#: includes/pages/gs-gravityform-general-setting.php:63
-#: includes/pages/gs-gravityform-role-setting.php:206
 msgid "Save Settings"
 msgstr "設定を保存"
 
-#: includes/pages/gs-gravityform-dashboard.php:12
+msgid "invalid"
+msgstr "無効"
+
+msgid "Use Existing Client/Secret Key (Auto Google API Configuration)"
+msgstr "既存のクライアント/シークレットキーを使用する（自動Google API構成）"
+
 msgid "Welcome To GSheetConnector"
 msgstr "GSheetConnectorへようこそ"
 
-#: includes/pages/gs-gravityform-dashboard.php:15
 msgid ""
-"GSheetConnector is a powerful automation plugin that syncs WordPress data "
-"with Google Sheets in real time. It supports WooCommerce, Easy Digital "
-"Downloads, and popular form plugins such as Gravity Forms, Contact Form 7, "
-"Elementor Forms, along with 10+ additional WordPress integrations for "
-"efficient data management."
+"GSheetConnector is a powerful automation plugin that syncs WordPress data with "
+"Google Sheets in real time. It supports WooCommerce, Easy Digital Downloads, "
+"and popular form plugins such as Gravity Forms, Contact Form 7, Elementor "
+"Forms, along with 10+ additional WordPress integrations for efficient data "
+"management."
 msgstr ""
-"GSheetConnectorは、WordPressデータをGoogle Sheetsとリアルタイムで同期する強力"
-"な自動化プラグインです。WooCommerce、Easy Digital Downloads、Gravity Forms、"
-"Contact Form 7、Elementor Formsなどの人気のフォームプラグインをサポートし、効"
-"率的なデータ管理のために10以上の追加WordPress統合を提供します。"
+"GSheetConnectorは、WordPressデータをGoogle Sheetsとリアルタイムで同期する強力な"
+"自動化プラグインです。WooCommerce、Easy Digital Downloads、Gravity Forms、"
+"Contact Form 7、Elementor Formsなどの人気のフォームプラグインをサポートし、効率"
+"的なデータ管理のために10以上の追加WordPress統合を提供します。"
 
-#: includes/pages/gs-gravityform-dashboard.php:20
+msgid "Form Name"
+msgstr "フォーム名"
+
+msgid "Loading feeds..."
+msgstr "フィードを読み込み中..."
+
 msgid "Let's Connect"
 msgstr "接続しましょう"
 
-#: includes/pages/gs-gravityform-dashboard.php:30
 msgid "Setup Guide & Troubleshooting"
 msgstr "セットアップガイドとトラブルシューティング"
 
-#: includes/pages/gs-gravityform-dashboard.php:33
 msgid ""
 "Sync Gravity Forms data with Google Sheets in real-time effortlessly and "
 "accurately."
 msgstr ""
-"Gravity FormsのデータをGoogle Sheetsとリアルタイムで簡単かつ正確に同期しま"
-"す。"
+"Gravity FormsのデータをGoogle Sheetsとリアルタイムで簡単かつ正確に同期します。"
 
-#: includes/pages/gs-gravityform-dashboard.php:40
 msgid "Getting Started"
 msgstr "始めに"
 
-#: includes/pages/gs-gravityform-dashboard.php:42
 msgid "Installation Process"
 msgstr "インストールプロセス"
 
-#: includes/pages/gs-gravityform-dashboard.php:43
 msgid "Integration with Google (Existing Method)"
 msgstr "Googleとの統合（既存の方法）"
 
-#: includes/pages/gs-gravityform-dashboard.php:44
 msgid "Integration of Gravity Forms with Google Sheet"
 msgstr "Gravity FormsとGoogle Sheetの統合"
 
-#: includes/pages/gs-gravityform-dashboard.php:48
 msgid "Docs & Troubleshooting"
 msgstr "ドキュメントとトラブルシューティング"
 
-#: includes/pages/gs-gravityform-dashboard.php:50
 msgid "How to Enable Debugging in WordPress"
 msgstr "WordPressでデバッグを有効にする方法"
 
-#: includes/pages/gs-gravityform-dashboard.php:51
 msgid "Invalid OAuth2 token"
 msgstr "無効なOAuth2トークン"
 
-#: includes/pages/gs-gravityform-dashboard.php:52
 msgid "Change Date/Time Format and Time Zone in Google Sheets"
 msgstr "Google Sheetsで日付/時刻形式とタイムゾーンを変更する"
 
-#: includes/pages/gs-gravityform-dashboard.php:59
 msgid "Additional Resources"
 msgstr "追加リソース"
 
-#: includes/pages/gs-gravityform-dashboard.php:61
 msgid "Integration with Google (Manual Method)"
 msgstr "Googleとの統合（手動の方法）"
 
-#: includes/pages/gs-gravityform-dashboard.php:62
 msgid "Integration with Google (Service Method)"
 msgstr "Googleとの統合（サービスの方法）"
 
-#: includes/pages/gs-gravityform-dashboard.php:63
 msgid "Automatic Select Spreadsheet"
 msgstr "スプレッドシートを自動選択"
 
-#: includes/pages/gs-gravityform-dashboard.php:64
 msgid "Role Settings"
-msgstr "役割の設定"
+msgstr "ロール設定"
 
-#: includes/pages/gs-gravityform-dashboard.php:75
 msgid "Plugins by Category"
 msgstr "カテゴリ別プラグイン"
 
-#: includes/pages/gs-gravityform-dashboard.php:78
 msgid "Find the perfect connector for your WordPress workflow."
 msgstr "あなたのWordPressワークフローに最適なコネクタを見つけましょう。"
 
-#: includes/pages/gs-gravityform-dashboard.php:93
 msgid "Contact Form Connectors"
 msgstr "コンタクトフォームコネクタ"
 
-#: includes/pages/gs-gravityform-dashboard.php:96
 msgid "6 plugins available"
 msgstr "利用可能なプラグインは6個"
 
-#: includes/pages/gs-gravityform-dashboard.php:117
 msgid "eCommerce Connectors"
 msgstr "eコマースコネクタ"
 
-#: includes/pages/gs-gravityform-dashboard.php:120
 msgid "2 plugins available"
 msgstr "利用可能なプラグインは2個"
 
-#: includes/pages/gs-gravityform-dashboard.php:141
 msgid "Page Builder Forms"
 msgstr "ページビルダーフォーム"
 
-#: includes/pages/gs-gravityform-dashboard.php:144
 msgid "3 plugins available"
 msgstr "利用可能なプラグインは3個"
 
-#: includes/pages/gs-gravityform-dashboard.php:167
 msgid "WP Core Connector"
 msgstr "WPコアコネクタ"
 
-#: includes/pages/gs-gravityform-dashboard.php:170
 msgid "1 plugin available"
 msgstr "利用可能なプラグインは1個"
 
-#: includes/pages/gs-gravityform-dashboard.php:192
 msgid "Free Plugins"
 msgstr "無料プラグイン"
 
-#: includes/pages/gs-gravityform-dashboard.php:195
 msgid "12 plugin available"
 msgstr "利用可能なプラグインは12個"
 
-#: includes/pages/gs-gravityform-dashboard.php:221
-#: includes/pages/gs-gravityform-sheet-setting.php:76
 msgid "Need more support? We're here to help."
 msgstr "さらにサポートが必要ですか？私たちが助けます。"
 
-#: includes/pages/gs-gravityform-dashboard.php:224
-#: includes/pages/gs-gravityform-sheet-setting.php:79
 msgid "Submit a Support Ticket"
 msgstr "サポートチケットを提出する"
 
-#: includes/pages/gs-gravityform-dashboard.php:244
-#: includes/pages/gs-gravityform-sheet-setting.php:99
 msgid "Our fast and friendly support team is always happy to help!"
 msgstr ""
-"私たちの迅速でフレンドリーなサポートチームは、いつでもお手伝いすることを喜ん"
-"でいます！"
+"私たちの迅速でフレンドリーなサポートチームは、いつでもお手伝いすることを喜んでい"
+"ます！"
 
-#: includes/pages/gs-gravityform-dashboard.php:257
 msgid "Amazing Key Features"
 msgstr "驚くべき主な機能"
 
-#: includes/pages/gs-gravityform-dashboard.php:258
 msgid "Everything You Need to Sync Data"
 msgstr "データを同期するために必要なすべて"
 
-#: includes/pages/gs-gravityform-dashboard.php:260
 msgid ""
 "Common features shared across every GSheetConnector Pro add-on built for "
 "reliability, flexibility, and scale."
 msgstr ""
-"信頼性、柔軟性、スケールのために構築されたすべてのGSheetConnector Proアドオン"
-"で共有される一般的な機能。"
+"信頼性、柔軟性、スケールのために構築されたすべてのGSheetConnector Proアドオンで"
+"共有される一般的な機能。"
 
-#: includes/pages/gs-gravityform-dashboard.php:298
 msgid "View Full Features"
 msgstr "すべての機能を見る"
 
-#: includes/pages/gs-gravityform-dashboard.php:310
 msgid "Form"
 msgstr "フォーム"
 
-#: includes/pages/gs-gravityform-dashboard.php:312
 msgid "Processing"
 msgstr "処理中"
 
-#: includes/pages/gs-gravityform-dashboard.php:314
 msgid "Sheet"
 msgstr "シート"
 
-#: includes/pages/gs-gravityform-dashboard.php:320
 msgid "Instant"
 msgstr "インスタント"
 
-#: includes/pages/gs-gravityform-dashboard.php:321
 msgid "Real-time updates"
 msgstr "リアルタイム更新"
 
-#: includes/pages/gs-gravityform-dashboard.php:324
 msgid "100%"
 msgstr "100%"
 
-#: includes/pages/gs-gravityform-dashboard.php:325
 msgid "Accuracy"
 msgstr "精度"
 
-#: includes/pages/gs-gravityform-dashboard.php:328
 msgid "Flexible"
 msgstr "柔軟な"
 
-#: includes/pages/gs-gravityform-dashboard.php:329
 msgid "Custom mapping"
 msgstr "カスタムマッピング"
 
-#: includes/pages/gs-gravityform-dashboard.php:345
 msgid "Video Tutorials"
 msgstr "ビデオチュートリアル"
 
-#: includes/pages/gs-gravityform-general-setting.php:15
 msgid "Plugin Preferences"
 msgstr "プラグインの設定"
 
-#: includes/pages/gs-gravityform-general-setting.php:17
 msgid ""
-"Manage how plugin settings and data are handled when the plugin is "
-"uninstalled."
+"Manage how plugin settings and data are handled when the plugin is uninstalled."
 msgstr ""
 "プラグインがアンインストールされたときの設定とデータの取り扱いを管理します。"
 
-#: includes/pages/gs-gravityform-general-setting.php:21
 msgid "Delete Plugin Data on Uninstall"
 msgstr "アンインストール時にプラグインデータを削除"
 
-#: includes/pages/gs-gravityform-general-setting.php:24
 msgid "Removes all plugin data (options, metadata) when the plugin is deleted."
 msgstr ""
-"プラグインが削除されると、すべてのプラグインデータ（オプション、メタデータ）"
-"が削除されます。"
+"プラグインが削除されると、すべてのプラグインデータ（オプション、メタデータ）が削"
+"除されます。"
 
-#: includes/pages/gs-gravityform-general-setting.php:45
 msgid "Uninstall Data Notice"
 msgstr "アンインストールデータ通知"
 
-#: includes/pages/gs-gravityform-general-setting.php:48
 msgid "Enable this option only if you want a complete cleanup"
-msgstr ""
-"完全なクリーンアップを希望する場合のみこのオプションを有効にしてください"
+msgstr "完全なクリーンアップを希望する場合のみこのオプションを有効にしてください"
 
-#: includes/pages/gs-gravityform-general-setting.php:50
 msgid "All plugin settings and data will be permanently removed"
 msgstr "すべてのプラグイン設定とデータが永久に削除されます"
 
-#: includes/pages/gs-gravityform-general-setting.php:52
 msgid "Incorrect settings can delete all sensitive form and user data"
 msgstr ""
-"不正な設定により、すべての機密フォームおよびユーザーデータが削除される可能性"
-"があります"
+"不正な設定により、すべての機密フォームおよびユーザーデータが削除される可能性があ"
+"ります"
 
-#: includes/pages/gs-gravityform-general-setting.php:78
 msgid "Confirm Data Deletion"
-msgstr "データの削除を確認してください"
+msgstr "データ削除の確認"
 
-#: includes/pages/gs-gravityform-general-setting.php:81
 msgid ""
 "Enabling this option will permanently delete all plugin data, including "
 "settings and integrations, when the plugin is uninstalled."
 msgstr ""
-"このオプションを有効にすると、プラグインをアンインストールした際に、設定や連"
-"携情報を含むすべてのプラグインデータが完全に削除されます。"
+"このオプションを有効にすると、プラグインがアンインストールされるときに設定や統合"
+"を含むすべてのプラグインデータが永久に削除されます。"
 
-#: includes/pages/gs-gravityform-general-setting.php:84
 msgid ""
 "If you plan to upgrade from Free to Pro, you may lose your existing "
 "configuration data."
 msgstr ""
-"無料版からPro版へのアップグレードをご検討の場合、既存の設定データが失われる可"
+"無料版からプロ版にアップグレードする予定がある場合、既存の設定データが失われる可"
 "能性があります。"
 
-#: includes/pages/gs-gravityform-general-setting.php:88
-msgid ""
-"Proceed only if you want a complete cleanup. This action cannot be undone."
+msgid "Proceed only if you want a complete cleanup. This action cannot be undone."
 msgstr ""
-"完全にクリーンアップしたい場合のみ、続行してください。この操作は元に戻せませ"
-"ん。"
+"完全なクリーンアップを希望する場合のみ進めてください。この操作は元に戻せません。"
 
-#: includes/pages/gs-gravityform-general-setting.php:97
 msgid "Enable Deletion"
-msgstr "削除の有効化"
+msgstr "削除を有効にする"
 
-#: includes/pages/gs-gravityform-role-setting.php:9
 msgid "Permission Not Allowed"
 msgstr "許可されていない権限"
 
-#: includes/pages/gs-gravityform-role-setting.php:43
 msgid "Unlock Role-Based Access Control"
 msgstr "ロールベースのアクセス制御を解除"
 
-#: includes/pages/gs-gravityform-role-setting.php:54
-#: includes/pages/gs-gravityform-sheet-setting.php:34
 msgid "Role Permissions"
 msgstr "役割の権限"
 
-#: includes/pages/gs-gravityform-role-setting.php:57
 msgid "Allow specific WordPress roles"
 msgstr "特定のWordPressロールを許可"
 
-#: includes/pages/gs-gravityform-role-setting.php:58
 msgid "Enable/disable integration access"
 msgstr "統合アクセスの有効化/無効化"
 
-#: includes/pages/gs-gravityform-role-setting.php:60
 msgid "Control form feed visibility"
 msgstr "フォームフィードの可視性を制御"
 
-#: includes/pages/gs-gravityform-role-setting.php:61
 msgid "Restrict settings management"
 msgstr "設定管理を制限"
 
-#: includes/pages/gs-gravityform-role-setting.php:68
 msgid "Security Control"
 msgstr "セキュリティ制御"
 
-#: includes/pages/gs-gravityform-role-setting.php:71
 msgid "Prevent unauthorized changes"
 msgstr "不正な変更を防止"
 
-#: includes/pages/gs-gravityform-role-setting.php:72
 msgid "Secure Google Sheet credentials"
 msgstr "Googleシートの資格情報を保護"
 
-#: includes/pages/gs-gravityform-role-setting.php:74
 msgid "Role-based configuration control"
 msgstr "役割ベースの設定管理"
 
-#: includes/pages/gs-gravityform-role-setting.php:76
 msgid "Protect integration settings"
 msgstr "統合設定を保護する"
 
-#: includes/pages/gs-gravityform-role-setting.php:83
 msgid "Management Benefits"
 msgstr "管理の利点"
 
-#: includes/pages/gs-gravityform-role-setting.php:86
 msgid "Grant access to trusted editors"
 msgstr "信頼できる編集者にアクセスを許可する"
 
-#: includes/pages/gs-gravityform-role-setting.php:88
 msgid "Hide settings from subscribers"
 msgstr "購読者から設定を隠す"
 
-#: includes/pages/gs-gravityform-role-setting.php:89
 msgid "Team-based permission structure"
 msgstr "チームベースの権限構造"
 
-#: includes/pages/gs-gravityform-role-setting.php:91
 msgid "Improved dashboard security"
 msgstr "改善されたダッシュボードのセキュリティ"
 
-#: includes/pages/gs-gravityform-role-setting.php:98
 msgid "Audit & Monitoring"
 msgstr "監査とモニタリング"
 
-#: includes/pages/gs-gravityform-role-setting.php:101
 msgid "Track role-based changes"
 msgstr "役割ベースの変更を追跡する"
 
-#: includes/pages/gs-gravityform-role-setting.php:102
 msgid "Monitor integration access"
 msgstr "統合アクセスを監視する"
 
-#: includes/pages/gs-gravityform-role-setting.php:103
 msgid "Review permission updates"
 msgstr "権限の更新をレビューする"
 
-#: includes/pages/gs-gravityform-role-setting.php:104
 msgid "Maintain admin accountability"
 msgstr "管理者の責任を維持する"
 
-#: includes/pages/gs-gravityform-role-setting.php:124
 msgid "Access Management"
 msgstr "アクセス管理"
 
-#: includes/pages/gs-gravityform-role-setting.php:126
 msgid ""
 "Control which user roles are allowed to access and manage the Google Sheets "
 "integration for your forms."
 msgstr ""
-"フォームのGoogle Sheets統合にアクセスし管理することが許可されているユーザー"
-"ロールを制御します。"
+"フォームのGoogle Sheets統合にアクセスし管理することが許可されているユーザーロー"
+"ルを制御します。"
 
-#: includes/pages/gs-gravityform-role-setting.php:136
 msgid "Plugin Access Control"
-msgstr "プラグインのアクセス制御"
+msgstr "プラグインアクセス制御"
 
-#: includes/pages/gs-gravityform-role-setting.php:142
 msgid "Administrator"
 msgstr "管理者"
 
-#: includes/pages/gs-gravityform-role-setting.php:188
 msgid "Permission Guidelines"
 msgstr "権限ガイドライン"
 
-#: includes/pages/gs-gravityform-role-setting.php:190
 msgid "Control which user roles can access the GSheetConnector plugin"
-msgstr "GSheetConnectorプラグインにアクセスできるユーザーロールを制御する"
+msgstr "GSheetConnectorプラグインにアクセスできるユーザーロールを制御します。"
 
-#: includes/pages/gs-gravityform-role-setting.php:192
 msgid "Allow selected users to manage Google Sheets integration settings"
-msgstr ""
-"選択したユーザーがGoogle スプレッドシートの連携設定を管理できるようにする"
+msgstr "選択したユーザーがGoogle Sheets統合設定を管理できるようにします。"
 
-#: includes/pages/gs-gravityform-role-setting.php:194
-msgid ""
-"Restrict access to sensitive features like feeds, logs, and configurations"
-msgstr "フィード、ログ、設定などの機密性の高い機能へのアクセスを制限します"
+msgid "Restrict access to sensitive features like feeds, logs, and configurations"
+msgstr "フィード、ログ、および設定などの機密機能へのアクセスを制限します。"
 
-#: includes/pages/gs-gravityform-role-setting.php:196
 msgid "Only enabled roles will see the plugin menu in the admin panel"
-msgstr ""
-"管理パネル内のプラグインメニューは、有効化されたロールのみが表示されます"
+msgstr "有効なロールのみが管理パネルのプラグインメニューを見ることができます。"
 
-#: includes/pages/gs-gravityform-role-setting.php:198
 msgid "Recommended: Allow only Administrators and trusted Editors"
-msgstr "推奨：管理者および信頼できる編集者のみに許可する"
+msgstr "推奨：管理者と信頼できる編集者のみを許可"
 
-#: includes/pages/gs-gravityform-sheet-setting.php:33
 msgid "General Settings"
 msgstr "一般設定"
 
-#: includes/pages/gs-gravityform-sheet-setting.php:35
 msgid "Version Control"
 msgstr "バージョン管理"
 
-#: includes/pages/gs-gravityform-system-info.php:10
 msgid "You do not have permission to access this page."
 msgstr "このページにアクセスする権限がありません。"
 
-#: includes/pages/gs-gravityform-system-info.php:16
 msgid "System Information"
 msgstr "システム情報"
 
-#: includes/pages/gs-gravityform-system-info.php:17
 msgid ""
 "View detailed information about your plugin, server, and WordPress setup for "
 "troubleshooting and support.\n"
 "        "
 msgstr ""
-"トラブルシューティングとサポートのために、プラグイン、サーバー、および"
-"WordPressの設定に関する詳細情報を表示します。\n"
+"トラブルシューティングとサポートのために、プラグイン、サーバー、およびWordPress"
+"の設定に関する詳細情報を表示します。\n"
 "        "
 
-#: includes/pages/gs-gravityform-system-info.php:25
 msgid "Copy System Info"
 msgstr "システム情報をコピー"
 
-#: includes/pages/gs-gravityform-system-info.php:78
 msgid "GSheetConnector Status"
 msgstr "GSheetConnectorのステータス"
 
-#: includes/pages/gs-gravityform-system-info.php:86
 msgid "Plugin Name"
 msgstr "プラグイン名"
 
-#: includes/pages/gs-gravityform-system-info.php:91
 msgid "Plugin Version"
 msgstr "プラグインバージョン"
 
-#: includes/pages/gs-gravityform-system-info.php:98
 msgid "Plugin Subscription Plan"
 msgstr "プラグインサブスクリプションプラン"
 
-#: includes/pages/gs-gravityform-system-info.php:105
 msgid "Connected Email Account"
 msgstr "接続されたメールアカウント"
 
-#: includes/pages/gs-gravityform-system-info.php:112
 msgid "Authentication method for connecting to Google Sheets"
 msgstr "Google Sheetsに接続するための認証方法"
 
-#: includes/pages/gs-gravityform-system-info.php:123
 msgid "Google Drive Permission"
 msgstr "Google Driveの権限"
 
-#: includes/pages/gs-gravityform-system-info.php:130
 msgid "Google Sheet Permission"
 msgstr "Google Sheetの権限"
 
-#: includes/pages/gs-gravityform-system-info.php:146
 msgid "WordPress"
 msgstr "WordPress"
 
-#: includes/pages/gs-gravityform-system-info.php:156
-#: includes/pages/gs-gravityform-system-info.php:303
 msgid "Version"
 msgstr "バージョン"
 
-#: includes/pages/gs-gravityform-system-info.php:163
 msgid "Site Language"
 msgstr "サイト言語"
 
-#: includes/pages/gs-gravityform-system-info.php:170
 msgid "Debug Mode"
 msgstr "デバッグモード"
 
-#: includes/pages/gs-gravityform-system-info.php:172
 msgid "Enabled"
 msgstr "有効"
 
-#: includes/pages/gs-gravityform-system-info.php:172
 msgid "Disabled"
 msgstr "無効"
 
-#: includes/pages/gs-gravityform-system-info.php:177
 msgid "Home URL"
 msgstr "ホーム URL"
 
-#: includes/pages/gs-gravityform-system-info.php:184
 msgid "Site URL"
 msgstr "サイト URL"
 
-#: includes/pages/gs-gravityform-system-info.php:191
 msgid "Permalink structure"
 msgstr "パーマリンク構造"
 
-#: includes/pages/gs-gravityform-system-info.php:198
 msgid "Is this site using HTTPS?"
 msgstr "このサイトは HTTPS を使用していますか？"
 
-#: includes/pages/gs-gravityform-system-info.php:200
-#: includes/pages/gs-gravityform-system-info.php:207
-#: includes/pages/gs-gravityform-system-info.php:215
-#: includes/pages/gs-gravityform-system-info.php:223
-#: includes/pages/gs-gravityform-system-info.php:270
-#: includes/pages/gs-gravityform-system-info.php:523
-#: includes/pages/gs-gravityform-system-info.php:531
-#: includes/pages/gs-gravityform-system-info.php:539
-#: includes/pages/gs-gravityform-system-info.php:737
-#: includes/pages/gs-gravityform-system-info.php:744
-#: includes/pages/gs-gravityform-system-info.php:751
-#: includes/pages/gs-gravityform-system-info.php:758
-#: includes/pages/gs-gravityform-system-info.php:765
-#: includes/pages/gs-gravityform-system-info.php:772
-#: includes/pages/gs-gravityform-system-info.php:779
-#: includes/pages/gs-gravityform-system-info.php:797
 msgid "Yes"
 msgstr "はい"
 
-#: includes/pages/gs-gravityform-system-info.php:200
-#: includes/pages/gs-gravityform-system-info.php:207
-#: includes/pages/gs-gravityform-system-info.php:215
-#: includes/pages/gs-gravityform-system-info.php:223
-#: includes/pages/gs-gravityform-system-info.php:270
-#: includes/pages/gs-gravityform-system-info.php:523
-#: includes/pages/gs-gravityform-system-info.php:531
-#: includes/pages/gs-gravityform-system-info.php:539
-#: includes/pages/gs-gravityform-system-info.php:737
-#: includes/pages/gs-gravityform-system-info.php:744
-#: includes/pages/gs-gravityform-system-info.php:751
-#: includes/pages/gs-gravityform-system-info.php:758
-#: includes/pages/gs-gravityform-system-info.php:765
-#: includes/pages/gs-gravityform-system-info.php:772
-#: includes/pages/gs-gravityform-system-info.php:779
-#: includes/pages/gs-gravityform-system-info.php:797
 msgid "No"
 msgstr "いいえ"
 
-#: includes/pages/gs-gravityform-system-info.php:205
 msgid "Is this a multisite?"
 msgstr "これはマルチサイトですか？"
 
-#: includes/pages/gs-gravityform-system-info.php:212
 msgid "Can anyone register on this site?"
 msgstr "誰でもこのサイトに登録できますか？"
 
-#: includes/pages/gs-gravityform-system-info.php:220
 msgid "Is this site discouraging search engines?"
 msgstr "このサイトは検索エンジンを抑制していますか？"
 
-#: includes/pages/gs-gravityform-system-info.php:228
 msgid "Default comment status"
 msgstr "デフォルトのコメントステータス"
 
-#: includes/pages/gs-gravityform-system-info.php:237
 msgid "Unknown"
 msgstr "不明"
 
-#: includes/pages/gs-gravityform-system-info.php:242
 msgid "Localhost"
 msgstr "ローカルホスト"
 
-#: includes/pages/gs-gravityform-system-info.php:243
 msgid "Production"
 msgstr "本番"
 
-#: includes/pages/gs-gravityform-system-info.php:248
 msgid "Environment type"
 msgstr "環境タイプ"
 
-#: includes/pages/gs-gravityform-system-info.php:260
 msgid "User Count"
 msgstr "ユーザー数"
 
-#: includes/pages/gs-gravityform-system-info.php:267
 msgid "Communication with WordPress.org"
 msgstr "WordPress.org との通信"
 
-#: includes/pages/gs-gravityform-system-info.php:286
 msgid "Active Theme"
 msgstr "アクティブテーマ"
 
-#: includes/pages/gs-gravityform-system-info.php:310
 msgid "Author"
 msgstr "著者"
 
-#: includes/pages/gs-gravityform-system-info.php:317
 msgid "Author website"
 msgstr "著者のウェブサイト"
 
-#: includes/pages/gs-gravityform-system-info.php:324
 msgid "Theme directory location"
 msgstr "テーマディレクトリの場所"
 
-#: includes/pages/gs-gravityform-system-info.php:368
 msgid "Active Plugins"
 msgstr "アクティブプラグイン"
 
-#: includes/pages/gs-gravityform-system-info.php:430
 msgid "Server"
 msgstr "サーバー"
 
-#: includes/pages/gs-gravityform-system-info.php:440
 msgid ""
-"The options shown below relate to your server setup. If changes are "
-"required, you may need your web host’s assistance."
+"The options shown below relate to your server setup. If changes are required, "
+"you may need your web host’s assistance."
 msgstr ""
-"以下のオプションは、あなたのサーバー設定に関連しています。変更が必要な場合"
-"は、ウェブホストの支援が必要になることがあります。"
+"以下のオプションは、あなたのサーバー設定に関連しています。変更が必要な場合は、"
+"ウェブホストの支援が必要になることがあります。"
 
-#: includes/pages/gs-gravityform-system-info.php:449
 msgid "Server Architecture"
 msgstr "サーバーアーキテクチャ"
 
-#: includes/pages/gs-gravityform-system-info.php:460
 msgid "Web Server"
 msgstr "ウェブサーバー"
 
-#: includes/pages/gs-gravityform-system-info.php:465
 msgid "PHP Version"
 msgstr "PHP バージョン"
 
-#: includes/pages/gs-gravityform-system-info.php:470
 msgid "PHP SAPI"
 msgstr "PHP SAPI"
 
-#: includes/pages/gs-gravityform-system-info.php:475
 msgid "PHP Max Input Variables"
 msgstr "PHP 最大入力変数"
 
-#: includes/pages/gs-gravityform-system-info.php:480
 msgid "PHP Time Limit"
 msgstr "PHP タイムリミット"
 
-#: includes/pages/gs-gravityform-system-info.php:483
-#: includes/pages/gs-gravityform-system-info.php:496
 msgid "seconds"
 msgstr "秒"
 
-#: includes/pages/gs-gravityform-system-info.php:488
 msgid "PHP Memory Limit"
 msgstr "PHP メモリ制限"
 
-#: includes/pages/gs-gravityform-system-info.php:493
 msgid "Max Input Time"
 msgstr "最大入力時間"
 
-#: includes/pages/gs-gravityform-system-info.php:501
 msgid "Upload Max Filesize"
 msgstr "アップロード最大ファイルサイズ"
 
-#: includes/pages/gs-gravityform-system-info.php:506
 msgid "PHP Post Max Size"
 msgstr "PHPポスト最大サイズ"
 
-#: includes/pages/gs-gravityform-system-info.php:512
 msgid "Not Installed"
 msgstr "未インストール"
 
-#: includes/pages/gs-gravityform-system-info.php:516
 msgid "cURL Version"
 msgstr "cURLバージョン"
 
-#: includes/pages/gs-gravityform-system-info.php:521
 msgid "Is SUHOSIN Installed?"
 msgstr "SUHOSINはインストールされていますか？"
 
-#: includes/pages/gs-gravityform-system-info.php:528
 msgid "Is the Imagick Library Available?"
 msgstr "Imagickライブラリは利用可能ですか？"
 
-#: includes/pages/gs-gravityform-system-info.php:536
 msgid "Are Pretty Permalinks Supported?"
 msgstr "プレティパーマリンクはサポートされていますか？"
 
-#: includes/pages/gs-gravityform-system-info.php:556
 msgid ".htaccess Rules"
 msgstr ".htaccessルール"
 
-#: includes/pages/gs-gravityform-system-info.php:558
-#: includes/pages/gs-gravityform-system-info.php:868
 msgid "Writable"
 msgstr "書き込み可能"
 
-#: includes/pages/gs-gravityform-system-info.php:558
-#: includes/pages/gs-gravityform-system-info.php:869
 msgid "Not Writable"
 msgstr "書き込み不可"
 
-#: includes/pages/gs-gravityform-system-info.php:563
 msgid "Current Time"
 msgstr "現在の時間"
 
-#: includes/pages/gs-gravityform-system-info.php:568
 msgid "Current UTC Time"
 msgstr "現在のUTC時間"
 
-#: includes/pages/gs-gravityform-system-info.php:573
 msgid "Current Server Time"
 msgstr "現在のサーバー時間"
 
-#: includes/pages/gs-gravityform-system-info.php:584
 msgid "Database"
 msgstr "データベース"
 
-#: includes/pages/gs-gravityform-system-info.php:605
 msgid "Extension"
 msgstr "拡張"
 
-#: includes/pages/gs-gravityform-system-info.php:612
 msgid "Server Version"
 msgstr "サーバーバージョン"
 
-#: includes/pages/gs-gravityform-system-info.php:619
 msgid "Client Version"
 msgstr "クライアントバージョン"
 
-#: includes/pages/gs-gravityform-system-info.php:626
 msgid "Database Username"
 msgstr "データベースユーザー名"
 
-#: includes/pages/gs-gravityform-system-info.php:633
 msgid "Database Host"
 msgstr "データベースホスト"
 
-#: includes/pages/gs-gravityform-system-info.php:640
 msgid "Database Name"
 msgstr "データベース名"
 
-#: includes/pages/gs-gravityform-system-info.php:647
 msgid "Table Prefix"
 msgstr "テーブルプレフィックス"
 
-#: includes/pages/gs-gravityform-system-info.php:654
 msgid "Database Charset"
 msgstr "データベース文字セット"
 
-#: includes/pages/gs-gravityform-system-info.php:661
 msgid "Database Collation"
 msgstr "データベース照合"
 
-#: includes/pages/gs-gravityform-system-info.php:668
 msgid "Max Allowed Packet Size"
 msgstr "最大許可パケットサイズ"
 
-#: includes/pages/gs-gravityform-system-info.php:675
 msgid "Max Connections Number"
 msgstr "最大接続数"
 
-#: includes/pages/gs-gravityform-system-info.php:689
 msgid "WordPress Constants"
 msgstr "WordPress定数"
 
-#: includes/pages/gs-gravityform-system-info.php:819
 msgid "Filesystem Permission"
 msgstr "ファイルシステムの権限"
 
-#: includes/pages/gs-gravityform-system-info.php:828
 msgid ""
-"Shows whether WordPress is able to write to the directories it needs access "
-"to."
-msgstr ""
-"WordPressが必要なディレクトリに書き込むことができるかどうかを示します。"
+"Shows whether WordPress is able to write to the directories it needs access to."
+msgstr "WordPressが必要なディレクトリに書き込むことができるかどうかを示します。"
 
-#: includes/pages/gs-gravityform-system-info.php:847
 msgid "The main WordPress directory"
 msgstr "メインのWordPressディレクトリ"
 
-#: includes/pages/gs-gravityform-system-info.php:848
 msgid "The wp-content directory"
 msgstr "wp-contentディレクトリ"
 
-#: includes/pages/gs-gravityform-system-info.php:849
 msgid "The uploads directory"
 msgstr "uploadsディレクトリ"
 
-#: includes/pages/gs-gravityform-system-info.php:850
 msgid "The plugins directory"
 msgstr "pluginsディレクトリ"
 
-#: includes/pages/gs-gravityform-system-info.php:851
 msgid "The themes directory"
 msgstr "themesディレクトリ"
 
-#: includes/pages/gs-gravityform-system-info.php:907
 msgid "Debug Log"
 msgstr "デバッグログ"
 
-#. Plugin URI of the plugin/theme
 msgid "https://www.gsheetconnector.com/gravity-forms-google-sheet-connector"
 msgstr "https://www.gsheetconnector.com/gravity-forms-google-sheet-connector"
 
-#. Description of the plugin/theme
 msgid "Send your Gravityform  data to your Google Sheets spreadsheet."
 msgstr "GravityformのデータをGoogle Sheetsのスプレッドシートに送信します。"
 
-#. Author of the plugin/theme
 msgid "GSheetConnector"
 msgstr "GSheetConnector"
 
-#. Author URI of the plugin/theme
 msgid "https://www.gsheetconnector.com/"
 msgstr "https://www.gsheetconnector.com/"
-
-#~ msgid "FREE users get special upgrade pricing"
-#~ msgstr "無料ユーザーは特別なアップグレード価格を受け取ります"
-
-#~ msgid "Select Fields to Sync (PRO)"
-#~ msgstr "同期するフィールドを選択 (PRO)"
-
-#~ msgid "Get GSheetConnector Gravity Pro"
-#~ msgstr "GSheetConnector Gravity Proを取得"
-
-#~ msgid "View Plugins"
-#~ msgstr "プラグインを見る"
-
-#~ msgid ""
-#~ "Automatically connect Gravity Forms with Google Sheets using built-in API "
-#~ "setup. By authorizing your Google account, the plugin will handle API "
-#~ "setup and authentication automatically, enabling seamless form data sync. "
-#~ "Learn more in the documentation"
-#~ msgstr ""
-#~ "組み込みのAPI設定を使用して、Gravity FormsをGoogle Sheetsに自動的に接続し"
-#~ "ます。Googleアカウントを認証することで、プラグインはAPIの設定と認証を自動"
-#~ "的に処理し、シームレスなフォームデータの同期を可能にします。詳細はドキュメ"
-#~ "ントをご覧ください。"
-
-#~ msgid "Save"
-#~ msgstr "保存"
-
-#~ msgid ""
-#~ "If both Free and Pro versions of the plugin are installed or active, data "
-#~ "from both versions will also be permanently deleted."
-#~ msgstr ""
-#~ "プラグインの無料版とPro版の両方がインストールまたはアクティブな場合、両方"
-#~ "のバージョンのデータも永久に削除されます。"
-
-#~ msgid "This action cannot be undone."
-#~ msgstr "このアクションは元に戻せません。"
-
-#~ msgid ""
-#~ "Are you sure you want to enable automatic data deletion on uninstall?"
-#~ msgstr "アンインストール時に自動データ削除を有効にしてもよろしいですか？"
-
-#~ msgid "Yes, Enable"
-#~ msgstr "はい、有効にする"
-
-#~ msgid "Allowed Roles"
-#~ msgstr "許可されたロール"
-
-#~ msgid "Grant access only to users you trust"
-#~ msgstr "信頼できるユーザーのみにアクセスを許可"
-
-#~ msgid "Editors can manage and modify integrations"
-#~ msgstr "編集者は統合を管理および変更できます"
-
-#~ msgid "Review role permissions on a regular basis"
-#~ msgstr "定期的に役割の権限をレビューする"
-
-#~ msgid "Do not allow access to subscribers"
-#~ msgstr "購読者へのアクセスを許可しない"

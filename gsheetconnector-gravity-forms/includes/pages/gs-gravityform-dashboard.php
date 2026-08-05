@@ -2,6 +2,36 @@
 if (!defined('ABSPATH')) {
   exit;
 }
+
+
+
+    $gravityfree_is_authenticated = false;
+	$gravityfree_authenticated         = get_option('gravityforms_manual_setting'); // Auto
+	
+	$gravityfree_per                   = get_option('gfgs_verify');
+	$gravityfree_per_msg               = __('invalid', 'gsheetconnector-gravity-forms');
+	$gravityfree_show_setting          = 0;
+	$gravityfree_selected_method       = '';
+	$gravityfree_email_account         = '';
+
+
+
+	
+	if ($gravityfree_authenticated === '0' &&  $gravityfree_per !== $gravityfree_per_msg) {
+		
+        
+        $gravityfree_google_sheet = new Gfgscf_googlesheet();
+        $gravityfree_email_account = $gravityfree_google_sheet->gsheet_print_google_account_email();
+        if (!empty($gravityfree_email_account)) {
+            $gravityfree_selected_method = esc_html__('Use Existing Client/Secret Key (Auto Google API Configuration)', 'gsheetconnector-gravity-forms');
+            $gravityfree_is_authenticated = true;
+        } else {
+            $gravityfree_selected_method = esc_html__('Auth Required', 'gsheetconnector-gravity-forms');
+        }
+	
+	}else {
+		$gravityfree_selected_method = esc_html__('Auth Required', 'gsheetconnector-gravity-forms');
+	}
 ?>
 
 <div class="wrap w-100 m-0">
@@ -21,11 +51,69 @@ if (!defined('ABSPATH')) {
                                     <?php echo esc_html__('GSheetConnector is a powerful automation plugin that syncs WordPress data with Google Sheets in real time. It supports WooCommerce, Easy Digital Downloads, and popular form plugins such as Gravity Forms, Contact Form 7, Elementor Forms, along with 10+ additional WordPress integrations for efficient data management.', 'gsheetconnector-gravity-forms'); ?>
                                 </p>
                             </div>
-                            <div class="unlock-pro-button-sections mt-20">
-                                <a class="btn btn-primary link-hover-white text-decoration-none" href="<?php echo esc_url(admin_url('admin.php?page=gf_googlesheet&tab=integration')); ?>">
-                                    <?php echo esc_html__("Let's Connect", 'gsheetconnector-gravity-forms'); ?>
-                                </a>
-                            </div>
+                            
+                            <?php
+
+                            if (!empty($gravityfree_email_account)){
+                            /** Connected Email box start   */ ?>
+                                    <div class="gscgff-integration-box">
+                                        <div class="gsc-google-auth-card d-flex flex-wrap gap-20 justify-between align-center mt-30 mb-30">
+                                           
+                                            <div class="gsc-google-auth-left d-flex flex-wrap align-center gap-15">
+                                                <div class="gsc-google-icon">G</div>
+                                                <div class="connected-account">
+                                                    <div class="gsc-connected-left d-flex">
+                                                        <span
+                                                            class="gsc-connected-label"><?php echo esc_html__('Connected Google Account', 'gsheetconnector-gravity-forms'); ?></span>
+                                                        <span class="connected-account-manual gsc-connected-email">
+                                                            <?php printf(wp_kses('<u>%s </u>', 'gsheetconnector-gravity-forms'), esc_attr($gravityfree_email_account)); ?></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="gsc-google-auth-right">
+                                                <div class="gsc-connected-pill">
+                                                    <span class="dot"></span>
+                                                    <?php esc_html_e('Connected', 'gsheetconnector-gravity-forms'); ?>
+                                                </div>
+                                            </div>
+                                     
+                                        </div>
+                                    </div>
+
+                                    <div class="gscgff-feed-table-wrap">
+                                        <table class="widget-table" id="gscgff-feed-table" data-page="1">
+                                            <thead>
+                                                <tr>
+                                                    <th><?php echo esc_html__('Form Name', 'gsheetconnector-gravity-forms'); ?></th>
+                                                    <th><?php echo esc_html__('Feed Name', 'gsheetconnector-gravity-forms'); ?></th>
+                                                    <th><?php echo esc_html__('Sheet Name', 'gsheetconnector-gravity-forms'); ?></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="gscgff-feed-table-body">
+                                                <tr class="gscgff-feed-loading-row">
+                                                    <td colspan="3">
+                                                        <span class="gscgff-loader"></span>
+                                                        <span class="gscgff-loader-text"><?php echo esc_html__('Loading feeds...', 'gsheetconnector-gravity-forms'); ?></span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                        <div class="gscgff-pagination d-flex justify-center gap-10 " id="gscgff-pagination-wrap">
+                                            <!-- page links injected via AJAX -->
+                                        </div>
+
+                                        <input type="hidden" id="gscgff-ajax-nonce-pagination" value="<?php echo esc_attr(wp_create_nonce('gscgff-pagination-nonce')); ?>" />
+                                    </div>
+                                
+                            <?php }else{ ?>
+                                <div class="unlock-pro-button-sections mt-20">
+                                    <a class="btn btn-primary link-hover-white text-decoration-none" href="<?php echo esc_url(admin_url('admin.php?page=gf_googlesheet&tab=integration')); ?>">
+                                        <?php echo esc_html__("Let's Connect", 'gsheetconnector-gravity-forms'); ?>
+                                    </a>
+                                </div>
+                            <?php } ?>
                         </div>
                         <!---End Welcome-Header Section--->
 

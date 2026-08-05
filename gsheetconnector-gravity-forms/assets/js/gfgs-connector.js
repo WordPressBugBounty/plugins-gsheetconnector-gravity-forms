@@ -1274,3 +1274,58 @@ jQuery(document).ready(function ($) {
         .css({ "pointer-events": "none", opacity: "0.5" });
   });
 });
+
+
+
+
+jQuery(document).ready(function ($) {
+    function gscgffLoadFeedPage(page) {
+      var data = {
+        action: "gscgff_paginate_feed_list",
+        paged: page,
+        security: $("#gscgff-ajax-nonce-pagination").val(),
+      };
+
+      $("#gscgff-feed-table-body").html(
+        '<tr class="gscgff-feed-loading-row">' +
+          '<td colspan="3">' +
+            '<span class="gscgff-loader"></span>' +
+            '<span class="gscgff-loader-text">Loading feeds...</span>' +
+          "</td>" +
+        "</tr>",
+      );
+
+      if($("#gscgff-ajax-nonce-pagination").val()){
+
+        $.post(ajaxurl, data, function (res) {
+          if (res.success) {
+            $("#gscgff-feed-table-body").html(res.data.rows_html);
+            $("#gscgff-pagination-wrap").html(res.data.pagination_html);
+            $("#gscgff-feed-table").attr("data-page", page);
+
+            // Hide the table header when no feed is connected (empty state).
+            var dividbNoFeeds =
+              $("#gscgff-feed-table-body").find(".gscgff-feed-empty").length > 0;
+            $("#gscgff-feed-table thead").toggle(!dividbNoFeeds);
+          } else {
+            $("#gscgff-feed-table-body").html(
+              "<tr><td colspan='3'>" +
+                (res.data && res.data.error
+                  ? res.data.error
+                  : "Error loading feeds") +
+                "</td></tr>",
+            );
+          }
+        });
+      }
+
+
+    }
+
+    gscgffLoadFeedPage(1);
+
+    $(document).on("click", ".gscgff-page-link", function () {
+      var page = $(this).data("page");
+      gscgffLoadFeedPage(page);
+    });
+});

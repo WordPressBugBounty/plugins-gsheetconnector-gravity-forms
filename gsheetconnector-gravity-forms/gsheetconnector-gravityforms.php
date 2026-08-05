@@ -8,7 +8,7 @@
  * Requires PHP:7.4
  * Author: GSheetConnector
  * Author URI: https://www.gsheetconnector.com/
- * Version: 1.4.3
+ * Version: 1.5.0
  * Text Domain: gsheetconnector-gravity-forms
  * License: GPLv2
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -92,8 +92,8 @@ if (Gforms_Gsheet_Connector_Free_Init::gscgf_is_pugin_active('Gforms_Gsheet_Conn
 }
 
 /* Declare some global constants */
-define('GRAVITY_GOOGLESHEET_VERSION', '1.4.3');
-define('GRAVITY_GOOGLESHEET_DB_VERSION', '1.4.3');
+define('GRAVITY_GOOGLESHEET_VERSION', '1.5.0');
+define('GRAVITY_GOOGLESHEET_DB_VERSION', '1.5.0');
 define('GRAVITY_GOOGLESHEET_ROOT', dirname(__FILE__));
 define('GRAVITY_GOOGLESHEET_URL', plugins_url('/', __FILE__));
 define('GRAVITY_GOOGLESHEET_BASE_FILE', basename(dirname(__FILE__)) . '/gsheetconnector-gravityforms.php');
@@ -119,24 +119,24 @@ if ($activate_the_plugin) {// phpcs:ignore WordPress.NamingConventions.PrefixAll
    require_once dirname(__FILE__) . '/lib/vendor/freemius/start.php';
 
     $gg_fs = fs_dynamic_init(array(// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-    'id' => '17696',
-    'slug' => 'gsheetconnector-gravity-forms',
-    'type' => 'plugin',
-    'public_key' => 'pk_de0da0604d68aa61a14ce400551de',
-    'is_premium' => false,
-    'has_addons' => false,
-    'has_paid_plans' => false,
+      'id' => '17696',
+      'slug' => 'gsheetconnector-gravity-forms',
+      'type' => 'plugin',
+      'public_key' => 'pk_de0da0604d68aa61a14ce400551de',
+      'is_premium' => false,
+      'has_addons' => false,
+      'has_paid_plans' => false,
 
-    'menu' => array(
-    'slug' => 'gf_googlesheet',
-    'first-path' => 'admin.php?page=gf_googlesheet',
+      'menu' => array(
+        'slug' => 'gf_googlesheet',
+        'first-path' => 'admin.php?page=gf_googlesheet',
 
-    'support' => false,
-    ),
+        'support' => false,
+      ),
     ));
- }
+  }
 
- return $gg_fs;
+  return $gg_fs;
 }
 
 /* Init Freemius. */
@@ -182,7 +182,7 @@ class Gforms_Gsheet_Connector_Free_Init
   /*  Setting option */
   add_filter(
     'plugin_action_links_' . GRAVITY_GOOGLESHEET_BASE_FILE,array( $this, 'grvt_connector_pro_plugin_action_links' )
-);
+  );
 
   /** For using Row Meta */
   add_filter('plugin_row_meta', [$this, 'plugin_row_meta'], 10, 2);
@@ -191,8 +191,6 @@ class Gforms_Gsheet_Connector_Free_Init
   add_action('wp_dashboard_setup', array($this, 'add_gf_connector_summary_widget'));
 }
 }
-
-
 
 /**
 * Add function to check plugins is Activate or not
@@ -250,13 +248,7 @@ public function gsheetconnector_gform_activate($network_wide)
    $this->run_on_activation();
    $this->create_errorlog_table_in_database();
 
-
-   /** Schedule cleanup debug logs event */
-   if (!get_option('gscgfp_cleanup_old_logs_cron')) {
-    update_option('gscgfp_cleanup_old_logs_cron', current_time('timestamp'));
-  }
-
-  if (function_exists('is_multisite') && is_multisite()) {
+   if (function_exists('is_multisite') && is_multisite()) {
     /*  check if it is a network activation - if so, run the activation function for each blog id */
     if ($network_wide) {
      /* Get all blog ids */
@@ -629,10 +621,6 @@ private function enqueue_gsheetconnector_css()
        'all'
      );
 
-      
-
-     
-
       wp_enqueue_style(
        'gsc-connector-pro-feature',
        GRAVITY_GOOGLESHEET_URL . 'assets/css/pro-feature.css',
@@ -648,7 +636,7 @@ private function enqueue_gsheetconnector_css()
        'all'
      );
 
-     wp_enqueue_style(
+      wp_enqueue_style(
        'gsc-connector-global-free',
        GRAVITY_GOOGLESHEET_URL . 'assets/css/global.css',
        [],
@@ -663,7 +651,7 @@ private function enqueue_gsheetconnector_css()
        GRAVITY_GOOGLESHEET_VERSION,
        'all'
      );
-        
+      
       wp_enqueue_style(
        'gsc-connector-font-awesome-free',
        GRAVITY_GOOGLESHEET_URL . 'assets/css/fontawesome.css',
@@ -682,19 +670,19 @@ private function enqueue_gsheetconnector_css()
 public function run_on_upgrade()
 {
   try {
-	$plugin_options = get_site_option('gfgs_info');
-   	$version = isset( $plugin_options['version'] ) ? $plugin_options['version'] : '';
-   	if ( '1.3.19' === $version ) {
-		$this->upgrade_database_18();
-	}
+   $plugin_options = get_site_option('gfgs_info');
+   $version = isset( $plugin_options['version'] ) ? $plugin_options['version'] : '';
+   if ( '1.3.19' === $version ) {
+    $this->upgrade_database_18();
+  }
 
-	if ( '1.3.31' === $version ) {
-		$this->upgrade_database_1331();
-	}
+  if ( '1.3.31' === $version ) {
+    $this->upgrade_database_1331();
+  }
 
-	if ( '1.4.0' === $version ) {
-		$this->upgrade_database_140();
-	}
+  if ( '1.4.0' === $version ) {
+    $this->upgrade_database_140();
+  }
 
   /* update the version value */
   $google_sheet_info = array(
@@ -758,22 +746,22 @@ public function upgrade_database_1331(){
  $this->create_errorlog_table_in_database();
 
 
-  /** save date for plugin activation  */
-  if(!get_option('gscgff_plugin_activated_at')){
-      update_option('gscgff_plugin_activated_at',time());
-  }
+ /** save date for plugin activation  */
+ if(!get_option('gscgff_plugin_activated_at')){
+  update_option('gscgff_plugin_activated_at',time());
+}
 
 }
 
 
 public function upgrade_database_140(){
-   /** Create Error LOg Table during  plugin update */
-  $this->create_errorlog_table_in_database();
+ /** Create Error LOg Table during  plugin update */
+ $this->create_errorlog_table_in_database();
 
-  /** save date for plugin activation  */
-  if(!get_option('gscgff_plugin_activated_at')){
-      update_option('gscgff_plugin_activated_at',time());
-  }
+ /** save date for plugin activation  */
+ if(!get_option('gscgff_plugin_activated_at')){
+  update_option('gscgff_plugin_activated_at',time());
+}
 }
 
 /**
@@ -835,23 +823,23 @@ public function create_errorlog_table_in_database()
      * - created_at : Timestamp of error
      */
     $sql = "CREATE TABLE {$table} (
-    id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
-    error_id VARCHAR(191) NOT NULL,
-    code INT NOT NULL,
-    message TEXT NOT NULL,
-    details LONGTEXT NULL,
-    created_at DATETIME NOT NULL,
-    PRIMARY KEY (id),
-    KEY error_id (error_id),
-    KEY code (code)
-  ) {$charset};";
+      id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+      error_id VARCHAR(191) NOT NULL,
+      code INT NOT NULL,
+      message TEXT NOT NULL,
+      details LONGTEXT NULL,
+      created_at DATETIME NOT NULL,
+      PRIMARY KEY (id),
+      KEY error_id (error_id),
+      KEY code (code)
+    ) {$charset};";
 
     // Include WordPress upgrade functions for dbDelta
-  require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+    require_once ABSPATH . 'wp-admin/includes/upgrade.php';
 
     // Execute table creation (safe for structure updates as well)
-  dbDelta($sql);
-}
+    dbDelta($sql);
+  }
 
 /**
 * Called on activation.
@@ -1023,16 +1011,16 @@ public function display_error_log()
 */
 public function grvt_connector_pro_plugin_action_links( $links ) {
 
-    /* Remove the edit link. */
-    unset( $links['edit'] );
+  /* Remove the edit link. */
+  unset( $links['edit'] );
 
-    /* Define the settings link. */
-    $settings_link = '<a href="' . esc_url( admin_url( 'admin.php?page=gf_googlesheet' ) ) . '">'
-        . esc_html__( 'Settings', 'gsheetconnector-gravity-forms' )
-        . '</a>';
+  /* Define the settings link. */
+  $settings_link = '<a href="' . esc_url( admin_url( 'admin.php?page=gf_googlesheet' ) ) . '">'
+  . esc_html__( 'Settings', 'gsheetconnector-gravity-forms' )
+  . '</a>';
 
-    /* Prepend the settings link and return. */
-    return array_merge( array( 'settings' => $settings_link ), $links );
+  /* Prepend the settings link and return. */
+  return array_merge( array( 'settings' => $settings_link ), $links );
 }
 
 
@@ -1084,8 +1072,6 @@ function load_gsheetconnector_gforms_free_version() // phpcs:ignore WordPress.Na
   }
 
   /* Include Library Files */
-  require_once GRAVITY_GOOGLESHEET_ROOT . '/lib/vendor/autoload.php';
-
   include_once(GRAVITY_GOOGLESHEET_ROOT . '/lib/google-sheets.php');
   /* $init = new Gforms_Gsheet_Connector_Free_Init(); */
 }
@@ -1105,21 +1091,21 @@ function gsheetconnector_gravityforms_pro_version_notice()// phpcs:ignore WordPr
 add_filter('plugin_action_links_' . GRAVITY_GOOGLESHEET_BASE_NAME, 'gravity_gs_connector_pro_plugin_action_links');
 function gravity_gs_connector_pro_plugin_action_links($links)
 {
-    /* Define the text for the "Upgrade to Pro" link */
-    $go_pro_text = esc_html__('Upgrade to Pro', 'gsheetconnector-gravity-forms');
+  /* Define the text for the "Upgrade to Pro" link */
+  $go_pro_text = esc_html__('Upgrade to Pro', 'gsheetconnector-gravity-forms');
 
-    /*  Check if the Pro version of the plugin is installed and activated */
-    if (is_plugin_active('gsheetconnector-gravityforms-pro/gsheetconnector-for-elementor-forms-pro.php')) {
-            /*  If Pro version is active, return the links without adding the "Upgrade to Pro" link */
-        return $links;
-    }
-
-        /*  Add the action link to the plugin page with green color styling */
-    $links['go_pro'] = sprintf(
-        '<a href="%s" target="_blank" class="gsheetconnector-pro-link" style="color: green;">%s</a>',
-        esc_url('https://www.gsheetconnector.com/gravity-forms-google-sheet-connector'),
-        $go_pro_text
-    );
-
+  /*  Check if the Pro version of the plugin is installed and activated */
+  if (is_plugin_active('gsheetconnector-gravityforms-pro/gsheetconnector-for-elementor-forms-pro.php')) {
+    /*  If Pro version is active, return the links without adding the "Upgrade to Pro" link */
     return $links;
+  }
+
+  /*  Add the action link to the plugin page with green color styling */
+  $links['go_pro'] = sprintf(
+    '<a href="%s" target="_blank" class="gsheetconnector-pro-link" style="color: green;">%s</a>',
+    esc_url('https://www.gsheetconnector.com/gravity-forms-google-sheet-connector'),
+    $go_pro_text
+  );
+
+  return $links;
 }

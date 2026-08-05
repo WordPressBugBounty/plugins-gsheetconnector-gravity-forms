@@ -2947,6 +2947,122 @@ hr {
 
 /***Start Dashboard Css***/
 
+#gscgff-feed-table th {
+    text-transform: capitalize;
+}
+
+.gscgff-feed-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+
+.gsgf-free .gscgff-feed-table-wrap {
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background: #ffffff;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.gsgf-free .widget-table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  margin: 0;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+}
+.gsgf-free table.widget-table thead th {
+  text-align: left;
+  padding: 12px 18px;
+  background: #f9fafb;
+  color: #6b7280;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-bottom: 1px solid #e5e7eb;
+}
+.gsgf-free table.widget-table tbody td a {
+	color: #000;
+    font-weight: 500;
+    text-decoration: underline;
+    font-size: 12px;
+}
+.gsgf-free table.widget-table .gscdf-not-connected {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #fef2f2;
+  color: #b91c1c;
+  font-size: 12px;
+  font-weight: 500;
+}
+.gsgf-free table.widget-table tbody td {
+  padding: 14px 18px;
+  font-size: 14px;
+  color: #374151;
+  border-bottom: 1px solid #f3f4f6;
+  vertical-align: middle;
+}
+.gsgf-free .gscgff-page-link.active {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #ffffff;
+}
+.gsgf-free .gscgff-page-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  padding: 0 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #374151;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+.gsgf-free table.widget-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+.gsgf-free table.widget-table .gscgff-feed-loading-row td {
+  text-align: center;
+  padding: 26px 18px;
+}
+
+.gsgf-free .gscgff-loader {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #dbeafe;
+  border-top-color: #2563eb;
+  border-radius: 50%;
+  vertical-align: middle;
+  animation: gscdf-spin 0.7s linear infinite;
+}
+@keyframes gscdf-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.gsgf-free .gscgff-loader-text {
+  margin-left: 10px;
+  color: #6b7280;
+  font-size: 13px;
+  vertical-align: middle;
+}
+
+
+#gscgff-pagination-wrap:has(.gscgff-page-link) {padding-bottom: 15px;}
+
 /*Start Welcome-Header Section*/
 .gsgf-free .welcome-wrapper {
   padding: 2rem 1.5rem;
