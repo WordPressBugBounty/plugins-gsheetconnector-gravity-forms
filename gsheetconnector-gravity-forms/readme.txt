@@ -1,72 +1,72 @@
-=== GSheetConnector – Gravity Forms Google Sheets Connector, Export GF Entries ===
-Contributors: westerndeal, abdullah17, gsheetconnector
-Tags: gravity forms, gravity forms google sheets, gravity forms spreadsheet, export gravity forms entries, gravity forms sync
+=== GSheetConnector – Gravity Forms Google Sheets Connector – Real-Time Sync ===
+Contributors: westerndeal, abdullah17
+Tags: gravity forms, gravity forms google sheets, gravity forms to google sheets, export gravity forms entries, gravity forms sync
 Requires at least: 5.6
-Tested up to: 7.0
+Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.5.0
+Stable tag: 1.5.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Author URI: https://www.gsheetconnector.com/
 
-Send Gravity Forms entries to Google Sheets in real-time and automatically sync form submissions with Google Sheets.
+Connect Gravity Forms to Google Sheets and automatically send form entries in real-time with reliable Google Sheets integration.
 
 == Description ==
 
-**GSheetConnector for Gravity Forms** is a powerful **Gravity Forms Google Sheets integration plugin** that allows you to send Gravity Forms entries to Google Sheets in real-time.
+GSheetConnector for Gravity Forms connects **Gravity Forms to Google Sheets** and automatically sends form entries to your selected Google Spreadsheet in real-time.
 
-This plugin automatically syncs Gravity Forms submissions to your selected Google Spreadsheet the moment a form is submitted. No manual CSV export, no copy-paste, and no third-party automation tools required.
+Every new Gravity Forms submission is added as a new row in Google Sheets, helping you manage leads, contact form data, registrations, surveys, payments, and other form entries directly from your spreadsheet.
 
-If you are looking to connect Gravity Forms to Google Sheets, export Gravity Forms entries to a spreadsheet, or automate Gravity Forms data syncing — GSheetConnector provides a secure and reliable solution.
+If you want to connect Gravity Forms to Google Sheets, send Gravity Forms entries to a spreadsheet, or automate form submission syncing, GSheetConnector provides a simple and reliable **Gravity Forms Google Sheets integration** without manual CSV exports or copy-paste.
 
-Every form submission is added as a new row inside your connected Google Sheet, making it easy to manage leads, contact form data, registrations, payments, surveys, and other form entries directly inside Google Sheets.
-
-Built specifically for Gravity Forms users, this plugin delivers structured spreadsheet integration with secure Google OAuth authentication and real-time data synchronization.
+Built specifically for Gravity Forms, GSheetConnector provides **real-time data synchronization** with secure Google authentication. Connect your form to your preferred Google Sheet and keep your submission data organized automatically as new entries are received.
 
 [Homepage](https://www.gsheetconnector.com/) | [Documentation](https://www.gsheetconnector.com/docs/gravity-forms-gsheetconnector) | [Support](https://www.gsheetconnector.com/support/) | [Demo](https://demo.gsheetconnector.com/gravityforms-google-sheet-connector-pro/) | [Premium Version](https://www.gsheetconnector.com/gravity-forms-google-sheet-connector?wp-repo)
 
-== Why Use GSheetConnector for Gravity Forms? ==
+== Why Use a Google Sheets Connector for Gravity Forms? ==
 
-✔ Send Gravity Forms entries to Google Sheets automatically  
-✔ Real-time Gravity Forms to Google Sheets sync  
-✔ Secure Google OAuth authentication  
-✔ Field-to-column mapping support  
-✔ Lightweight and performance optimized  
+✔ Send Gravity Forms entries to Google Sheets automatically
+✔ Real-time Gravity Forms to Google Sheets sync
+✔ Secure Google authentication
+✔ Field-to-column mapping
+✔ Lightweight and performance optimized
 
-Perfect for agencies, developers, marketers, and businesses who need automated Gravity Forms spreadsheet integration.
+Perfect for agencies, developers, marketers, and businesses that need a reliable Gravity Forms Google Sheets integration.
 
 == How Gravity Forms to Google Sheets Sync Works ==
 
-When a user submits a Gravity Form on your website, GSheetConnector instantly sends the form entry to Google Sheets in real-time.
+When a user submits a Gravity Form on your website, GSheetConnector automatically sends the form entry to Google Sheets in real-time.
 
-Each submission is inserted as a new row inside your selected Google Spreadsheet. Form field values are matched with corresponding column headers in your sheet.
+Each submission is added as a new row in your selected Google Spreadsheet, with form field values matched to the corresponding column headers.
 
-Submission date is captured automatically, and advanced metadata options are available in the Pro version.
+The submission date is captured automatically, with additional entry metadata options available in the Pro version.
 
-Secure Google authentication ensures safe and encrypted data transfer between Gravity Forms and Google Sheets.
+Secure Google authentication provides a reliable connection between Gravity Forms and Google Sheets.
+
 
 == Core Features (Free Version) ==
 
-= Real-Time Gravity Forms Sync =
-Automatically send Gravity Forms submissions to Google Sheets immediately after form submission.
+= Real-Time Gravity Forms to Google Sheets Sync =
+Automatically send new Gravity Forms submissions to Google Sheets as they are received.
 
 = One-Click Google Authentication =
-Authenticate your Google account once and enable continuous syncing.
+Connect your Google account once and enable continuous syncing.
 
 = Field & Column Mapping =
 Match Gravity Forms field labels with Google Sheet column headers for structured data organization.
 
 = Submission Date Capture =
-Automatically record entry submission date inside your spreadsheet.
+Automatically record the entry submission date in your spreadsheet.
 
 = View Connected Spreadsheet =
-Access and open your connected Google Sheet directly from plugin settings.
+Access and open your connected Google Sheet directly from the plugin settings.
 
-= Secure Google OAuth Integration =
-Uses official Google APIs to ensure safe and reliable data transfer.
+= Secure Google Authentication =
+Uses Google APIs to provide secure and reliable connectivity with Google Sheets.
 
 = Full Compatibility =
-Works with the latest versions of Gravity Forms, WordPress 6.9+, and modern PHP environments.
+Works with current versions of Gravity Forms, WordPress, and supported PHP environments.
+
 
 == 🛠️ How to Send Gravity Forms Entries to Google Sheets ==
 
@@ -76,13 +76,14 @@ Follow these simple steps:
 Navigate to Forms → Google Sheet → Integration tab and connect your Google account.
 
 = Step 2: Configure Sheet Details =
-Open your Gravity Form → Settings → Google Sheet.  
+Open your Gravity Form → Settings → Google Sheet.
 Enter your Sheet Name, Sheet ID, Tab Name, and Tab ID.
 
 = Step 3: Match Column Headers =
 Ensure your Google Spreadsheet has column headers in the first row that match your Gravity Forms field labels.
 
-Submit a test entry — your Gravity Forms submission will instantly appear in Google Sheets.
+Submit a test entry to verify that your Gravity Forms submission is successfully sent to Google Sheets.
+
 
 == 🎥 Video Tutorial ==
 
@@ -90,12 +91,13 @@ Gravity Forms Google Sheets Connector Introduction:
 
 [youtube https://youtu.be/0I6weqeb7RM?si=mzbK-dSOa7I476Y_]
 
+
 == 🚀 Pro Features ==
 
-Upgrade to Gravity Forms Google Sheets Connector PRO for advanced automation and extended control.
+Upgrade to GSheetConnector PRO for Gravity Forms for advanced Google Sheets automation, entry management, and additional integration features.
 
 = Automatic Sheet & Header Creation =
-Automatically fetch and connect Google Sheets from dropdown selection.
+Automatically fetch and connect Google Sheets using dropdown selection.
 
 = Synchronize Existing Entries =
 Bulk sync previously submitted Gravity Forms entries.
@@ -107,59 +109,85 @@ Enable, disable, reorder, and rename fields before syncing.
 Capture IP address, browser information, and additional entry details.
 
 = Freeze Header Rows =
-Freeze header rows inside Google Sheets for improved readability.
+Freeze header rows in Google Sheets for improved readability.
 
 = Header & Row Styling =
 Customize header colors and alternate row styling.
 
 = Manual API & Service Account Authentication =
-Supports manual Google API credentials and Service Account authentication for enterprise setups.
+Supports manual Google API credentials and Service Account authentication for advanced setups.
 
-Learn more about the PRO version:  
+Learn more about the PRO version:
 https://www.gsheetconnector.com/gravity-forms-google-sheet-connector?wp-repo
 
 == Important Notes ==
 
-Ensure your Sheet Name, Sheet ID, Tab Name, Tab ID, and Column Headers match exactly with the values entered in plugin settings.
+Ensure your Sheet Name, Sheet ID, Tab Name, Tab ID, and column headers match exactly with the values entered in the plugin settings.
 
-• Use exact Gravity Forms field labels as column headers  
-• Avoid special characters in header names  
-• Keep naming consistent between form and spreadsheet  
+• Use exact Gravity Forms field labels as column headers
+• Avoid special characters in header names
+• Keep naming consistent between the form and spreadsheet
 
 Incorrect configuration may prevent proper Gravity Forms to Google Sheets synchronization.
 
 == Frequently Asked Questions ==
 
-= Why are Gravity Forms entries not appearing in Google Sheets? =
+= What is a Gravity Forms Google Sheets connector? =
+
+A Gravity Forms Google Sheets connector automatically sends form submissions from Gravity Forms to Google Sheets. GSheetConnector adds each new Gravity Forms entry as a new row in your connected Google Spreadsheet.
+
+
+= How do I connect Gravity Forms to Google Sheets? =
+
+Install and activate GSheetConnector, connect your Google account from the Integration tab, and configure the Google Sheet for your Gravity Form. Once connected, new Gravity Forms entries are automatically sent to Google Sheets.
+
+
+= Can Gravity Forms automatically send entries to Google Sheets? =
+
+Yes. GSheetConnector automatically sends new Gravity Forms entries to your connected Google Sheet when a form is submitted.
+
+
+= Why are my Gravity Forms entries not appearing in Google Sheets? =
 
 Check the Integration tab and review the Debug Log for error details.
 
-Ensure:
+Make sure:
 
-1. Google authentication is valid  
-2. Sheet Name, Sheet ID, Tab Name, and Tab ID are correct  
-3. Column headers match Gravity Forms field labels exactly  
+1. Your Google account is connected
+2. The Sheet Name, Sheet ID, Tab Name, and Tab ID are correct
+3. Your Google Sheet column headers match the Gravity Forms field labels
 
-Reauthenticate if necessary and verify sheet configuration.
+If the entries are still not appearing, reconnect your Google account and verify the sheet configuration.
+
 
 = Can I connect multiple Gravity Forms to different Google Sheets? =
 
-Yes. Each Gravity Form can connect to a different Google Spreadsheet.  
-Pro version supports multiple feeds per form.
+Yes. Each Gravity Form can be connected to a different Google Spreadsheet. The Pro version also supports multiple Google Sheets feeds per form.
 
-= Does this plugin support syncing existing entries? =
 
-Bulk synchronization of previous entries is available in the Pro version.
+= Can I sync existing Gravity Forms entries to Google Sheets? =
+
+Yes, with GSheetConnector PRO. The Pro version can synchronize previously submitted Gravity Forms entries to Google Sheets in bulk.
+
 
 = Is manual Google API setup required? =
 
-No. The free version supports one-click Google authentication.  
-Manual API and Service Account authentication options are available in Pro.
+No. The free version provides one-click Google authentication, so manual Google API configuration is not required. Manual API credentials and Service Account authentication are available in the Pro version.
 
-= Why do I see “This app isn’t verified”? =
 
-This may appear when using custom API credentials (Pro version).  
-Free version uses simplified Google authentication.
+= Does GSheetConnector send Gravity Forms entries to Google Sheets in real-time? =
+
+Yes. New Gravity Forms submissions are automatically sent to the connected Google Sheet in real-time after the form is submitted.
+
+
+= Can I map Gravity Forms fields to Google Sheets columns? =
+
+Yes. GSheetConnector uses your Gravity Forms field labels and corresponding Google Sheet column headers to organize submitted form data in your spreadsheet.
+
+
+= Why do I see "This app isn't verified"? =
+
+This message may appear when using custom Google API credentials in the Pro version. The free version uses the built-in Google authentication method and does not require you to configure your own Google API credentials.
 
 == Installation ==
 
@@ -180,6 +208,9 @@ Your Gravity Forms submissions will now sync automatically to Google Sheets in r
 
 
 == Changelog ==
+
+= 1.5.1 = (19-08-2026)
+* Added: Support for exporting multiple checkbox options as separate columns in Google Sheets. 
 
 = 1.5.0 = (05-08-2026)
 * Added: Connected Sheet Details in the Dashboard tab.

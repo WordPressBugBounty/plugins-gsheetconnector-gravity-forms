@@ -651,7 +651,7 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
                       <option value="1476121759">NewTest</option>
                       <option value="1588729200">stagingdemo</option>
                     </select></span>
-                  <textarea id="gs_sheet_select_sheets_list" style="display:none">	  			</textarea>
+                  <textarea id="gs_sheet_select_sheets_list" style="display:none">          </textarea>
                   <span class="gform-settings-validation__error" id="error-tabName"></span>
                 </div>
               </div> <!-- col-6 #end -->
@@ -1172,7 +1172,7 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
   public function get_form_field_list($form)
   {
     $fields = $form['fields'];
-    $fields_inputs = array("name", "address", "consent", "product");
+    $fields_inputs = array("name", "address", "consent", "product", "checkbox");
 
     $field_list = array();
 
@@ -1215,7 +1215,7 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
 
     $field_list = array();
 
-    $fields_inputs = array("name", "address", "consent", "product");
+    $fields_inputs = array("name", "address", "consent", "product", "checkbox");
 
     $data_meta = $form_meta['fields'];
     foreach ($data_meta as $field_meta) {
@@ -1500,14 +1500,24 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
             $field_label = isset($field->label) ? $field->label : 'File';
             $data_value[$field_label] = $file_value;
           }
-          /*  Checkbox Field */ else if ($field->type == 'checkbox' && isset($field->inputs)) {
+          /*  Checkbox Field */ else if ($field->type == 'checkbox' && isset($field->inputs) && !empty($field->inputs)) {
             $checkbox_values = [];
             foreach ($field->inputs as $input) {
-              $checkbox_id = $input['id'];
-              if (isset($entry[$checkbox_id]) && !empty($entry[$checkbox_id])) {
-                $checkbox_values[] = $entry[$checkbox_id];
+              if (isset($input['isHidden']) && $input['isHidden'] == true) {
+                continue;
+              }
+              $checkbox_id    = (string) $input['id'];
+              $checkbox_value = rgar($entry, $checkbox_id);
+              $choice_label   = isset($input['label']) && $input['label'] !== '' ? $input['label'] : $checkbox_id;
+
+              // One column per checkbox option
+              $data_value[$choice_label] = $checkbox_value;
+
+              if (!empty($checkbox_value)) {
+                $checkbox_values[] = $checkbox_value;
               }
             }
+            // Combined column kept for backward compatibility with existing sheet headers
             $data_value[$label] = implode(', ', $checkbox_values);
           }
           /*  Dropdown / Select */ else if ($field->type == 'select') {
@@ -1520,9 +1530,8 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
 
 
           /*  Consent Field */ else if ($field->type == 'consent') {
-            if (isset($field->checkboxLabel) && !empty($field->checkboxLabel)) {
-              $data_value[$label] = $field->checkboxLabel;
-            }
+            $consent_given = !empty(rgar($entry, $field->id . '.1'));
+            $data_value[$label] = ($consent_given && !empty($field->checkboxLabel)) ? $field->checkboxLabel : '';
           }
           /*  Catch-all for other fields */ else if ($field->type == 'product' && isset($field->inputs)) {
             $quantity_input = $field->inputs[2]['id'] ?? null;
