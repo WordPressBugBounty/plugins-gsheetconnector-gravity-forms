@@ -8,7 +8,7 @@
  * Requires PHP: 7.4
  * Author: GSheetConnector
  * Author URI: https://www.gsheetconnector.com/
- * Version: 1.5.1
+ * Version: 1.5.2
  * Text Domain: gsheetconnector-gravity-forms
  * License: GPLv2
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -92,8 +92,8 @@ if (Gforms_Gsheet_Connector_Free_Init::gscgf_is_pugin_active('Gforms_Gsheet_Conn
 }
 
 /* Declare some global constants */
-define('GRAVITY_GOOGLESHEET_VERSION', '1.5.1');
-define('GRAVITY_GOOGLESHEET_DB_VERSION', '1.5.1');
+define('GRAVITY_GOOGLESHEET_VERSION', '1.5.2');
+define('GRAVITY_GOOGLESHEET_DB_VERSION', '1.5.2');
 define('GRAVITY_GOOGLESHEET_ROOT', dirname(__FILE__));
 define('GRAVITY_GOOGLESHEET_URL', plugins_url('/', __FILE__));
 define('GRAVITY_GOOGLESHEET_BASE_FILE', basename(dirname(__FILE__)) . '/gsheetconnector-gravityforms.php');

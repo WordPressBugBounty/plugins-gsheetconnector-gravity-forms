@@ -145,7 +145,7 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
    */
   public function settings_display_note($field)
   {
-?>
+    ?>
 
     <div class="gs-display-note">
       <div class="gscgff-setup-alert">
@@ -175,7 +175,7 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
     </div>
 
   <?php //$this->get_google_sheet_settings( $this->get_current_form(), $this->get_current_feed_id() );
-  }
+}
 
 
   /**
@@ -292,9 +292,9 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
         <div class="gfgsheet-fields">
           <p>
             <label><?php echo esc_html(__('Sheet Name', 'gsheetconnector-gravity-forms')); ?> <button onclick="return false;" onkeypress="return false;" class="gf_tooltip tooltip"
-                aria-label='Enter the exact name of your Google Spreadsheet (as shown in Google Sheets).'>
-                <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
-              </button></label>
+              aria-label='Enter the exact name of your Google Spreadsheet (as shown in Google Sheets).'>
+              <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
+            </button></label>
 
             <?php
             echo wp_kses($sheet_name_text_field, array(
@@ -318,850 +318,850 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
                 'class' => true,
               ),
             ));
-            echo wp_kses_post($sheet_name_text_field); ?>
+            ?>
             <span class="gform-settings-validation__error" id="error-sheetName"></span>
           </p>
           <p>
             <label><?php echo esc_html(__('Sheet Id', 'gsheetconnector-gravity-forms')); ?>
-              <button onclick="return false;" onkeypress="return false;" class="gf_tooltip tooltip"
-                aria-label='Paste the Spreadsheet ID from your Google Sheet URL.'>
-                <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
-              </button>
-            </label>
+            <button onclick="return false;" onkeypress="return false;" class="gf_tooltip tooltip"
+            aria-label='Paste the Spreadsheet ID from your Google Sheet URL.'>
+            <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
+          </button>
+        </label>
 
-            <?php
-            echo wp_kses($sheet_id_text_field, array(
-              'input' => array(
-                'type' => true,
-                'name' => true,
-                'value' => true,
-                'class' => true,
-                'id' => true,
-                'placeholder' => true,
-              ),
-              'label' => array(
-                'for' => true,
-              ),
-              'br' => array(),
-              'div' => array(
-                'class' => true,
-                'id' => true,
-              ),
-              'span' => array(
-                'class' => true,
-              ),
-            ));
-            echo wp_kses_post($sheet_id_text_field) ?>
-            <span class="gform-settings-validation__error" id="error-sheetId"></span>
-          </p>
-          <p>
-            <label><?php echo esc_html(__('Tab Name', 'gsheetconnector-gravity-forms')); ?>
-              <button onclick="return false;" onkeypress="return false;" class="gf_tooltip tooltip"
-                aria-label='Get the Tab ID from your sheet URL after gid=.'>
-                <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
-              </button>
+        <?php
+        echo wp_kses($sheet_id_text_field, array(
+          'input' => array(
+            'type' => true,
+            'name' => true,
+            'value' => true,
+            'class' => true,
+            'id' => true,
+            'placeholder' => true,
+          ),
+          'label' => array(
+            'for' => true,
+          ),
+          'br' => array(),
+          'div' => array(
+            'class' => true,
+            'id' => true,
+          ),
+          'span' => array(
+            'class' => true,
+          ),
+        ));
+        ?>
+        <span class="gform-settings-validation__error" id="error-sheetId"></span>
+      </p>
+      <p>
+        <label><?php echo esc_html(__('Tab Name', 'gsheetconnector-gravity-forms')); ?>
+        <button onclick="return false;" onkeypress="return false;" class="gf_tooltip tooltip"
+        aria-label='Get the Tab ID from your sheet URL after gid=.'>
+        <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
+      </button>
 
-            </label>
-            <?php /*?><span class="required">(Required)</span><?php */ ?>
+    </label>
+    <?php /*?><span class="required">(Required)</span><?php */ ?>
 
-            <?php
-            echo wp_kses($tab_name_text_field, array(
-              'input' => array(
-                'type' => true,
-                'name' => true,
-                'value' => true,
-                'class' => true,
-                'id' => true,
-                'placeholder' => true,
-              ),
-              'label' => array(
-                'for' => true,
-              ),
-              'br' => array(),
-              'div' => array(
-                'class' => true,
-                'id' => true,
-              ),
-              'span' => array(
-                'class' => true,
-              ),
-            ));
-            echo wp_kses_post($tab_name_text_field) ?>
-            <span class="gform-settings-validation__error" id="error-tabName"></span>
-          </p>
-          <p>
-            <label><?php echo esc_html(__('Tab Id', 'gsheetconnector-gravity-forms')); ?>
-              <button onclick="return false;" onkeypress="return false;" class="gf_tooltip tooltip"
-                aria-label='You can get the tab id from your sheet URL'>
-                <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
-              </button>
-            </label>
-            <?php
-            echo wp_kses($tab_id_text_field, array(
-              'input' => array(
-                'type' => true,
-                'name' => true,
-                'value' => true,
-                'class' => true,
-                'id' => true,
-                'placeholder' => true,
-              ),
-              'label' => array(
-                'for' => true,
-              ),
-              'br' => array(),
-              'div' => array(
-                'class' => true,
-                'id' => true,
-              ),
-              'span' => array(
-                'class' => true,
-              ),
-            ));
-            echo wp_kses_post($tab_id_text_field) ?>
-            <span class="gform-settings-validation__error" id="error-tabId"></span>
-          </p>
+    <?php
+    echo wp_kses($tab_name_text_field, array(
+      'input' => array(
+        'type' => true,
+        'name' => true,
+        'value' => true,
+        'class' => true,
+        'id' => true,
+        'placeholder' => true,
+      ),
+      'label' => array(
+        'for' => true,
+      ),
+      'br' => array(),
+      'div' => array(
+        'class' => true,
+        'id' => true,
+      ),
+      'span' => array(
+        'class' => true,
+      ),
+    ));
+    ?>
+    <span class="gform-settings-validation__error" id="error-tabName"></span>
+  </p>
+  <p>
+    <label><?php echo esc_html(__('Tab Id', 'gsheetconnector-gravity-forms')); ?>
+    <button onclick="return false;" onkeypress="return false;" class="gf_tooltip tooltip"
+    aria-label='You can get the tab id from your sheet URL'>
+    <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
+  </button>
+</label>
+<?php
+echo wp_kses($tab_id_text_field, array(
+  'input' => array(
+    'type' => true,
+    'name' => true,
+    'value' => true,
+    'class' => true,
+    'id' => true,
+    'placeholder' => true,
+  ),
+  'label' => array(
+    'for' => true,
+  ),
+  'br' => array(),
+  'div' => array(
+    'class' => true,
+    'id' => true,
+  ),
+  'span' => array(
+    'class' => true,
+  ),
+));
+?>
+<span class="gform-settings-validation__error" id="error-tabId"></span>
+</p>
 
+</div>
+
+<span id="sheet_url"></span>
+
+<?php /*?><p class="sheet_url" id="sheet_url"></p><?php */ ?>
+</div>
+</div>
+<div class="gsgf-free">
+
+  <!-- unlock advanced feature #start -->
+
+  <div class="edit-gs-pro-card shadow-box mt-40 mb-30">
+
+    <div class="edit-gs-pro-header p-20">
+      <div class="edit-gs-pro-icon">
+        <span class="pro-badge">
+          <i class="fas fa-lock gsc-pro-icon"></i>
+        </span>
+      </div>
+
+      <div class="edit-gs-pro-title">
+        <div class="heading mt-0">
+          <?php esc_html_e('Unlock Advanced Features with Form Feeds', 'gsheetconnector-gravity-forms'); ?>
         </div>
 
-        <span id="sheet_url"></span>
+        <div class="d-flex align-items-center gap-15">
+          <span class="edit-gs-pro-badge">
+            <?php esc_html_e('Advanced options are available in PRO', 'gsheetconnector-gravity-forms'); ?>
+          </span>
 
-        <?php /*?><p class="sheet_url" id="sheet_url"></p><?php */ ?>
-    </div>
-    </div>
-    <div class="gsgf-free">
-
-      <!-- unlock advanced feature #start -->
-
-      <div class="edit-gs-pro-card shadow-box mt-40 mb-30">
-
-        <div class="edit-gs-pro-header p-20">
-          <div class="edit-gs-pro-icon">
-            <span class="pro-badge">
-              <i class="fas fa-lock gsc-pro-icon"></i>
-            </span>
-          </div>
-
-          <div class="edit-gs-pro-title">
-            <div class="heading mt-0">
-              <?php esc_html_e('Unlock Advanced Features with Form Feeds', 'gsheetconnector-gravity-forms'); ?>
-            </div>
-
-            <div class="d-flex align-items-center gap-15">
-              <span class="edit-gs-pro-badge">
-                <?php esc_html_e('Advanced options are available in PRO', 'gsheetconnector-gravity-forms'); ?>
-              </span>
-
-              <span class="edit-gs-upgrade-btn">
-                <a href="https://www.gsheetconnector.com/gravity-forms-google-sheet-connector" target="_blank" class="text-decoration-none link-hover-white">
-                  <?php esc_html_e('Get Advanced Features', 'gsheetconnector-gravity-forms'); ?>
-                </a>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Toggle checkbox -->
-        <input type="checkbox" id="toggle-features">
-
-        <div class="edit-gs-pro-features p-20">
-
-          <div class="edit-gs-feature-col">
-            <div class="mb-20">
-              <a href="#gform_setting_gs_sheet_select">
-                <?php esc_html_e('Automatic Google Sheets Configuration', 'gsheetconnector-gravity-forms'); ?>
-              </a>
-            </div>
-
-            <div class="gsc-pro-grid">
-              <ul>
-                <li><?php esc_html_e('Auto fetch Google Sheets list', 'gsheetconnector-gravity-forms'); ?></li>
-                <li><?php esc_html_e('Auto detect sheet tabs', 'gsheetconnector-gravity-forms'); ?></li>
-                <li><?php esc_html_e('One-click configuration', 'gsheetconnector-gravity-forms'); ?></li>
-                <li><?php esc_html_e('Real-time entry sync', 'gsheetconnector-gravity-forms'); ?></li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="edit-gs-feature-col">
-            <div class="mb-20">
-              <a href="#field-mapping">
-                <?php esc_html_e('Select Fields to Sync', 'gsheetconnector-gravity-forms'); ?>
-              </a>
-            </div>
-            <div class="gsc-pro-grid">
-              <ul>
-                <li><?php esc_html_e('Drag & drop field reordering', 'gsheetconnector-gravity-forms'); ?></li>
-                <li><?php esc_html_e('Rename column headers', 'gsheetconnector-gravity-forms'); ?></li>
-                <li><?php esc_html_e('Select specific fields to sync', 'gsheetconnector-gravity-forms'); ?></li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="edit-gs-feature-col">
-            <div class="mb-20">
-              <a href="#header-settings-sheet-sorting">
-                <?php esc_html_e('Header Settings &amp; Sheet Order', 'gsheetconnector-gravity-forms'); ?>
-              </a>
-            </div>
-
-            <div class="gsc-pro-grid">
-              <ul>
-                <li><?php esc_html_e('Freeze header row', 'gsheetconnector-gravity-forms'); ?></li>
-                <li><?php esc_html_e('Custom font styling', 'gsheetconnector-gravity-forms'); ?></li>
-                <li><?php esc_html_e('Header &amp; row color control', 'gsheetconnector-gravity-forms'); ?></li>
-                <li><?php esc_html_e('Sort by any column', 'gsheetconnector-gravity-forms'); ?></li>
-              </ul>
-            </div>
-          </div>
-
-
-          <div class="edit-gs-feature-col">
-            <div class="mb-20">
-              <a href="#gform_setting_condition">
-                <?php echo esc_html(__('Conditional Logic', 'gsheetconnector-gravity-forms')); ?>
-              </a>
-            </div>
-            <div class="gsc-pro-grid">
-              <ul>
-                <li><?php esc_html_e('Apply rules based on form values', 'gsheetconnector-gravity-forms'); ?></li>
-                <li><?php esc_html_e('Sync data only when conditions match', 'gsheetconnector-gravity-forms'); ?></li>
-                <li><?php esc_html_e('Filter unwanted or incomplete entries', 'gsheetconnector-gravity-forms'); ?></li>
-                <li><?php esc_html_e('Create dynamic workflows automatically', 'gsheetconnector-gravity-forms'); ?></li>
-                <li><?php esc_html_e('Map data conditionally to sheet columns', 'gsheetconnector-gravity-forms'); ?></li>
-                <li><?php esc_html_e('Support multiple conditions (AND / OR)', 'gsheetconnector-gravity-forms'); ?></li>
-                <li><?php esc_html_e('Improve accuracy and reduce extra data', 'gsheetconnector-gravity-forms'); ?></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="edit-gs-pro-footer">
-          <label for="toggle-features" class="edit-gs-show-btn show">
-            <?php esc_html_e('Show Features', 'gsheetconnector-gravity-forms'); ?>
-            <svg fill="#000000" width="800px" height="800px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0.256 8.606c0-0.269 0.106-0.544 0.313-0.75 0.412-0.412 1.087-0.412 1.5 0l14.119 14.119 13.913-13.912c0.413-0.412 1.087-0.412 1.5 0s0.413 1.088 0 1.5l-14.663 14.669c-0.413 0.413-1.088 0.413-1.5 0l-14.869-14.869c-0.213-0.213-0.313-0.481-0.313-0.756z"></path>
-            </svg>
-          </label>
-
-          <label for="toggle-features" class="edit-gs-show-btn hide">
-            <?php esc_html_e('Hide Features', 'gsheetconnector-gravity-forms'); ?>
-            <svg width="800px" height="800px" viewBox="0 -4.5 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-              <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                <g id="Dribbble-Light-Preview" transform="translate(-260.000000, -6684.000000)" fill="#000000">
-                  <g id="icons" transform="translate(56.000000, 160.000000)">
-                    <path d="M223.707692,6534.63378 L223.707692,6534.63378 C224.097436,6534.22888 224.097436,6533.57338 223.707692,6533.16951 L215.444127,6524.60657 C214.66364,6523.79781 213.397472,6523.79781 212.616986,6524.60657 L204.29246,6533.23165 C203.906714,6533.6324 203.901717,6534.27962 204.282467,6534.68555 C204.671211,6535.10081 205.31179,6535.10495 205.70653,6534.69695 L213.323521,6526.80297 C213.714264,6526.39807 214.346848,6526.39807 214.737591,6526.80297 L222.294621,6534.63378 C222.684365,6535.03868 223.317949,6535.03868 223.707692,6534.63378" id="arrow_up-[#337]">
-                    </path>
-                  </g>
-                </g>
-              </g>
-            </svg>
-          </label>
+          <span class="edit-gs-upgrade-btn">
+            <a href="https://www.gsheetconnector.com/gravity-forms-google-sheet-connector" target="_blank" class="text-decoration-none link-hover-white">
+              <?php esc_html_e('Get Advanced Features', 'gsheetconnector-gravity-forms'); ?>
+            </a>
+          </span>
         </div>
       </div>
     </div>
-    <!-- unlock advanced feature #end -->
-    <div class="pro-features">
 
-      <!--  -->
+    <!-- Toggle checkbox -->
+    <input type="checkbox" id="toggle-features">
+
+    <div class="edit-gs-pro-features p-20">
+
+      <div class="edit-gs-feature-col">
+        <div class="mb-20">
+          <a href="#gform_setting_gs_sheet_select">
+            <?php esc_html_e('Automatic Google Sheets Configuration', 'gsheetconnector-gravity-forms'); ?>
+          </a>
+        </div>
+
+        <div class="gsc-pro-grid">
+          <ul>
+            <li><?php esc_html_e('Auto fetch Google Sheets list', 'gsheetconnector-gravity-forms'); ?></li>
+            <li><?php esc_html_e('Auto detect sheet tabs', 'gsheetconnector-gravity-forms'); ?></li>
+            <li><?php esc_html_e('One-click configuration', 'gsheetconnector-gravity-forms'); ?></li>
+            <li><?php esc_html_e('Real-time entry sync', 'gsheetconnector-gravity-forms'); ?></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="edit-gs-feature-col">
+        <div class="mb-20">
+          <a href="#field-mapping">
+            <?php esc_html_e('Select Fields to Sync', 'gsheetconnector-gravity-forms'); ?>
+          </a>
+        </div>
+        <div class="gsc-pro-grid">
+          <ul>
+            <li><?php esc_html_e('Drag & drop field reordering', 'gsheetconnector-gravity-forms'); ?></li>
+            <li><?php esc_html_e('Rename column headers', 'gsheetconnector-gravity-forms'); ?></li>
+            <li><?php esc_html_e('Select specific fields to sync', 'gsheetconnector-gravity-forms'); ?></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="edit-gs-feature-col">
+        <div class="mb-20">
+          <a href="#header-settings-sheet-sorting">
+            <?php esc_html_e('Header Settings &amp; Sheet Order', 'gsheetconnector-gravity-forms'); ?>
+          </a>
+        </div>
+
+        <div class="gsc-pro-grid">
+          <ul>
+            <li><?php esc_html_e('Freeze header row', 'gsheetconnector-gravity-forms'); ?></li>
+            <li><?php esc_html_e('Custom font styling', 'gsheetconnector-gravity-forms'); ?></li>
+            <li><?php esc_html_e('Header &amp; row color control', 'gsheetconnector-gravity-forms'); ?></li>
+            <li><?php esc_html_e('Sort by any column', 'gsheetconnector-gravity-forms'); ?></li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="edit-gs-feature-col">
+        <div class="mb-20">
+          <a href="#gform_setting_condition">
+            <?php echo esc_html(__('Conditional Logic', 'gsheetconnector-gravity-forms')); ?>
+          </a>
+        </div>
+        <div class="gsc-pro-grid">
+          <ul>
+            <li><?php esc_html_e('Apply rules based on form values', 'gsheetconnector-gravity-forms'); ?></li>
+            <li><?php esc_html_e('Sync data only when conditions match', 'gsheetconnector-gravity-forms'); ?></li>
+            <li><?php esc_html_e('Filter unwanted or incomplete entries', 'gsheetconnector-gravity-forms'); ?></li>
+            <li><?php esc_html_e('Create dynamic workflows automatically', 'gsheetconnector-gravity-forms'); ?></li>
+            <li><?php esc_html_e('Map data conditionally to sheet columns', 'gsheetconnector-gravity-forms'); ?></li>
+            <li><?php esc_html_e('Support multiple conditions (AND / OR)', 'gsheetconnector-gravity-forms'); ?></li>
+            <li><?php esc_html_e('Improve accuracy and reduce extra data', 'gsheetconnector-gravity-forms'); ?></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="edit-gs-pro-footer">
+      <label for="toggle-features" class="edit-gs-show-btn show">
+        <?php esc_html_e('Show Features', 'gsheetconnector-gravity-forms'); ?>
+        <svg fill="#000000" width="800px" height="800px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.256 8.606c0-0.269 0.106-0.544 0.313-0.75 0.412-0.412 1.087-0.412 1.5 0l14.119 14.119 13.913-13.912c0.413-0.412 1.087-0.412 1.5 0s0.413 1.088 0 1.5l-14.663 14.669c-0.413 0.413-1.088 0.413-1.5 0l-14.869-14.869c-0.213-0.213-0.313-0.481-0.313-0.756z"></path>
+        </svg>
+      </label>
+
+      <label for="toggle-features" class="edit-gs-show-btn hide">
+        <?php esc_html_e('Hide Features', 'gsheetconnector-gravity-forms'); ?>
+        <svg width="800px" height="800px" viewBox="0 -4.5 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="Dribbble-Light-Preview" transform="translate(-260.000000, -6684.000000)" fill="#000000">
+              <g id="icons" transform="translate(56.000000, 160.000000)">
+                <path d="M223.707692,6534.63378 L223.707692,6534.63378 C224.097436,6534.22888 224.097436,6533.57338 223.707692,6533.16951 L215.444127,6524.60657 C214.66364,6523.79781 213.397472,6523.79781 212.616986,6524.60657 L204.29246,6533.23165 C203.906714,6533.6324 203.901717,6534.27962 204.282467,6534.68555 C204.671211,6535.10081 205.31179,6535.10495 205.70653,6534.69695 L213.323521,6526.80297 C213.714264,6526.39807 214.346848,6526.39807 214.737591,6526.80297 L222.294621,6534.63378 C222.684365,6535.03868 223.317949,6535.03868 223.707692,6534.63378" id="arrow_up-[#337]">
+                </path>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </label>
+    </div>
+  </div>
+</div>
+<!-- unlock advanced feature #end -->
+<div class="pro-features">
+
+  <!--  -->
       <!-- <a class="gs-woo-list-set" data-id="3" href="#0">
                   <p class="maxi_mize maxi_mize3"><i class="fa fa-plus" aria-hidden="true"></i></i></p>
                   <p class="mini_mize mini_mize3"><i class="fa fa-minus" aria-hidden="true"></i></p>
                 </a>  -->
-      <div class="main-promotion-box small-pro-box">
-        <div class="promotion-inner">
-          <h2><?php echo esc_html__("Please proceed to the Final Step.", "gsheetconnector-gravity-forms"); ?>
-            <small><?php echo esc_html__(" (For the FREE version of the plugin, you'll need to input the columns manually.)
+                <div class="main-promotion-box small-pro-box">
+                  <div class="promotion-inner">
+                    <h2><?php echo esc_html__("Please proceed to the Final Step.", "gsheetconnector-gravity-forms"); ?>
+                    <small><?php echo esc_html__(" (For the FREE version of the plugin, you'll need to input the columns manually.)
                     ", "gsheetconnector-gravity-forms"); ?></small>
-          </h2>
-          <p>
-            <?php echo esc_html__("Ensure that after inputting the Google Sheet Name, Sheet ID, Tab Name, and Tab ID above, you must enter the label names of your form into Row 1 of your Google Sheet, as illustrated in the image.", "gsheetconnector-gravity-forms"); ?>
-            <strong><?php echo esc_html__("Google Sheets", "gsheetconnector-gravity-forms"); ?></strong>, <br />
-            <?php echo esc_html__("Now available for popular", "gsheetconnector-gravity-forms"); ?>
-          </p>
-          <div class="button-bar"> <a href="https://www.gsheetconnector.com/docs/gravity-forms-gsheetconnector"
-              target="_blank"><?php echo esc_html__("Refer Documentation", "gsheetconnector-gravity-forms"); ?></a> | <a
-              href="https://www.gsheetconnector.com/gravity-forms-google-sheet-connector"
-              target="_blank"><?php echo esc_html__("Buy Now", "gsheetconnector-gravity-forms"); ?></a></div>
-          <p class="note">
-            <?php echo esc_html__("In PRO version it will be managed with Below settings.", "gsheetconnector-gravity-forms"); ?>
-          </p>
-        </div>
+                  </h2>
+                  <p>
+                    <?php echo esc_html__("Ensure that after inputting the Google Sheet Name, Sheet ID, Tab Name, and Tab ID above, you must enter the label names of your form into Row 1 of your Google Sheet, as illustrated in the image.", "gsheetconnector-gravity-forms"); ?>
+                    <strong><?php echo esc_html__("Google Sheets", "gsheetconnector-gravity-forms"); ?></strong>, <br />
+                    <?php echo esc_html__("Now available for popular", "gsheetconnector-gravity-forms"); ?>
+                  </p>
+                  <div class="button-bar"> <a href="https://www.gsheetconnector.com/docs/gravity-forms-gsheetconnector"
+                    target="_blank"><?php echo esc_html__("Refer Documentation", "gsheetconnector-gravity-forms"); ?></a> | <a
+                    href="https://www.gsheetconnector.com/gravity-forms-google-sheet-connector"
+                    target="_blank"><?php echo esc_html__("Buy Now", "gsheetconnector-gravity-forms"); ?></a></div>
+                    <p class="note">
+                      <?php echo esc_html__("In PRO version it will be managed with Below settings.", "gsheetconnector-gravity-forms"); ?>
+                    </p>
+                  </div>
 
-        <!--<img src="<?php echo esc_url(GRAVITY_GOOGLESHEET_URL . '/assets/image/gsheet-field-label-guide.gif'); ?>" alt="" />-->
+                  <!--<img src="<?php echo esc_url(GRAVITY_GOOGLESHEET_URL . '/assets/image/gsheet-field-label-guide.gif'); ?>" alt="" />-->
 
-        <div class="gsheet-plugins"><a
-            href="https://gsheetconnector.com/wp-content/uploads/2024/04/gsheet-field-label-guide.gif"
-            target="_blank"><img
-              src="https://gsheetconnector.com/wp-content/uploads/2024/04/gsheet-field-label-guide.gif"
-              alt="" /><?php echo esc_html__(" Click to enlarge image", "gsheetconnector-gravity-forms"); ?></a></div>
-      </div> <!-- main-promotion-box #end -->
-
-
-      <!-- static section start -->
-     
-
-      <div id="gform_setting_gs_sheet_select" class="gform-settings-field gform-settings-field__sheets_selection">
-        <div class="gform-settings-field__header"><label class="gform-settings-label" for="gs_sheet_select"> <?php echo esc_html__("Automatic Google Sheets Configuration", "gsheetconnector-gravity-forms"); ?></label> <span class="pro-ver"><?php echo esc_html__("PRO", "gsheetconnector-gravity-forms"); ?></span>
-          <p><?php echo esc_html__("Automatic configure your Google Sheets and start syncing form submissions in real time.", "gsheetconnector-gravity-forms"); ?></p>
-        </div>
-        <div class="gf-gs-fields">
-          <div class="gsgf-free">
-            <div class="row">
-              <div class="col-6">
-                <div class="mr-10 form-group">
-                  <label>Sheet Name <button disabled class="gf_tooltip tooltip" tooltip_google_sheet_name="" aria-label="Select google sheet from your google account.">
-                      <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
-                    </button> </label>
-                  <span class="gform-settings-input__container"><select name="_gform_setting_gs_sheet_select_name" id="gs_sheet_select_name" disabled>
-                      <option value="gs-select-sheet">Select Spreadsheet</option>
-                      <option value="1_eSS2Xref0o3QZgvdbFQ9FigW5dIEVO5N2fCRrqgW1Q">0</option>
-                    </select></span> <span class="gform-settings-validation__error" id="error-sheetName"></span>
-                  <span class="loading-sign"></span>
-                </div>
-              </div> <!-- col-6 #end -->
-
-              <div class="create-ss-wrapper col-6" style="display:none" ;="">
-                <label>
-                  Create Spreadsheet <button class="gf_tooltip tooltip" tooltip_create_spreadsheet="" aria-label="Create a new spreadsheet to your authorized google account. ">
-                    <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
-                  </button> </label>
-                <span class="gform-settings-input__container"><input type="text" name="_gform_setting_gs_sheet_select_create_sheet" value="" id="gs_sheet_select_create_sheet"> </span>
-                <div class="mt-20"> <a id="gfgs-create-sheet" href="javascript:void(0);">
-                    Create </a>
-                </div>
-                <span class="clear-loading-sign">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-
-              </div>
+                  <div class="gsheet-plugins"><a
+                    href="https://gsheetconnector.com/wp-content/uploads/2024/04/gsheet-field-label-guide.gif"
+                    target="_blank"><img
+                    src="https://gsheetconnector.com/wp-content/uploads/2024/04/gsheet-field-label-guide.gif"
+                    alt="" /><?php echo esc_html__(" Click to enlarge image", "gsheetconnector-gravity-forms"); ?></a></div>
+                  </div> <!-- main-promotion-box #end -->
 
 
+                  <!-- static section start -->
+                  
 
-              <div class="sheet-tab-name col-6">
-                <div class="mr-10 form-group">
-                  <label>
-                    Sheet Tab Name <button onclick="return false;" onkeypress="return false;" class="gf_tooltip tooltip" tooltip_google_sheet_tab_name="" aria-label="Select tab from above chosen google sheet.">
-                      <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
-                    </button> </label>
-                  <span class="gform-settings-input__container"><select name="_gform_setting_gs_sheet_select_tab" id="gs_sheet_select_tab" disabled>
-                      <option value="0" selected="selected">free</option>
-                      <option value="1897537975">pro</option>
-                      <option value="982369790">auto</option>
-                      <option value="1251754752">NewForm</option>
-                      <option value="1473881771">livesite</option>
-                      <option value="1476121759">NewTest</option>
-                      <option value="1588729200">stagingdemo</option>
-                    </select></span>
-                  <textarea id="gs_sheet_select_sheets_list" style="display:none">          </textarea>
-                  <span class="gform-settings-validation__error" id="error-tabName"></span>
-                </div>
-              </div> <!-- col-6 #end -->
+                  <div id="gform_setting_gs_sheet_select" class="gform-settings-field gform-settings-field__sheets_selection">
+                    <div class="gform-settings-field__header"><label class="gform-settings-label" for="gs_sheet_select"> <?php echo esc_html__("Automatic Google Sheets Configuration", "gsheetconnector-gravity-forms"); ?></label> <span class="pro-ver"><?php echo esc_html__("PRO", "gsheetconnector-gravity-forms"); ?></span>
+                      <p><?php echo esc_html__("Automatic configure your Google Sheets and start syncing form submissions in real time.", "gsheetconnector-gravity-forms"); ?></p>
+                    </div>
+                    <div class="gf-gs-fields">
+                      <div class="gsgf-free">
+                        <div class="row">
+                          <div class="col-6">
+                            <div class="mr-10 form-group">
+                              <label>Sheet Name <button disabled class="gf_tooltip tooltip" tooltip_google_sheet_name="" aria-label="Select google sheet from your google account.">
+                                <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
+                              </button> </label>
+                              <span class="gform-settings-input__container"><select name="_gform_setting_gs_sheet_select_name" id="gs_sheet_select_name" disabled>
+                                <option value="gs-select-sheet">Select Spreadsheet</option>
+                                <option value="1_eSS2Xref0o3QZgvdbFQ9FigW5dIEVO5N2fCRrqgW1Q">0</option>
+                              </select></span> <span class="gform-settings-validation__error" id="error-sheetName"></span>
+                              <span class="loading-sign"></span>
+                            </div>
+                          </div> <!-- col-6 #end -->
 
-            </div> <!-- row #end -->
-            <div class="create-ss-wrapper-message  col-6"> </div>
+                          <div class="create-ss-wrapper col-6" style="display:none" ;="">
+                            <label>
+                              Create Spreadsheet <button class="gf_tooltip tooltip" tooltip_create_spreadsheet="" aria-label="Create a new spreadsheet to your authorized google account. ">
+                                <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
+                              </button> </label>
+                              <span class="gform-settings-input__container"><input type="text" name="_gform_setting_gs_sheet_select_create_sheet" value="" id="gs_sheet_select_create_sheet"> </span>
+                              <div class="mt-20"> <a id="gfgs-create-sheet" href="javascript:void(0);">
+                              Create </a>
+                            </div>
+                            <span class="clear-loading-sign">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+
+                          </div>
 
 
 
-            <div class="sheet-url" id="sheet-url">
-             
-            </div>
+                          <div class="sheet-tab-name col-6">
+                            <div class="mr-10 form-group">
+                              <label>
+                                Sheet Tab Name <button onclick="return false;" onkeypress="return false;" class="gf_tooltip tooltip" tooltip_google_sheet_tab_name="" aria-label="Select tab from above chosen google sheet.">
+                                  <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
+                                </button> </label>
+                                <span class="gform-settings-input__container"><select name="_gform_setting_gs_sheet_select_tab" id="gs_sheet_select_tab" disabled>
+                                  <option value="0" selected="selected">free</option>
+                                  <option value="1897537975">pro</option>
+                                  <option value="982369790">auto</option>
+                                  <option value="1251754752">NewForm</option>
+                                  <option value="1473881771">livesite</option>
+                                  <option value="1476121759">NewTest</option>
+                                  <option value="1588729200">stagingdemo</option>
+                                </select></span>
+                                <textarea id="gs_sheet_select_sheets_list" style="display:none">          </textarea>
+                                <span class="gform-settings-validation__error" id="error-tabName"></span>
+                              </div>
+                            </div> <!-- col-6 #end -->
 
-          </div>
-        </div>
+                          </div> <!-- row #end -->
+                          <div class="create-ss-wrapper-message  col-6"> </div>
 
-      </div>
 
-      <!-- static section #end -->
 
-      <label id="field-mapping" class="gform-settings-label select-field-to-sync" for="gsheet_mergeTagsMap">
-        <?php echo esc_html__("Select Fields to Sync", "gsheetconnector-gravity-forms"); ?>
+                          <div class="sheet-url" id="sheet-url">
+                           
+                          </div>
+
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <!-- static section #end -->
+
+                    <label id="field-mapping" class="gform-settings-label select-field-to-sync" for="gsheet_mergeTagsMap">
+                      <?php echo esc_html__("Select Fields to Sync", "gsheetconnector-gravity-forms"); ?>
         <?php /*?> <div class="upgrade-button">
                       <a href="https://www.gsheetconnector.com/gravity-forms-google-sheet-connector?gsheetconnector-ref=17"
                       target="__blank" class="upgradeLink">
                       <?php echo esc_html__("Upgrade to Pro", "gsheetconnector-gravity-forms"); ?>
                     </a>
-                    </div><?php */ ?> <span class="pro-ver">PRO</span>
+                  </div><?php */ ?> <span class="pro-ver">PRO</span>
 
-      </label>
-      <p><?php echo esc_html__("Enable the fields you want to send to Google Sheets and rename columns if needed.", "gsheetconnector-gravity-forms"); ?></p>
-      <div class="gsgf-free">
-        <span class="gform-settings-input__container">
-          <div id="checkall-div" class="gform-settings-choice gform-settings-field gform-settings-field__toggle">
+                </label>
+                <p><?php echo esc_html__("Enable the fields you want to send to Google Sheets and rename columns if needed.", "gsheetconnector-gravity-forms"); ?></p>
+                <div class="gsgf-free">
+                  <span class="gform-settings-input__container">
+                    <div id="checkall-div" class="gform-settings-choice gform-settings-field gform-settings-field__toggle">
 
-            <input type="hidden" name="checkall" value="0">
+                      <input type="hidden" name="checkall" value="0">
 
-            <label class="gform-field__toggle-container" for="checkall">
-              <span class="gform-field__toggle-switch"></span>
-            </label>
+                      <label class="gform-field__toggle-container" for="checkall">
+                        <span class="gform-field__toggle-switch"></span>
+                      </label>
 
-            <span class="lbl_tog_field">
-              <?php echo esc_html__("Check All", "gsheetconnector-gravity-forms"); ?>
-            </span>
-          </div>
-        </span>
-        <div class="ui-sortable">
-
-          <!-- Entry ID (Disabled) -->
-          <div class="gform-settings-field gform-settings-field__toggle card form-field-toggle non-sortable disable-submission-id active ui-sortable-handle">
-            <div class="gform-settings-input__container">
-              <div class="card-content">
-                <div class="toggle-button special_mail_tags_bg">
-
-                  <!-- Hidden (for saving) -->
-                  <input type="hidden" name="entry_id" value="1">
-
-
-                  <!-- Toggle UI -->
-                  <label class="gform-field__toggle-container" for="entry_id">
-                    <span class="gform-field__toggle-switch"></span>
-                  </label>
-
-                  <span class="lbl_tog_field">
-                    <?php echo esc_html(__('Entry ID', 'gsheetconnector-gravity-forms')); ?>
+                      <span class="lbl_tog_field">
+                        <?php echo esc_html__("Check All", "gsheetconnector-gravity-forms"); ?>
+                      </span>
+                    </div>
                   </span>
-                </div>
-              </div>
-            </div>
-          </div>
+                  <div class="ui-sortable">
 
-          <?php
-          foreach ($field_list as $field) {
+                    <!-- Entry ID (Disabled) -->
+                    <div class="gform-settings-field gform-settings-field__toggle card form-field-toggle non-sortable disable-submission-id active ui-sortable-handle">
+                      <div class="gform-settings-input__container">
+                        <div class="card-content">
+                          <div class="toggle-button special_mail_tags_bg">
 
-            $field_name = $field['field_name'];
-            $field_id   = $field['field_id'];
-
-            $checked = (isset($feed[$field_id]) && $feed[$field_id] == "1") ? "checked" : "";
-
-            $column_name_text = array(
-              'name' => $parent_field_name . "_header_cell[$field_id]",
-              'type' => 'text',
-              'default_value' => $field_name,
-              "class" => "gaddon-text",
-            );
-
-            $create_sheet_field = $this->settings_text($column_name_text, false);
-          ?>
-
-            <!-- FIELD TOGGLE -->
-            <div class="gform-settings-input__container card form-field-toggle non-sortable disable-submission-id active ui-sortable-handle">
-              <div class="card-content">
-                <div class="toggle-button">
-
-                  <div class="gform-settings-choice gform-settings-field gform-settings-field__toggle">
-
-                    <!-- Hidden (GF save support) -->
-                    <input type="hidden"
-                      name="_gform_setting_gsheet_field_maps_enable[<?php echo esc_attr($field_id); ?>]"
-                      value="<?php echo isset($feed[$field_id]) ? esc_attr($feed[$field_id]) : 0; ?>">
+                            <!-- Hidden (for saving) -->
+                            <input type="hidden" name="entry_id" value="1">
 
 
-                    <!-- Toggle UI -->
-                    <label class="gform-field__toggle-container"
-                      for="gsheet_field_maps_enable<?php echo esc_attr($field_id); ?>">
-                      <span class="gform-field__toggle-switch"></span>
-                    </label>
+                            <!-- Toggle UI -->
+                            <label class="gform-field__toggle-container" for="entry_id">
+                              <span class="gform-field__toggle-switch"></span>
+                            </label>
 
-                    <!-- Label -->
-                    <span class="lbl_tog_field">
-                      <?php echo esc_html($field_name); ?>
-                    </span>
-                    <input type="text" name="" value="<?php echo esc_html($field_name); ?>" class="gaddon-text-free" id="" readonly>
+                            <span class="lbl_tog_field">
+                              <?php echo esc_html(__('Entry ID', 'gsheetconnector-gravity-forms')); ?>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
 
+                    <?php
+                    foreach ($field_list as $field) {
+
+                      $field_name = $field['field_name'];
+                      $field_id   = $field['field_id'];
+
+                      $checked = (isset($feed[$field_id]) && $feed[$field_id] == "1") ? "checked" : "";
+
+                      $column_name_text = array(
+                        'name' => $parent_field_name . "_header_cell[$field_id]",
+                        'type' => 'text',
+                        'default_value' => $field_name,
+                        "class" => "gaddon-text",
+                      );
+
+                      $create_sheet_field = $this->settings_text($column_name_text, false);
+                      ?>
+
+                      <!-- FIELD TOGGLE -->
+                      <div class="gform-settings-input__container card form-field-toggle non-sortable disable-submission-id active ui-sortable-handle">
+                        <div class="card-content">
+                          <div class="toggle-button">
+
+                            <div class="gform-settings-choice gform-settings-field gform-settings-field__toggle">
+
+                              <!-- Hidden (GF save support) -->
+                              <input type="hidden"
+                              name="_gform_setting_gsheet_field_maps_enable[<?php echo esc_attr($field_id); ?>]"
+                              value="<?php echo isset($feed[$field_id]) ? esc_attr($feed[$field_id]) : 0; ?>">
+
+
+                              <!-- Toggle UI -->
+                              <label class="gform-field__toggle-container"
+                              for="gsheet_field_maps_enable<?php echo esc_attr($field_id); ?>">
+                              <span class="gform-field__toggle-switch"></span>
+                            </label>
+
+                            <!-- Label -->
+                            <span class="lbl_tog_field">
+                              <?php echo esc_html($field_name); ?>
+                            </span>
+                            <input type="text" name="" value="<?php echo esc_html($field_name); ?>" class="gaddon-text-free" id="" readonly>
+
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- FIELD INPUT -->
+                    <div class="row_grvt"
+                    data-id="gsheet_field_maps_enable<?php echo esc_attr($field_id); ?>"
+                    style="<?php echo $checked ? '' : 'display:none;'; ?>">
+                    <?php echo wp_kses_post($create_sheet_field); ?>
                   </div>
-
-                </div>
+                <?php } ?>
               </div>
-            </div>
+            </div><!-- gsgf-free #end -->
 
-            <!-- FIELD INPUT -->
-            <div class="row_grvt"
-              data-id="gsheet_field_maps_enable<?php echo esc_attr($field_id); ?>"
-              style="<?php echo $checked ? '' : 'display:none;'; ?>">
-              <?php echo wp_kses_post($create_sheet_field); ?>
-            </div>
-          <?php } ?>
-        </div>
-      </div><!-- gsgf-free #end -->
+            <div id="_gform_setting_gsheet_mergeTagsMap_container" class="gform-settings-field-map__container gform-settings-field__header"
+            title="Upgrade to Pro">
 
-      <div id="_gform_setting_gsheet_mergeTagsMap_container" class="gform-settings-field-map__container gform-settings-field__header"
-        title="Upgrade to Pro">
+            <div class="gform-settings-field__header "><label class="gform-settings-label" for="gsheet_mergeTagsMap">Custom Tags </label><button onkeypress="return false;" class="gf_tooltip tooltip" aria-label="Enter the exact name of your Google Spreadsheet (as shown in Google Sheets).">
+              <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
+            </button></div>
 
-        <div class="gform-settings-field__header "><label class="gform-settings-label" for="gsheet_mergeTagsMap">Custom Tags </label><button onkeypress="return false;" class="gf_tooltip tooltip" aria-label="Enter the exact name of your Google Spreadsheet (as shown in Google Sheets).">
-            <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
-          </button></div>
+            <table class="gform-settings-generic-map__table" cellspacing="0" cellpadding="0">
 
-        <table class="gform-settings-generic-map__table" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr class="gform-settings-generic-map__row">
 
-          <tbody>
-            <tr class="gform-settings-generic-map__row">
-
-              <th
-                class="gform-settings-generic-map__column gform-settings-generic-map__column--heading gform-settings-generic-map__column--key">
-                <?php echo esc_html__("Column Name", "gsheetconnector-gravity-forms"); ?>
-              </th>
-              <th
+                  <th
+                  class="gform-settings-generic-map__column gform-settings-generic-map__column--heading gform-settings-generic-map__column--key">
+                  <?php echo esc_html__("Column Name", "gsheetconnector-gravity-forms"); ?>
+                </th>
+                <th
                 class="gform-settings-generic-map__column gform-settings-generic-map__column--heading gform-settings-generic-map__column--value">
                 <?php echo esc_html__("Merge Tag / Formulas", "gsheetconnector-gravity-forms"); ?>
               </th>
               <th
-                class="gform-settings-generic-map__column gform-settings-generic-map__column--heading gform-settings-generic-map__column--error">
-              </th>
-              <th
-                class="gform-settings-generic-map__column gform-settings-generic-map__column--heading gform-settings-generic-map__column--buttons">
-              </th>
-            </tr>
-            <tr class="gform-settings-generic-map__row">
-              <td class="gform-settings-generic-map__column gform-settings-generic-map__column--key">
-                <span class="gform-settings-generic-map__custom">
-                  <input id="_gform_setting_gsheet_mergeTagsMap_custom_key_0" type="text" placeholder=""
-                    value="gsheetconnector gravity pro" disabled>
-                </span>
-              </td>
-              <td class="gform-settings-generic-map__column gform-settings-generic-map__column--value">
-                <select id="_gform_setting_gsheet_mergeTagsMap_custom_value_0" class="" disabled>
-                  <option value=""><?php echo esc_html__("Select a Field", "gsheetconnector-gravity-forms"); ?> </option>
-                  <optgroup label="Form Fields">
-                    <option value="1"><?php echo esc_html__("Untitled", "gsheetconnector-gravity-forms"); ?> </option>
-                    <option value="3"><?php echo esc_html__("Untitled", "gsheetconnector-gravity-forms"); ?> </option>
-                  </optgroup>
-                  <optgroup label="Entry Properties">
-                    <option value="id"><?php echo esc_html__("Entry ID", "gsheetconnector-gravity-forms"); ?> </option>
-                    <option value="date_created"><?php echo esc_html__("Entry Date", "gsheetconnector-gravity-forms"); ?>
-                    </option>
-                    <option value="ip"><?php echo esc_html__("User IP", "gsheetconnector-gravity-forms"); ?> </option>
-                    <option value="source_url"><?php echo esc_html__("Source Url", "gsheetconnector-gravity-forms"); ?>
-                    </option>
-                    <option value="form_title"><?php echo esc_html__("Form Title", "gsheetconnector-gravity-forms"); ?>
-                    </option>
-                  </optgroup>
-                  <option value="gf_custom"><?php echo esc_html__("Add Custom Value", "gsheetconnector-gravity-forms"); ?>
-                  </option>
-                </select>
-              </td>
-              <td class="gform-settings-generic-map__column gform-settings-generic-map__column--error"></td>
-              <td class="gform-settings-generic-map__column gform-settings-generic-map__column--buttons">
-                <button
-                  class="add_field_choice gform-st-icon gform-st-icon--circle-plus gform-settings-generic-map__button gform-settings-generic-map__button--add"
-                  disabled>
-                  <span class="screen-reader-text"><?php echo esc_html__("Add", "gsheetconnector-gravity-forms"); ?>
-                  </span>
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <!--  pro feature #end -->
-
-
-
-      <div class="gsgf-free ">
-
-        <div id="header-settings-sheet-sorting" class="gform-settings-field gform-settings-field__toggle pro-field">
-
-          <div class="gform-settings-field__header">
-            <label class="gform-settings-label font-size-18" for="gsheet_freeze_header_toggle">
-              <?php echo esc_html__("Header Settings", "gsheetconnector-gravity-forms"); ?>
-              <button
-                onclick="return false;"
-                onkeypress="return false;"
-                class="gf_tooltip tooltip"
-                tooltip_gsheet_headers=""
-                aria-label="Control formatting of header. ">
-                <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
-              </button>
-
-
-              <span class="pro-ver"><?php echo esc_html__("PRO", "gsheetconnector-gravity-forms"); ?></span>
-
-            </label>
-            <p>
-              <label class="gform-settings-label font-size-14" for="gsheet_freeze_header_toggle">
-                <?php echo esc_html__("Customize the appearance and behavior of your sheet headers and rows for better readability and organization.", "gsheetconnector-gravity-forms"); ?>
-              </label>
-            </p>
-
-
-
-          </div>
-
-
-          <div class="gform-settings-field__header-undot">
-            <label class="gform-settings-label" for="gsheet_freeze_header_toggle">
-              <?php echo esc_html__("Freeze Header", "gsheetconnector-gravity-forms"); ?>
-              <button
-                onclick="return false;"
-                onkeypress="return false;"
-                class="gf_tooltip tooltip"
-                tooltip_gsheet_headers=""
-                aria-label="Control formatting of header. Check freeze header if you want to freeze first row considered as header.">
-                <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
-              </button>
-
-            </label>
-
-
-
-
-            <label class="gform-field__toggle-container" for="_gform_setting_gsc_feed_condition_conditional_logic_toggle">
-              <span class="screen-reader-text">
-                Condition&nbsp;
-                <button
-                  onclick="return false;"
-                  onkeypress="return false;"
-                  class="gf_tooltip tooltip"
-                  tooltip_gsheet_sorting
-                  aria-label="Set up this field if you want data to be sorted automatically upon submission based on the column.">
-                  <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
-                </button>
-              </span>
-
-              <span class="gform-field__toggle-switch"></span>
-            </label>
-
-          </div>
-
-          <div class="gform-settings-field__header-undot">
-            <label class="gform-settings-label" for="gsheet_freeze_header_toggle">
-              <?php echo esc_html__("Header Style", "gsheetconnector-gravity-forms"); ?>
-              <button
-                onclick="return false;"
-                onkeypress="return false;"
-                class="gf_tooltip tooltip"
-                tooltip_gsheet_headers=""
-                aria-label="Customize the font size and style of your Google Sheet header row.">
-                <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
-              </button>
-            </label>
-
-
-
-
-            <label class="gform-field__toggle-container" for="_gform_setting_gsc_feed_condition_conditional_logic_toggle">
-              <span class="screen-reader-text">
-                Condition&nbsp;
-                <button
-                  onclick="return false;"
-                  onkeypress="return false;"
-                  class="gf_tooltip tooltip"
-                  tooltip_gsheet_sorting
-                  aria-label="Set up this field if you want data to be sorted automatically upon submission based on the column.">
-                  <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
-                </button>
-              </span>
-
-              <span class="gform-field__toggle-switch"></span>
-            </label>
-
-          </div>
-
-
-        </div>
-
-        <div class="gform-settings-field__header-undot gform-settings-field__toggle pro-field">
-
-          <label class="gform-settings-label" for="gsheet_freeze_header_toggle">
-            <?php echo esc_html__("Color Appearance", "gsheetconnector-gravity-forms"); ?>
-            <button
-              onclick="return false;"
-              onkeypress="return false;"
-              class="gf_tooltip tooltip"
-              tooltip_gsheet_headers=""
-              aria-label="Control formatting of header. Check freeze header if you want to freeze first row considered as header.">
-              <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
-            </button>
-          </label>
-
-
-          <label class="gform-field__toggle-container" for="_gform_setting_gsheet_alternate_colors_enabled_toggle">
-            <span class="screen-reader-text">
-              <?php echo esc_html__("Colors", "gsheetconnector-gravity-forms"); ?> <span class="pro-ver"><?php echo esc_html__("PRO", "gsheetconnector-gravity-forms"); ?></span>
-              <button
-                onclick="return false;"
-                onkeypress="return false;"
-                class="gf_tooltip tooltip"
-                tooltip_gsheet_colors
-                aria-label="Customize the background colors for odd and even rows, along with the header row background.">
-                <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
-              </button>
+              class="gform-settings-generic-map__column gform-settings-generic-map__column--heading gform-settings-generic-map__column--error">
+            </th>
+            <th
+            class="gform-settings-generic-map__column gform-settings-generic-map__column--heading gform-settings-generic-map__column--buttons">
+          </th>
+        </tr>
+        <tr class="gform-settings-generic-map__row">
+          <td class="gform-settings-generic-map__column gform-settings-generic-map__column--key">
+            <span class="gform-settings-generic-map__custom">
+              <input id="_gform_setting_gsheet_mergeTagsMap_custom_key_0" type="text" placeholder=""
+              value="gsheetconnector gravity pro" disabled>
             </span>
-            <span class="gform-field__toggle-switch"></span>
-          </label>
-        </div>
+          </td>
+          <td class="gform-settings-generic-map__column gform-settings-generic-map__column--value">
+            <select id="_gform_setting_gsheet_mergeTagsMap_custom_value_0" class="" disabled>
+              <option value=""><?php echo esc_html__("Select a Field", "gsheetconnector-gravity-forms"); ?> </option>
+              <optgroup label="Form Fields">
+                <option value="1"><?php echo esc_html__("Untitled", "gsheetconnector-gravity-forms"); ?> </option>
+                <option value="3"><?php echo esc_html__("Untitled", "gsheetconnector-gravity-forms"); ?> </option>
+              </optgroup>
+              <optgroup label="Entry Properties">
+                <option value="id"><?php echo esc_html__("Entry ID", "gsheetconnector-gravity-forms"); ?> </option>
+                <option value="date_created"><?php echo esc_html__("Entry Date", "gsheetconnector-gravity-forms"); ?>
+              </option>
+              <option value="ip"><?php echo esc_html__("User IP", "gsheetconnector-gravity-forms"); ?> </option>
+              <option value="source_url"><?php echo esc_html__("Source Url", "gsheetconnector-gravity-forms"); ?>
+            </option>
+            <option value="form_title"><?php echo esc_html__("Form Title", "gsheetconnector-gravity-forms"); ?>
+          </option>
+        </optgroup>
+        <option value="gf_custom"><?php echo esc_html__("Add Custom Value", "gsheetconnector-gravity-forms"); ?>
+      </option>
+    </select>
+  </td>
+  <td class="gform-settings-generic-map__column gform-settings-generic-map__column--error"></td>
+  <td class="gform-settings-generic-map__column gform-settings-generic-map__column--buttons">
+    <button
+    class="add_field_choice gform-st-icon gform-st-icon--circle-plus gform-settings-generic-map__button gform-settings-generic-map__button--add"
+    disabled>
+    <span class="screen-reader-text"><?php echo esc_html__("Add", "gsheetconnector-gravity-forms"); ?>
+  </span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--  pro feature #end -->
 
 
 
-        <div id="gform_setting_gsheet_sort_column_enabled_toggle"
-          class="gform-settings-field gform-settings-field__toggle pro-field disabled">
-          <div class="gform-settings-field__header">
-            <label class="gform-settings-label"
-              for="gsheet_sort_column_enabled_toggle"><?php echo esc_html__("Sheet Sorting", "gsheetconnector-gravity-forms"); ?>
-            </label> <a href="https://www.gsheetconnector.com/gravity-forms-google-sheet-connector"></a>
-            <button onclick="return false;" onkeypress="return false;" class="gf_tooltip tooltip" aria-label="The Enable Conditional Logic option in the field settings allows you to create rules to dynamically display or hide the submission to google sheet based on values">
-              <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
-            </button> <span class="pro-ver"><?php echo esc_html__("PRO", "gsheetconnector-gravity-forms"); ?></span>
-            <span class="gform-settings-input__container">
-              <input type="checkbox" name="_gform_setting_gsheet_sort_column_enabled_toggle"
-                id="_gform_setting_gsheet_sort_column_enabled_toggle" value="1" disabled> </span>
+<div class="gsgf-free ">
 
-            <label class="gform-field__toggle-container" for="_gform_setting_gsc_feed_condition_conditional_logic_toggle">
-              <span class="screen-reader-text">
-                <?php echo esc_html__("Condition", "gsheetconnector-gravity-forms"); ?>
-                
-                <button
-                  onclick="return false;"
-                  onkeypress="return false;"
-                  class="gf_tooltip tooltip"
-                  tooltip_gsheet_sorting
-                  aria-label="The Enable Conditional Logic option in the field settings allows you to create rules to dynamically display or hide the submission to google sheet based on values">
-                  <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
-                </button>
+  <div id="header-settings-sheet-sorting" class="gform-settings-field gform-settings-field__toggle pro-field">
+
+    <div class="gform-settings-field__header">
+      <label class="gform-settings-label font-size-18" for="gsheet_freeze_header_toggle">
+        <?php echo esc_html__("Header Settings", "gsheetconnector-gravity-forms"); ?>
+        <button
+        onclick="return false;"
+        onkeypress="return false;"
+        class="gf_tooltip tooltip"
+        tooltip_gsheet_headers=""
+        aria-label="Control formatting of header. ">
+        <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
+      </button>
 
 
-              </span>
-              <span class="gform-field__toggle-switch"></span>
-            </label>
+      <span class="pro-ver"><?php echo esc_html__("PRO", "gsheetconnector-gravity-forms"); ?></span>
 
-          </div>
-          <div id="gform_setting_gsheet_sort_column"
-            class="gform-settings-field gform-settings-field__gsheet_sorting disabled">
-            <span class="gform-settings-input__container">
-              <div id="gform-settings-checkbox-choice-gsheet_sort_column_enabled"
-                class="gform-settings-choice gform-settings-choice--inline">
-                <input type="hidden" name="_gform_setting_gsheet_sort_column_enabled" value="1">
-                <input type="checkbox" data_format="bool" horizontal="1" id="gsheet_sort_column_enabled"
-                  name="gsheet_sort_column_enabled" disabled>
-              </div>
-            </span>
-            <table class="sort-col-text-field gsheet-table two-col" style="">
-              <tbody>
-                <tr>
-                  <td>
-                    <label><?php echo esc_html__("Sort Column Name", "gsheetconnector-gravity-forms"); ?>&nbsp;</label>
-                    <button onclick="return false;" onkeypress="return false;" class="gf_tooltip tooltip" tooltip_integration_mode="" aria-label="Selection of chosing google sheet for data submission.">
-                      <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
-                    </button>
-                  </td>
-                  <td>
-                    <span class="gform-settings-input__container">
-                      <input type="text" name="_gform_setting_gsheet_sort_column_name" value="" id="gsheet_sort_column_name"
-                        disabled>
-                    </span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <label><?php echo esc_html__("Order", "gsheetconnector-gravity-forms"); ?>&nbsp;</label>
-                    <button onclick="return false;" onkeypress="return false;" class="gf_tooltip tooltip" tooltip_integration_mode="" aria-label="Selection of chosing google sheet for data submission.">
-                      <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
-                    </button>
-                  </td>
-                  <td>
-                    <span class="gform-settings-input__container">
-                      <select name="_gform_setting_gsheet_sort_column_order" id="gsheet_sort_column_order" disabled>
-                        <option value="ASCENDING"><?php echo esc_html__("Ascending", "gsheetconnector-gravity-forms"); ?>
-                        </option>
-                        <option value="DESCENDING"><?php echo esc_html__("Descending", "gsheetconnector-gravity-forms"); ?>
-                        </option>
-                      </select>
-                    </span>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+    </label>
+    <p>
+      <label class="gform-settings-label font-size-14" for="gsheet_freeze_header_toggle">
+        <?php echo esc_html__("Customize the appearance and behavior of your sheet headers and rows for better readability and organization.", "gsheetconnector-gravity-forms"); ?>
+      </label>
+    </p>
 
 
-          <div id="gform_setting_condition" class="gform-settings-field gform-settings-field__conditional_logic">
-            <div class="gform-settings-field__header"><label class="gform-settings-label" for="condition"> <?php echo esc_html__("Condition", "gsheetconnector-gravity-forms"); ?></label> <button onclick="return false;" onkeypress="return false;" class="gf_tooltip tooltip" aria-label="The Enable Conditional Logic option in the field settings allows you to create rules to dynamically display or hide the submission to google sheet based on values">
-                <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
-              </button> <span class="pro-ver"><?php echo esc_html__("PRO", "gsheetconnector-gravity-forms"); ?></span>
 
-              <label class="gform-field__toggle-container" for="_gform_setting_gsc_feed_condition_conditional_logic_toggle">
-                <span class="screen-reader-text">
-                  <?php echo esc_html__("Condition", "gsheetconnector-gravity-forms"); ?>
-                  <button
-                    onclick="return false;"
-                    onkeypress="return false;"
-                    class="gf_tooltip tooltip"
-                    tooltip_gsheet_sorting
-                    aria-label="Set up this field if you want data to be sorted automatically upon submission based on the column.">
-                    <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
-                  </button>
-                </span>
-
-                <span class="gform-field__toggle-switch"></span>
-              </label>
+  </div>
 
 
-            </div>
+  <div class="gform-settings-field__header-undot">
+    <label class="gform-settings-label" for="gsheet_freeze_header_toggle">
+      <?php echo esc_html__("Freeze Header", "gsheetconnector-gravity-forms"); ?>
+      <button
+      onclick="return false;"
+      onkeypress="return false;"
+      class="gf_tooltip tooltip"
+      tooltip_gsheet_headers=""
+      aria-label="Control formatting of header. Check freeze header if you want to freeze first row considered as header.">
+      <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
+    </button>
+
+  </label>
 
 
 
 
-            <span class="gform-settings-input__container">
-              <input type="hidden" name="_gform_setting_feed_condition_conditional_logic_object" value="{}" id="feed_condition_conditional_logic_object">
+  <label class="gform-field__toggle-container" for="_gform_setting_gsc_feed_condition_conditional_logic_toggle">
+    <span class="screen-reader-text">
+      Condition&nbsp;
+      <button
+      onclick="return false;"
+      onkeypress="return false;"
+      class="gf_tooltip tooltip"
+      tooltip_gsheet_sorting
+      aria-label="Set up this field if you want data to be sorted automatically upon submission based on the column.">
+      <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
+    </button>
+  </span>
+
+  <span class="gform-field__toggle-switch"></span>
+</label>
+
+</div>
+
+<div class="gform-settings-field__header-undot">
+  <label class="gform-settings-label" for="gsheet_freeze_header_toggle">
+    <?php echo esc_html__("Header Style", "gsheetconnector-gravity-forms"); ?>
+    <button
+    onclick="return false;"
+    onkeypress="return false;"
+    class="gf_tooltip tooltip"
+    tooltip_gsheet_headers=""
+    aria-label="Customize the font size and style of your Google Sheet header row.">
+    <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
+  </button>
+</label>
 
 
-          </div>
+
+
+<label class="gform-field__toggle-container" for="_gform_setting_gsc_feed_condition_conditional_logic_toggle">
+  <span class="screen-reader-text">
+    Condition&nbsp;
+    <button
+    onclick="return false;"
+    onkeypress="return false;"
+    class="gf_tooltip tooltip"
+    tooltip_gsheet_sorting
+    aria-label="Set up this field if you want data to be sorted automatically upon submission based on the column.">
+    <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
+  </button>
+</span>
+
+<span class="gform-field__toggle-switch"></span>
+</label>
+
+</div>
+
+
+</div>
+
+<div class="gform-settings-field__header-undot gform-settings-field__toggle pro-field">
+
+  <label class="gform-settings-label" for="gsheet_freeze_header_toggle">
+    <?php echo esc_html__("Color Appearance", "gsheetconnector-gravity-forms"); ?>
+    <button
+    onclick="return false;"
+    onkeypress="return false;"
+    class="gf_tooltip tooltip"
+    tooltip_gsheet_headers=""
+    aria-label="Control formatting of header. Check freeze header if you want to freeze first row considered as header.">
+    <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
+  </button>
+</label>
+
+
+<label class="gform-field__toggle-container" for="_gform_setting_gsheet_alternate_colors_enabled_toggle">
+  <span class="screen-reader-text">
+    <?php echo esc_html__("Colors", "gsheetconnector-gravity-forms"); ?> <span class="pro-ver"><?php echo esc_html__("PRO", "gsheetconnector-gravity-forms"); ?></span>
+    <button
+    onclick="return false;"
+    onkeypress="return false;"
+    class="gf_tooltip tooltip"
+    tooltip_gsheet_colors
+    aria-label="Customize the background colors for odd and even rows, along with the header row background.">
+    <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
+  </button>
+</span>
+<span class="gform-field__toggle-switch"></span>
+</label>
+</div>
 
 
 
-          <div id="gform_setting_gsheet_sync_entries"
-            class="gform-settings-field gform-settings-field__display_sync_entries disabled">
+<div id="gform_setting_gsheet_sort_column_enabled_toggle"
+class="gform-settings-field gform-settings-field__toggle pro-field disabled">
+<div class="gform-settings-field__header">
+  <label class="gform-settings-label"
+  for="gsheet_sort_column_enabled_toggle"><?php echo esc_html__("Sheet Sorting", "gsheetconnector-gravity-forms"); ?>
+</label> <a href="https://www.gsheetconnector.com/gravity-forms-google-sheet-connector"></a>
+<button onclick="return false;" onkeypress="return false;" class="gf_tooltip tooltip" aria-label="The Enable Conditional Logic option in the field settings allows you to create rules to dynamically display or hide the submission to google sheet based on values">
+  <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
+</button> <span class="pro-ver"><?php echo esc_html__("PRO", "gsheetconnector-gravity-forms"); ?></span>
+<span class="gform-settings-input__container">
+  <input type="checkbox" name="_gform_setting_gsheet_sort_column_enabled_toggle"
+  id="_gform_setting_gsheet_sort_column_enabled_toggle" value="1" disabled> </span>
 
-           
-
-
-            <div class="gform-settings-field__header">
-              
-                <label class="gform-settings-label" for="gsheet_sync_entries">
-                  <?php echo esc_html__("Spreadsheet Download", "gsheetconnector-gravity-forms"); ?>
-                  <button
-                onclick="return false;"
-                onkeypress="return false;"
-                class="gf_tooltip tooltip"
-                aria-label="Download the connected Google Spreadsheet.">
-                <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
-              </button> <span class="pro-ver"> <?php echo esc_html__("PRO", "gsheetconnector-gravity-forms"); ?> </span>
-                </label>
-              
-               <P class="gscgff-download-btn">
-                <a href="#" class="gscgff-sdownload-button">
-                  <i class="fa-regular fa-file-zipper text-dark fw-500 mr-5">
-                  </i>  <?php echo esc_html__("Download", "gsheetconnector-gravity-forms"); ?>
-                </a>
-              </P>
-            
-              <label class="gform-settings-label gsheet_sync_entries" for="gsheet_sync_entries">
-                <?php echo esc_html__("Google Sheets Data Sync", "gsheetconnector-gravity-forms"); ?>
-              </label>
-              <a href="https://www.gsheetconnector.com/gravity-forms-google-sheet-connector"></a>
-              <button
-                onclick="return false;"
-                onkeypress="return false;"
-                class="gf_tooltip tooltip"
-                aria-label="Enter the exact name of your Google Spreadsheet (as shown in Google Sheets).">
-                <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
-              </button> <span class="pro-ver"> <?php echo esc_html__("PRO", "gsheetconnector-gravity-forms"); ?> </span>
-            </div>
-
-            <input type="hidden" name="gf-ajax-sync-entries-nonce" id="gf-ajax-sync-entries-nonce" value="6dfefffeda">
-
-            <div class="gs-sync-row mt-20">
-              <a id="gfgs-entires-sync-launch" class="gfgs-fetch btn text-decoration-none" data-form_id="1" data-feed_id="5">
-                <?php echo esc_html__("Sync Entries", "gsheetconnector-gravity-forms"); ?>
-              </a>
-            </div>
-
-          </div>
+  <label class="gform-field__toggle-container" for="_gform_setting_gsc_feed_condition_conditional_logic_toggle">
+    <span class="screen-reader-text">
+      <?php echo esc_html__("Condition", "gsheetconnector-gravity-forms"); ?>
+      
+      <button
+      onclick="return false;"
+      onkeypress="return false;"
+      class="gf_tooltip tooltip"
+      tooltip_gsheet_sorting
+      aria-label="The Enable Conditional Logic option in the field settings allows you to create rules to dynamically display or hide the submission to google sheet based on values">
+      <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
+    </button>
 
 
-        </div>
-      </div>
+  </span>
+  <span class="gform-field__toggle-switch"></span>
+</label>
+
+</div>
+<div id="gform_setting_gsheet_sort_column"
+class="gform-settings-field gform-settings-field__gsheet_sorting disabled">
+<span class="gform-settings-input__container">
+  <div id="gform-settings-checkbox-choice-gsheet_sort_column_enabled"
+  class="gform-settings-choice gform-settings-choice--inline">
+  <input type="hidden" name="_gform_setting_gsheet_sort_column_enabled" value="1">
+  <input type="checkbox" data_format="bool" horizontal="1" id="gsheet_sort_column_enabled"
+  name="gsheet_sort_column_enabled" disabled>
+</div>
+</span>
+<table class="sort-col-text-field gsheet-table two-col" style="">
+  <tbody>
+    <tr>
+      <td>
+        <label><?php echo esc_html__("Sort Column Name", "gsheetconnector-gravity-forms"); ?>&nbsp;</label>
+        <button onclick="return false;" onkeypress="return false;" class="gf_tooltip tooltip" tooltip_integration_mode="" aria-label="Selection of chosing google sheet for data submission.">
+          <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
+        </button>
+      </td>
+      <td>
+        <span class="gform-settings-input__container">
+          <input type="text" name="_gform_setting_gsheet_sort_column_name" value="" id="gsheet_sort_column_name"
+          disabled>
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label><?php echo esc_html__("Order", "gsheetconnector-gravity-forms"); ?>&nbsp;</label>
+        <button onclick="return false;" onkeypress="return false;" class="gf_tooltip tooltip" tooltip_integration_mode="" aria-label="Selection of chosing google sheet for data submission.">
+          <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
+        </button>
+      </td>
+      <td>
+        <span class="gform-settings-input__container">
+          <select name="_gform_setting_gsheet_sort_column_order" id="gsheet_sort_column_order" disabled>
+            <option value="ASCENDING"><?php echo esc_html__("Ascending", "gsheetconnector-gravity-forms"); ?>
+          </option>
+          <option value="DESCENDING"><?php echo esc_html__("Descending", "gsheetconnector-gravity-forms"); ?>
+        </option>
+      </select>
+    </span>
+  </td>
+</tr>
+</tbody>
+</table>
+</div>
 
 
-  <?php
-  }
+<div id="gform_setting_condition" class="gform-settings-field gform-settings-field__conditional_logic">
+  <div class="gform-settings-field__header"><label class="gform-settings-label" for="condition"> <?php echo esc_html__("Condition", "gsheetconnector-gravity-forms"); ?></label> <button onclick="return false;" onkeypress="return false;" class="gf_tooltip tooltip" aria-label="The Enable Conditional Logic option in the field settings allows you to create rules to dynamically display or hide the submission to google sheet based on values">
+    <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
+  </button> <span class="pro-ver"><?php echo esc_html__("PRO", "gsheetconnector-gravity-forms"); ?></span>
+
+  <label class="gform-field__toggle-container" for="_gform_setting_gsc_feed_condition_conditional_logic_toggle">
+    <span class="screen-reader-text">
+      <?php echo esc_html__("Condition", "gsheetconnector-gravity-forms"); ?>
+      <button
+      onclick="return false;"
+      onkeypress="return false;"
+      class="gf_tooltip tooltip"
+      tooltip_gsheet_sorting
+      aria-label="Set up this field if you want data to be sorted automatically upon submission based on the column.">
+      <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
+    </button>
+  </span>
+
+  <span class="gform-field__toggle-switch"></span>
+</label>
+
+
+</div>
+
+
+
+
+<span class="gform-settings-input__container">
+  <input type="hidden" name="_gform_setting_feed_condition_conditional_logic_object" value="{}" id="feed_condition_conditional_logic_object">
+
+
+</div>
+
+
+
+<div id="gform_setting_gsheet_sync_entries"
+class="gform-settings-field gform-settings-field__display_sync_entries disabled">
+
+
+
+
+<div class="gform-settings-field__header">
+  
+  <label class="gform-settings-label" for="gsheet_sync_entries">
+    <?php echo esc_html__("Spreadsheet Download", "gsheetconnector-gravity-forms"); ?>
+    <button
+    onclick="return false;"
+    onkeypress="return false;"
+    class="gf_tooltip tooltip"
+    aria-label="Download the connected Google Spreadsheet.">
+    <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
+  </button> <span class="pro-ver"> <?php echo esc_html__("PRO", "gsheetconnector-gravity-forms"); ?> </span>
+</label>
+
+<P class="gscgff-download-btn">
+  <a href="#" class="gscgff-sdownload-button">
+    <i class="fa-regular fa-file-zipper text-dark fw-500 mr-5">
+      </i>  <?php echo esc_html__("Download", "gsheetconnector-gravity-forms"); ?>
+    </a>
+  </P>
+  
+  <label class="gform-settings-label gsheet_sync_entries" for="gsheet_sync_entries">
+    <?php echo esc_html__("Google Sheets Data Sync", "gsheetconnector-gravity-forms"); ?>
+  </label>
+  <a href="https://www.gsheetconnector.com/gravity-forms-google-sheet-connector"></a>
+  <button
+  onclick="return false;"
+  onkeypress="return false;"
+  class="gf_tooltip tooltip"
+  aria-label="Enter the exact name of your Google Spreadsheet (as shown in Google Sheets).">
+  <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
+</button> <span class="pro-ver"> <?php echo esc_html__("PRO", "gsheetconnector-gravity-forms"); ?> </span>
+</div>
+
+<input type="hidden" name="gf-ajax-sync-entries-nonce" id="gf-ajax-sync-entries-nonce" value="6dfefffeda">
+
+<div class="gs-sync-row mt-20">
+  <a id="gfgs-entires-sync-launch" class="gfgs-fetch btn text-decoration-none" data-form_id="1" data-feed_id="5">
+    <?php echo esc_html__("Sync Entries", "gsheetconnector-gravity-forms"); ?>
+  </a>
+</div>
+
+</div>
+
+
+</div>
+</div>
+
+
+<?php
+}
   /** 
    * Gforms_Gsheet_Connector_Feeds::get_form_field_list
    * Fetch all form fields and format them in array
@@ -1251,7 +1251,7 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
    * Set Google Sheet settings with GravityForms
    * @since 1.0
    */
-   public function after_save_form_settings()
+  public function after_save_form_settings()
   {
     if (isset($_POST['gform-settings-save'])) { // phpcs:ignore WordPress.Security.NonceVerification.Missing
       $gravityform_tags = array();
@@ -1277,18 +1277,18 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
         : '';
 
 
-      $form_meta = RGFormsModel::get_form_meta($form_id);
-      $field_list = $this->get_field_list($form_meta);
+        $form_meta = RGFormsModel::get_form_meta($form_id);
+        $field_list = $this->get_field_list($form_meta);
 
-      if (!empty($field_list)) {
-        foreach ($field_list as $field_data) {
-          $field_name = $field_data['field_name'];
-          $field_id = $field_data['field_id'];
+        if (!empty($field_list)) {
+          foreach ($field_list as $field_data) {
+            $field_name = $field_data['field_name'];
+            $field_id = $field_data['field_id'];
+          }
         }
-      }
-      if (!empty($get_existing_data) && $sheet_name === '') {
-        update_post_meta($form_id, 'gfgs_settings', '');
-      }
+        if (!empty($get_existing_data) && $sheet_name === '') {
+          update_post_meta($form_id, 'gfgs_settings', '');
+        }
 
 
       if (!empty($sheet_name) && !empty($tab_name) && isset($_POST['gf-gs']) && is_array($_POST['gf-gs'])) {// phpcs:ignore WordPress.Security.NonceVerification.Missing
@@ -1455,8 +1455,8 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
               ];
 
               $subfield_label = isset($input['customLabel']) && !empty($input['customLabel'])
-                ? $input['customLabel']
-                : $input['label'];
+              ? $input['customLabel']
+              : $input['label'];
 
               $mapped_label = isset($label_map[$subfield_label]) ? $label_map[$subfield_label] : $subfield_label;
               $data_value[$mapped_label] = $subfield_value;
@@ -1472,8 +1472,8 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
               }
               $subfield_id    = (string) $input['id'];
               $subfield_label = isset($input['customLabel']) && !empty($input['customLabel'])
-                ? $input['customLabel']
-                : $input['label'];
+              ? $input['customLabel']
+              : $input['label'];
               $subfield_value = rgar($entry, $subfield_id);
 
               if (!empty($subfield_label)) {
@@ -1570,56 +1570,56 @@ class Gforms_Gsheet_Connector extends GFFeedAddOn
 
                 // Check the time format configured on the Gravity Forms field
                 // $field->timeFormat is '12' or '24' — fall back to WP setting if not set
-                $gf_time_format = isset($field->timeFormat) ? $field->timeFormat : '';
+              $gf_time_format = isset($field->timeFormat) ? $field->timeFormat : '';
 
-                if ($gf_time_format === '24') {
+              if ($gf_time_format === '24') {
                     $time_format = 'H:i';        // 24-hour: 14:30
-                } elseif ($gf_time_format === '12') {
+                  } elseif ($gf_time_format === '12') {
                     $time_format = 'g:i A';      // 12-hour: 2:30 PM
-                } else {
+                  } else {
                     $time_format = get_option('time_format'); // WordPress global fallback
+                  }
+
+                  $data_value[$label] = date_i18n($time_format, strtotime($time_value));
+
+                } else {
+                  $data_value[$label] = '';
                 }
 
-                $data_value[$label] = date_i18n($time_format, strtotime($time_value));
-
-            } else {
-                $data_value[$label] = '';
+              } else {
+                $final_value = !empty($value) ? $value : $raw_value;
+                $data_value[$label] = $final_value;
+              }
             }
 
-        } else {
-            $final_value = !empty($value) ? $value : $raw_value;
-            $data_value[$label] = $final_value;
+
+            if ($field->type == 'post_image') {
+              $field_id  = (string) $field->id;
+              $raw_value = rgar($entry, $field_id);
+
+              
+              $parts      = explode('|:|', $raw_value);
+              $file_value = isset($parts[0]) ? esc_url(trim($parts[0])) : '';
+
+              $field_label = isset($field->label) ? $field->label : 'Post Image';
+              $data_value[$field_label] = $file_value;
+            }
+
+
+            $doc->add_row($data_value);
+          } catch (Exception $e) {
+            $error_message = $e->getMessage();
+            $data['ERROR_MSG'] = $error_message;
+            $data['TRACE_STK'] = $e->getTraceAsString();
+            GravityForms_GsFree_Connector_Utility::gfgs_debug_log($data);
+          }
         }
-        }
-
-
-        if ($field->type == 'post_image') {
-          $field_id  = (string) $field->id;
-          $raw_value = rgar($entry, $field_id);
-
-         
-          $parts      = explode('|:|', $raw_value);
-          $file_value = isset($parts[0]) ? esc_url(trim($parts[0])) : '';
-
-          $field_label = isset($field->label) ? $field->label : 'Post Image';
-          $data_value[$field_label] = $file_value;
-        }
-
-
-        $doc->add_row($data_value);
-      } catch (Exception $e) {
-        $error_message = $e->getMessage();
-        $data['ERROR_MSG'] = $error_message;
-        $data['TRACE_STK'] = $e->getTraceAsString();
-        GravityForms_GsFree_Connector_Utility::gfgs_debug_log($data);
       }
-    }
-  }
 
 
   //add nonce
-  public function add_gf_nonce()
-  {
-    wp_nonce_field('gf-ajax-nonce', 'gf-ajax-nonce');
-  }
-}
+      public function add_gf_nonce()
+      {
+        wp_nonce_field('gf-ajax-nonce', 'gf-ajax-nonce');
+      }
+    }

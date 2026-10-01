@@ -4,7 +4,7 @@ Tags: gravity forms, gravity forms google sheets, gravity forms to google sheets
 Requires at least: 5.6
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.5.1
+Stable tag: 1.5.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Author URI: https://www.gsheetconnector.com/
@@ -208,6 +208,9 @@ Your Gravity Forms submissions will now sync automatically to Google Sheets in r
 
 
 == Changelog ==
+
+= 1.5.2 = (01-10-2026)
+* Fixed: Resolved duplicate Sheet Details fields that caused Sheet Name, Sheet ID, Tab Name, and Tab ID values to be cleared when saving the settings.
 
 = 1.5.1 = (19-08-2026)
 * Added: Support for exporting multiple checkbox options as separate columns in Google Sheets. 

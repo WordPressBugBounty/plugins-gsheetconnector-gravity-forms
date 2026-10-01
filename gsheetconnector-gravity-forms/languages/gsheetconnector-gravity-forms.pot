@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GSheetConnector For Gravity Forms\n"
-"POT-Creation-Date: 2026-08-03 14:41+0530\n"
+"POT-Creation-Date: 2026-10-01 21:04+0530\n"
 "PO-Revision-Date: 2025-08-05 16:43+0530\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -398,50 +398,50 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: gsheetconnector-gravityforms.php:232
+#: gsheetconnector-gravityforms.php:230
 msgid "View Documentation"
 msgstr ""
 
-#: gsheetconnector-gravityforms.php:232 includes/pages/admin-footer.php:138
+#: gsheetconnector-gravityforms.php:230 includes/pages/admin-footer.php:138
 msgid "Docs"
 msgstr ""
 
-#: gsheetconnector-gravityforms.php:233
+#: gsheetconnector-gravityforms.php:231
 msgid "Get Support"
 msgstr ""
 
-#: gsheetconnector-gravityforms.php:233 includes/pages/admin-footer.php:160
+#: gsheetconnector-gravityforms.php:231 includes/pages/admin-footer.php:160
 msgid "Support"
 msgstr ""
 
-#: gsheetconnector-gravityforms.php:369
+#: gsheetconnector-gravityforms.php:361
 msgid ""
 "Google Sheet Connector Gravityforms Add-on requires Gravityforms plugin to "
 "be installed and activated."
 msgstr ""
 
-#: gsheetconnector-gravityforms.php:517
+#: gsheetconnector-gravityforms.php:509
 #: includes/pages/google-sheet-settings.php:43
 msgid "Existing"
 msgstr ""
 
-#: gsheetconnector-gravityforms.php:1031
+#: gsheetconnector-gravityforms.php:1019
 #: includes/pages/google-sheet-settings.php:382
 msgid "Settings"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-#: gsheetconnector-gravityforms.php:1046
+#: gsheetconnector-gravityforms.php:1034
 msgid "GSheetConnector For Gravity Forms"
 msgstr ""
 
-#: gsheetconnector-gravityforms.php:1098
+#: gsheetconnector-gravityforms.php:1084
 msgid ""
 "Deactivated GSheetConnector Gravity Forms (Pro Version) to activate "
 "GSheetConnector Gravity Forms Free."
 msgstr ""
 
-#: gsheetconnector-gravityforms.php:1109
+#: gsheetconnector-gravityforms.php:1095
 #: includes/pages/gs-gravityform-dashboard.php:391
 msgid "Upgrade to Pro"
 msgstr ""
