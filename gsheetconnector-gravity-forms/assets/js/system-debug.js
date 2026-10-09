@@ -1,11 +1,9 @@
 /** for using settingstab -> system status */
 jQuery(document).ready(function ($) {
- 
   /**
    * Copy formatted system info and show message below the button
    */
-   function copySystemInfo(btn) {
-
+  function copySystemInfo(btn) {
     if (!btn) return;
 
     var wrapper = document.querySelector("#system-info-wrapper");
@@ -13,43 +11,88 @@ jQuery(document).ready(function ($) {
     if (!wrapper) return;
 
     var textToCopy = "";
+    function clean(el) {
+      return el.textContent.replace(/\s+/g, " ").trim();
+    }
 
     /* ===== LOOP ALL SECTIONS ===== */
     wrapper.querySelectorAll(".info-button").forEach(function (button) {
+      /* ===== GET NEXT CONTENT DIV ===== */
+      var contentDiv = button.parentElement.nextElementSibling;
 
-      /* ===== SECTION TITLE ===== */
-      var sectionTitle = button.childNodes[0].textContent.trim();
+      // No content for this section: skip it completely (no empty title)
+      if (!contentDiv) return;
+
+      /* ===== SECTION BODY ===== */
+      var sectionText = "";
+
+      /* --- Case 1: table rows (label + one or more value columns) --- */
+      contentDiv.querySelectorAll("table tr").forEach(function (row) {
+        var cols = row.querySelectorAll("td");
+
+        if (cols.length >= 2) {
+          var label = clean(cols[0]);
+
+          // Column 2, 3, 4... so extra columns like "Writable" are included
+          var values = [];
+          for (var i = 1; i < cols.length; i++) {
+            var cellText = clean(cols[i]);
+            if (cellText !== "") {
+              values.push(cellText);
+            }
+          }
+
+          sectionText += label + ": " + values.join(" - ") + "\n";
+        } else if (cols.length === 1) {
+          // Row with a single cell: copy it as a plain line
+          var single = clean(cols[0]);
+          if (single !== "") {
+            sectionText += single + "\n";
+          }
+        }
+      });
+
+      /* --- Case 2: no table rows (e.g. the Active Plugins list) --- */
+      if (sectionText === "") {
+        var items = contentDiv.querySelectorAll("li");
+
+        if (items.length) {
+          // A list: one line per item
+          items.forEach(function (item) {
+            var line = clean(item);
+            if (line !== "") {
+              sectionText += "- " + line + "\n";
+            }
+          });
+        } else {
+          // Anything else: use the text of the content div, one line per block
+          contentDiv.querySelectorAll("p, div").forEach(function (block) {
+            // Only blocks that do not contain other blocks, so text is not repeated
+            if (block.querySelector("p, div")) return;
+
+            var line = clean(block);
+            if (line !== "") {
+              sectionText += line + "\n";
+            }
+          });
+        }
+      }
+
+      // Nothing found in this section: leave it out
+      if (sectionText === "") return;
+
+      /* ===== SECTION TITLE (extra spaces removed: "Active Plugins (23)") ===== */
+      var sectionTitle = clean(button);
 
       textToCopy += "\n====================================\n";
       textToCopy += sectionTitle + "\n";
       textToCopy += "====================================\n\n";
-
-      /* ===== GET NEXT CONTENT DIV ===== */
-      var contentDiv = button.parentElement.nextElementSibling;
-
-      if (!contentDiv) return;
-
-      /* ===== LOOP TABLE ROWS ===== */
-      contentDiv.querySelectorAll("table tr").forEach(function (row) {
-
-        var cols = row.querySelectorAll("td");
-
-        if (cols.length >= 2) {
-
-          var label = cols[0].innerText.trim();
-          var value = cols[1].innerText.trim();
-
-          textToCopy += label + ": " + value + "\n";
-        }
-      });
-
-      textToCopy += "\n";
+      textToCopy += sectionText + "\n";
     });
 
     textToCopy = textToCopy.trim();
 
     if (!textToCopy) {
-      console.error("Nothing to copy");
       return;
     }
 
@@ -57,7 +100,6 @@ jQuery(document).ready(function ($) {
     var msgDiv = btn.parentNode.querySelector(".gsc-copy-msg");
 
     if (!msgDiv) {
-
       msgDiv = document.createElement("div");
 
       msgDiv.className = "gsc-copy-msg";
@@ -68,29 +110,24 @@ jQuery(document).ready(function ($) {
     }
 
     function showCopied() {
-
       msgDiv.innerHTML = "Copied successfully.";
 
       msgDiv.style.display = "block";
 
       setTimeout(function () {
-
         msgDiv.style.display = "none";
-
       }, 2000);
     }
 
     /* ===== COPY ===== */
     if (navigator.clipboard && window.isSecureContext) {
-
-      navigator.clipboard.writeText(textToCopy)
-      .then(showCopied)
-      .catch(function (err) {
-        console.error("Clipboard error:", err);
-      });
-
+      navigator.clipboard
+        .writeText(textToCopy)
+        .then(showCopied)
+        .catch(function (err) {
+         
+        });
     } else {
-
       var textarea = document.createElement("textarea");
 
       textarea.value = textToCopy;
@@ -106,14 +143,11 @@ jQuery(document).ready(function ($) {
       textarea.select();
 
       try {
-
         document.execCommand("copy");
 
         showCopied();
-
       } catch (e) {
-
-        console.error("Copy failed", e);
+        
       }
 
       document.body.removeChild(textarea);
@@ -122,12 +156,8 @@ jQuery(document).ready(function ($) {
 
   /* ===== BUTTON CLICK ===== */
   $(document).on("click", "#copy-system-info-free", function () {
-
     copySystemInfo(this);
-
   });
-
-  
 
   $("#info-container").show();
 
@@ -148,22 +178,22 @@ jQuery(document).ready(function ($) {
   accordionToggle(
     "#gscgff-show-wordpress-info-button",
     "#wordpress-info-container",
-    );
+  );
   accordionToggle("#gscgff-show-Drop-info-button", "#Drop-info-container");
   accordionToggle(
     "#gscgff-show-active-theme-button",
     "#active-theme-info-container",
-    );
+  );
   accordionToggle(
     "#gscgff-show-netplug-info-button",
     "#netplug-info-container",
-    );
+  );
   accordionToggle("#gscgff-show-acplug-info-button", "#acplug-info-container");
   accordionToggle("#gscgff-show-server-info-button", "#server-info-container");
   accordionToggle(
     "#gscgff-show-database-info-button",
     "#database-info-container",
-    );
+  );
   accordionToggle("#gscgff-show-wrcons-info-button", "#wrcons-info-container");
   accordionToggle("#gscgff-show-ftps-info-button", "#ftps-info-container");
 });
@@ -172,13 +202,13 @@ jQuery(document).ready(function ($) {
  * once the DOM content is fully loaded.
  */
 
- document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
   /**
    * Copies the content of the error log textarea to the clipboard
    * and shows a temporary "Copied" confirmation message.
    */
 
-   function copyErrorLog() {
+  function copyErrorLog() {
     // Select the textarea containing the error log
     var textarea = document.querySelector(".errorlog");
 
@@ -200,7 +230,7 @@ jQuery(document).ready(function ($) {
           copyMessage.classList.add("d-none");
         }, 3000);
       } catch (err) {
-        console.error("Unable to copy error log:", err);
+      
       }
 
       textarea.blur();
@@ -216,7 +246,7 @@ jQuery(document).ready(function ($) {
     });
   }
 });
- jQuery(document).ready(function ($) {
+jQuery(document).ready(function ($) {
   $("#gscgff-copy-logs-info").on("click", function (e) {
     e.preventDefault();
 
@@ -258,8 +288,7 @@ jQuery(document).ready(function ($) {
   });
 });
 
-
- jQuery(document).ready(function ($) {
+jQuery(document).ready(function ($) {
   $("#gscgff-csv-info").on("click", function (e) {
     e.preventDefault();
 
@@ -303,8 +332,8 @@ jQuery(document).ready(function ($) {
   });
 });
 
- /** Functin for using clear log  */
- jQuery(document).on("click", ".gsgff-clear-content-logs", function () {
+/** Functin for using clear log  */
+jQuery(document).on("click", ".gsgff-clear-content-logs", function () {
   jQuery(".clear-loading-sign").addClass("loading");
 
   var data = {
@@ -323,7 +352,7 @@ jQuery(document).ready(function ($) {
       jQuery(".gscgff-validation-message").empty();
       jQuery("<span class='gscgff-valid-message'>Cleared Log</span>").appendTo(
         ".gscgff-validation-message",
-        );
+      );
       setTimeout(function () {
         location.reload();
       }, 1000);
