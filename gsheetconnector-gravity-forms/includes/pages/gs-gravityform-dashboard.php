@@ -1,37 +1,36 @@
-<?php 
+<?php
 if (!defined('ABSPATH')) {
-  exit;
+    exit;
 }
 
 
 
-    $gravityfree_is_authenticated = false;
-	$gravityfree_authenticated         = get_option('gravityforms_manual_setting'); // Auto
-	
-	$gravityfree_per                   = get_option('gfgs_verify');
-	$gravityfree_per_msg               = __('invalid', 'gsheetconnector-gravity-forms');
-	$gravityfree_show_setting          = 0;
-	$gravityfree_selected_method       = '';
-	$gravityfree_email_account         = '';
+$gravityfree_is_authenticated = false;
+$gravityfree_authenticated         = get_option('gravityforms_manual_setting'); // Auto
+
+$gravityfree_per                   = get_option('gfgs_verify');
+$gravityfree_per_msg               = __('invalid', 'gsheetconnector-gravity-forms');
+$gravityfree_show_setting          = 0;
+$gravityfree_selected_method       = '';
+$gravityfree_email_account         = '';
 
 
 
-	
-	if ($gravityfree_authenticated === '0' &&  $gravityfree_per !== $gravityfree_per_msg) {
-		
-        
-        $gravityfree_google_sheet = new Gfgscf_googlesheet();
-        $gravityfree_email_account = $gravityfree_google_sheet->gsheet_print_google_account_email();
-        if (!empty($gravityfree_email_account)) {
-            $gravityfree_selected_method = esc_html__('Use Existing Client/Secret Key (Auto Google API Configuration)', 'gsheetconnector-gravity-forms');
-            $gravityfree_is_authenticated = true;
-        } else {
-            $gravityfree_selected_method = esc_html__('Auth Required', 'gsheetconnector-gravity-forms');
-        }
-	
-	}else {
-		$gravityfree_selected_method = esc_html__('Auth Required', 'gsheetconnector-gravity-forms');
-	}
+
+if ($gravityfree_authenticated === '0' &&  $gravityfree_per !== $gravityfree_per_msg) {
+
+
+    $gravityfree_google_sheet = new Gfgscf_googlesheet();
+    $gravityfree_email_account = $gravityfree_google_sheet->gsheet_print_google_account_email();
+    if (!empty($gravityfree_email_account)) {
+        $gravityfree_selected_method = esc_html__('Use Existing Client/Secret Key (Auto Google API Configuration)', 'gsheetconnector-gravity-forms');
+        $gravityfree_is_authenticated = true;
+    } else {
+        $gravityfree_selected_method = esc_html__('Auth Required', 'gsheetconnector-gravity-forms');
+    }
+} else {
+    $gravityfree_selected_method = esc_html__('Auth Required', 'gsheetconnector-gravity-forms');
+}
 ?>
 
 <div class="wrap w-100 m-0">
@@ -51,63 +50,63 @@ if (!defined('ABSPATH')) {
                                     <?php echo esc_html__('GSheetConnector is a powerful automation plugin that syncs WordPress data with Google Sheets in real time. It supports WooCommerce, Easy Digital Downloads, and popular form plugins such as Gravity Forms, Contact Form 7, Elementor Forms, along with 10+ additional WordPress integrations for efficient data management.', 'gsheetconnector-gravity-forms'); ?>
                                 </p>
                             </div>
-                            
+
                             <?php
 
-                            if (!empty($gravityfree_email_account)){
-                            /** Connected Email box start   */ ?>
-                                    <div class="gscgff-integration-box">
-                                        <div class="gsc-google-auth-card d-flex flex-wrap gap-20 justify-between align-center mt-30 mb-30">
-                                           
-                                            <div class="gsc-google-auth-left d-flex flex-wrap align-center gap-15">
-                                                <div class="gsc-google-icon">G</div>
-                                                <div class="connected-account">
-                                                    <div class="gsc-connected-left d-flex">
-                                                        <span
-                                                            class="gsc-connected-label"><?php echo esc_html__('Connected Google Account', 'gsheetconnector-gravity-forms'); ?></span>
-                                                        <span class="connected-account-manual gsc-connected-email">
-                                                            <?php printf(wp_kses('<u>%s </u>', 'gsheetconnector-gravity-forms'), esc_attr($gravityfree_email_account)); ?></span>
-                                                    </div>
+                            if (!empty($gravityfree_email_account)) {
+                                /** Connected Email box start   */ ?>
+                                <div class="gscgff-integration-box">
+                                    <div class="gsc-google-auth-card d-flex flex-wrap gap-20 justify-between align-center mt-30 mb-30">
+
+                                        <div class="gsc-google-auth-left d-flex flex-wrap align-center gap-15">
+                                            <div class="gsc-google-icon">G</div>
+                                            <div class="connected-account">
+                                                <div class="gsc-connected-left d-flex">
+                                                    <span
+                                                        class="gsc-connected-label"><?php echo esc_html__('Connected Google Account', 'gsheetconnector-gravity-forms'); ?></span>
+                                                    <span class="connected-account-manual gsc-connected-email">
+                                                        <?php printf(wp_kses('<u>%s </u>', 'gsheetconnector-gravity-forms'), esc_attr($gravityfree_email_account)); ?></span>
                                                 </div>
                                             </div>
+                                        </div>
 
-                                            <div class="gsc-google-auth-right">
-                                                <div class="gsc-connected-pill">
-                                                    <span class="dot"></span>
-                                                    <?php esc_html_e('Connected', 'gsheetconnector-gravity-forms'); ?>
-                                                </div>
+                                        <div class="gsc-google-auth-right">
+                                            <div class="gsc-connected-pill">
+                                                <span class="dot"></span>
+                                                <?php esc_html_e('Connected', 'gsheetconnector-gravity-forms'); ?>
                                             </div>
-                                     
-                                        </div>
-                                    </div>
-
-                                    <div class="gscgff-feed-table-wrap">
-                                        <table class="widget-table" id="gscgff-feed-table" data-page="1">
-                                            <thead>
-                                                <tr>
-                                                    <th><?php echo esc_html__('Form Name', 'gsheetconnector-gravity-forms'); ?></th>
-                                                    <th><?php echo esc_html__('Feed Name', 'gsheetconnector-gravity-forms'); ?></th>
-                                                    <th><?php echo esc_html__('Sheet Name', 'gsheetconnector-gravity-forms'); ?></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="gscgff-feed-table-body">
-                                                <tr class="gscgff-feed-loading-row">
-                                                    <td colspan="3">
-                                                        <span class="gscgff-loader"></span>
-                                                        <span class="gscgff-loader-text"><?php echo esc_html__('Loading feeds...', 'gsheetconnector-gravity-forms'); ?></span>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-
-                                        <div class="gscgff-pagination d-flex justify-center gap-10 " id="gscgff-pagination-wrap">
-                                            <!-- page links injected via AJAX -->
                                         </div>
 
-                                        <input type="hidden" id="gscgff-ajax-nonce-pagination" value="<?php echo esc_attr(wp_create_nonce('gscgff-pagination-nonce')); ?>" />
                                     </div>
-                                
-                            <?php }else{ ?>
+                                </div>
+
+                                <div class="gscgff-feed-table-wrap">
+                                    <table class="widget-table" id="gscgff-feed-table" data-page="1">
+                                        <thead>
+                                            <tr>
+                                                <th><?php echo esc_html__('Form Name', 'gsheetconnector-gravity-forms'); ?></th>
+                                                <th><?php echo esc_html__('Feed Name', 'gsheetconnector-gravity-forms'); ?></th>
+                                                <th><?php echo esc_html__('Sheet Name', 'gsheetconnector-gravity-forms'); ?></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="gscgff-feed-table-body">
+                                            <tr class="gscgff-feed-loading-row">
+                                                <td colspan="3">
+                                                    <span class="gscgff-loader"></span>
+                                                    <span class="gscgff-loader-text"><?php echo esc_html__('Loading feeds...', 'gsheetconnector-gravity-forms'); ?></span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <div class="gscgff-pagination d-flex justify-center gap-10 " id="gscgff-pagination-wrap">
+                                        <!-- page links injected via AJAX -->
+                                    </div>
+
+                                    <input type="hidden" id="gscgff-ajax-nonce-pagination" value="<?php echo esc_attr(wp_create_nonce('gscgff-pagination-nonce')); ?>" />
+                                </div>
+
+                            <?php } else { ?>
                                 <div class="unlock-pro-button-sections mt-20">
                                     <a class="btn btn-primary link-hover-white text-decoration-none" href="<?php echo esc_url(admin_url('admin.php?page=gf_googlesheet&tab=integration')); ?>">
                                         <?php echo esc_html__("Let's Connect", 'gsheetconnector-gravity-forms'); ?>
@@ -172,7 +171,7 @@ if (!defined('ABSPATH')) {
                             <?php echo esc_html__('Find the perfect connector for your WordPress workflow.', 'gsheetconnector-gravity-forms'); ?>
                         </p>
                         <div class="plugin-category-section">
-                            <a href="https://www.gsheetconnector.com/plugins#contactform" target="_blank" class="plugin-category-box text-decoration-none">
+                            <a href="https://www.gsheetconnector.com/plugins" target="_blank" class="plugin-category-box text-decoration-none">
                                 <div class="plugin-category-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text w-6 h-6 text-emerald-600" aria-hidden="true">
                                         <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path>
@@ -198,7 +197,7 @@ if (!defined('ABSPATH')) {
                                 </div>
                             </a>
 
-                            <a href="https://www.gsheetconnector.com/plugins#ecommerce" target="_blank" class="plugin-category-box text-decoration-none">
+                            <a href="https://www.gsheetconnector.com/plugins" target="_blank" class="plugin-category-box text-decoration-none">
                                 <div class="plugin-category-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart w-6 h-6 text-emerald-600" aria-hidden="true">
                                         <circle cx="8" cy="21" r="1"></circle>
@@ -222,7 +221,7 @@ if (!defined('ABSPATH')) {
                                 </div>
                             </a>
 
-                            <a href="https://www.gsheetconnector.com/plugins#pagebuilderform" target="_blank" class="plugin-category-box text-decoration-none">
+                            <a href="https://www.gsheetconnector.com/plugins" target="_blank" class="plugin-category-box text-decoration-none">
                                 <div class="plugin-category-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-panels-top-left w-6 h-6 text-emerald-600" aria-hidden="true">
                                         <rect width="18" height="18" x="3" y="3" rx="2"></rect>
@@ -272,7 +271,7 @@ if (!defined('ABSPATH')) {
                                 </div>
                             </a>
 
-                            <a href="https://profiles.wordpress.org/gsheetconnector/" class="plugin-category-box text-decoration-none" target="_blank">
+                            <a href="https://profiles.wordpress.org/westerndeal/" class="plugin-category-box text-decoration-none" target="_blank">
                                 <div class="plugin-category-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gift w-6 h-6 text-emerald-600" aria-hidden="true">
                                         <rect x="3" y="8" width="18" height="4" rx="1"></rect>
@@ -396,9 +395,7 @@ if (!defined('ABSPATH')) {
 
                     <!-- RIGHT -->
                     <div class="pro-right w-50">
-
                         <div class="right-card">
-
                             <!-- FLOW -->
                             <div class="flow-ui">
                                 <div class="flow-step"><?php echo esc_html(__('Form', 'gsheetconnector-gravity-forms')); ?></div>
@@ -432,7 +429,6 @@ if (!defined('ABSPATH')) {
             </div>
             <!---End PRO FEATURE--->
 
-
             <!---Start Video Tutorial Section--->
             <div class="video-section-wrapper mt-30 welcome-wrapper">
                 <div class="welcome-heading mb-30">
@@ -440,14 +436,11 @@ if (!defined('ABSPATH')) {
                 </div>
                 <div class="video-grid">
                     <div class="video-item">
-                        <iframe class="w-100" height="400" src="https://www.youtube.com/embed/0I6weqeb7RM" title="Integration of Google Sheets with WordPress Gravity Forms | Step by Step Guide | FREE Version" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <iframe class="w-100" height="200" src="https://www.youtube.com/embed/0I6weqeb7RM" title="Integration of Google Sheets with WordPress Gravity Forms | Step by Step Guide | FREE Version" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
-
-
                 </div>
             </div>
             <!---End Video Tutorial Section--->
-
         </div>
     </div>
 </div>

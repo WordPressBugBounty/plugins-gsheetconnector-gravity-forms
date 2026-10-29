@@ -8,7 +8,7 @@
  * Requires PHP: 7.4
  * Author: GSheetConnector
  * Author URI: https://www.gsheetconnector.com/
- * Version: 1.5.3
+ * Version: 1.6.0
  * Text Domain: gsheetconnector-gravity-forms
  * License: GPLv2
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -20,6 +20,17 @@
 if (!defined('ABSPATH')) {
   exit;
 }
+
+/* Declare some global constants */
+define('GRAVITY_GOOGLESHEET_VERSION', '1.6.0');
+define('GRAVITY_GOOGLESHEET_DB_VERSION', '1.6.0');
+define('GRAVITY_GOOGLESHEET_ROOT', dirname(__FILE__));
+define('GRAVITY_GOOGLESHEET_URL', plugins_url('/', __FILE__));
+define('GRAVITY_GOOGLESHEET_BASE_FILE', basename(dirname(__FILE__)) . '/gsheetconnector-gravityforms.php');
+define('GRAVITY_GOOGLESHEET_BASE_NAME', plugin_basename(__FILE__));
+define('GRAVITY_GOOGLESHEET_API_URL', 'https://oauth.gsheetconnector.com/api-cred.php');
+define('GRAVITY_GOOGLESHEET_PATH', plugin_dir_path(__FILE__)); //use for include files to other files
+
 
 /* Prevent free and pro admin menu */
 include_once ABSPATH . 'wp-admin/includes/plugin.php';
@@ -91,15 +102,6 @@ if (Gforms_Gsheet_Connector_Free_Init::gscgf_is_pugin_active('Gforms_Gsheet_Conn
   return;
 }
 
-/* Declare some global constants */
-define('GRAVITY_GOOGLESHEET_VERSION', '1.5.3');
-define('GRAVITY_GOOGLESHEET_DB_VERSION', '1.5.3');
-define('GRAVITY_GOOGLESHEET_ROOT', dirname(__FILE__));
-define('GRAVITY_GOOGLESHEET_URL', plugins_url('/', __FILE__));
-define('GRAVITY_GOOGLESHEET_BASE_FILE', basename(dirname(__FILE__)) . '/gsheetconnector-gravityforms.php');
-define('GRAVITY_GOOGLESHEET_BASE_NAME', plugin_basename(__FILE__));
-define('GRAVITY_GOOGLESHEET_API_URL', 'https://oauth.gsheetconnector.com/api-cred.php');
-define('GRAVITY_GOOGLESHEET_PATH', plugin_dir_path(__FILE__)); //use for include files to other files
 
 if ($activate_the_plugin) { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
   /* Freemius  Start */
@@ -128,7 +130,7 @@ if ($activate_the_plugin) { // phpcs:ignore WordPress.NamingConventions.PrefixAl
           'is_org_compliant'    => true,
           'menu'                => array(
             'slug'           => 'gf_googlesheet',
-            'first-path'     => 'admin.php?page=gf_googlesheet',
+            'first-path' => (!is_multisite() ? 'admin.php?page=gf_googlesheet' : 'plugins.php'),
             'account'        => false,
             'support'        => false,
           ),
@@ -168,6 +170,10 @@ class Gforms_Gsheet_Connector_Free_Init
       /* validate is Gravityforms plugin exist */
       add_action('admin_init', array($this, 'validate_parent_plugin_exists'));
       add_action('admin_init', array($this, 'run_on_upgrade'));
+
+      /* create plugin tables for sites added to a multisite network after activation */
+      add_action('wp_initialize_site', array($this, 'on_new_site_created'), 99, 1);
+      add_action('admin_init', array($this, 'maybe_create_errorlog_table'));
 
       /* register admin menu under "Forms" > "Entries" */
       add_action('gform_addon_navigation', array($this, 'get_parent_menu'), 10, 1);
@@ -384,7 +390,7 @@ class Gforms_Gsheet_Connector_Free_Init
       if ((is_array($gs_roles) && array_key_exists($current_role, $gs_roles)) || $current_role === "administrator") {
         $addon_menus[] = array(
           'permission' => 'gravityforms_edit_forms',
-          'label' => 'Google Sheet',
+          'label' => 'Google Sheets',
           'name' => 'gf_googlesheet',
           'callback' => array($this, 'add_googlesheet_menu')
         );
@@ -806,21 +812,13 @@ class Gforms_Gsheet_Connector_Free_Init
       $wpdb->prepare("SHOW TABLES LIKE %s", $table)
     );
 
-    if ($table_exists === $table) {
+    /* case-insensitive: SHOW TABLES may return lowercased names (e.g. Windows) */
+    if (is_string($table_exists) && 0 === strcasecmp($table_exists, $table)) {
       // Table already exists, no need to create again
       return;
     }
 
-    /**
-     * SQL query to create error log table
-     * Columns:
-     * - id         : Primary key
-     * - error_id   : Unique error identifier
-     * - code       : Error code
-     * - message    : Error message
-     * - details    : Additional debug details
-     * - created_at : Timestamp of error
-     */
+
     $sql = "CREATE TABLE {$table} (
       id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
       error_id VARCHAR(191) NOT NULL,
@@ -838,6 +836,59 @@ class Gforms_Gsheet_Connector_Free_Init
 
     // Execute table creation (safe for structure updates as well)
     dbDelta($sql);
+  }
+
+  /**
+   * Set up the plugin for a site created after the plugin was network activated.
+   *
+   * Activation hooks only run for sites that exist at activation time, so
+   * new subsites need their site-specific options and tables created here.
+   *
+   * @since 1.5.4
+   * @param WP_Site $new_site The newly created site object.
+   * @return void
+   */
+  public function on_new_site_created($new_site)
+  {
+    if (!is_multisite() || !($new_site instanceof WP_Site)) {
+      return;
+    }
+
+    if (!function_exists('is_plugin_active_for_network')) {
+      require_once ABSPATH . 'wp-admin/includes/plugin.php';
+    }
+
+    /* only auto-setup when the plugin is network activated */
+    if (!is_plugin_active_for_network(GRAVITY_GOOGLESHEET_BASE_NAME)) {
+      return;
+    }
+
+    switch_to_blog((int) $new_site->blog_id);
+    try {
+      $this->run_for_site();
+      update_option('gscgf_errorlog_table_created', 1);
+    } finally {
+      restore_current_blog();
+    }
+  }
+
+  /**
+   * Safety net: create the error log table on the current site if it was never created.
+   *
+   * Covers sites that were added before on_new_site_created() existed
+   * or whose table was removed. Runs the DB check only once per site.
+   *
+   * @since 1.5.4
+   * @return void
+   */
+  public function maybe_create_errorlog_table()
+  {
+    if (get_option('gscgf_errorlog_table_created')) {
+      return;
+    }
+
+    $this->create_errorlog_table_in_database();
+    update_option('gscgf_errorlog_table_created', 1);
   }
 
   /**
@@ -932,6 +983,7 @@ class Gforms_Gsheet_Connector_Free_Init
         delete_option('gravityforms_manual_setting');
         delete_option('is_new_client_secret_gravityformsgsc');
         delete_option('gfgs_email_account');
+        delete_option('gscgf_errorlog_table_created');
 
         // delete api credentails
         delete_option('Gfgsc_api_creds');
@@ -977,7 +1029,9 @@ class Gforms_Gsheet_Connector_Free_Init
   public function display_error_log()
   {
     /* Define the path to your debug log file */
-    $debug_log_file = WP_CONTENT_DIR . '/debug.log';
+    $debug_log_file = method_exists('GravityForms_GsFree_Connector_Utility', 'get_debug_log_file')
+      ? GravityForms_GsFree_Connector_Utility::get_debug_log_file()
+      : WP_CONTENT_DIR . '/debug.log';
 
     /* Check if the debug log file exists */
     if (file_exists($debug_log_file)) {

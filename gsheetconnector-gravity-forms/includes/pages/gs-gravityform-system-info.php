@@ -339,22 +339,24 @@ if (! current_user_can('manage_options')) {
             $active_plugins = get_option('active_plugins', array());
             // Network Active Plugins.
             if (is_multisite()) {
+                $network_active_count = 0;
                 $network_active_plugins = get_site_option('active_sitewide_plugins', array());
+                $network_active_count   = is_array($network_active_plugins) ? count($network_active_plugins) : 0;
                 if (!empty($network_active_plugins)) { ?>
                     <div class="mb-20 mt-20"><button id="gscgff-show-netplug-info-button" class="info-button">Network Active
-                            plugins<span class="dashicons dashicons-arrow-down"></span></button></div>';
+                            plugins (<?php echo $network_active_count; ?> )<span class="dashicons dashicons-arrow-down"></span></button></div>
                     <div id="netplug-info-container" class="info-content shadow-box pt-20 pb-20 pl-30 pr-30" style="display:none;">
-                        ';
+
                         <table>
                             <?php
                             foreach ($network_active_plugins as $plugin => $plugin_data) {
                                 $plugin_data = get_plugin_data(WP_PLUGIN_DIR . '/' . $plugin);
-                                ?>
-                               <tr>
-                        <td><?php echo esc_html($plugin_data['Name']);?> </td>
-                        <td><?php echo esc_html($plugin_data['Version']);?> </td>
-                        </tr>
-                           <?php }
+                            ?>
+                                <tr>
+                                    <td><?php echo esc_html($plugin_data['Name']); ?> </td>
+                                    <td><?php echo esc_html($plugin_data['Version']); ?> </td>
+                                </tr>
+                            <?php }
 
                             ?>
                         </table>
@@ -420,6 +422,10 @@ if (! current_user_can('manage_options')) {
                         </tr>
                     <?php }
                     ?>
+
+                    <?php if ($total_active_plugins == 0) {
+                        echo esc_html__('No one plugins Activated', 'gsheetconnector-gravity-forms');
+                    } ?>
                 </table>
             </div>
 
@@ -591,7 +597,7 @@ if (! current_user_can('manage_options')) {
                 <table>
                     <?php
                     $database_extension = 'mysqli';
-                    $database_server_version = $wpdb->get_var('SELECT VERSION() as version');// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+                    $database_server_version = $wpdb->get_var('SELECT VERSION() as version'); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
                     $database_client_version = $wpdb->db_version();
                     $database_username = DB_USER;
                     $database_host = DB_HOST;
@@ -599,8 +605,8 @@ if (! current_user_can('manage_options')) {
                     $table_prefix = $wpdb->prefix;
                     $database_charset = $wpdb->charset;
                     $database_collation = $wpdb->collate;
-                    $max_allowed_packet_size = $wpdb->get_var("SHOW VARIABLES LIKE 'max_allowed_packet'");// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
-                    $max_connections_number = $wpdb->get_var("SHOW VARIABLES LIKE 'max_connections'");// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+                    $max_allowed_packet_size = $wpdb->get_var("SHOW VARIABLES LIKE 'max_allowed_packet'"); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+                    $max_connections_number = $wpdb->get_var("SHOW VARIABLES LIKE 'max_connections'"); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
                     ?>
                     <tr>
                         <td><?php echo esc_html__('Extension', 'gsheetconnector-gravity-forms'); ?></td>
@@ -884,21 +890,25 @@ if (! current_user_can('manage_options')) {
     </div>
 
     <?php
-    $debug_log_file = WP_CONTENT_DIR . '/debug.log';
+if ( method_exists( 'GravityForms_GsFree_Connector_Utility', 'get_debug_log_lines' ) ) {
+    $log_lines = GravityForms_GsFree_Connector_Utility::get_debug_log_lines( 100 );
+} else {
+    // Fallback when an older utility class is loaded.
+    $log_lines      = array();
+    $debug_log_file = ( defined( 'WP_DEBUG_LOG' ) && is_string( WP_DEBUG_LOG ) && '' !== WP_DEBUG_LOG )
+        ? WP_DEBUG_LOG
+        : WP_CONTENT_DIR . '/debug.log';
 
-    $log_lines = [];
-
-    if (file_exists($debug_log_file)) {
-        $log_lines = file(
-            $debug_log_file,
-            FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES
-        );
-
-        $log_lines = array_slice(array_reverse($log_lines), 0, 100);
+    if ( is_file( $debug_log_file ) && is_readable( $debug_log_file ) ) {
+        $raw_lines = file( $debug_log_file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES );
+        if ( is_array( $raw_lines ) ) {
+            $log_lines = array_slice( array_reverse( $raw_lines ), 0, 100 );
+        }
     }
+}
 
-    $has_logs = !empty($log_lines);
-    ?>
+$has_logs = ! empty( $log_lines );
+?>
 
     <div class="system-error shadow-box mt-40 p-30">
         <div class="error-container">
@@ -956,6 +966,7 @@ if (! current_user_can('manage_options')) {
             if ($has_logs) {
 
                 foreach ($log_lines as $line) {
+                    
 
                     if (preg_match('/\[(.*?)\]\s(.*?):\s(.*)/', $line, $matches)) {
 
@@ -974,6 +985,14 @@ if (! current_user_can('manage_options')) {
                         echo '<td>' . esc_html($type) . '</td>';
                         echo '<td>' . esc_html($message) . '</td>';
                         echo '<td>' . esc_html($file) . '</td>';
+                        echo '</tr>';
+                    } else {
+                        // Lines without a "[date] Type:" prefix (stack traces, custom entries).
+                        echo '<tr>';
+                        echo '<td>-</td>';
+                        echo '<td>-</td>';
+                        echo '<td>' . esc_html($line) . '</td>';
+                        echo '<td>-</td>';
                         echo '</tr>';
                     }
                 }

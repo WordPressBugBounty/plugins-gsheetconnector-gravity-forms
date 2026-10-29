@@ -145,9 +145,47 @@ if (!defined('ABSPATH')) {
                 <p><?php echo esc_html__('Extend your Google Sheets integration with powerful add-ons. Install, manage, and activate extensions to unlock advanced features.', 'gsheetconnector-gravity-forms'); ?></p>
 
                 <?php
-                $all_plugins = get_plugins();// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-                $active_theme = wp_get_theme();// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+                $all_plugins = get_plugins(); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+                $active_theme = wp_get_theme(); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
                 $plugins = [
+                    'gravityforms/gravityforms.php' => [
+                        'connector' => 'gsheetconnector-gravityforms/gsheetconnector-gravityforms.php',
+                        'connector-pro' => 'gsheetconnector-gravityforms-pro/gsheetconnector-gravityforms-pro.php',
+                        'name' => __('Gravity Forms Google Sheet Connector', 'gsheetconnector-gravity-forms'),
+                        'link' => 'https://www.gsheetconnector.com/gravity-forms-google-sheet-connector',
+                        'img' => esc_url(GRAVITY_GOOGLESHEET_URL) . '/assets/image/pro-gravity-gsc.webp',
+                        'text' => __('Connect Gravity Forms to Google Sheets and automatically push form submissions to your spreadsheet. Simplify data management, improve workflow automation, and keep all entries organized in one secure location.', 'gsheetconnector-gravity-forms'),
+                        'pro_plugin_active' => 'gsheetconnector-gravityforms-pro/gsheetconnector-gravityforms-pro.php',
+                        'url' => 'https://wordpress.org/plugins/gsheetconnector-gravity-forms/',
+                        'button' => __('Install', 'gsheetconnector-gravity-forms'),
+                        'badge' => __('PRO', 'gsheetconnector-gravity-forms'),
+                        'freeLink' => 'https://wordpress.org/plugins/gsheetconnector-gravity-forms/',
+                        'downloadLink' => 'https://downloads.wordpress.org/plugin/gsheetconnector-gravity-forms.zip',
+                        'buyLink' => 'https://www.gsheetconnector.com/gravity-forms-google-sheet-connector',
+                        'mainPlugin' => 'gravityforms/gravityforms.php',
+                        'theme' => 'gravityforms',
+                        'docs' => 'https://www.gsheetconnector.com/docs/gravity-forms-gsheetconnector',
+                        'demo' => 'https://demo.gsheetconnector.com/gravityforms-google-sheet-connector-pro'
+                    ],
+                    'fluentform/fluentform.php' => [
+                        'connector' => 'gsheetconnector-for-fluentform/gsheetconnector-for-fluentform.php',
+                        'connector-pro' => 'gsheetconnector-for-fluentform-pro/gsheetconnector-for-fluentform-pro.php',
+                        'name' => __('Fluent Forms Google Sheet Connector', 'gsheetconnector-gravity-forms'),
+                        'link' => 'https://www.gsheetconnector.com/fluent-forms-google-sheet-connector-pro',
+                        'img' => esc_url(GRAVITY_GOOGLESHEET_URL) . '/assets/image/pro-fluent-forms-gsc.webp',
+                        'text' => __('Automatically sync Fluent Forms submissions to Google Sheets in real-time. Every form entry is instantly added to your selected spreadsheet, helping you manage leads, customer inquiries, and business data without manual export. Streamline your workflow, improve reporting accuracy, and keep all submissions organized with seamless Google Sheets integration.', 'gsheetconnector-gravity-forms'),
+                        'pro_plugin_active' => 'gsheetconnector-for-fluentform-pro/gsheetconnector-for-fluentform-pro.php',
+                        'url' => 'https://wordpress.org/plugins/gsheetconnector-for-fluentform/',
+                        'button' => __('Install', 'gsheetconnector-gravity-forms'),
+                        'badge' => __('Free', 'gsheetconnector-gravity-forms'),
+                        'freeLink' => 'https://wordpress.org/plugins/gsheetconnector-for-fluentform/',
+                        'downloadLink' => 'https://downloads.wordpress.org/plugin/gsheetconnector-for-fluentform.zip',
+                        'buyLink' => 'https://www.gsheetconnector.com/fluent-forms-google-sheet-connector-pro',
+                        'mainPlugin' => 'fluentform/fluentform.php',
+                        'theme' => '',
+                        'docs' => 'https://www.gsheetconnector.com/docs/fluent-forms-gsheetconnector',
+                        'demo' => 'https://demo.gsheetconnector.com/fluent-gsheet-connector'
+                    ],
                     'contact-form-7/wp-contact-form-7.php' => [
                         'connector' => 'cf7-google-sheets-connector/google-sheet-connector.php',
                         'connector-pro' => 'cf7-google-sheets-connector-pro/google-sheet-connector-pro.php',
@@ -180,7 +218,7 @@ if (!defined('ABSPATH')) {
                         'link' => 'https://www.gsheetconnector.com/wpforms-google-sheet-connector-pro',
                         'img' => esc_url(GRAVITY_GOOGLESHEET_URL) . '/assets/image/pro-wpf-gsc.webp',
                         'text' => __('Integrate WPForms with Google Sheets and send form entries directly to your spreadsheet automatically. Track leads, manage customer data, and streamline reporting with seamless Google Sheets integration and real-time sync.', 'gsheetconnector-gravity-forms'),
-                        'pro_plugin_active' => 'gsheetconnector-wpform-pro/gsheetconnector-wpforms-pro.php',
+                        'pro_plugin_active' => 'gsheetconnector-wpforms-pro/gsheetconnector-wpforms-pro.php',
                         'url' => 'https://wordpress.org/plugins/gsheetconnector-wpforms/',
                         'button' => __('Install', 'gsheetconnector-gravity-forms'),
                         'badge' => __('PRO', 'gsheetconnector-gravity-forms'),
@@ -192,35 +230,14 @@ if (!defined('ABSPATH')) {
                         'docs' => 'https://www.gsheetconnector.com/docs/gsheetconnnector-for-wpforms',
                         'demo' => 'https://demo.gsheetconnector.com/wpforms-google-sheet-connector-pro'
                     ],
-
-                    'gravityforms/gravityforms.php' => [
-                        'connector' => 'gsheetconnector-gravity-forms/gsheetconnector-gravityforms.php',
-                        'connector-pro' => 'gsheetconnector-gravityforms-pro/gsheetconnector-gravityforms-pro.php',
-                        'name' => __('Gravity Forms Google Sheet Connector', 'gsheetconnector-gravity-forms'),
-                        'link' => 'https://www.gsheetconnector.com/gravity-forms-google-sheet-connector',
-                        'img' => esc_url(GRAVITY_GOOGLESHEET_URL) . '/assets/image/pro-gravity-gsc.webp',
-                        'text' => __('Connect Gravity Forms to Google Sheets and automatically push form submissions to your spreadsheet. Simplify data management, improve workflow automation, and keep all entries organized in one secure location.', 'gsheetconnector-gravity-forms'),
-                        'pro_plugin_active' => 'gsheetconnector-gravity-forms-pro/gsheetconnector-gravity-forms-pro.php',
-                        'url' => 'https://wordpress.org/plugins/gsheetconnector-gravity-forms/',
-                        'button' => __('Install', 'gsheetconnector-gravity-forms'),
-                        'badge' => __('PRO', 'gsheetconnector-gravity-forms'),
-                        'freeLink' => 'https://wordpress.org/plugins/gsheetconnector-gravity-forms/',
-                        'downloadLink' => 'https://downloads.wordpress.org/plugin/gsheetconnector-gravity-forms.zip',
-                        'buyLink' => 'https://www.gsheetconnector.com/gravity-forms-google-sheet-connector',
-                        'mainPlugin' => 'gravityforms/gravityforms.php',
-                        'theme' => 'gravityforms',
-                        'docs' => 'https://www.gsheetconnector.com/docs/gravity-forms-gsheetconnector',
-                        'demo' => 'https://demo.gsheetconnector.com/gravityforms-google-sheet-connector-pro'
-                    ],
-
                     'ninja-forms/ninja-forms.php' => [
                         'connector' => 'gsheetconnector-ninja-forms/gsheetconnector-ninjaforms.php',
-                        'connector-pro' => 'gsheetconnector-ninja-forms-pro/gsheetconnector-ninjaform-pro.php',
+                        'connector-pro' => 'gsheetconnector-ninja-forms-pro/gsheetconnector-ninja-forms-pro.php',
                         'name' => __('Ninja Forms Google Sheet Connector', 'gsheetconnector-gravity-forms'),
                         'link' => 'https://www.gsheetconnector.com/ninja-forms-google-sheet-connector-pro',
                         'img' => esc_url(GRAVITY_GOOGLESHEET_URL) . '/assets/image/pro-ninjaf-gsc.webp',
                         'text' => __('Automatically sync Ninja Forms submissions to Google Sheets with one-click integration. Capture leads, monitor responses, and manage data efficiently with instant spreadsheet updates and easy reporting.', 'gsheetconnector-gravity-forms'),
-                        'pro_plugin_active' => 'gsheetconnector-ninja-forms-pro/gsheetconnector-ninjaforms-pro.php',
+                        'pro_plugin_active' => 'gsheetconnector-ninja-forms-pro/gsheetconnector-ninja-forms-pro.php',
                         'url' => 'https://wordpress.org/plugins/gsheetconnector-ninjaforms/',
                         'button' => __('Install', 'gsheetconnector-gravity-forms'),
                         'badge' => __('PRO', 'gsheetconnector-gravity-forms'),
@@ -259,7 +276,7 @@ if (!defined('ABSPATH')) {
                         'link' => 'https://wordpress.org/plugins/gsheetconnector-formidable-forms/',
                         'img' => esc_url(GRAVITY_GOOGLESHEET_URL) . '/assets/image/formidable-addon.webp',
                         'text' => __('Automatically sync Formidable Forms entries to Google Sheets. Manage leads, track submissions, and simplify data reporting with real-time integration.', 'gsheetconnector-gravity-forms'),
-                        'pro_plugin_active' => 'gsheetconnector-forminator-pro/gsheetconnector-forminator-pro.php',
+                        'pro_plugin_active' => 'gsheetconnector-formidable-forms-pro/gsheetconnector-formidable-forms-pro.php',
                         'url' => 'https://wordpress.org/plugins/gsheetconnector-formidable-forms/',
                         'button' => __('Install', 'gsheetconnector-gravity-forms'),
                         'badge' => __('Free', 'gsheetconnector-gravity-forms'),
@@ -271,27 +288,6 @@ if (!defined('ABSPATH')) {
                         'docs' => 'https://www.gsheetconnector.com/docs/formidable-forms-gsheetconnector',
                         'demo' => 'https://demo.gsheetconnector.com/formidable-forms-google-sheet-connector'
                     ],
-
-                    'fluentform/fluentform.php' => [
-                        'connector' => 'gsheetconnector-for-fluentform/gsheetconnector-for-fluentform.php',
-                        'connector-pro' => 'gsheetconnector-for-fluentform-pro/gsheetconnector-for-fluentform-pro.php',
-                        'name' => __('Fluent Forms Google Sheet Connector', 'gsheetconnector-gravity-forms'),
-                        'link' => 'https://www.gsheetconnector.com/fluent-forms-google-sheet-connector-pro',
-                        'img' => esc_url(GRAVITY_GOOGLESHEET_URL) . '/assets/image/pro-fluent-forms-gsc.webp',
-                        'text' => __('Automatically sync Fluent Forms submissions to Google Sheets in real-time. Every form entry is instantly added to your selected spreadsheet, helping you manage leads, customer inquiries, and business data without manual export. Streamline your workflow, improve reporting accuracy, and keep all submissions organized with seamless Google Sheets integration.', 'gsheetconnector-gravity-forms'),
-                        'pro_plugin_active' => 'gsheetconnector-for-fluentform-pro/gsheetconnector-for-fluentform-pro.php',
-                        'url' => 'https://wordpress.org/plugins/gsheetconnector-for-fluentform/',
-                        'button' => __('Install', 'gsheetconnector-gravity-forms'),
-                        'badge' => __('Free', 'gsheetconnector-gravity-forms'),
-                        'freeLink' => 'https://wordpress.org/plugins/gsheetconnector-for-fluentform/',
-                        'downloadLink' => '"https://downloads.wordpress.org/plugin/gsheetconnector-for-fluentform.1.0.8.zip"',
-                        'buyLink' => 'https://www.gsheetconnector.com/fluent-forms-google-sheet-connector-pro',
-                        'mainPlugin' => 'fluentform/fluentform.php',
-                        'theme' => '',
-                        'docs' => 'https://www.gsheetconnector.com/docs/fluent-forms-gsheetconnector',
-                        'demo' => 'https://demo.gsheetconnector.com/fluent-gsheet-connector'
-                    ],
-
                     'pro-elements/pro-elements.php' => [
                         'connector' => 'gsheetconnector-for-elementor-forms/gsheetconnector-for-elementor-forms.php',
                         'connector-pro' => 'gsheetconnector-for-elementor-forms-pro/gsheetconnector-for-elementor-forms-pro.php',
@@ -320,7 +316,7 @@ if (!defined('ABSPATH')) {
                         'text' => __('Connect Avada Forms to Google Sheets and automatically transfer form entries to your spreadsheet. Streamline lead management, automate data collection, and improve business reporting with seamless integration.', 'gsheetconnector-gravity-forms'),
                         'pro_plugin_active' => 'avada-gsheetconnector-pro/avada-gsheetconnector-pro.php',
                         'url' => '',
-                        'button' => __('Install', 'gsheetconnector-gravity-forms'),
+                        'button' => __('Get Pro', 'gsheetconnector-gravity-forms'),
                         'badge' => __('Available PRO Version', 'gsheetconnector-gravity-forms'),
                         'freeLink' => '',
                         'downloadLink' => '',
@@ -332,53 +328,52 @@ if (!defined('ABSPATH')) {
                     ],
 
                     'divi/divi.php' => [
-                        'connector' => 'divi-forms-db-google-sheet-connector-pro/divi-forms-db-google-sheet-connector-pro.php',
-                        'connector-pro' => 'divi-forms-db-google-sheet-connector-pro/divi-forms-db-google-sheet-connector-pro.php',
+                        'connector' => '',
+                        'connector-pro' => 'divi-db-gsheetconnector-pro/divi-db-gsheetconnector-pro.php',
                         'name' => __('Divi Forms Google Sheet Connector', 'gsheetconnector-gravity-forms'),
                         'link' => 'https://www.gsheetconnector.com/divi-forms-db-google-sheet-connector-pro',
                         'img' => esc_url(GRAVITY_GOOGLESHEET_URL) . '/assets/image/pro-divi-gsc.webp',
                         'text' => __('Integrate Divi Forms with Google Sheets and automatically sync submissions in real-time. Store customer data securely, track inquiries efficiently, and eliminate manual spreadsheet updates.', 'gsheetconnector-gravity-forms'),
-                        'pro_plugin_active' => 'divi-forms-db-google-sheet-connector-pro/divi-forms-db-google-sheet-connector-pro.php',
+                        'pro_plugin_active' => 'divi-db-gsheetconnector-pro/divi-db-gsheetconnector-pro.php',
                         'url' => '',
-                        'button' => __('Install', 'gsheetconnector-gravity-forms'),
+                        'button' => __('Get Pro', 'gsheetconnector-gravity-forms'),
                         'badge' => __('Available PRO Version', 'gsheetconnector-gravity-forms'),
                         'freeLink' => '',
                         'downloadLink' => '',
                         'buyLink' => 'https://www.gsheetconnector.com/divi-forms-db-google-sheet-connector-pro',
-                        'mainPlugin' => 'Divi',
+                        'mainPlugin' => '',
                         'theme' => 'Divi',
                         'docs' => 'https://www.gsheetconnector.com/docs/divi-forms-google-sheet-connector',
                         'demo' => 'https://demo.gsheetconnector.com/divi-forms-gsheetconnector-pro'
                     ],
 
-                    'gsheetconnector-for-wp-core/gsheetconnector-for-wp-core.php' => [
-                        'connector' => 'gsheetconnector-easy-digital-downloads/gsheetconnector-easy-digital-downloads.php',
-                        'connector-pro' => 'gsheetconnector-easy-digital-downloads-pro/gsheetconnector-easy-digital-downloads-pro.php',
+                    'gsheetconnector-for-core-lite/gsheetconnector-for-core-lite.php' => [
+                        'connector' => 'gsheetconnector-for-core-lite/gsheetconnector-for-core-lite.php',
+                        'connector-pro' => 'gsheetconnector-for-core-pro/gsheetconnector-for-core-pro.php',
                         'name' => __('WP Core Google Sheet Connector', 'gsheetconnector-gravity-forms'),
                         'link' => 'https://www.gsheetconnector.com/gsheetconnector-for-wp-core',
                         'img' => esc_url(GRAVITY_GOOGLESHEET_URL) . '/assets/image/gsc-wp-core.webp',
                         'text' => __('Automatically send WordPress core data (like comments or custom submissions) to Google Sheets. Simplify website data tracking, automate record keeping, and centralize important information in one organized spreadsheet.', 'gsheetconnector-gravity-forms'),
-                        'pro_plugin_active' => 'gsheetconnector-easy-digital-downloads-pro/gsheetconnector-easy-digital-downloads-pro.php',
-                        'url' => 'https://wordpress.org/plugins/gsheetconnector-easy-digital-downloads/',
-                        'button' => __('Install', 'gsheetconnector-gravity-forms'),
+                        'pro_plugin_active' => 'gsheetconnector-for-core-pro/gsheetconnector-for-core-pro.php',
+                        'url' => 'https://wordpress.org/plugins/gsheetconnector-for-core-lite/',
+                        'button' => (''),
                         'badge' => __('PRO', 'gsheetconnector-gravity-forms'),
-                        'freeLink' => '',
-                        'downloadLink' => 'https://downloads.wordpress.org/plugin/gsheetconnector-easy-digital-downloads.zip',
+                        'freeLink' => 'https://wordpress.org/plugins/gsheetconnector-for-core-lite/',
+                        'downloadLink' => 'https://downloads.wordpress.org/plugin/gsheetconnector-for-core-lite.zip',
                         'buyLink' => 'https://www.gsheetconnector.com/gsheetconnector-for-wp-core',
-                        'mainPlugin' => 'gsheetconnector-for-wp-core',
+                        'mainPlugin' => ['gsheetconnector-for-core-lite/gsheetconnector-for-core-lite.php', 'gravityforms/gravityforms.php'],
                         'theme' => 'gsheetconnector-for-wp-core',
                         'docs' => 'https://www.gsheetconnector.com/docs/gsheetconnector-for-wp-core',
                         'demo' => ''
                     ],
-
                     'woocommerce/woocommerce.php' => [
                         'connector' => 'wc-gsheetconnector/wc-gsheetconnector.php',
-						'connector-pro' => 'wc-gsheetconnector-pro/wc-gsheetconnector-pro.php',
+                        'connector-pro' => 'wc-gsheetconnector-pro/wc-gsheetconnector-pro.php',
                         'name' => __('WooCommerce Google Sheet Connector', 'gsheetconnector-gravity-forms'),
                         'link' => 'https://www.gsheetconnector.com/woocommerce-google-sheet-connector-pro',
                         'img' => esc_url(GRAVITY_GOOGLESHEET_URL) . '/assets/image/pro-woo-gsc.webp',
                         'text' => __('Sync WooCommerce orders with Google Sheets automatically. Store order details, customer information, and transaction data in real-time for easy reporting, accounting, and business analysis.', 'gsheetconnector-gravity-forms'),
-                        'pro_plugin_active' => 'wc-gsheetconnector/wc-gsheetconnector.php',
+                        'pro_plugin_active' => 'wc-gsheetconnector-pro/wc-gsheetconnector-pro.php',
                         'url' => 'https://wordpress.org/plugins/wc-gsheetconnector/',
                         'button' => __('Install', 'gsheetconnector-gravity-forms'),
                         'badge' => __('PRO', 'gsheetconnector-gravity-forms'),
@@ -390,18 +385,17 @@ if (!defined('ABSPATH')) {
                         'docs' => 'https://www.gsheetconnector.com/docs/woocommerce-gsheetconnector',
                         'demo' => 'https://woogsheets.gsheetconnector.com'
                     ],
-
                     'easy-digital-downloads/easy-digital-downloads.php' => [
                         'connector' => 'gsheetconnector-easy-digital-downloads/gsheetconnector-easy-digital-downloads.php',
                         'connector-pro' => 'gsheetconnector-easy-digital-downloads-pro/gsheetconnector-easy-digital-downloads-pro.php',
-                        'name' => __('Easy Digital Downloads Google Sheet Connector', 'gsheetconnector-gravity-forms'),
+                        'name' => __('Easy Digital Downloads Google Sheet Connector', 'gsheetconnector-for-fluentform-pro'),
                         'link' => 'https://www.gsheetconnector.com/easy-digital-downloads-google-sheet-connector-pro',
                         'img' => esc_url(GRAVITY_GOOGLESHEET_URL) . '/assets/image/pro-edd-gsc.webp',
-                        'text' => __('Automatically send Easy Digital Downloads (EDD) order details to Google Sheets. Track digital product sales, monitor transactions, and manage customer data effortlessly with real-time spreadsheet integration.', 'gsheetconnector-gravity-forms'),
+                        'text' => __('Automatically send Easy Digital Downloads (EDD) order details to Google Sheets. Track digital product sales, monitor transactions, and manage customer data effortlessly with real-time spreadsheet integration.', 'gsheetconnector-for-fluentform-pro'),
                         'pro_plugin_active' => 'gsheetconnector-easy-digital-downloads-pro/gsheetconnector-easy-digital-downloads-pro.php',
                         'url' => 'https://wordpress.org/plugins/gsheetconnector-easy-digital-downloads/',
-                        'button' => __('Install', 'gsheetconnector-gravity-forms'),
-                        'badge' => __('PRO', 'gsheetconnector-gravity-forms'),
+                        'button' => __('Install', 'gsheetconnector-for-fluentform-pro'),
+                        'badge' => __('PRO', 'gsheetconnector-for-fluentform-pro'),
                         'freeLink' => 'https://wordpress.org/plugins/gsheetconnector-easy-digital-downloads/',
                         'downloadLink' => 'https://downloads.wordpress.org/plugin/gsheetconnector-easy-digital-downloads.zip',
                         'buyLink' => 'https://www.gsheetconnector.com/edd-google-sheet-connector-pro',
@@ -410,6 +404,7 @@ if (!defined('ABSPATH')) {
                         'docs' => 'https://www.gsheetconnector.com/docs/edd-gsheetconnector',
                         'demo' => 'https://demo.gsheetconnector.com/easydigitaldownloads-google-sheet-connector-pro'
                     ],
+
                 ];
                 ?>
                 <div class="gsc-market-header">
@@ -422,32 +417,32 @@ if (!defined('ABSPATH')) {
                 <div class="gsheetconnector-addons-list gsc-ext-grid">
 
                     <?php
-                    foreach ($plugins as $plugin => $details ) {// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+                    foreach ($plugins as $plugin => $details) { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
                         // =========================
                         // MAIN PLUGIN CHECK
                         // =========================
-                        $is_main_installed = false;// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-                        $is_main_active    = false;// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+                        $is_main_installed = false; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+                        $is_main_active    = false; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
                         if (!empty($details['mainPlugin']) && is_array($details['mainPlugin'])) {
 
                             foreach ($details['mainPlugin'] as $main_plugin) { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
                                 if (isset($all_plugins[$main_plugin])) {
-                                    $is_main_installed = true;// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+                                    $is_main_installed = true; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
                                 }
 
                                 if (is_plugin_active($main_plugin)) {
-                                    $is_main_active = true;// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+                                    $is_main_active = true; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
                                     break;
                                 }
                             }
                         } elseif (!empty($details['mainPlugin']) && is_string($details['mainPlugin'])) {
 
-                            $is_main_installed = isset($all_plugins[$details['mainPlugin']]);// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+                            $is_main_installed = isset($all_plugins[$details['mainPlugin']]); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
-                            $is_main_active = is_plugin_active($details['mainPlugin']);// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+                            $is_main_active = is_plugin_active($details['mainPlugin']); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
                         }
 
                         // =========================
@@ -471,15 +466,12 @@ if (!defined('ABSPATH')) {
                         if (!$is_main_active) {
                             continue;
                         }
-
                         // =========================
                         // PRO ACTIVE → SHOW PRO
                         // =========================
                         if ($is_pro_active) {
                     ?>
-
                             <div class="gsheetconnector-list-item gsc-ext-card">
-
                                 <div class="addon-item-header">
                                     <div class="extension-bg-color-set">
                                         <div class="gsc-ext-top">
@@ -493,35 +485,22 @@ if (!defined('ABSPATH')) {
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="addon-item-header-meta">
-
                                         <div class="addon-item-meta-title">
-
                                             <a href="<?php echo esc_url($details['link']); ?>"
                                                 target="_blank"
                                                 class="addon-link">
-
                                                 <?php echo esc_html($details['name']); ?>
-
                                             </a>
-
                                         </div>
-
                                         <div class="addon-item-header-meta-excerpt">
-
                                             <?php echo esc_html($details['text']); ?>
-
                                         </div>
-
                                         <div class="activated gsc-ext-actions">
-
                                             <a href="<?php echo esc_url($details['docs']); ?>"
                                                 target="_blank"
                                                 class="addon-link btn btn-default link-hover-white">
-
                                                 <?php esc_attr_e('View Docs', 'gsheetconnector-gravity-forms'); ?>
-
                                             </a>
 
                                             <a
@@ -530,19 +509,12 @@ if (!defined('ABSPATH')) {
                                                 data-plugin="<?php echo esc_attr($details['connector-pro']); ?>">
 
                                                 <?php esc_html_e('Deactivate', 'gsheetconnector-gravity-forms'); ?>
-
                                             </a>
-
+                                            <div class="loading-sign-deactive mt-25"></div>
                                         </div>
-
                                     </div>
-
                                 </div>
-
-
-
                             </div>
-
                         <?php
 
                             // =========================
@@ -609,6 +581,7 @@ if (!defined('ABSPATH')) {
                                                 <?php esc_html_e('Deactivate', 'gsheetconnector-gravity-forms'); ?>
 
                                             </a>
+                                            <div class="loading-sign-deactive mt-25"></div>
 
                                         </div>
 
@@ -634,31 +607,47 @@ if (!defined('ABSPATH')) {
                     </div>
                 </div>
                 <div class="gsheetconnector-addons-list gsc-ext-grid">
-                    <?php foreach ($plugins as $plugin => $data): // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-                        $is_main_active = false; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+
+                    <?php foreach ($plugins as $plugin => $data):
+                        // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+                        $is_main_active = false;
+                        // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound    
                         if (!empty($data['mainPlugin'])) {
-                            $main_plugins = is_array($data['mainPlugin']) ? $data['mainPlugin'] : [$data['mainPlugin']]; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-                            foreach ($main_plugins as $main_plugin) { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+                            // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+                            $main_plugins = is_array($data['mainPlugin']) ? $data['mainPlugin'] : [$data['mainPlugin']];
+
+                            foreach ($main_plugins as $main_plugin) {
                                 if (is_plugin_active($main_plugin)) {
-                                    $is_main_active = true;// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+                                    // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+                                    $is_main_active = true;
                                     break;
                                 }
                             }
                         }
-                        $active_theme      = wp_get_theme(); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-                        $active_theme_slug = $active_theme->get_stylesheet(); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-                        $is_theme_match    = ($active_theme_slug === $data['theme']); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-                        $is_pro_installed  = !empty($data['pro_plugin_active']) && isset($all_plugins[$data['pro_plugin_active']]); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-                        $is_pro_active     = !empty($data['pro_plugin_active']) && is_plugin_active($data['pro_plugin_active']);  // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-                        $is_free_installed = !empty($data['connector']) && isset($all_plugins[$data['connector']]);// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-                        $is_free_active    = !empty($data['connector']) && is_plugin_active($data['connector']);// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-                        if (!$is_theme_match) {
-                            if (!$is_main_active)                        continue;
-                            if ($is_pro_active)                          continue;
-                            if ($is_free_active && !$is_pro_installed)   continue;
-                        }
+                        $active_theme      = wp_get_theme();
+                        $active_theme_slug = $active_theme->get_stylesheet();
+                        $is_theme_match    = ($active_theme_slug === $data['theme']);
+                        $is_pro_installed  = !empty($data['pro_plugin_active']) && isset($all_plugins[$data['pro_plugin_active']]);
+                        $is_pro_active     = !empty($data['pro_plugin_active']) && is_plugin_active($data['pro_plugin_active']);
+                        $is_free_installed = !empty($data['connector']) && isset($all_plugins[$data['connector']]);
+                        $is_free_active    = !empty($data['connector']) && is_plugin_active($data['connector']);
                         if ($is_pro_active) {
                             continue;
+                        }
+                        if (!$is_theme_match) {
+                            if (!$is_main_active) continue;
+                            if ($is_free_active && !$is_pro_installed) continue;
+
+                            // Hide card when the Install button would be empty
+                            $will_show_install_btn = !$is_pro_installed
+                                && !($is_free_installed && !$is_free_active);
+
+                            if (
+                                $will_show_install_btn
+                                && trim((string) ($data['button'] ?? '')) === ''
+                            ) {
+                                continue;
+                            }
                         }
                     ?>
 
@@ -768,6 +757,11 @@ if (!defined('ABSPATH')) {
                         <?php endif; ?>
                     <?php endforeach; ?>
                 </div>
+
+
+
+
+
 
 
                 <!-- 3th section-->

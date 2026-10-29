@@ -40,10 +40,10 @@ $gsc_gf_is_valid = get_option('gfgs_verify');// phpcs:ignore WordPress.NamingCon
 
 $is_authenticated = false;// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 if ((!empty($authenticated) && $gsc_gf_is_valid == 'valid' && $gscgff_gravityform_manual_setting == 0)) {
-    $selected_method = esc_html__('Existing', 'gsheetconnector-gravity-forms');// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+    $selected_method = 'Existing';// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
     $is_authenticated = true;// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 } else {
-    $selected_method = esc_html__('Auth Required', 'gsheetconnector-gravity-forms');// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+    $selected_method = 'Auth Required';// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
     $is_authenticated = false;// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 }
 
@@ -367,7 +367,7 @@ $has_notice =// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPre
     <div class="breadcrumb-wrapper pt-13 pb-13 text-uppercase fw-500 text-gray">
         <div class="container">
             <a href="<?php echo esc_html(admin_url('admin.php?page=gf_googlesheet')); ?>"
-                class="text-primary text-decoration-none"><?php echo esc_html(__('Google Sheet', 'gsheetconnector-gravity-forms')); ?></a>
+                class="text-primary text-decoration-none"><?php echo esc_html(__('Google Sheets', 'gsheetconnector-gravity-forms')); ?></a>
             <span>/</span>
             <span><?php echo esc_html($active_tab_name); ?></span>
         </div>

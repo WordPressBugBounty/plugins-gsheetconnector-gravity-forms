@@ -46,14 +46,17 @@ class GravityForms_GsFree_Connector_Utility
    {
       if (WP_DEBUG === true) {
          if (is_array($message) || is_object($message)) {
-            // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log, WordPress.PHP.DevelopmentFunctions.error_log_print_r
-            /*error_log(print_r($message, true));*/
-         } else {
-            // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
-            /*error_log($message);*/
+            $message = wp_json_encode($message);
+         }
+         /*  Use your custom logger instead of error_log */
+         if (class_exists('GravityForms_GsFree_Connector_Utility')) {
+            GravityForms_GsFree_Connector_Utility::gfgs_debug_log($message);
          }
       }
    }
+
+
+
 
    /**
     * Display error or success message in the admin section
@@ -180,6 +183,85 @@ class GravityForms_GsFree_Connector_Utility
       if (class_exists('gscgf_error_logs')) {
          gscgf_error_logs::log_from_debug($error);
       }
+   }
+
+   /**
+    * Resolve the PHP/WordPress debug log file path (single site and multisite).
+    *
+    * Honours a custom WP_DEBUG_LOG path and the PHP error_log ini setting,
+    * falling back to WP_CONTENT_DIR/debug.log.
+    *
+    * @return string Absolute path to the debug log file.
+    */
+   public static function get_debug_log_file()
+   {
+      $candidates = array();
+
+      if (defined('WP_DEBUG_LOG') && is_string(WP_DEBUG_LOG) && '' !== WP_DEBUG_LOG) {
+         $candidates[] = WP_DEBUG_LOG;
+      }
+
+      $candidates[] = WP_CONTENT_DIR . '/debug.log';
+
+      $ini_log = ini_get('error_log');
+      if (!empty($ini_log) && 'syslog' !== $ini_log) {
+         $candidates[] = $ini_log;
+      }
+
+      foreach ($candidates as $candidate) {
+         if (is_file($candidate) && is_readable($candidate)) {
+            return $candidate;
+         }
+      }
+
+      return WP_CONTENT_DIR . '/debug.log';
+   }
+
+   /**
+    * Read the most recent lines of the debug log, newest first.
+    *
+    * Only the tail of the file is read so large logs do not exhaust memory.
+    *
+    * @param int $limit Maximum number of lines to return.
+    * @return array
+    */
+   public static function get_debug_log_lines($limit = 100)
+   {
+      $file = self::get_debug_log_file();
+
+      if (!is_file($file) || !is_readable($file)) {
+         return array();
+      }
+
+      // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fopen
+      $handle = fopen($file, 'rb');
+      if (!$handle) {
+         return array();
+      }
+
+      $size = filesize($file);
+      if (!$size) {
+         // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fclose
+         fclose($handle);
+         return array();
+      }
+
+      $max_bytes = 512 * 1024;
+      if ($size > $max_bytes) {
+         fseek($handle, -$max_bytes, SEEK_END);
+      }
+      // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fread
+      $contents = fread($handle, $max_bytes);
+      // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fclose
+      fclose($handle);
+
+      if (!is_string($contents) || '' === $contents) {
+         return array();
+      }
+
+      $lines = preg_split('/\r\n|\r|\n/', $contents, -1, PREG_SPLIT_NO_EMPTY);
+
+      return array_slice(array_reverse($lines), 0, $limit);
    }
 
    /**

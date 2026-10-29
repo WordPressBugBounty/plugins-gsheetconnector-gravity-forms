@@ -30,7 +30,7 @@ if (isset($_GET['code']) && ($gravityforms_manual_setting == 0)) {// phpcs:ignor
                 <label for="gsc_ff_dropdown_option">
                     <?php echo esc_html__('Choose Google API Setting', 'gsheetconnector-gravity-forms'); ?>
                 </label>
-                <select id="gs_gravityforms_dro_option" class="gsc-select" name="gs_gravityforms_dro_option">
+                <select id="gs_gravityforms_dro_option" class="gsc-select gs_gravityforms_dro_option" name="gs_gravityforms_dro_option">
                     <option value="0" <?php selected($auth_method, '0'); ?>>
                         <?php echo esc_html__('Existing Client / Secret Key (Auto Setup)', 'gsheetconnector-gravity-forms'); ?>
                     </option>

@@ -218,7 +218,7 @@ public function auth()
   $tokenData = json_decode(get_option('gfgs_token'), true);
 
   if (!isset($tokenData['refresh_token']) || empty($tokenData['refresh_token'])) {
-   throw new LogicException("Auth failed: Invalid or missing OAuth2 refresh token.");
+   throw new LogicException("Auth failed: Invalid or missing OAuth2 refresh token (Existing Method).");
  }
 
  try {

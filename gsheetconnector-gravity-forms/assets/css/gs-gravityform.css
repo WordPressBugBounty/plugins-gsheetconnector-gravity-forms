@@ -2948,15 +2948,14 @@ hr {
 /***Start Dashboard Css***/
 
 #gscgff-feed-table th {
-    text-transform: capitalize;
+  text-transform: capitalize;
 }
 
 .gscgff-feed-table-wrap {
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
-
 
 .gsgf-free .gscgff-feed-table-wrap {
   border: 1px solid #e5e7eb;
@@ -2986,10 +2985,10 @@ hr {
   border-bottom: 1px solid #e5e7eb;
 }
 .gsgf-free table.widget-table tbody td a {
-	color: #000;
-    font-weight: 500;
-    text-decoration: underline;
-    font-size: 12px;
+  color: #000;
+  font-weight: 500;
+  text-decoration: underline;
+  font-size: 12px;
 }
 .gsgf-free table.widget-table .gscdf-not-connected {
   display: inline-flex;
@@ -3060,8 +3059,9 @@ hr {
   vertical-align: middle;
 }
 
-
-#gscgff-pagination-wrap:has(.gscgff-page-link) {padding-bottom: 15px;}
+#gscgff-pagination-wrap:has(.gscgff-page-link) {
+  padding-bottom: 15px;
+}
 
 /*Start Welcome-Header Section*/
 .gsgf-free .welcome-wrapper {
@@ -3157,7 +3157,7 @@ hr {
 .gsgf-free .video-grid {
   display: grid;
   gap: 1.25rem;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 /*End Video Tutorial Section*/
 
@@ -3428,23 +3428,22 @@ input#gf-gs-tab-id {
   color: #ffff;
 } */
 .gsgf-free .btn-sheet {
-    text-decoration: none;
-    text-shadow: none;
-    display: inline-block;
-    margin: 0;
-    cursor: pointer;
-    border-width: 1px !important;
-    border-style: solid !important;
-    text-align: center;
-    padding: 8px 16px !important;
-    line-height: 20px;
-    font-size: 16px;
-    font-weight: 500;
-    border-radius: 5px;
-    border-color:#000 !important;
-    color:#000 !important;
+  text-decoration: none;
+  text-shadow: none;
+  display: inline-block;
+  margin: 0;
+  cursor: pointer;
+  border-width: 1px !important;
+  border-style: solid !important;
+  text-align: center;
+  padding: 8px 16px !important;
+  line-height: 20px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 5px;
+  border-color: #000 !important;
+  color: #000 !important;
 }
-
 
 .gsgf-free #gscgff-sheet-id,
 .gsgf-free #gscgff-sheet-tab-name {
@@ -3551,11 +3550,10 @@ a#gfgs-entires-sync-launch {
   line-height: 1.4;
 }
 
-
 p.gscgff-download-btn {
-    padding-bottom: 30px;
+  padding-bottom: 30px;
 }
 
-.gscgff-sdownload-button{
-pointer-events: none;
+.gscgff-sdownload-button {
+  pointer-events: none;
 }

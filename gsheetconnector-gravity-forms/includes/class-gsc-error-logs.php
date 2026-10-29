@@ -80,30 +80,47 @@ if (!class_exists('gscgf_error_logs')) {
         {
             global $wpdb;
 
-           $table = $wpdb->prefix . 'gscgf_error_logs';
-            
-           $result = $wpdb->get_var(// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
-                "SHOW TABLES LIKE '{$wpdb->esc_like( $table )}'"
-            );// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+            $table = $wpdb->prefix . 'gscgf_error_logs';
 
-            if ( empty( $result ) ) {
-                return false;
+            $result = $wpdb->get_var( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+                "SHOW TABLES LIKE '{$wpdb->esc_like($table)}'"
+            ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+
+            if (empty($result)) {
+                /*
+                 * Table is missing (e.g. a subsite or an upgraded site that was never
+                 * set up). Try to create it once per table per request, then re-check.
+                 */
+                static $create_attempted = [];
+                if (isset($create_attempted[$table]) || !function_exists('gscfg_create_error_log_table')) {
+                    return false;
+                }
+                $create_attempted[$table] = true;
+                gscfg_create_error_log_table();
+
+                $result = $wpdb->get_var( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+                    "SHOW TABLES LIKE '{$wpdb->esc_like($table)}'"
+                ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+
+                if (empty($result)) {
+                    return false;
+                }
             }
 
-           
+
             if (is_string($details)) {
                 $decoded = json_decode($details, true);
 
                 if (json_last_error() === JSON_ERROR_NONE) {
-                    $details = $decoded; 
+                    $details = $decoded;
                 } else {
                     $details = ['raw_error' => $details];
                 }
             }
-          
-             //    IMPORTANT FIX END
 
-           // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching,WordPress.DB.PreparedSQL.InterpolatedNotPrepared,PluginCheck.Security.DirectDB.UnescapedDBParameter
+            //    IMPORTANT FIX END
+
+            // phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching,WordPress.DB.PreparedSQL.InterpolatedNotPrepared,PluginCheck.Security.DirectDB.UnescapedDBParameter
             $recent_log = $wpdb->get_var(
                 $wpdb->prepare(
                     "SELECT COUNT(*) FROM {$table} WHERE error_id = %s AND code = %d AND message = %s AND created_at >= %s",
@@ -178,7 +195,7 @@ if (!class_exists('gscgf_error_logs')) {
          */
         public static function log_from_debug($error)
         {
-            
+
             if (is_string($error)) {
                 $decoded = json_decode($error, true);
 
@@ -231,15 +248,15 @@ if (!class_exists('gscgf_error_logs')) {
         public function gsgf_render_page_html()
         {
             global $wpdb;
-            $table = esc_sql( $wpdb->prefix . 'gscgf_error_logs' );
+            $table = esc_sql($wpdb->prefix . 'gscgf_error_logs');
 
-            
-            if ( $wpdb->get_var( $wpdb->prepare( 'SHOW TABLES LIKE %s', $table ) ) !== $table ) { // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+
+            if ($wpdb->get_var($wpdb->prepare('SHOW TABLES LIKE %s', $table)) !== $table) { // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
                 echo '<div class="notice notice-error"><p>Log table not found.</p></div>';
                 return;
             }
 
-           
+
             $logs = $wpdb->get_results(  // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
                 // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared
                 "SELECT * FROM {$table} ORDER BY created_at DESC",
@@ -255,19 +272,12 @@ if (!class_exists('gscgf_error_logs')) {
                         <p><?php echo esc_html__('Error logs are saved in the database. Please clear them regularly to avoid increasing the database size.', 'gsheetconnector-gravity-forms'); ?></p>
 
                     </div>
-
-
                     <?php if (!empty($logs)) : ?>
-
                         <div class="errorlog-button-list">
-                            <a href="<?php echo esc_url(
-                                            wp_nonce_url(
-                                                admin_url('admin-post.php?action=gsgf_clear_logs'),
-                                                'gsc_clear_logs_nonce'
-                                            )
-                                        ); ?>"
-                                class="button btn-logs"><?php echo esc_html__("Clear Logs", 'gsheetconnector-gravity-forms'); ?></a>
-
+                             <div class="gscgff-copy-logs-loading"> </div>
+                            <button type="button" id="button btn-logs" class="button btn-logs gscgff-clear-logs-btn">
+                                <?php echo esc_html__("Clear Logs", 'gsheetconnector-gravity-forms'); ?>
+                            </button>
                             <a href="<?php echo esc_url(
                                             wp_nonce_url(
                                                 admin_url('admin-post.php?action=gsgf_download_logs'),
@@ -281,10 +291,7 @@ if (!class_exists('gscgf_error_logs')) {
                             <div class="gsc-copy-msg d-none"></div>
                         </div>
                     <?php endif; ?>
-
                 </div> <!-- error head #end -->
-
-
                 <div class="debug-log-div">
                     <table class="widefat striped error-log-table mt-30">
                         <thead>
@@ -467,9 +474,9 @@ if (!class_exists('gscgf_error_logs')) {
             if (!current_user_can('manage_options')) {
                 wp_die('Permission denied.');
             }
-        
-           // phpcs:ignore WordPress.Security.NonceVerification.Missing, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-           $log = isset($_POST['log']) ? wp_unslash($_POST['log']) : [];
+
+            // phpcs:ignore WordPress.Security.NonceVerification.Missing, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+            $log = isset($_POST['log']) ? wp_unslash($_POST['log']) : [];
 
             if (is_string($log)) {
                 $decoded = json_decode($log, true);
@@ -516,10 +523,10 @@ if (!class_exists('gscgf_error_logs')) {
             check_admin_referer('gsc_download_logs_nonce');
 
             global $wpdb;
-            $table = esc_sql( $wpdb->prefix . 'gscgf_error_logs' );
-            
-            
-           $logs = $wpdb->get_results( "SELECT * FROM {$table}", ARRAY_A ); // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- $table is escaped via esc_sql() and used as a table identifier, not a value.
+            $table = esc_sql($wpdb->prefix . 'gscgf_error_logs');
+
+
+            $logs = $wpdb->get_results("SELECT * FROM {$table}", ARRAY_A); // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- $table is escaped via esc_sql() and used as a table identifier, not a value.
 
             if (empty($logs)) {
                 wp_safe_redirect(wp_get_referer());

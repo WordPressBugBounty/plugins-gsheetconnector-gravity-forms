@@ -674,12 +674,7 @@ echo wp_kses($tab_id_text_field, array(
 
                     <label id="field-mapping" class="gform-settings-label select-field-to-sync" for="gsheet_mergeTagsMap">
                       <?php echo esc_html__("Select Fields to Sync", "gsheetconnector-gravity-forms"); ?>
-        <?php /*?> <div class="upgrade-button">
-                      <a href="https://www.gsheetconnector.com/gravity-forms-google-sheet-connector?gsheetconnector-ref=17"
-                      target="__blank" class="upgradeLink">
-                      <?php echo esc_html__("Upgrade to Pro", "gsheetconnector-gravity-forms"); ?>
-                    </a>
-                  </div><?php */ ?> <span class="pro-ver">PRO</span>
+               <span class="pro-ver">PRO</span>
 
                 </label>
                 <p><?php echo esc_html__("Enable the fields you want to send to Google Sheets and rename columns if needed.", "gsheetconnector-gravity-forms"); ?></p>
@@ -785,9 +780,10 @@ echo wp_kses($tab_id_text_field, array(
             <div id="_gform_setting_gsheet_mergeTagsMap_container" class="gform-settings-field-map__container gform-settings-field__header"
             title="Upgrade to Pro">
 
-            <div class="gform-settings-field__header "><label class="gform-settings-label" for="gsheet_mergeTagsMap">Custom Tags </label><button onkeypress="return false;" class="gf_tooltip tooltip" aria-label="Enter the exact name of your Google Spreadsheet (as shown in Google Sheets).">
+            <div class="gform-settings-field__header "><label class="gform-settings-label" for="gsheet_mergeTagsMap"><?php echo esc_html__("Custom Tags", "gsheetconnector-gravity-forms"); ?> </label><button onkeypress="return false;" class="gf_tooltip tooltip" aria-label="Enter the exact name of your Google Spreadsheet (as shown in Google Sheets).">
               <i class="gform-icon gform-icon--question-mark" aria-hidden="true"></i>
-            </button></div>
+            </button>
+           <span class="pro-ver"><?php echo esc_html__("PRO", "gsheetconnector-gravity-forms"); ?></span></div>
 
             <table class="gform-settings-generic-map__table" cellspacing="0" cellpadding="0">
 
@@ -859,7 +855,7 @@ echo wp_kses($tab_id_text_field, array(
   <div id="header-settings-sheet-sorting" class="gform-settings-field gform-settings-field__toggle pro-field">
 
     <div class="gform-settings-field__header">
-      <label class="gform-settings-label font-size-18" for="gsheet_freeze_header_toggle">
+      <label class="gform-settings-label" for="gsheet_freeze_header_toggle">
         <?php echo esc_html__("Header Settings", "gsheetconnector-gravity-forms"); ?>
         <button
         onclick="return false;"
@@ -879,12 +875,7 @@ echo wp_kses($tab_id_text_field, array(
         <?php echo esc_html__("Customize the appearance and behavior of your sheet headers and rows for better readability and organization.", "gsheetconnector-gravity-forms"); ?>
       </label>
     </p>
-
-
-
   </div>
-
-
   <div class="gform-settings-field__header-undot">
     <label class="gform-settings-label" for="gsheet_freeze_header_toggle">
       <?php echo esc_html__("Freeze Header", "gsheetconnector-gravity-forms"); ?>
@@ -1172,7 +1163,8 @@ class="gform-settings-field gform-settings-field__display_sync_entries disabled"
   public function get_form_field_list($form)
   {
     $fields = $form['fields'];
-    $fields_inputs = array("name", "address", "consent", "product", "checkbox");
+    // Checkbox is intentionally excluded so only the checkbox field name is listed, not its options.
+    $fields_inputs = array("name", "address", "consent", "product");
 
     $field_list = array();
 
@@ -1350,7 +1342,7 @@ class="gform-settings-field gform-settings-field__display_sync_entries disabled"
       $tabid = $static_settings[0]['tab-id'] ?? '';
       $sheet_tab_name = $static_settings[0]['sheet-tab-name'] ?? '';
 
-      // error_log("⚙️ Static Sheet Settings Found — Sending to Sheet");
+     
       $this->send_entry($sheetId, $sheet_name, $tabid, $sheet_tab_name, $entry, $form);
     } else {
     }

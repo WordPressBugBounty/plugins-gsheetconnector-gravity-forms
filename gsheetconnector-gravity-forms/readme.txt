@@ -4,7 +4,7 @@ Tags: gravity forms, gravity forms google sheets, gravity forms to google sheets
 Requires at least: 5.6
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.5.3
+Stable tag: 1.6.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Author URI: https://www.gsheetconnector.com/
@@ -208,6 +208,12 @@ Your Gravity Forms submissions will now sync automatically to Google Sheets in r
 
 
 == Changelog ==
+
+= 1.6.0 (29-10-2026) =
+* Improved: Extensions tab UI.
+* Fixed: Freemius activation URL configuration in the code array.
+* Fixed: Error log creation issue on multisite installations.
+* Fixed: Minor UI issues.
 
 = 1.5.3 (09-10-2026) =
 * Updated: Updated Freemius integration code and related files.

@@ -819,8 +819,12 @@ jQuery(document).ready(function (jQuery) {
 
     jQuery("#gscgff-confirm-dective-popup-free").addClass("d-none");
     jQuery(".gscgff-deactivate-plugin")
+    
+
+     jQuery(
+      '.gscgff-deactivate-plugin[data-download="' + selectedPluginSlug + '"]',
+    )
       .siblings(".loading-sign-deactive")
-      .first()
       .addClass("loading");
 
     jQuery.ajax({
@@ -835,6 +839,8 @@ jQuery(document).ready(function (jQuery) {
       success: function (response) {
         if (response.success) {
           jQuery("#gscgff-confirm-dective-popup-free").addClass("d-none");
+          var $btn = jQuery(".gscnjf-deactivate-plugin");
+          $btn.removeClass("loading");
           location.reload();
         }
       },
@@ -1262,70 +1268,208 @@ jQuery(document).ready(function ($) {
   }
 });
 
-
 /** Reset sheet details */
 jQuery(document).ready(function ($) {
-  jQuery('.gf-sheet-reset-button').on('click', function() {
-      jQuery('#gf-gs-sheet-name, #gf-gs-sheet-id, #gf-gs-sheet-tab-name, #gf-gs-tab-id').val('');
-      jQuery('#sheet_url').addClass('d-none');
-      jQuery('.gf-sheet-reset-button').addClass('d-none');
-        jQuery("#gform-settings-save")
-        .addClass("disabled")
-        .css({ "pointer-events": "none", opacity: "0.5" });
+  jQuery(".gf-sheet-reset-button").on("click", function () {
+    jQuery(
+      "#gf-gs-sheet-name, #gf-gs-sheet-id, #gf-gs-sheet-tab-name, #gf-gs-tab-id",
+    ).val("");
+    jQuery("#sheet_url").addClass("d-none");
+    jQuery(".gf-sheet-reset-button").addClass("d-none");
+    jQuery("#gform-settings-save")
+      .addClass("disabled")
+      .css({ "pointer-events": "none", opacity: "0.5" });
   });
 });
 
-
-
-
 jQuery(document).ready(function ($) {
-    function gscgffLoadFeedPage(page) {
-      var data = {
-        action: "gscgff_paginate_feed_list",
-        paged: page,
-        security: $("#gscgff-ajax-nonce-pagination").val(),
-      };
+  function gscgffLoadFeedPage(page) {
+    var data = {
+      action: "gscgff_paginate_feed_list",
+      paged: page,
+      security: $("#gscgff-ajax-nonce-pagination").val(),
+    };
 
-      $("#gscgff-feed-table-body").html(
-        '<tr class="gscgff-feed-loading-row">' +
-          '<td colspan="3">' +
-            '<span class="gscgff-loader"></span>' +
-            '<span class="gscgff-loader-text">Loading feeds...</span>' +
-          "</td>" +
+    $("#gscgff-feed-table-body").html(
+      '<tr class="gscgff-feed-loading-row">' +
+        '<td colspan="3">' +
+        '<span class="gscgff-loader"></span>' +
+        '<span class="gscgff-loader-text">Loading feeds...</span>' +
+        "</td>" +
         "</tr>",
-      );
+    );
 
-      if($("#gscgff-ajax-nonce-pagination").val()){
+    if ($("#gscgff-ajax-nonce-pagination").val()) {
+      $.post(ajaxurl, data, function (res) {
+        if (res.success) {
+          $("#gscgff-feed-table-body").html(res.data.rows_html);
+          $("#gscgff-pagination-wrap").html(res.data.pagination_html);
+          $("#gscgff-feed-table").attr("data-page", page);
 
-        $.post(ajaxurl, data, function (res) {
-          if (res.success) {
-            $("#gscgff-feed-table-body").html(res.data.rows_html);
-            $("#gscgff-pagination-wrap").html(res.data.pagination_html);
-            $("#gscgff-feed-table").attr("data-page", page);
+          // Hide the table header when no feed is connected (empty state).
+          var dividbNoFeeds =
+            $("#gscgff-feed-table-body").find(".gscgff-feed-empty").length > 0;
+          $("#gscgff-feed-table thead").toggle(!dividbNoFeeds);
+        } else {
+          $("#gscgff-feed-table-body").html(
+            "<tr><td colspan='3'>" +
+              (res.data && res.data.error
+                ? res.data.error
+                : "Error loading feeds") +
+              "</td></tr>",
+          );
+        }
+      });
+    }
+  }
+  gscgffLoadFeedPage(1);
+  $(document).on("click", ".gscgff-page-link", function () {
+    var page = $(this).data("page");
+    gscgffLoadFeedPage(page);
+  });
+});
 
-            // Hide the table header when no feed is connected (empty state).
-            var dividbNoFeeds =
-              $("#gscgff-feed-table-body").find(".gscgff-feed-empty").length > 0;
-            $("#gscgff-feed-table thead").toggle(!dividbNoFeeds);
-          } else {
-            $("#gscgff-feed-table-body").html(
-              "<tr><td colspan='3'>" +
-                (res.data && res.data.error
-                  ? res.data.error
-                  : "Error loading feeds") +
-                "</td></tr>",
-            );
-          }
-        });
+/** Jquery for select auth method */
+document.addEventListener("DOMContentLoaded", function () {
+  document
+    .querySelectorAll("select.gs_gravityforms_dro_option")
+    .forEach(function (select) {
+      /*  skip if already converted*/
+      if (select.classList.contains("auto-processed")) return;
+      select.classList.add("auto-processed");
+
+      /* hide original select */
+      select.style.display = "none";
+
+      /* wrapper */
+      const wrapper = document.createElement("div");
+      wrapper.className = "auto-select";
+
+      /* display */
+      const display = document.createElement("div");
+      display.className = "auto-select-display";
+
+      /* options container */
+      const optionsBox = document.createElement("div");
+      optionsBox.className = "auto-select-options";
+
+      /* set selected option text */
+      function setSelectedText() {
+        const selectedOption = select.options[select.selectedIndex];
+        display.innerText = selectedOption ? selectedOption.text : "Select";
       }
 
+      /* build options */
+      Array.from(select.options).forEach(function (option, index) {
+        const item = document.createElement("div");
+        item.className = "auto-select-option";
+        item.innerText = option.text;
 
-    }
+        if (option.selected) {
+          item.classList.add("selected");
+        }
 
-    gscgffLoadFeedPage(1);
+        item.addEventListener("click", function () {
+          /*  update select value */
+          select.selectedIndex = index;
 
-    $(document).on("click", ".gscgff-page-link", function () {
-      var page = $(this).data("page");
-      gscgffLoadFeedPage(page);
+          /*  update display */
+          display.innerText = option.text;
+
+          /*  update selected class */
+          optionsBox
+            .querySelectorAll(".auto-select-option")
+            .forEach(function (el) {
+              el.classList.remove("selected");
+            });
+
+          item.classList.add("selected");
+
+          /*  close dropdown */
+          optionsBox.style.display = "none";
+
+          /*  trigger change event */
+          select.dispatchEvent(new Event("change", { bubbles: true }));
+        });
+
+        optionsBox.appendChild(item);
+      });
+
+      /*  toggle dropdown */
+      display.addEventListener("click", function (e) {
+        e.stopPropagation();
+
+        document
+          .querySelectorAll(".auto-select-options")
+          .forEach(function (box) {
+            if (box !== optionsBox) box.style.display = "none";
+          });
+
+        optionsBox.style.display =
+          optionsBox.style.display === "block" ? "none" : "block";
+      });
+
+      /*  assemble */
+      wrapper.appendChild(display);
+      wrapper.appendChild(optionsBox);
+
+      select.parentNode.insertBefore(wrapper, select);
+      wrapper.appendChild(select);
+
+      /*  initialize selected value */
+      setSelectedText();
+
+      /*  update if changed externally */
+      select.addEventListener("change", setSelectedText);
     });
+
+  /*  close dropdown on outside click */
+  document.addEventListener("click", function (e) {
+    document.querySelectorAll(".auto-select-options").forEach(function (box) {
+      if (!box.parentElement.contains(e.target)) {
+        box.style.display = "none";
+      }
+    });
+  });
+});
+
+/** Clear Debug Log in integration tab */
+jQuery(document).on("click", ".gscgff-clear-logs-btn", function (e) {
+  e.preventDefault();
+
+  var $btn = jQuery(this);
+  var $loader = jQuery(".gscgff-copy-logs-loading");
+
+  $loader.addClass("loading");
+
+  jQuery.ajax({
+    url: ajaxurl,
+    type: "POST",
+    data: {
+      action: "gscgff_clear_error_logs",
+      nonce: jQuery("#gf-ajax-nonce").val(),
+    },
+    success: function (response) {
+      if (response && response.success) {
+        // Remove any older message so they don't stack.
+        jQuery(".position-relative-copy").remove();
+
+        var msgDiv = jQuery(
+          '<div class="gsc-copy-msg">Logs cleared</div>'
+        );
+
+        $btn.after(msgDiv); // or: $btn.parent().append(msgDiv);
+
+        setTimeout(function () {
+          msgDiv.fadeOut(300, function () {
+            jQuery(this).remove();
+            location.reload(); // reload after the message has finished
+          });
+        }, 3000);
+      }
+    },
+    complete: function () {
+      $loader.removeClass("loading"); // runs on success and on failure
+    },
+  });
 });

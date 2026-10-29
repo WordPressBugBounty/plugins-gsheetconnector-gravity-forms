@@ -48,34 +48,26 @@ switch ($active_tab) {
             case 'general_settings':
                 include GRAVITY_GOOGLESHEET_PATH . "includes/pages/gs-gravityform-general-setting.php";
                 break;
-            case 'role_settings';
+            case 'role_settings':
                 include GRAVITY_GOOGLESHEET_PATH . "includes/pages/gs-gravityform-role-setting.php";
                 break;
             case 'beta_version':
                 include(GRAVITY_GOOGLESHEET_PATH . "includes/pages/gs-gravityform-beta-version.php");
                 break;
-                // case 'system_status':
-                // include(GRAVITY_GOOGLESHEET_PATH . "includes/pages/gs-gravityform-system-info.php");
-                // break;
         }
-
         echo '</div>';
 
 ?>
         <div class="gsc-support-card mt-30 welcome-wrapper ml-15">
-
             <!-- LEFT SIDE -->
             <div class="gsc-support-left">
-
                 <div class="gsc-support-icon d-flex justify-center align-center">
                     <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M19.8335 14V3.50004C19.8335 3.19062 19.7106 2.89388 19.4918 2.67508C19.273 2.45629 18.9762 2.33337 18.6668 2.33337H3.50016C3.19074 2.33337 2.894 2.45629 2.6752 2.67508C2.45641 2.89388 2.3335 3.19062 2.3335 3.50004V19.8334L7.00016 15.1667H18.6668C18.9762 15.1667 19.273 15.0438 19.4918 14.825C19.7106 14.6062 19.8335 14.3095 19.8335 14ZM24.5002 7.00004H22.1668V17.5H7.00016V19.8334C7.00016 20.1428 7.12308 20.4395 7.34187 20.6583C7.56066 20.8771 7.85741 21 8.16683 21H21.0002L25.6668 25.6667V8.16671C25.6668 7.85729 25.5439 7.56054 25.3251 7.34175C25.1063 7.12296 24.8096 7.00004 24.5002 7.00004Z" fill="#141B38"></path>
                     </svg>
                 </div>
-
                 <div class="gsc-content">
                     <div class="support-headings"><?php echo esc_html__('Need more support? We\'re here to help.', 'gsheetconnector-gravity-forms'); ?></div>
-
                     <a href="https://wordpress.org/support/plugin/gsheetconnector-gravity-forms/" target="_blank" class="btn btn-primary mt-10 link-hover-white text-decoration-none">
                         <?php echo esc_html__('Submit a Support Ticket', 'gsheetconnector-gravity-forms'); ?>
                         <svg width="10" height="10" viewBox="0 0 6 8" fill="#fff" xmlns="http://www.w3.org/2000/svg">
@@ -83,12 +75,9 @@ switch ($active_tab) {
                         </svg>
                     </a>
                 </div>
-
             </div>
-
             <!-- RIGHT SIDE -->
             <div class="gsc-support-right">
-
                 <div class="gsc-avatars justify-center">
                     <img src="<?php echo esc_url(GRAVITY_GOOGLESHEET_URL); ?>/assets/image/avatar-2.jfif" alt="">
                     <img src="<?php echo esc_url(GRAVITY_GOOGLESHEET_URL); ?>/assets/image/avatar-3.png" alt="">
@@ -96,12 +85,9 @@ switch ($active_tab) {
                     <img src=" <?php echo esc_url(GRAVITY_GOOGLESHEET_URL); ?>/assets/image/avatar-4.png" alt="">
                     <img src="<?php echo esc_url(GRAVITY_GOOGLESHEET_URL); ?>/assets/image/avatar.jpeg" alt="">
                 </div>
-
                 <p class="text-center"><?php echo esc_html__('Our fast and friendly support team is always happy to help!', 'gsheetconnector-gravity-forms'); ?></p>
-
             </div>
-
         </div>
-<?php
+    <?php
         break;
 }
